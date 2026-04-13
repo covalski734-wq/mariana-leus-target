@@ -1,0 +1,193 @@
+{
+  "common": {
+    "tagline": "Targetologist",
+    "description": "Paid Ads Specialist: Meta Ads, Google Ads, SMM",
+    "lang": "Language"
+  },
+  "header": {
+    "hero": "Hero",
+    "services": "Services",
+    "process": "Process",
+    "results": "Results",
+    "trust": "About Me",
+    "testimonials": "Testimonials",
+    "blog": "Expertise",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Your Ads Will Work",
+    "subheadline": "Strategic advertising optimization for maximum conversions and minimum cost of acquisition",
+    "cta": "Get Consultation",
+    "urgency": "Only 5 spots for new clients this month"
+  },
+  "results": {
+    "title": "Our Clients' Results",
+    "subtitle": "Proof of Success in Numbers",
+    "metrics": [
+      {
+        "value": "320%",
+        "label": "Average ROI"
+      },
+      {
+        "value": "4.2x",
+        "label": "Ad Spend Profit"
+      },
+      {
+        "value": "63%",
+        "label": "CPA Reduction"
+      },
+      {
+        "value": "150+",
+        "label": "Satisfied Clients"
+      }
+    ]
+  },
+  "services": {
+    "title": "My Services",
+    "subtitle": "Comprehensive Solutions for Your Business",
+    "items": [
+      {
+        "name": "Meta Ads",
+        "description": "Strategy, setup, and optimization of ad campaigns on Facebook, Instagram, and TikTok"
+      },
+      {
+        "name": "Google Ads",
+        "description": "Search advertising, video marketing, and display networks for maximum reach"
+      },
+      {
+        "name": "SMM",
+        "description": "Social media management, content planning, and community building"
+      },
+      {
+        "name": "Audit",
+        "description": "In-depth analysis of your current ad campaigns and identification of improvement opportunities"
+      }
+    ]
+  },
+  "process": {
+    "title": "How I Work",
+    "subtitle": "5 Steps to Success",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Research",
+        "description": "I analyze your business, competitors, and target audience"
+      },
+      {
+        "number": "2",
+        "title": "Strategy",
+        "description": "I develop a personalized strategy based on your goals and budget"
+      },
+      {
+        "number": "3",
+        "title": "Launch",
+        "description": "I set up and launch ad campaigns with maximum precision"
+      },
+      {
+        "number": "4",
+        "title": "Optimization",
+        "description": "I continuously monitor and optimize campaigns for best results"
+      },
+      {
+        "number": "5",
+        "title": "Reports",
+        "description": "I provide transparent reports on results and next steps"
+      }
+    ]
+  },
+  "trust": {
+    "title": "Why Choose Me",
+    "subtitle": "Open Communication and Results",
+    "items": [
+      {
+        "title": "8+ Years of Experience",
+        "description": "I've developed and optimized ad campaigns for 150+ companies"
+      },
+      {
+        "title": "Transparency",
+        "description": "Daily reports on spending, clicks, and conversions. No hidden fees"
+      },
+      {
+        "title": "Global Experience",
+        "description": "I've launched campaigns for clients from the USA, Canada, and Europe"
+      },
+      {
+        "title": "Personal Approach",
+        "description": "Your success is my success. I put maximum effort for every client"
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What My Clients Say",
+    "items": [
+      {
+        "name": "Ilya Petrov",
+        "company": "TechStart",
+        "text": "The best paid ads specialist I've ever hired. Results exceeded all expectations!"
+      },
+      {
+        "name": "Inna Sidorik",
+        "company": "Beauty Brand",
+        "text": "Professionalism at the highest level. ROI increased by 280% in the first month."
+      },
+      {
+        "name": "Denis Govorov",
+        "company": "E-Commerce Store",
+        "text": "Thank you for transparency and results. Finally, ads are bringing profit!"
+      }
+    ]
+  },
+  "blog": {
+    "title": "My Expertise",
+    "subtitle": "Learn About Trends and Strategies",
+    "items": [
+      {
+        "title": "Performance-driven Reels",
+        "description": "Premium short-form content concepts that boost engagement and lower CPM.",
+        "tag": "Reels"
+      },
+      {
+        "title": "Conversion Copy",
+        "description": "Ad copy designed to match search intent, reduce friction, and increase leads.",
+        "tag": "Copy"
+      },
+      {
+        "title": "Audit Insights",
+        "description": "Actionable audit highlights that expose wasted spend and unlock growth.",
+        "tag": "Audit"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Start Today",
+    "subtitle": "Leave your contacts, and I'll get back to you",
+    "explanation": "Share your goals and I’ll design the first steps to higher conversions.",
+    "form": {
+      "name": "Your Name",
+      "contact_method": "Contact Method",
+      "contact_value": "Phone / Telegram / Email",
+      "message": "Your Message",
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Thank you! I'll contact you soon",
+      "error": "Error sending message. Please try again",
+      "nameError": "Please enter your name",
+      "contactValueError": "Please provide a phone, WhatsApp, Telegram or email",
+      "messageError": "Please describe your project or goal"
+    },
+    "methods": {
+      "telegram": "Telegram",
+      "whatsapp": "WhatsApp",
+      "phone": "Phone",
+      "email": "Email"
+    }
+  },
+  "footer": {
+    "links": "Links",
+    "contact": "Contacts",
+    "help": "Help",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "copyright": "© 2024 Targetologist. All rights reserved."
+  }
+}
