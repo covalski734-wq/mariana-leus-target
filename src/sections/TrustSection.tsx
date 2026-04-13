@@ -8,8 +8,8 @@ export const TrustSection: React.FC = () => {
   const trustItems = t('trust.items', { returnObjects: true }) as Array<{ title: string; description: string }>
 
   return (
-    <section id="trust" className="py-20 px-4 sm:px-6 lg:px-8 bg-dark-card/20">
-      <div className="max-w-7xl mx-auto">
+    <section id="trust" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface-strong">
+      <div className="max-w-[1440px] mx-auto">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
@@ -17,8 +17,8 @@ export const TrustSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">{t('trust.title')}</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">{t('trust.subtitle')}</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[color:var(--text)] mb-4">{t('trust.title')}</h2>
+          <p className="text-xl text-muted max-w-2xl mx-auto">{t('trust.subtitle')}</p>
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-4">
@@ -34,7 +34,7 @@ export const TrustSection: React.FC = () => {
                 <div className="mb-4 w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl">
                   ✓
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
+                <h3 className="text-2xl font-bold text-[color:var(--text)] mb-3">{item.title}</h3>
                 <p className="text-gray-400 leading-relaxed">{item.description}</p>
               </Card>
             </motion.div>

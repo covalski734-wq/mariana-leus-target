@@ -26,8 +26,8 @@ export const ProcessSection: React.FC = () => {
   }
 
   return (
-    <section id="process" className="py-20 px-4 sm:px-6 lg:px-8 bg-dark-bg">
-      <div className="max-w-7xl mx-auto">
+    <section id="process" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
+      <div className="max-w-[1440px] mx-auto">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -36,8 +36,8 @@ export const ProcessSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">{t('process.title')}</h2>
-          <p className="text-xl text-gray-400">{t('process.subtitle')}</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[color:var(--text)] mb-4">{t('process.title')}</h2>
+          <p className="text-xl text-muted">{t('process.subtitle')}</p>
         </motion.div>
 
         {/* Steps */}

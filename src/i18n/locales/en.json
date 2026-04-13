@@ -44,23 +44,109 @@
   },
   "services": {
     "title": "My Services",
-    "subtitle": "Comprehensive Solutions for Your Business",
+    "subtitle": "Comprehensive digital growth for your business",
     "items": [
       {
+        "key": "metaAds",
         "name": "Meta Ads",
         "description": "Strategy, setup, and optimization of ad campaigns on Facebook, Instagram, and TikTok"
       },
       {
+        "key": "googleAds",
         "name": "Google Ads",
         "description": "Search advertising, video marketing, and display networks for maximum reach"
       },
       {
+        "key": "smm",
         "name": "SMM",
         "description": "Social media management, content planning, and community building"
       },
       {
+        "key": "audit",
         "name": "Audit",
         "description": "In-depth analysis of your current ad campaigns and identification of improvement opportunities"
+      },
+      {
+        "key": "webDev",
+        "name": "Web Development",
+        "description": "Conversion-focused website development for your business with landing pages and funnels"
+      }
+    ],
+    "labels": {
+      "metaAds": "Meta / SMM",
+      "googleAds": "Search & Display",
+      "smm": "Brand Growth",
+      "audit": "Account Audit",
+      "webDev": "Web Development"
+    },
+    "learnMore": "Learn more →",
+    "hideDetails": "Hide details",
+    "details": {
+      "metaAds": "High-ROI Meta campaigns built to increase conversions and reduce wasted spend across Facebook, Instagram and TikTok.",
+      "googleAds": "Search, video and display funnels tuned to capture intent-driven traffic and improve lead quality.",
+      "smm": "Social media strategies that improve brand trust, engagement, and audience retention across key channels.",
+      "audit": "Comprehensive funnel audits that identify wasted budgets, technical gaps and fast-win optimization opportunities.",
+      "webDev": "Conversion-focused website development that brings design, speed and analytics together for better ad conversion."
+    },
+    "benefits": {
+      "metaAds": [
+        "Ads optimized for sales outcomes, not just clicks.",
+        "Custom audiences, creative testing, and automated scaling.",
+        "Detailed ROAS reporting for every campaign."
+      ],
+      "googleAds": [
+        "Keyword strategies that reduce CPA and increase revenue.",
+        "Responsive search and video funnels for high-intent traffic.",
+        "Smart bidding and landing page alignment."
+      ],
+      "smm": [
+        "Weekly content planning with performance triggers.",
+        "Community growth with conversion-minded messaging.",
+        "Cross-channel momentum for retargeting and remarketing."
+      ],
+      "audit": [
+        "Full account, creative and funnel review.",
+        "Clear roadmap with prioritized improvement steps.",
+        "Budget optimization without losing momentum."
+      ],
+      "webDev": [
+        "Fast, lightweight landing pages that convert.",
+        "Ad landing pages built around user journeys.",
+        "Mobile-first design with fast load speed."
+      ]
+    }
+  },
+  "caseStudies": {
+    "title": "Successful Cases",
+    "subtitle": "Selected campaigns that drove fast measurable growth",
+    "description": "Results from clients in e-commerce, SaaS and service businesses with clear ROI increases.",
+    "challenge": "Challenge:",
+    "solution": "Solution:",
+    "impact": "Impact:",
+    "items": [
+      {
+        "client": "E-Shop Growth",
+        "industry": "E-commerce",
+        "challenge": "High CPA from untargeted search and social traffic.",
+        "solution": "Optimized Google and Meta funnels to reach high-intent buyers and reduce wasted spend.",
+        "impact": "160% revenue increase in 6 weeks with 42% lower CPA.",
+        "metric": "160% ROI"
+      },
+      {
+        "client": "Beauty Brand",
+        "industry": "D2C Cosmetics",
+        "challenge": "Poor lead quality and inconsistent ad performance.",
+        "solution": "Launched a data-driven retargeting sequence and improved creative messaging.",
+        "impact": "280% ROI growth and stable weekly lead volume.",
+        "metric": "280% ROI"
+      },
+      {
+        "client": "Startup SaaS",
+        "industry": "Technology",
+        "challenge": "Low demo requests from paid campaigns.",
+        "solution": "Built a bespoke funnel with landing page testing and automated follow-up.",
+        "impact": "3x more qualified trials with 35% lower CAC.",
+        "metric": "3x Trials"
       }
     ]
   },

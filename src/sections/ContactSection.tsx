@@ -42,8 +42,8 @@ export const ContactSection: React.FC = () => {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-dark-bg">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
+      <div className="max-w-[1440px] mx-auto">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export const ContactSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <p className="text-sm uppercase tracking-[0.32em] text-primary mb-4">{t('contact.title')}</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">{t('contact.subtitle')}</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-[color:var(--text)] mb-6">{t('contact.subtitle')}</h2>
             <p className="text-gray-400 leading-relaxed max-w-xl">
               {t('contact.explanation') || 'Fill in your info and I will review your ad account with a conversion-first plan.'}
             </p>
@@ -60,46 +60,46 @@ export const ContactSection: React.FC = () => {
             <div className="mt-12 grid gap-4 sm:grid-cols-2">
               <a
                 href="tel:+1234567890"
-                className="flex items-center gap-3 p-5 rounded-3xl bg-dark-card border border-dark-border transition-colors hover:border-primary/50"
+                className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
                 <span className="text-2xl">📱</span>
                 <div>
-                  <p className="text-sm text-gray-400">Phone</p>
-                  <p className="font-semibold text-white">+1 (234) 567-890</p>
+                  <p className="text-sm text-muted">Phone</p>
+                  <p className="font-semibold text-[color:var(--text)]">+1 (234) 567-890</p>
                 </div>
               </a>
               <a
                 href="https://t.me/targetologist"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 p-5 rounded-3xl bg-dark-card border border-dark-border transition-colors hover:border-primary/50"
+                className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
                 <span className="text-2xl">✈️</span>
                 <div>
-                  <p className="text-sm text-gray-400">Telegram</p>
-                  <p className="font-semibold text-white">@targetologist</p>
+                  <p className="text-sm text-muted">Telegram</p>
+                  <p className="font-semibold text-[color:var(--text)]">@targetologist</p>
                 </div>
               </a>
               <a
                 href="mailto:info@targetologist.com"
-                className="flex items-center gap-3 p-5 rounded-3xl bg-dark-card border border-dark-border transition-colors hover:border-primary/50"
+                className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
                 <span className="text-2xl">📧</span>
                 <div>
-                  <p className="text-sm text-gray-400">Email</p>
-                  <p className="font-semibold text-white">info@targetologist.com</p>
+                  <p className="text-sm text-muted">Email</p>
+                  <p className="font-semibold text-[color:var(--text)]">info@targetologist.com</p>
                 </div>
               </a>
               <a
                 href="https://wa.me/1234567890"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 p-5 rounded-3xl bg-dark-card border border-dark-border transition-colors hover:border-primary/50"
+                className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
                 <span className="text-2xl">💬</span>
                 <div>
-                  <p className="text-sm text-gray-400">WhatsApp</p>
-                  <p className="font-semibold text-white">+1 (234) 567-890</p>
+                  <p className="text-sm text-muted">WhatsApp</p>
+                  <p className="font-semibold text-[color:var(--text)]">+1 (234) 567-890</p>
                 </div>
               </a>
             </div>
@@ -111,7 +111,7 @@ export const ContactSection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <div className="rounded-3xl bg-dark-card border border-dark-border p-8 shadow-xl shadow-black/20">
+            <div className="rounded-3xl bg-surface border border-surface p-8 shadow-xl shadow-black/10">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
                   <label className="block text-sm text-gray-400 mb-2" htmlFor="name">
@@ -121,7 +121,7 @@ export const ContactSection: React.FC = () => {
                     id="name"
                     type="text"
                     {...register('name', { required: true })}
-                    className="w-full rounded-2xl border border-dark-border bg-dark-bg px-4 py-3 text-white outline-none focus:border-primary"
+                    className="w-full rounded-2xl border border-surface bg-surface px-4 py-3 text-[color:var(--text)] outline-none focus:border-primary"
                   />
                   {errors.name && <p className="mt-2 text-sm text-red-400">{t('contact.form.nameError') || 'Name is required'}</p>}
                 </div>
@@ -133,7 +133,7 @@ export const ContactSection: React.FC = () => {
                   <select
                     id="contact_method"
                     {...register('contact_method', { required: true })}
-                    className="w-full rounded-2xl border border-dark-border bg-dark-bg px-4 py-3 text-white outline-none focus:border-primary"
+                    className="w-full rounded-2xl border border-surface bg-surface px-4 py-3 text-[color:var(--text)] outline-none focus:border-primary"
                   >
                     {Object.entries(methods).map(([key, value]) => (
                       <option key={key} value={key}>
@@ -151,7 +151,7 @@ export const ContactSection: React.FC = () => {
                     id="contact_value"
                     type="text"
                     {...register('contact_value', { required: true })}
-                    className="w-full rounded-2xl border border-dark-border bg-dark-bg px-4 py-3 text-white outline-none focus:border-primary"
+                    className="w-full rounded-2xl border border-surface bg-surface px-4 py-3 text-[color:var(--text)] outline-none focus:border-primary"
                   />
                   {errors.contact_value && <p className="mt-2 text-sm text-red-400">{t('contact.form.contactValueError') || 'Contact method value is required'}</p>}
                 </div>
@@ -164,7 +164,7 @@ export const ContactSection: React.FC = () => {
                     id="message"
                     rows={5}
                     {...register('message', { required: true })}
-                    className="w-full rounded-2xl border border-dark-border bg-dark-bg px-4 py-3 text-white outline-none focus:border-primary"
+                    className="w-full rounded-2xl border border-surface bg-surface px-4 py-3 text-[color:var(--text)] outline-none focus:border-primary"
                   />
                   {errors.message && <p className="mt-2 text-sm text-red-400">{t('contact.form.messageError') || 'Message is required'}</p>}
                 </div>

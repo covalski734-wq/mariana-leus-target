@@ -2,16 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+html.dark {
   color-scheme: dark;
+  --background: #0f0f1e;
   --bg: #0f0f1e;
-  --surface: #1a1a2e;
-  --surface-strong: #111120;
-  --border: #2a2a3e;
+  --bg-rgb: 15,15,30;
+  --surface: #111827;
+  --surface-rgb: 17,24,39;
+  --surface-strong: #0f172a;
+  --surface-strong-rgb: 15,23,42;
+  --border: #334155;
   --text: #f8fafc;
-  --muted: #94a3b8;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --card-bg: #111827;
   --primary: #6366f1;
+  --primary-rgb: 99,102,241;
   --accent: #fbbf24;
+  --accent-rgb: 251,191,36;
+}
+
+html.light {
+  color-scheme: light;
+  --background: #f8fafc;
+  --bg: #f8fafc;
+  --bg-rgb: 248,249,252;
+  --surface: #ffffff;
+  --surface-rgb: 255,255,255;
+  --surface-strong: #eef2ff;
+  --surface-strong-rgb: 238,242,255;
+  --border: #e2e8f0;
+  --text: #111827;
+  --text-primary: #111827;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --card-bg: #ffffff;
+  --primary: #4338ca;
+  --primary-rgb: 67,56,202;
+  --accent: #f59e0b;
+  --accent-rgb: 245,158,11;
 }
 
 html {
@@ -25,17 +55,47 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
-  @apply transition-colors duration-300;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.light {
-  color-scheme: light;
-  background: #f8fafc;
-  color: #111827;
+.app-shell {
+  background: var(--bg);
+  color: var(--text);
 }
 
-body.light :focus-visible {
-  @apply ring-offset-light-bg;
+.surface {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.surface-strong {
+  background: var(--surface-strong);
+  color: var(--text-primary);
+}
+
+.border-surface {
+  border-color: var(--border);
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.card-shell {
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.bg-surface {
+  background: var(--surface) !important;
+}
+
+.bg-surface-strong {
+  background: var(--surface-strong) !important;
 }
 
 /* Custom scrollbar */
@@ -44,24 +104,22 @@ body.light :focus-visible {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-dark-card;
+  background: rgba(var(--bg-rgb), 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary rounded-full;
+  background: rgba(var(--primary-rgb), 0.75);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary/80;
+  background: rgba(var(--primary-rgb), 0.92);
 }
 
 /* Focus styles */
 :focus-visible {
-  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-dark-bg rounded;
-}
-
-body.light :focus-visible {
-  @apply ring-offset-light-bg;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.35), 0 0 0 6px rgba(var(--bg-rgb), 0.12);
 }
 
 /* Smooth transitions */
