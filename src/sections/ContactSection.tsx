@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/Button'
 import { submitContactForm } from '@/services/api'
+
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | undefined
 
 interface ContactFormValues {
   name: string
@@ -28,12 +30,54 @@ export const ContactSection: React.FC = () => {
   })
 
   const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
+  const [captchaReady, setCaptchaReady] = useState(false)
+
+  useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY || typeof window === 'undefined') {
+      return
+    }
+
+    const scriptId = 'recaptcha-v3-script'
+    if (document.getElementById(scriptId)) {
+      setCaptchaReady(true)
+      return
+    }
+
+    const script = document.createElement('script')
+    script.id = scriptId
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`
+    script.async = true
+    script.defer = true
+    script.onload = () => setCaptchaReady(true)
+    document.body.appendChild(script)
+  }, [])
+
+  const executeRecaptcha = async () => {
+    const grecaptcha = typeof window !== 'undefined' ? (window as any).grecaptcha : null
+    if (!RECAPTCHA_SITE_KEY || !grecaptcha) {
+      throw new Error('reCAPTCHA is not available')
+    }
+
+    return await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form' })
+  }
 
   const onSubmit = async (data: ContactFormValues) => {
     setStatus(null)
 
     try {
-      await submitContactForm(data)
+      const token = RECAPTCHA_SITE_KEY ? await executeRecaptcha() : undefined
+      const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+      const payload = {
+        ...data,
+        utm_source: searchParams?.get('utm_source') || undefined,
+        utm_medium: searchParams?.get('utm_medium') || undefined,
+        utm_campaign: searchParams?.get('utm_campaign') || undefined,
+        utm_term: searchParams?.get('utm_term') || undefined,
+        utm_content: searchParams?.get('utm_content') || undefined,
+        recaptchaToken: token,
+      }
+
+      await submitContactForm(payload)
       setStatus({ type: 'success', message: t('contact.form.success') })
       reset({ name: '', contact_method: 'telegram', contact_value: '', message: '' })
     } catch (error) {
@@ -173,6 +217,12 @@ export const ContactSection: React.FC = () => {
                   <div className={status.type === 'success' ? 'text-green-400' : 'text-red-400'}>
                     {status.message}
                   </div>
+                )}
+                {RECAPTCHA_SITE_KEY && !captchaReady && (
+                  <div className="text-yellow-300 text-sm">Loading anti-spam protection...</div>
+                )}
+                {RECAPTCHA_SITE_KEY && captchaReady && (
+                  <div className="text-gray-400 text-sm">Protected by reCAPTCHA v3.</div>
                 )}
 
                 <Button type="submit" isLoading={isSubmitting} variant="primary" size="lg" className="w-full">
