@@ -70,6 +70,11 @@ export const ContactSection: React.FC = () => {
     return await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form' })
   }
 
+  const ALLOWED_PHONE_COUNTRIES: string[] = [
+    'us', 'ca', 'ua',
+    'at', 'be', 'bg', 'hr', 'cy', 'cz', 'dk', 'ee', 'fi', 'fr', 'de', 'gr', 'hu', 'ie', 'it', 'lv', 'lt', 'lu', 'mt', 'nl', 'pl', 'pt', 'ro', 'sk', 'si', 'es', 'se',
+  ]
+
   const onSubmit = async (data: ContactFormValues) => {
     setStatus(null)
 
@@ -235,10 +240,14 @@ export const ContactSection: React.FC = () => {
                         <PhoneInput
                           {...field}
                           country="us"
+                          onlyCountries={ALLOWED_PHONE_COUNTRIES}
                           enableSearch
                           countryCodeEditable
                           inputClass="w-full rounded-2xl border border-surface bg-surface px-4 py-3 text-[color:var(--text)] outline-none focus:border-primary"
                           buttonClass="border border-surface bg-surface"
+                          dropdownClass="rounded-2xl border border-surface bg-surface text-[color:var(--text)]"
+                          searchClass="px-4 py-3 text-[color:var(--text)] bg-surface"
+                          containerClass="w-full"
                           specialLabel=""
                           placeholder={t('contact.form.phonePlaceholder')}
                         />
