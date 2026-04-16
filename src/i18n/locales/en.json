@@ -251,21 +251,23 @@
     "form": {
       "name": "Your Name",
       "contact_method": "Contact Method",
-      "contact_value": "Phone / Telegram / Email",
+      "contact_value": "Phone / Telegram / Instagram",
       "message": "Your Message",
       "submit": "Send",
       "submitting": "Sending...",
       "success": "Thank you! I'll contact you soon",
       "error": "Error sending message. Please try again",
       "nameError": "Please enter your name",
-      "contactValueError": "Please provide a phone, WhatsApp, Telegram or email",
+      "contactValueError": "Please provide a phone, WhatsApp, Telegram or Instagram",
+      "phoneError": "Please enter a valid phone number",
+      "phonePlaceholder": "Enter phone number",
       "messageError": "Please describe your project or goal"
     },
     "methods": {
       "telegram": "Telegram",
       "whatsapp": "WhatsApp",
       "phone": "Phone",
-      "email": "Email"
+      "instagram": "Instagram"
     }
   },
   "footer": {

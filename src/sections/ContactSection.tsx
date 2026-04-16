@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { isValidPhoneNumber } from 'libphonenumber-js'
 import { Button } from '@/components/Button'
 import { submitContactForm } from '@/services/api'
 
@@ -14,21 +17,27 @@ interface ContactFormValues {
   message: string
 }
 
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const
+
 export const ContactSection: React.FC = () => {
   const { t } = useTranslation()
   const methods = t('contact.methods', { returnObjects: true }) as Record<string, string>
 
   const {
     register,
+    control,
+    watch,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormValues>({
     defaultValues: {
-      contact_method: 'telegram',
+      contact_method: 'phone',
+      contact_value: '',
     },
   })
 
+  const selectedMethod = watch('contact_method')
   const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
   const [captchaReady, setCaptchaReady] = useState(false)
 
@@ -67,13 +76,31 @@ export const ContactSection: React.FC = () => {
     try {
       const token = RECAPTCHA_SITE_KEY ? await executeRecaptcha() : undefined
       const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+      const initialUtm = searchParams
+        ? Object.fromEntries(
+            UTM_KEYS.map((key) => [key, searchParams.get(key) || undefined])
+          )
+        : {}
+
+      if (typeof window !== 'undefined' && searchParams) {
+        UTM_KEYS.forEach((key) => {
+          const value = searchParams.get(key)
+          if (value) {
+            window.localStorage.setItem(key, value)
+          }
+        })
+      }
+
+      const storedUtm = typeof window !== 'undefined'
+        ? Object.fromEntries(
+            UTM_KEYS.map((key) => [key, window.localStorage.getItem(key) || undefined])
+          )
+        : {}
+
       const payload = {
         ...data,
-        utm_source: searchParams?.get('utm_source') || undefined,
-        utm_medium: searchParams?.get('utm_medium') || undefined,
-        utm_campaign: searchParams?.get('utm_campaign') || undefined,
-        utm_term: searchParams?.get('utm_term') || undefined,
-        utm_content: searchParams?.get('utm_content') || undefined,
+        ...storedUtm,
+        ...initialUtm,
         recaptchaToken: token,
       }
 
@@ -125,13 +152,15 @@ export const ContactSection: React.FC = () => {
                 </div>
               </a>
               <a
-                href="mailto:info@targetologist.com"
+                href="https://instagram.com/targetologist"
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
-                <span className="text-2xl">📧</span>
+                <span className="text-2xl">📸</span>
                 <div>
-                  <p className="text-sm text-muted">Email</p>
-                  <p className="font-semibold text-[color:var(--text)]">info@targetologist.com</p>
+                  <p className="text-sm text-muted">Instagram</p>
+                  <p className="font-semibold text-[color:var(--text)]">@targetologist</p>
                 </div>
               </a>
               <a
@@ -191,13 +220,45 @@ export const ContactSection: React.FC = () => {
                   <label className="block text-sm text-gray-400 mb-2" htmlFor="contact_value">
                     {t('contact.form.contact_value')}
                   </label>
-                  <input
-                    id="contact_value"
-                    type="text"
-                    {...register('contact_value', { required: true })}
-                    className="w-full rounded-2xl border border-surface bg-surface px-4 py-3 text-[color:var(--text)] outline-none focus:border-primary"
-                  />
-                  {errors.contact_value && <p className="mt-2 text-sm text-red-400">{t('contact.form.contactValueError') || 'Contact method value is required'}</p>}
+                  {selectedMethod === 'phone' ? (
+                    <Controller
+                      name="contact_value"
+                      control={control}
+                      rules={{
+                        required: true,
+                        validate: (value) => {
+                          const normalized = value?.toString().startsWith('+') ? value.toString() : `+${value}`
+                          return isValidPhoneNumber(normalized) || t('contact.form.phoneError')
+                        },
+                      }}
+                      render={({ field }) => (
+                        <PhoneInput
+                          {...field}
+                          country="us"
+                          enableSearch
+                          countryCodeEditable
+                          inputClass="w-full rounded-2xl border border-surface bg-surface px-4 py-3 text-[color:var(--text)] outline-none focus:border-primary"
+                          buttonClass="border border-surface bg-surface"
+                          specialLabel=""
+                          placeholder={t('contact.form.phonePlaceholder')}
+                        />
+                      )}
+                    />
+                  ) : (
+                    <input
+                      id="contact_value"
+                      type="text"
+                      {...register('contact_value', { required: true })}
+                      className="w-full rounded-2xl border border-surface bg-surface px-4 py-3 text-[color:var(--text)] outline-none focus:border-primary"
+                    />
+                  )}
+                  {errors.contact_value && (
+                    <p className="mt-2 text-sm text-red-400">
+                      {selectedMethod === 'phone'
+                        ? String(errors.contact_value.message || t('contact.form.phoneError'))
+                        : t('contact.form.contactValueError')}
+                    </p>
+                  )}
                 </div>
 
                 <div>

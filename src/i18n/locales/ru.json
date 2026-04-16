@@ -251,21 +251,23 @@
     "form": {
       "name": "Ваше Имя",
       "contact_method": "Способ Связи",
-      "contact_value": "Номер телефона / Telegram / Email",
+      "contact_value": "Номер телефона / Telegram / Instagram",
       "message": "Ваше Сообщение",
       "submit": "Отправить",
       "submitting": "Отправка...",
       "success": "Спасибо! Я свяжусь с вами в ближайшее время",
       "error": "Ошибка при отправке. Пожалуйста, попробуйте ещё раз",
       "nameError": "Пожалуйста, введите ваше имя",
-      "contactValueError": "Пожалуйста, укажите телефон, WhatsApp, Telegram или email",
+      "contactValueError": "Пожалуйста, укажите телефон, WhatsApp, Telegram или Instagram",
+      "phoneError": "Пожалуйста, введите корректный номер телефона",
+      "phonePlaceholder": "Введите номер телефона",
       "messageError": "Пожалуйста, опишите ваш проект или цель"
     },
     "methods": {
       "telegram": "Telegram",
       "whatsapp": "WhatsApp",
       "phone": "Телефон",
-      "email": "Email"
+      "instagram": "Instagram"
     }
   },
   "footer": {
