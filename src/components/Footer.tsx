@@ -1,39 +1,46 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
+import {
+  Telegram as TelegramIcon,
+  WhatsApp as WhatsAppIcon,
+  Phone as PhoneIcon,
+  Email as EmailIcon,
+  Instagram as InstagramIcon,
+} from '@mui/icons-material';
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation()
   const contacts = [
     {
       name: 'Phone',
-      icon: '📱',
-      link: 'tel:+1234567890',
-      value: '+1 (234) 567-890',
+      icon: <PhoneIcon />,
+      link: 'tel:+48795069922',
+      value: '+48 795 069 922',
     },
     {
       name: 'Telegram',
-      icon: '✈️',
-      link: 'https://t.me/targetologist',
-      value: '@targetologist',
+      icon: <TelegramIcon />,
+      link: 'https://t.me/mariana_01_0',
+      value: '@mariana_01_0',
     },
     {
       name: 'Instagram',
-      icon: '📸',
-      link: 'https://instagram.com/targetologist',
-      value: '@targetologist',
+      icon: <InstagramIcon />,
+      link: 'https://instagram.com/mariana_leus_',
+      value: '@mariana_leus_',
     },
     {
       name: 'Email',
-      icon: '📧',
-      link: 'mailto:info@targetologist.com',
-      value: 'info@targetologist.com',
+      icon: <EmailIcon />,
+      link: 'mailto:mariannaleus8@gmail.com',
+      value: 'marianaleus8@gmail.com',
     },
     {
       name: 'WhatsApp',
-      icon: '💬',
-      link: 'https://wa.me/1234567890',
-      value: '+1 (234) 567-890',
+      icon: <WhatsAppIcon />,
+      link: 'https://wa.me/48795069922',
+      value: '+48 795 069 922',
     },
   ]
 

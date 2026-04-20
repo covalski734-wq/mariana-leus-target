@@ -3,13 +3,20 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { ServiceCard, ServiceItem } from '@/components/ServiceCard'
 import { ServiceDetailsPanel } from '@/components/ServiceDetailsPanel'
+import {
+  Campaign as CampaignIcon,
+  Facebook as FacebookIcon,
+  Google as GoogleIcon,
+  QueryStats as QueryStatsIcon,
+  ImportantDevices as ImportantDevicesIcon,
+} from '@mui/icons-material'
 
-const serviceIcons: Record<string, string> = {
-  metaAds: '📱',
-  googleAds: '🔍',
-  smm: '📲',
-  audit: '📊',
-  webDev: '💻',
+const serviceIcons: Record<string, React.ReactNode> = {
+  metaAds: <FacebookIcon />,
+  googleAds: <GoogleIcon />,
+  smm: <CampaignIcon />,
+  audit: <QueryStatsIcon />,
+  webDev: <ImportantDevicesIcon />,
 }
 
 export const ServicesSection: React.FC = () => {

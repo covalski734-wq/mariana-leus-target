@@ -43,12 +43,17 @@ export const Header: React.FC = () => {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center font-bold text-white">
-              T
+          {/* Logo & Brand */}
+          <div className="flex items-center space-x-3">
+            <img src="/logo.svg" alt="Mariana Leus" className="w-10 h-10 hover:scale-110 transition-transform duration-300" />
+            <div className="hidden sm:flex flex-col text-center">
+              <span className="font-bold text-xxs tracking-widest text-[color:var(--text-primary)]">MARIANA LEUS</span>
+              <div className="flex items-center space-x-2">
+                <div className="h-px w-6 bg-primary"></div>
+                <span className="text-xs text-primary font-medium tracking-wide mt-0.5 items-center">DIGITAL MARKETING</span>
+                <div className="h-px w-6 bg-primary"></div>
+              </div>
             </div>
-            <span className="hidden sm:inline font-bold text-lg text-[color:var(--text-primary)]">{t('common.tagline')}</span>
           </div>
 
           {/* Desktop Navigation */}

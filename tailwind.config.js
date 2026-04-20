@@ -8,18 +8,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#6366f1',
+        primary: '#004AAD',
+        'primary-hover': '#00337A',
         secondary: '#1e1e2e',
-        accent: '#fbbf24',
+        accent: '#4DA3FF',
+        'dark-bg': '#0B0F1A',
+        'light-bg': '#FFFFFF',
+        'soft-gray': '#F5F7FA',
         dark: {
-          bg: '#0f0f1e',
-          card: '#1a1a2e',
-          border: '#2a2a3e',
+          bg: '#0B0F1A',
+          card: '#111827',
+          border: '#1F2937',
         },
         light: {
-          bg: '#f8f9fa',
-          card: '#ffffff',
-          border: '#e5e7eb',
+          bg: '#FFFFFF',
+          card: '#FFFFFF',
+          border: '#E5E7EB',
         },
       },
       fontFamily: {

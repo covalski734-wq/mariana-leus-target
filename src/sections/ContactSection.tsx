@@ -7,6 +7,13 @@ import 'react-phone-input-2/lib/style.css'
 import { isValidPhoneNumber } from 'libphonenumber-js'
 import { Button } from '@/components/Button'
 import { submitContactForm } from '@/services/api'
+import {
+  Telegram as TelegramIcon,
+  WhatsApp as WhatsAppIcon,
+  Phone as PhoneIcon,
+  Email as EmailIcon,
+  Instagram as InstagramIcon,
+} from '@mui/icons-material';
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | undefined
 
@@ -138,46 +145,46 @@ export const ContactSection: React.FC = () => {
                 href="tel:+1234567890"
                 className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
-                <span className="text-2xl">📱</span>
+                <span className="text-2xl"><PhoneIcon /></span>
                 <div>
                   <p className="text-sm text-muted">Phone</p>
-                  <p className="font-semibold text-[color:var(--text)]">+1 (234) 567-890</p>
+                  <p className="font-semibold text-[color:var(--text)]">+48 795 069 922</p>
                 </div>
               </a>
               <a
-                href="https://t.me/targetologist"
+                href="https://t.me/mariana_01_0"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
-                <span className="text-2xl">✈️</span>
+                <span className="text-2xl"><TelegramIcon /></span>
                 <div>
                   <p className="text-sm text-muted">Telegram</p>
-                  <p className="font-semibold text-[color:var(--text)]">@targetologist</p>
+                  <p className="font-semibold text-[color:var(--text)]">@‌mariana_01_0</p>
                 </div>
               </a>
               <a
-                href="https://instagram.com/targetologist"
+                href="https://www.instagram.com/mariana_leus_/"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
-                <span className="text-2xl">📸</span>
+                <span className="text-2xl"><InstagramIcon /></span>
                 <div>
                   <p className="text-sm text-muted">Instagram</p>
-                  <p className="font-semibold text-[color:var(--text)]">@targetologist</p>
+                  <p className="font-semibold text-[color:var(--text)]">@mariana_leus_</p>
                 </div>
               </a>
               <a
-                href="https://wa.me/1234567890"
+                href="https://wa.me/48795069922"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 p-5 rounded-3xl bg-surface-strong border border-surface transition-colors hover:border-primary/50"
               >
-                <span className="text-2xl">💬</span>
+                <span className="text-2xl items-end"><WhatsAppIcon /></span>
                 <div>
                   <p className="text-sm text-muted">WhatsApp</p>
-                  <p className="font-semibold text-[color:var(--text)]">+1 (234) 567-890</p>
+                  <p className="font-semibold text-[color:var(--text)]">+48 795 069 922</p>
                 </div>
               </a>
             </div>

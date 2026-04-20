@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 export interface ServiceItem {
   key: string
-  icon: string
+  icon: React.ReactNode
   name: string
   description: string
   details: string
@@ -33,7 +33,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, active, isMob
       )}
     >
       <div className="flex items-center justify-between gap-4">
-        <div className="text-4xl">{service.icon}</div>
+        <div className="text-4xl service-icon">{service.icon}</div>
         <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs uppercase tracking-[0.32em] text-primary">
           {service.key === 'webDev' ? 'Web Dev' : service.name}
         </span>
