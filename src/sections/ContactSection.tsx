@@ -11,7 +11,6 @@ import {
   Telegram as TelegramIcon,
   WhatsApp as WhatsAppIcon,
   Phone as PhoneIcon,
-  Email as EmailIcon,
   Instagram as InstagramIcon,
 } from '@mui/icons-material';
 
