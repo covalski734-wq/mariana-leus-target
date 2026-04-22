@@ -1,12 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ServiceItem } from './ServiceCard'
+
+const SERVICE_SLUG: Record<string, string> = {
+  metaAds: 'meta-ads',
+  googleAds: 'google-ads',
+  smm: 'smm',
+  audit: 'audit',
+  webDev: 'web-dev',
+}
 
 interface ServiceDetailsPanelProps {
   service: ServiceItem
 }
 
 export const ServiceDetailsPanel: React.FC<ServiceDetailsPanelProps> = ({ service }) => {
+  const { t } = useTranslation()
   return (
     <AnimatePresence mode="wait">
       <motion.section
@@ -35,6 +46,14 @@ export const ServiceDetailsPanel: React.FC<ServiceDetailsPanelProps> = ({ servic
               ))}
             </ul>
           </div>
+        </div>
+        <div className="mt-6 pt-4 border-t border-surface flex justify-end">
+          <Link
+            to={`/services/${SERVICE_SLUG[service.key] ?? service.key}`}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:opacity-80 transition-opacity"
+          >
+            {t('services.viewPage')}
+          </Link>
         </div>
       </motion.section>
     </AnimatePresence>

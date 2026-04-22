@@ -3,9 +3,19 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/Card'
 
+const imagePlaceholders = [
+  'Photo: short-form video ad creative (Reel or Story) — dark background, performance metrics overlay',
+  'Photo: ad copy mock-up on phone screen — clean white interface, highlighted CTA button',
+  'Photo: analytics dashboard screenshot — bar charts, ROAS, CPA numbers highlighted',
+]
+
 export const ContentSection: React.FC = () => {
   const { t } = useTranslation()
-  const contentItems = t('blog.items', { returnObjects: true }) as Array<{ title: string; description: string; tag: string }>
+  const contentItems = t('blog.items', { returnObjects: true }) as Array<{
+    title: string
+    description: string
+    tag: string
+  }>
 
   return (
     <section id="blog" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface-strong">
@@ -17,8 +27,13 @@ export const ContentSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-[color:var(--text)] mb-4">{t('blog.title')}</h2>
-          <p className="text-xl text-muted max-w-2xl mx-auto">{t('blog.subtitle')}</p>
+          <p className="text-sm uppercase tracking-[0.32em] text-primary mb-3">{t('blog.label') || t('blog.title')}</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[color:var(--text-primary)] mb-4">
+            {t('blog.title')}
+          </h2>
+          <p className="text-xl text-[color:var(--text-secondary)] max-w-2xl mx-auto">
+            {t('blog.subtitle')}
+          </p>
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -30,15 +45,23 @@ export const ContentSection: React.FC = () => {
               transition={{ duration: 0.55, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card hover className="group overflow-hidden">
-                {/* IMAGE PROMPT: marketing reels preview block, dark neon analytics, premium B2B agency visual */}
-                <div className="h-48 rounded-3xl bg-gradient-to-br from-primary/15 to-accent/15 mb-6 flex items-end p-6">
-                  <div className="text-[color:var(--text)] text-sm uppercase tracking-[0.32em] font-semibold bg-[rgba(var(--surface-strong-rgb),0.2)] px-3 py-2 rounded-full">
+              <Card hover className="group overflow-hidden h-full flex flex-col">
+                {/* Image placeholder */}
+                <div className="h-48 rounded-xl border border-surface bg-gradient-to-br from-primary/10 to-accent/10 mb-6 flex flex-col items-center justify-center gap-2 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(var(--primary-rgb),0.05),rgba(var(--accent-rgb),0.08))]" />
+                  <span className="text-xs uppercase tracking-[0.28em] font-semibold text-primary z-10 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/10">
                     {item.tag}
-                  </div>
+                  </span>
+                  <p className="text-[10px] text-[color:var(--text-muted)] z-10 text-center px-4 leading-snug">
+                    {imagePlaceholders[index]}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-[color:var(--text)] mb-3">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-bold text-[color:var(--text-primary)] mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-[color:var(--text-secondary)] leading-relaxed flex-1">
+                  {item.description}
+                </p>
               </Card>
             </motion.div>
           ))}

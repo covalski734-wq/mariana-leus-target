@@ -349,28 +349,45 @@ export const ProcessSection: React.FC = () => {
     return (
       <section id="process" className="bg-surface py-20 px-4 sm:px-6">
         <div className="max-w-[600px] mx-auto">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-3">Process</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-primary mb-3">
+            {t('header.process')}
+          </p>
           <h2 className="text-3xl font-bold text-[color:var(--text-primary)] mb-2">
             {t('process.title')}
           </h2>
           <p className="text-[color:var(--text-secondary)] mb-10">{t('process.subtitle')}</p>
 
-          <div className="space-y-8">
-            {steps.map((step, index) => (
-              <div key={index} className="flex gap-4">
-                <div
-                  className="w-10 h-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0"
-                >
-                  {step.number}
+          <div className="space-y-10">
+            {steps.map((step, index) => {
+              const Visual = VISUALS[index] ?? VISUALS[0]
+              return (
+                <div key={index}>
+                  {/* Step header */}
+                  <div className="flex gap-4 mb-4">
+                    <div className="w-10 h-10 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+                      {step.number}
+                    </div>
+                    <div className="pt-0.5">
+                      <p className="font-semibold text-[color:var(--text-primary)]">{step.title}</p>
+                      <p className="text-sm mt-1 text-[color:var(--text-secondary)] leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Visual card — auto height so nothing clips */}
+                  <div
+                    className="rounded-2xl border border-surface p-5"
+                    style={{
+                      background: 'rgba(var(--surface-rgb), 0.82)',
+                      backdropFilter: 'blur(18px)',
+                    }}
+                  >
+                    <Visual />
+                  </div>
                 </div>
-                <div className="pt-0.5">
-                  <p className="font-semibold text-[color:var(--text-primary)]">{step.title}</p>
-                  <p className="text-sm mt-1 text-[color:var(--text-secondary)] leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>

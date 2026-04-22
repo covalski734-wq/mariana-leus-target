@@ -1,8 +1,17 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { ServiceCard, ServiceItem } from '@/components/ServiceCard'
 import { ServiceDetailsPanel } from '@/components/ServiceDetailsPanel'
+
+const SERVICE_SLUG: Record<string, string> = {
+  metaAds: 'meta-ads',
+  googleAds: 'google-ads',
+  smm: 'smm',
+  audit: 'audit',
+  webDev: 'web-dev',
+}
 import {
   Campaign as CampaignIcon,
   Facebook as FacebookIcon,
@@ -54,7 +63,7 @@ export const ServicesSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm uppercase tracking-[0.32em] text-primary mb-4">{t('services.title')}</p>
+          <p className="text-sm uppercase tracking-[0.32em] text-primary mb-4">{t('services.label')}</p>
           <h2 className="text-4xl lg:text-5xl font-bold text-[color:var(--text-primary)] mb-4">{t('services.title')}</h2>
           <p className="text-lg md:text-xl text-[color:var(--text-secondary)] max-w-3xl mx-auto">{t('services.subtitle')}</p>
         </motion.div>
@@ -78,6 +87,17 @@ export const ServicesSection: React.FC = () => {
               </motion.div>
             ))}
           </div>
+
+          {isMobile && activeKey && SERVICE_SLUG[activeKey] && (
+            <div className="px-6 pb-6 text-center">
+              <Link
+                to={`/services/${SERVICE_SLUG[activeKey]}`}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:opacity-80 transition-opacity"
+              >
+                {t('services.viewPage')}
+              </Link>
+            </div>
+          )}
 
           {!isMobile && activeService && (
             <motion.div

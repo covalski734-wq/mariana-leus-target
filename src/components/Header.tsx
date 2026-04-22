@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link, useLocation } from 'react-router-dom'
 import { useTheme } from '@/hooks/useTheme'
 import { Button } from '@/components/Button'
 import clsx from 'clsx'
+
+type NavItem =
+  | { label: string; id: string; href?: undefined }
+  | { label: string; href: string; id?: undefined }
 
 export const Header: React.FC = () => {
   const { t, i18n } = useTranslation()
   const { theme, toggleTheme } = useTheme()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: t('header.hero'), id: 'hero' },
     { label: t('header.services'), id: 'services' },
     { label: t('header.process'), id: 'process' },
@@ -17,13 +23,19 @@ export const Header: React.FC = () => {
     { label: t('header.trust'), id: 'trust' },
     { label: t('header.testimonials'), id: 'testimonials' },
     { label: t('header.blog'), id: 'blog' },
+    { label: t('header.faq'), id: 'faq' },
+    { label: t('header.about'), href: '/about' },
   ]
 
   const languages = ['ua', 'ru', 'en']
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
+    if (location.pathname === '/') {
+      const element = document.getElementById(id)
+      element?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      window.location.href = `/#${id}`
+    }
     setIsMobileMenuOpen(false)
   }
 
@@ -58,15 +70,25 @@ export const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="px-3 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.href ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="px-3 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id!)}
+                  className="px-3 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </nav>
 
           {/* Right Section */}
@@ -81,7 +103,7 @@ export const Header: React.FC = () => {
                     'px-2 py-1 text-xs font-semibold rounded transition-colors duration-200',
                     i18n.language === lang
                       ? 'bg-primary text-white'
-                      : 'text-gray-400 hover:text-primary'
+                      : 'text-[color:var(--text-secondary)] hover:text-primary'
                   )}
                 >
                   {lang.toUpperCase()}
@@ -144,15 +166,26 @@ export const Header: React.FC = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <nav className="lg:hidden pb-4 space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-200 rounded-md"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.href ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block w-full text-left px-4 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id!)}
+                  className="block w-full text-left px-4 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
+                >
+                  {item.label}
+                </button>
+              )
+            )}
             <Button
               variant="primary"
               size="sm"

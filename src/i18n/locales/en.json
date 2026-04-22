@@ -12,17 +12,31 @@
     "trust": "About Me",
     "testimonials": "Testimonials",
     "blog": "Expertise",
-    "contact": "Contact"
+    "faq": "FAQ",
+    "contact": "Contact",
+    "about": "About"
   },
   "hero": {
     "headline": "Your Ads Will Work",
-    "subheadline": "Strategic advertising optimization for maximum conversions and minimum cost of acquisition",
+    "headlinePart1": "Ads that actually",
+    "headlineAccent": "bring you clients",
+    "headlinePart2": "— not just clicks",
+    "subheadline": "I optimize your ad system to generate predictable revenue — not just traffic — by eliminating wasted spend at the source.",
     "cta": "Get Consultation",
-    "urgency": "Only 5 spots for new clients this month"
+    "urgency": "Only 5 spots for new clients this month",
+    "ctaPrimary": "Get free audit",
+    "ctaSecondary": "See how it works",
+    "stats": {
+      "clients": { "value": "150+", "label": "Clients" },
+      "years":   { "value": "8+",   "label": "Years" },
+      "roi":     { "value": "320%", "label": "Avg. ROI" }
+    }
   },
   "results": {
     "title": "Our Clients' Results",
     "subtitle": "Proof of Success in Numbers",
+    "quoteText": "The best return on investment I've ever had. Increased our revenue by 280% in just 3 months!",
+    "quoteAuthor": "John Smith — CEO, TechStart",
     "metrics": [
       {
         "value": "320%",
@@ -43,6 +57,8 @@
     ]
   },
   "services": {
+    "label": "What I Do",
+    "viewPage": "View service page →",
     "title": "My Services",
     "subtitle": "Comprehensive digital growth for your business",
     "items": [
@@ -291,6 +307,73 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
     "copyright": "© 2024 Targetologist. All rights reserved."
+  },
+  "about": {
+    "label":      "About",
+    "title":      "Mariana Leus",
+    "subtitle":   "Paid Ads Specialist with 8+ years of experience",
+    "bio":        "I help businesses turn ad budgets into predictable revenue. I specialize in Meta Ads and Google Ads — from audit to scaling. Over 8 years I've delivered 200+ projects for clients across the USA, Canada, and Europe.",
+    "photoHint":  "Photo: professional portrait of Mariana Leus — business setting, neutral background, confident smile",
+    "experience": "8+ years",
+    "clients":    "150+ clients",
+    "countries":  "15+ countries",
+    "journey":    "My Journey",
+    "values":     "My Values",
+    "cta":        "Start working together",
+    "milestones": [
+      { "year": "2016", "text": "Started career in digital marketing, first Facebook ad campaigns" },
+      { "year": "2018", "text": "Google Ads certification, expansion to international markets" },
+      { "year": "2020", "text": "Launched independent practice, first clients from Europe and the US" },
+      { "year": "2022", "text": "150+ successful projects, specialization in e-commerce and SaaS" },
+      { "year": "2024", "text": "Top paid ads specialist for small and medium-sized businesses" }
+    ],
+    "valueItems": [
+      { "title": "Results over process",  "desc": "Every decision is measured by concrete numbers: ROI, CPA, ROAS" },
+      { "title": "Transparency",          "desc": "You see every dollar spent and understand exactly what you're paying for" },
+      { "title": "Continuous learning",   "desc": "Algorithms change — I continuously update my knowledge and approach" },
+      { "title": "Partnership",           "desc": "I treat every client's business as if it were my own" }
+    ]
+  },
+  "services_pages": {
+    "backToServices": "← Back to services",
+    "getStarted":     "Get started",
+    "freeAudit":      "Get free audit",
+    "included":       "What's included",
+    "howItWorks":     "How it works",
+    "results":        "Client results"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know before we start working together",
+    "cta":     "Still have questions?",
+    "ctaLink": "Get in touch →",
+    "items": [
+      {
+        "q": "How quickly will I see results?",
+        "a": "Most clients see measurable improvements within 2–4 weeks. Revenue uplift typically becomes clear by week 6–8 once the algorithm has enough data to optimize effectively."
+      },
+      {
+        "q": "What budget do I need to get started?",
+        "a": "I work with ad budgets starting from $1,000/month. The larger the budget, the faster we gather data and scale winning campaigns."
+      },
+      {
+        "q": "Which platforms do you advertise on?",
+        "a": "I specialize in Meta Ads (Facebook & Instagram) and Google Ads (Search, Display, YouTube). I can manage one or both platforms depending on where your audience spends time."
+      },
+      {
+        "q": "Do you sign a contract?",
+        "a": "Yes. Every client gets a clear service agreement outlining deliverables, timelines, and terms before we start — no surprises."
+      },
+      {
+        "q": "How do I stay updated on campaign performance?",
+        "a": "You receive a weekly report every Monday covering all key metrics: ROAS, CPA, leads, and ad spend. I'm also available for calls whenever you need to discuss strategy."
+      },
+      {
+        "q": "Can I get a free audit before committing?",
+        "a": "Absolutely. Fill in the contact form and I'll review your current ad account and send you a prioritized improvement plan — completely free, no obligation."
+      }
+    ]
   },
   "privacy": {
     "title": "Privacy Policy",

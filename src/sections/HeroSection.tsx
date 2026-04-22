@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/Button'
 
 interface MetricCardProps {
@@ -23,15 +24,22 @@ const MetricCard: React.FC<MetricCardProps> = ({ label, value, change, positive 
 )
 
 export const HeroSection: React.FC = () => {
+  const { t } = useTranslation()
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
     el?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const stats = t('hero.stats', { returnObjects: true }) as Record<
+    string,
+    { value: string; label: string }
+  >
+
   return (
     <section className="relative overflow-hidden px-4 pt-20 pb-20 sm:px-6 lg:px-8 lg:pt-32 lg:pb-28">
 
-      {/* Background orbs — single clean layer */}
+      {/* Background orbs */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute w-[600px] h-[600px] bg-primary/10 blur-[140px] rounded-full top-[-180px] left-[-160px] animate-float1" />
         <div className="absolute w-[450px] h-[450px] bg-accent/10 blur-[120px] rounded-full bottom-[-120px] right-[-120px] animate-float2" />
@@ -50,20 +58,19 @@ export const HeroSection: React.FC = () => {
           {/* Scarcity badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full text-sm text-primary">
             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-            Only 5 spots this month
+            {t('hero.urgency')}
           </div>
 
           {/* Headline */}
           <h1 className="text-[2.75rem] sm:text-5xl lg:text-6xl font-semibold leading-[1.06] tracking-[-0.03em] text-[color:var(--text-primary)]">
-            Ads that actually<br />
-            <span className="text-primary">bring you clients</span><br />
-            — not just clicks
+            {t('hero.headlinePart1')}<br />
+            <span className="text-primary">{t('hero.headlineAccent')}</span><br />
+            {t('hero.headlinePart2')}
           </h1>
 
           {/* Sub-headline */}
           <p className="text-lg text-[color:var(--text-secondary)] max-w-lg leading-relaxed">
-            We optimize your advertising system to generate predictable revenue —
-            not just traffic — by eliminating wasted spend at the source.
+            {t('hero.subheadline')}
           </p>
 
           {/* CTA row */}
@@ -74,7 +81,7 @@ export const HeroSection: React.FC = () => {
               onClick={() => scrollToSection('contact')}
               className="w-full sm:w-auto"
             >
-              Get free audit
+              {t('hero.ctaPrimary')}
             </Button>
             <Button
               variant="outline"
@@ -82,24 +89,18 @@ export const HeroSection: React.FC = () => {
               onClick={() => scrollToSection('services')}
               className="w-full sm:w-auto"
             >
-              See how it works
+              {t('hero.ctaSecondary')}
             </Button>
           </div>
 
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-6 pt-5 border-t border-surface max-w-md">
-            <div>
-              <p className="text-2xl font-bold text-primary">150+</p>
-              <p className="text-sm text-[color:var(--text-secondary)] mt-0.5">Clients</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-primary">8+</p>
-              <p className="text-sm text-[color:var(--text-secondary)] mt-0.5">Years</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-primary">320%</p>
-              <p className="text-sm text-[color:var(--text-secondary)] mt-0.5">Avg. ROI</p>
-            </div>
+            {Object.values(stats).map((s) => (
+              <div key={s.label}>
+                <p className="text-2xl font-bold text-primary">{s.value}</p>
+                <p className="text-sm text-[color:var(--text-secondary)] mt-0.5">{s.label}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -114,12 +115,10 @@ export const HeroSection: React.FC = () => {
             className="relative rounded-2xl border border-surface p-6 shadow-2xl overflow-hidden"
             style={{ background: 'rgba(var(--surface-rgb), 0.78)', backdropFilter: 'blur(20px)' }}
           >
-            {/* Subtle moving gradient sweep */}
             <div className="absolute inset-0 pointer-events-none opacity-20 animate-gradientMove bg-[linear-gradient(120deg,transparent,rgba(0,74,173,0.3),transparent)]" />
 
             <div className="relative space-y-5">
 
-              {/* Card header */}
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-secondary)]">
@@ -135,13 +134,11 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Metric cards */}
               <div className="flex gap-3">
                 <MetricCard label="ROAS" value="4.2x" change="↑ +18% this week" positive />
                 <MetricCard label="CPA" value="$12.40" change="↓ −34% vs last mo." positive />
               </div>
 
-              {/* Weekly revenue mini-chart */}
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-xs text-[color:var(--text-secondary)]">Weekly Revenue</p>
@@ -162,7 +159,6 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Platform badges */}
               <div className="flex items-center gap-2 pt-1">
                 <span className="text-xs text-[color:var(--text-secondary)]">Platforms:</span>
                 <span className="text-xs font-medium bg-primary/10 border border-primary/20 text-primary px-2.5 py-0.5 rounded-full">

@@ -7,6 +7,25 @@ import { Footer } from '@/components/Footer'
 import { HeroSection } from '@/sections/HeroSection'
 import { PrivacyPage } from '@/pages/PrivacyPage'
 
+const AboutPage = lazy(() =>
+  import('@/pages/AboutPage').then((m) => ({ default: m.AboutPage }))
+)
+const MetaAdsPage = lazy(() =>
+  import('@/pages/services/MetaAdsPage').then((m) => ({ default: m.MetaAdsPage }))
+)
+const GoogleAdsPage = lazy(() =>
+  import('@/pages/services/GoogleAdsPage').then((m) => ({ default: m.GoogleAdsPage }))
+)
+const SmmPage = lazy(() =>
+  import('@/pages/services/SmmPage').then((m) => ({ default: m.SmmPage }))
+)
+const AuditPage = lazy(() =>
+  import('@/pages/services/AuditPage').then((m) => ({ default: m.AuditPage }))
+)
+const WebDevPage = lazy(() =>
+  import('@/pages/services/WebDevPage').then((m) => ({ default: m.WebDevPage }))
+)
+
 const ServicesSection = lazy(() =>
   import('@/sections/ServicesSection').then((m) => ({ default: m.ServicesSection }))
 )
@@ -27,6 +46,9 @@ const TestimonialsSection = lazy(() =>
 )
 const ContentSection = lazy(() =>
   import('@/sections/ContentSection').then((m) => ({ default: m.ContentSection }))
+)
+const FAQSection = lazy(() =>
+  import('@/sections/FAQSection').then((m) => ({ default: m.FAQSection }))
 )
 const ContactSection = lazy(() =>
   import('@/sections/ContactSection').then((m) => ({ default: m.ContactSection }))
@@ -49,6 +71,7 @@ const LandingPage: React.FC = () => (
         <TrustSection />
         <TestimonialsSection />
         <ContentSection />
+        <FAQSection />
         <ContactSection />
       </Suspense>
     </main>
@@ -64,6 +87,12 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/about" element={<Suspense fallback={<SectionLoader />}><AboutPage /></Suspense>} />
+            <Route path="/services/meta-ads" element={<Suspense fallback={<SectionLoader />}><MetaAdsPage /></Suspense>} />
+            <Route path="/services/google-ads" element={<Suspense fallback={<SectionLoader />}><GoogleAdsPage /></Suspense>} />
+            <Route path="/services/smm" element={<Suspense fallback={<SectionLoader />}><SmmPage /></Suspense>} />
+            <Route path="/services/audit" element={<Suspense fallback={<SectionLoader />}><AuditPage /></Suspense>} />
+            <Route path="/services/web-dev" element={<Suspense fallback={<SectionLoader />}><WebDevPage /></Suspense>} />
           </Routes>
         </div>
       </ThemeProvider>

@@ -299,10 +299,6 @@ export const ContactSection: React.FC = () => {
                             onlyCountries={ALLOWED_PHONE_COUNTRIES}
                             enableSearch
                             countryCodeEditable
-                            inputClass={inputClass}
-                            buttonClass="border border-[var(--border)] bg-[rgba(var(--surface-strong-rgb),0.5)] rounded-l-xl"
-                            dropdownClass="rounded-xl border border-[var(--border)] bg-surface text-[color:var(--text-primary)]"
-                            searchClass="px-4 py-2 text-[color:var(--text-primary)] bg-surface-strong"
                             containerClass="w-full"
                             specialLabel=""
                             placeholder={valuePlaceholder[selectedMethod]}
