@@ -1,76 +1,80 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/Button'
 
+interface MetricCardProps {
+  label: string
+  value: string
+  change: string
+  positive?: boolean
+}
+
+const MetricCard: React.FC<MetricCardProps> = ({ label, value, change, positive = true }) => (
+  <div
+    className="rounded-xl p-3 flex-1"
+    style={{ background: 'rgba(var(--surface-strong-rgb), 0.9)' }}
+  >
+    <p className="text-xs text-[color:var(--text-secondary)]">{label}</p>
+    <p className="text-xl font-bold text-[color:var(--text-primary)] mt-0.5">{value}</p>
+    <p className={`text-xs font-semibold mt-0.5 ${positive ? 'text-emerald-500' : 'text-red-400'}`}>
+      {change}
+    </p>
+  </div>
+)
+
 export const HeroSection: React.FC = () => {
-  const { t } = useTranslation()
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.08,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  }
-
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
+    const el = document.getElementById(id)
+    el?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section id="hero" className="pt-16 pb-20 px-4 sm:px-6 lg:px-8 lg:pt-28 bg-gradient-to-b from-[rgba(var(--bg-rgb),0.94)] to-[rgba(var(--surface-rgb),0.72)] relative overflow-hidden">
-      {/* Animated background glow */}
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl opacity-25 animate-pulse" />
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-15 animate-pulse" style={{ animationDelay: '2s' }} />
+    <section className="relative overflow-hidden px-4 pt-20 pb-20 sm:px-6 lg:px-8 lg:pt-32 lg:pb-28">
 
-      <div className="max-w-[1440px] mx-auto grid gap-8 lg:gap-12 lg:grid-cols-2 lg:items-center overflow-hidden relative z-10">
-        {/* Left Content */}
+      {/* Background orbs — single clean layer */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute w-[600px] h-[600px] bg-primary/10 blur-[140px] rounded-full top-[-180px] left-[-160px] animate-float1" />
+        <div className="absolute w-[450px] h-[450px] bg-accent/10 blur-[120px] rounded-full bottom-[-120px] right-[-120px] animate-float2" />
+      </div>
+
+      <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+
+        {/* LEFT */}
         <motion.div
-          className="space-y-5 sm:space-y-6 lg:space-y-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-7"
         >
-          {/* Urgency Badge */}
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-3 py-2 sm:px-4 sm:py-2 w-fit">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-            <span className="text-xs sm:text-sm text-primary font-medium">{t('hero.urgency')}</span>
-          </motion.div>
+
+          {/* Scarcity badge */}
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full text-sm text-primary">
+            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+            Only 5 spots this month
+          </div>
 
           {/* Headline */}
-          <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[color:var(--text-primary)] leading-tight tracking-[-0.02em]">
-            {t('hero.headline')}
-          </motion.h1>
+          <h1 className="text-[2.75rem] sm:text-5xl lg:text-6xl font-semibold leading-[1.06] tracking-[-0.03em] text-[color:var(--text-primary)]">
+            Ads that actually<br />
+            <span className="text-primary">bring you clients</span><br />
+            — not just clicks
+          </h1>
 
-          {/* Subheadline */}
-          <motion.p variants={itemVariants} className="text-base sm:text-lg lg:text-xl text-[color:var(--text-secondary)] leading-relaxed max-w-2xl">
-            {t('hero.subheadline')}
-          </motion.p>
+          {/* Sub-headline */}
+          <p className="text-lg text-[color:var(--text-secondary)] max-w-lg leading-relaxed">
+            We optimize your advertising system to generate predictable revenue —
+            not just traffic — by eliminating wasted spend at the source.
+          </p>
 
-          {/* CTA Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 pt-2 lg:pt-4">
+          {/* CTA row */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-1">
             <Button
               variant="primary"
               size="lg"
               onClick={() => scrollToSection('contact')}
-              className="w-full sm:w-auto group relative overflow-hidden"
+              className="w-full sm:w-auto"
             >
-              <span className="relative z-10">{t('hero.cta')}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              Get free audit
             </Button>
             <Button
               variant="outline"
@@ -78,53 +82,114 @@ export const HeroSection: React.FC = () => {
               onClick={() => scrollToSection('services')}
               className="w-full sm:w-auto"
             >
-              Learn More
+              See how it works
             </Button>
-          </motion.div>
+          </div>
 
-          {/* Social Proof */}
-          <motion.div variants={itemVariants} className="hidden sm:grid grid-cols-3 gap-4 lg:gap-8 pt-6 lg:pt-8 border-t border-surface/30">
+          {/* Stats row */}
+          <div className="grid grid-cols-3 gap-6 pt-5 border-t border-surface max-w-md">
             <div>
-              <p className="text-xl sm:text-2xl font-bold text-primary">150+</p>
-              <p className="text-xs sm:text-sm text-[color:var(--text-secondary)]">Happy Clients</p>
-            </div>
-            <div>
-              <p className="text-xl sm:text-2xl font-bold text-primary">8+</p>
-              <p className="text-xs sm:text-sm text-[color:var(--text-secondary)]">Years Experience</p>
+              <p className="text-2xl font-bold text-primary">150+</p>
+              <p className="text-sm text-[color:var(--text-secondary)] mt-0.5">Clients</p>
             </div>
             <div>
-              <p className="text-xl sm:text-2xl font-bold text-primary">320%</p>
-              <p className="text-xs sm:text-sm text-[color:var(--text-secondary)]">Avg ROI</p>
+              <p className="text-2xl font-bold text-primary">8+</p>
+              <p className="text-sm text-[color:var(--text-secondary)] mt-0.5">Years</p>
             </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Right Visual */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-          className="relative h-72 sm:h-80 lg:h-full lg:min-h-[500px] -mx-4 sm:mx-0 lg:mx-0"
-        >
-          {/* IMAGE PROMPT: Confident female marketer working on laptop with analytics dashboards visible, modern aesthetic, dark theme with tech elements, professional environment */}
-          <div className="w-full h-full bg-gradient-to-br from-primary/12 via-accent/5 to-primary/8 rounded-2xl lg:rounded-3xl border border-primary/25 flex items-center justify-center relative overflow-hidden shadow-lg lg:shadow-xl">
-            {/* Animated background elements */}
-            <div className="absolute inset-0 opacity-40 lg:opacity-30">
-              <div className="absolute -top-20 -right-20 w-56 h-56 lg:w-72 lg:h-72 bg-primary rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-              <div className="absolute -bottom-16 -left-16 w-64 h-64 lg:w-80 lg:h-80 bg-accent rounded-full blur-3xl opacity-50 animate-pulse\" style={{ animationDelay: '2.5s', animationDuration: '5s' }} />
-            </div>
-
-            {/* Placeholder text */}
-            <div className="relative z-10 text-center space-y-3 sm:space-y-4 px-6">
-              <svg className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto text-primary opacity-70" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              <p className="text-sm sm:text-base text-[color:var(--text-secondary)] max-w-xs leading-relaxed">
-                Professional Marketing Dashboard & Analytics
-              </p>
+            <div>
+              <p className="text-2xl font-bold text-primary">320%</p>
+              <p className="text-sm text-[color:var(--text-secondary)] mt-0.5">Avg. ROI</p>
             </div>
           </div>
         </motion.div>
+
+        {/* RIGHT — Campaign performance dashboard */}
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="relative hidden lg:block"
+        >
+          <div
+            className="relative rounded-2xl border border-surface p-6 shadow-2xl overflow-hidden"
+            style={{ background: 'rgba(var(--surface-rgb), 0.78)', backdropFilter: 'blur(20px)' }}
+          >
+            {/* Subtle moving gradient sweep */}
+            <div className="absolute inset-0 pointer-events-none opacity-20 animate-gradientMove bg-[linear-gradient(120deg,transparent,rgba(0,74,173,0.3),transparent)]" />
+
+            <div className="relative space-y-5">
+
+              {/* Card header */}
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-secondary)]">
+                    Campaign Performance
+                  </p>
+                  <p className="text-base font-semibold text-[color:var(--text-primary)] mt-0.5">
+                    Beauty Brand · Meta + Google
+                  </p>
+                </div>
+                <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/25 rounded-full px-3 py-1">
+                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+                  <span className="text-emerald-500 text-xs font-semibold">Live</span>
+                </div>
+              </div>
+
+              {/* Metric cards */}
+              <div className="flex gap-3">
+                <MetricCard label="ROAS" value="4.2x" change="↑ +18% this week" positive />
+                <MetricCard label="CPA" value="$12.40" change="↓ −34% vs last mo." positive />
+              </div>
+
+              {/* Weekly revenue mini-chart */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs text-[color:var(--text-secondary)]">Weekly Revenue</p>
+                  <p className="text-xs font-semibold text-primary">+$18,400 · ↑28%</p>
+                </div>
+                <div className="h-[72px] flex items-end gap-1.5">
+                  {[38, 52, 45, 68, 61, 79, 92].map((h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-t animate-bar"
+                      style={{
+                        height: `${h}%`,
+                        background: `rgba(var(--primary-rgb), ${0.22 + i * 0.09})`,
+                        animationDelay: `${i * 0.12}s`,
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Platform badges */}
+              <div className="flex items-center gap-2 pt-1">
+                <span className="text-xs text-[color:var(--text-secondary)]">Platforms:</span>
+                <span className="text-xs font-medium bg-primary/10 border border-primary/20 text-primary px-2.5 py-0.5 rounded-full">
+                  Meta Ads
+                </span>
+                <span className="text-xs font-medium bg-accent/10 border border-accent/20 text-accent px-2.5 py-0.5 rounded-full">
+                  Google Ads
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating leads card */}
+          <motion.div
+            animate={{ y: [0, -7, 0] }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute -bottom-5 -left-7 rounded-xl border border-surface p-3.5 shadow-xl"
+            style={{ background: 'rgba(var(--surface-rgb), 0.92)', backdropFilter: 'blur(14px)' }}
+          >
+            <p className="text-xs text-[color:var(--text-secondary)]">Leads this week</p>
+            <p className="text-xl font-bold text-[color:var(--text-primary)] mt-0.5">
+              147{' '}
+              <span className="text-sm text-emerald-500 font-semibold">+41%</span>
+            </p>
+          </motion.div>
+        </motion.div>
+
       </div>
     </section>
   )

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
 import {
@@ -93,9 +94,9 @@ export const Footer: React.FC = () => {
         <div className="mt-10 lg:mt-12 pt-6 lg:pt-8 border-t border-surface/50">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex gap-6 lg:gap-8 text-sm text-[color:var(--text-secondary)]">
-              <a href="#" className="hover:text-primary transition-colors duration-200">
+              <Link to="/privacy" className="hover:text-primary transition-colors duration-200">
                 {t('footer.privacy')}
-              </a>
+              </Link>
               <a href="#" className="hover:text-primary transition-colors duration-200">
                 {t('footer.terms')}
               </a>

@@ -204,6 +204,7 @@
     ]
   },
   "testimonials": {
+    "label": "Client Reviews",
     "title": "What My Clients Say",
     "items": [
       {
@@ -250,23 +251,36 @@
     "explanation": "Share your goals and I’ll design the first steps to higher conversions.",
     "form": {
       "name": "Your Name",
-      "contact_method": "Contact Method",
-      "contact_value": "Phone / Telegram / Instagram",
+      "contact_method": "Preferred Contact Method",
+      "contact_value": "Contact Details",
       "message": "Your Message",
-      "submit": "Send",
-      "submitting": "Sending...",
-      "success": "Thank you! I'll contact you soon",
-      "error": "Error sending message. Please try again",
+      "messagePlaceholder": "Tell me about your business and goals…",
+      "submit": "Send Request",
+      "submitting": "Sending…",
+      "successTitle": "Request received!",
+      "successBody": "Thank you! We received your request and will contact you soon.",
+      "error": "Something went wrong. Please try again.",
       "nameError": "Please enter your name",
-      "contactValueError": "Please provide a phone, WhatsApp, Telegram or Instagram",
+      "contactValueError": "Please provide your contact details",
       "phoneError": "Please enter a valid phone number",
+      "emailError": "Please enter a valid email address",
       "phonePlaceholder": "Enter phone number",
-      "messageError": "Please describe your project or goal"
+      "helperText": "Please double-check your contact details",
+      "trustText": "We will get back to you within 12 hours",
+      "messageError": "Please describe your project or goal",
+      "valueLabelFor": {
+        "phone": "Phone Number",
+        "whatsapp": "WhatsApp Number",
+        "email": "Email Address",
+        "telegram": "Telegram Username",
+        "instagram": "Instagram Handle"
+      }
     },
     "methods": {
-      "telegram": "Telegram",
-      "whatsapp": "WhatsApp",
       "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "telegram": "Telegram",
       "instagram": "Instagram"
     }
   },
@@ -277,5 +291,10 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
     "copyright": "© 2024 Targetologist. All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 1, 2024",
+    "backHome": "← Back to home"
   }
 }
