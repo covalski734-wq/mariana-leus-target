@@ -162,7 +162,7 @@ export const GoogleAdsPage: React.FC = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <AnimatePresence>
-              {KEYWORDS.slice(0, visibleCount).map((kw, i) => (
+              {KEYWORDS.slice(0, visibleCount).map((kw) => (
                 <motion.div key={kw.text}
                   initial={{ opacity: 0, scale: 0.75, y: 16 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
