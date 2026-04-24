@@ -1,151 +1,106 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import { isValidPhoneNumber } from 'libphonenumber-js';
 import { IconTelegram, IconWhatsApp, IconInstagram, IconMail, IconArrow, IconCheck } from '@/components/Icons';
 import { useLanguage } from '@/context/LanguageContext';
 
-type ContactMethod = 'telegram' | 'whatsapp' | 'phone' | 'email';
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | undefined;
 
-interface FormState {
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type ContactMethod = 'phone' | 'telegram' | 'whatsapp' | 'email';
+
+interface FormValues {
   name: string;
   contact_method: ContactMethod;
   contact_value: string;
   message: string;
 }
 
-interface FormErrors {
-  name?: string;
-  contact_value?: string;
-  message?: string;
-}
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const;
 
-declare const grecaptcha: {
-  execute: (siteKey: string, opts: { action: string }) => Promise<string>;
-};
+const PHONE_COUNTRIES = [
+  'us', 'ca', 'ua',
+  'at', 'be', 'bg', 'hr', 'cy', 'cz', 'dk', 'ee', 'fi', 'fr', 'de', 'gr', 'hu', 'ie', 'it',
+  'lv', 'lt', 'lu', 'mt', 'nl', 'pl', 'pt', 'ro', 'sk', 'si', 'es', 'se',
+] as const;
 
-const SITE_KEY = '6LedO7ssAAAAADmjthPzGMpcAJS0av8QBizOHEOK';
-
-const METHODS: { value: ContactMethod; label: Record<string, string>; placeholder: Record<string, string>; pattern?: RegExp }[] = [
-  {
-    value: 'telegram',
-    label: { EN: 'Telegram', UA: 'Telegram', RU: 'Telegram' },
-    placeholder: { EN: '@username', UA: '@username', RU: '@username' },
-    pattern: /^@[\w]{4,}$/,
-  },
-  {
-    value: 'whatsapp',
-    label: { EN: 'WhatsApp', UA: 'WhatsApp', RU: 'WhatsApp' },
-    placeholder: { EN: '+48 000 000 000', UA: '+48 000 000 000', RU: '+48 000 000 000' },
-    pattern: /^\+?[\d\s\-()]{7,}$/,
-  },
-  {
-    value: 'phone',
-    label: { EN: 'Phone', UA: 'Телефон', RU: 'Телефон' },
-    placeholder: { EN: '+48 000 000 000', UA: '+48 000 000 000', RU: '+48 000 000 000' },
-    pattern: /^\+?[\d\s\-()]{7,}$/,
-  },
-  {
-    value: 'email',
-    label: { EN: 'Email', UA: 'Email', RU: 'Email' },
-    placeholder: { EN: 'you@example.com', UA: 'ви@example.com', RU: 'вы@example.com' },
-    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  },
-];
-
-const validate = (form: FormState, lang: string): FormErrors => {
-  const errors: FormErrors = {};
-  const method = METHODS.find(m => m.value === form.contact_method)!;
-
-  const required = { EN: 'Required', UA: 'Обовʼязкове', RU: 'Обязательное' };
-  const req = (required as Record<string, string>)[lang] ?? required.EN;
-
-  if (!form.name.trim()) errors.name = req;
-
-  if (!form.contact_value.trim()) {
-    errors.contact_value = req;
-  } else if (method.pattern && !method.pattern.test(form.contact_value.trim())) {
-    const fmt = {
-      EN: 'Invalid format',
-      UA: 'Невірний формат',
-      RU: 'Неверный формат',
-    };
-    errors.contact_value = (fmt as Record<string, string>)[lang] ?? fmt.EN;
-  }
-
-  const minMsg = {
-    EN: 'Please write at least 10 characters',
-    UA: 'Напишіть хоча б 10 символів',
-    RU: 'Напишите хотя бы 10 символов',
-  };
-  if (!form.message.trim()) errors.message = req;
-  else if (form.message.trim().length < 10)
-    errors.message = (minMsg as Record<string, string>)[lang] ?? minMsg.EN;
-
-  return errors;
+const METHOD_LABELS: Record<ContactMethod, Record<string, string>> = {
+  phone:    { EN: 'Phone', UA: 'Телефон', RU: 'Телефон' },
+  telegram: { EN: 'Telegram', UA: 'Telegram', RU: 'Telegram' },
+  whatsapp: { EN: 'WhatsApp', UA: 'WhatsApp', RU: 'WhatsApp' },
+  email:    { EN: 'Email', UA: 'Email', RU: 'Email' },
 };
 
 export const ContactSection: React.FC = () => {
   const { t, lang } = useLanguage();
-  const [form, setForm] = useState<FormState>({
-    name: '',
-    contact_method: 'telegram',
-    contact_value: '',
-    message: '',
+  const [status, setStatus] = useState<'success' | 'error' | null>(null);
+
+  const {
+    register,
+    control,
+    watch,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    setValue,
+    clearErrors,
+  } = useForm<FormValues>({
+    defaultValues: { contact_method: 'telegram', contact_value: '', name: '', message: '' },
+    shouldUnregister: true,
   });
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [serverError, setServerError] = useState('');
 
-  const currentMethod = METHODS.find(m => m.value === form.contact_method)!;
+  const selectedMethod = watch('contact_method');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setServerError('');
-    const errs = validate(form, lang);
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-    setErrors({});
-    setSending(true);
+  // Reset contact value when method changes
+  useEffect(() => {
+    setValue('contact_value', '');
+    clearErrors('contact_value');
+  }, [selectedMethod, setValue, clearErrors]);
 
+  useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY || document.getElementById('recaptcha-v3-script')) return;
+    const script = document.createElement('script');
+    script.id = 'recaptcha-v3-script';
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
+  const executeRecaptcha = async (): Promise<string | undefined> => {
+    const g = (window as unknown as { grecaptcha?: { execute: (k: string, o: { action: string }) => Promise<string> } }).grecaptcha;
+    if (!RECAPTCHA_SITE_KEY || !g) return undefined;
+    return g.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form' });
+  };
+
+  const onSubmit = async (data: FormValues) => {
+    setStatus(null);
     try {
-      const recaptchaToken = await grecaptcha.execute(SITE_KEY, { action: 'contact_form' });
-
-      const utm: Record<string, string> = {};
-      const params = new URLSearchParams(window.location.search);
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(k => {
-        const v = params.get(k);
-        if (v) utm[k] = v;
-      });
+      const token = await executeRecaptcha();
+      const sp = new URLSearchParams(window.location.search);
+      const utm = Object.fromEntries(
+        UTM_KEYS.map(k => [k, sp.get(k) ?? localStorage.getItem(k) ?? undefined])
+          .filter(([, v]) => v)
+      );
+      UTM_KEYS.forEach(k => { const v = sp.get(k); if (v) localStorage.setItem(k, v); });
 
       const res = await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name.trim(),
-          contact_method: form.contact_method,
-          contact_value: form.contact_value.trim(),
-          message: form.message.trim(),
-          recaptchaToken,
-          ...utm,
-        }),
+        body: JSON.stringify({ ...data, ...utm, recaptchaToken: token }),
       });
-
-      if (!res.ok) {
-        const d = await res.json().catch(() => null);
-        throw new Error(d?.message || 'Submission failed');
-      }
-
-      setSent(true);
-    } catch (err) {
-      const errMsg = { EN: 'Something went wrong. Please try again or contact via Telegram.', UA: 'Щось пішло не так. Спробуйте ще раз або напишіть у Telegram.', RU: 'Что-то пошло не так. Попробуйте ещё раз или напишите в Telegram.' };
-      setServerError((errMsg as Record<string, string>)[lang] ?? errMsg.EN);
-    } finally {
-      setSending(false);
+      if (!res.ok) throw new Error('failed');
+      setStatus('success');
+      reset({ name: '', contact_method: 'phone', contact_value: '', message: '' });
+    } catch {
+      setStatus('error');
     }
   };
 
-  const set = <K extends keyof FormState>(k: K) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm(f => ({ ...f, [k]: e.target.value }));
-    if (errors[k as keyof FormErrors]) setErrors(prev => ({ ...prev, [k]: undefined }));
-  };
+  const contactValueError = errors.contact_value?.message;
 
   return (
     <section className="contact" id="contact">
@@ -153,15 +108,15 @@ export const ContactSection: React.FC = () => {
         <div className="section-head reveal">
           <div>
             <div className="section-num">{t('contact.sectionNum')}</div>
-            <h2>{t('contact.title').split('\n').map((line, i, arr) => (
-              <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
+            <h2>{t('contact.title').split('\n').map((line, i, a) => (
+              <React.Fragment key={i}>{line}{i < a.length - 1 && <br />}</React.Fragment>
             ))}</h2>
           </div>
           <p className="side">{t('contact.desc')}</p>
         </div>
 
         <div className="contact-grid">
-          {/* Left — channels */}
+          {/* Channels */}
           <div className="channels reveal">
             <a href="https://t.me/marianaleus" target="_blank" rel="noopener noreferrer" className="channel primary">
               <div className="ico"><IconTelegram size={22} /></div>
@@ -197,15 +152,15 @@ export const ContactSection: React.FC = () => {
             </a>
           </div>
 
-          {/* Right — form */}
+          {/* Form */}
           <div className="lead-form reveal">
-            {sent ? (
+            {status === 'success' ? (
               <div className="form-success">
                 <IconCheck size={20} />
                 <span>{t('contact.successMsg')}</span>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate>
+              <form onSubmit={handleSubmit(onSubmit)} className='flex gap-1.5' noValidate>
                 {/* Name */}
                 <div className="field">
                   <label htmlFor="cf-name">{t('contact.nameLabel')}</label>
@@ -213,45 +168,126 @@ export const ContactSection: React.FC = () => {
                     id="cf-name"
                     type="text"
                     placeholder={t('contact.namePlaceholder')}
-                    value={form.name}
-                    onChange={set('name')}
                     className={errors.name ? 'error' : ''}
+                    {...register('name', {
+                      required: { value: true, message: lang === 'UA' ? "Обов'язкове" : lang === 'RU' ? 'Обязательное' : 'Required' },
+                    })}
                   />
-                  {errors.name && <div className="field-error">{errors.name}</div>}
+                  {errors.name && <div className="field-error">{errors.name.message}</div>}
                 </div>
 
-                {/* Contact method selector */}
+                {/* Contact method pills */}
                 <div className="field">
                   <label>{t('contact.contactMethodLabel')}</label>
-                  <div className="method-pills">
-                    {METHODS.map(m => (
-                      <button
-                        key={m.value}
-                        type="button"
-                        className={'method-pill' + (form.contact_method === m.value ? ' active' : '')}
-                        onClick={() => setForm(f => ({ ...f, contact_method: m.value, contact_value: '' }))}
-                      >
-                        {m.label[lang] ?? m.label.EN}
-                      </button>
-                    ))}
-                  </div>
+                  <Controller
+                    name="contact_method"
+                    control={control}
+                    render={({ field }) => (
+                      <div className="method-pills">
+                        {(Object.keys(METHOD_LABELS) as ContactMethod[]).map(m => (
+                          <button
+                            key={m}
+                            type="button"
+                            className={'method-pill' + (field.value === m ? ' active' : '')}
+                            onClick={() => field.onChange(m)}
+                          >
+                            {METHOD_LABELS[m][lang] ?? METHOD_LABELS[m].EN}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  />
                 </div>
 
                 {/* Contact value */}
                 <div className="field">
                   <label htmlFor="cf-contact">
-                    {currentMethod.label[lang] ?? currentMethod.label.EN}
+                    {METHOD_LABELS[selectedMethod]?.[lang] ?? METHOD_LABELS[selectedMethod]?.EN}
                   </label>
-                  <input
-                    id="cf-contact"
-                    type={form.contact_method === 'email' ? 'email' : 'text'}
-                    placeholder={currentMethod.placeholder[lang] ?? currentMethod.placeholder.EN}
-                    value={form.contact_value}
-                    onChange={set('contact_value')}
-                    className={errors.contact_value ? 'error' : ''}
-                    autoComplete={form.contact_method === 'email' ? 'email' : 'off'}
+
+                  <Controller
+                    key={selectedMethod}
+                    name="contact_value"
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: lang === 'UA'
+                          ? "Обов'язкове"
+                          : lang === 'RU'
+                          ? 'Обязательное'
+                          : 'Required',
+                      },
+                      validate: (v) => {
+                        if (selectedMethod === 'phone' || selectedMethod === 'whatsapp') {
+                          try {
+                            return isValidPhoneNumber('+' + v) || (
+                              lang === 'UA'
+                                ? 'Невірний номер'
+                                : lang === 'RU'
+                                ? 'Неверный номер'
+                                : 'Invalid phone number'
+                            );
+                          } catch {
+                            return lang === 'UA'
+                              ? 'Невірний номер'
+                              : lang === 'RU'
+                              ? 'Неверный номер'
+                              : 'Invalid phone number';
+                          }
+                        }
+
+                        if (selectedMethod === 'telegram') {
+                          return /^@[\w]{4,}$/.test(v) || (
+                            lang === 'UA'
+                              ? 'Формат: @username'
+                              : lang === 'RU'
+                              ? 'Формат: @username'
+                              : 'Format: @username'
+                          );
+                        }
+
+                        if (selectedMethod === 'email') {
+                          return EMAIL_RE.test(v) || (
+                            lang === 'UA'
+                              ? 'Невірний email'
+                              : lang === 'RU'
+                              ? 'Неверный email'
+                              : 'Invalid email'
+                          );
+                        }
+
+                        return true;
+                      },
+                    }}
+                    render={({ field }) => {
+                      if (selectedMethod === 'phone' || selectedMethod === 'whatsapp') {
+                        return (
+                          <PhoneInput
+                            country="pl"
+                            onlyCountries={[...PHONE_COUNTRIES]}
+                            value={field.value}
+                            onChange={field.onChange}
+                            inputProps={{ id: 'cf-contact', required: true }}
+                            containerClass={'phone-input-container' + (contactValueError ? ' error' : '')}
+                          />
+                        );
+                      }
+
+                      return (
+                        <input
+                          id="cf-contact"
+                          type={selectedMethod === 'email' ? 'email' : 'text'}
+                          placeholder={selectedMethod === 'telegram' ? '@username' : 'you@example.com'}
+                          value={field.value}
+                          onChange={field.onChange}
+                          className={contactValueError ? 'error' : ''}
+                        />
+                      );
+                    }}
                   />
-                  {errors.contact_value && <div className="field-error">{errors.contact_value}</div>}
+
+                  {contactValueError && <div className="field-error">{contactValueError}</div>}
                 </div>
 
                 {/* Message */}
@@ -260,20 +296,31 @@ export const ContactSection: React.FC = () => {
                   <textarea
                     id="cf-msg"
                     placeholder={t('contact.messagePlaceholder')}
-                    value={form.message}
-                    onChange={set('message')}
                     className={errors.message ? 'error' : ''}
+                    {...register('message', {
+                      required: { value: true, message: lang === 'UA' ? "Обов'язкове" : lang === 'RU' ? 'Обязательное' : 'Required' },
+                      minLength: {
+                        value: 10,
+                        message: lang === 'UA' ? 'Мінімум 10 символів' : lang === 'RU' ? 'Минимум 10 символов' : 'At least 10 characters',
+                      },
+                    })}
                   />
-                  {errors.message && <div className="field-error">{errors.message}</div>}
+                  {errors.message && <div className="field-error">{errors.message.message}</div>}
                 </div>
 
-                {serverError && (
-                  <div className="form-server-error">{serverError}</div>
+                {status === 'error' && (
+                  <div className="form-server-error">
+                    {lang === 'UA'
+                      ? 'Щось пішло не так. Спробуйте ще раз або напишіть у Telegram.'
+                      : lang === 'RU'
+                      ? 'Что-то пошло не так. Попробуйте ещё раз или напишите в Telegram.'
+                      : 'Something went wrong. Please try again or contact via Telegram.'}
+                  </div>
                 )}
 
-                <button type="submit" disabled={sending} className="btn btn-primary">
-                  {sending ? '…' : t('contact.submitBtn')}
-                  {!sending && <IconArrow size={16} className="arrow" />}
+                <button type="submit" disabled={isSubmitting} className="btn btn-primary">
+                  {isSubmitting ? '…' : t('contact.submitBtn')}
+                  {!isSubmitting && <IconArrow size={16} className="arrow" />}
                 </button>
 
                 <div className="form-foot">{t('contact.formFoot')}</div>

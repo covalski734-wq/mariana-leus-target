@@ -443,6 +443,7 @@
     transition: all .25s ease;
     outline: none;
   }
+  .lead-form form { display: flex; flex-direction: column; gap:20px; }
   .lead-form input:focus, .lead-form textarea:focus, .lead-form select:focus { border-color: var(--brand-glow); background: var(--surface-2); box-shadow: 0 0 0 3px rgba(0,74,173,.15); }
   .lead-form textarea { min-height: 120px; resize: vertical; font-family: var(--display); }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -464,6 +465,74 @@
   .method-pill:hover { color: var(--fg); border-color: var(--border-2); }
   .method-pill.active { background: var(--fg); color: var(--bg); border-color: transparent; }
 
+  /* react-phone-input-2 — design system override */
+  .phone-input-container { width: 100% !important; }
+  .phone-input-container .form-control {
+    width: 100% !important; height: auto !important;
+    padding: 14px 16px 14px 54px !important;
+    border-radius: var(--radius) !important;
+    border: 1px solid var(--border-2) !important;
+    background: var(--surface) !important;
+    color: var(--fg) !important;
+    font: 400 15px/1.5 var(--display) !important;
+    font-family: var(--display) !important;
+    outline: none !important;
+    transition: border-color .2s, box-shadow .2s !important;
+  }
+  .phone-input-container .form-control::placeholder { color: var(--fg-mute) !important; }
+  .phone-input-container .form-control:focus {
+    border-color: var(--brand-glow) !important;
+    background: var(--surface-2) !important;
+    box-shadow: 0 0 0 3px rgba(0,74,173,.15) !important;
+  }
+  .phone-input-container.error .form-control { border-color: rgba(220,38,38,.5) !important; }
+  .phone-input-container .flag-dropdown {
+    border: none !important;
+    border-right: 1px solid var(--border-2) !important;
+    border-radius: var(--radius) 0 0 var(--radius) !important;
+    background: var(--surface) !important;
+    overflow: visible !important;
+    z-index: 9 !important;
+  }
+  .phone-input-container .flag-dropdown:hover,
+  .phone-input-container .flag-dropdown.open { background: var(--surface-2) !important; }
+  .phone-input-container .selected-flag {
+    background: transparent !important;
+    border-radius: var(--radius) 0 0 var(--radius) !important;
+    padding: 0 10px !important;
+    width: 46px !important;
+  }
+  .phone-input-container .country-list {
+    background: var(--bg-2) !important;
+    border: 1px solid var(--border-2) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,.45) !important;
+    margin: 4px 0 0 !important;
+    max-height: 240px !important;
+    overflow-y: auto !important;
+    z-index: 9999 !important;
+    width: 300px !important;
+    font-family: var(--display) !important;
+  }
+  .phone-input-container .country-list .country { padding: 8px 14px !important; }
+  .phone-input-container .country-list .country:hover { background: var(--surface-2) !important; }
+  .phone-input-container .country-list .country.highlight { background: rgba(0,74,173,.12) !important; }
+  .phone-input-container .country-list .country-name { color: var(--fg) !important; margin-right: 6px !important; }
+  .phone-input-container .country-list .dial-code { color: var(--fg-mute) !important; }
+  .phone-input-container .search { padding: 10px 12px !important; background: var(--bg-2) !important; position: sticky !important; top: 0 !important; }
+  .phone-input-container .search-box {
+    background: var(--surface) !important;
+    border: 1px solid var(--border-2) !important;
+    border-radius: 8px !important;
+    color: var(--fg) !important;
+    padding: 6px 10px !important;
+    width: 100% !important;
+    font-family: var(--display) !important;
+    font-size: 13px !important;
+    outline: none !important;
+  }
+  .phone-input-container .search-box:focus { border-color: var(--brand-glow) !important; }
+
   /* Footer */
   footer {
     padding: 80px 0 40px; border-top: 1px solid var(--border); position: relative; z-index: 2;
@@ -478,7 +547,7 @@
 
   /* Giant footer type */
   .giant-type {
-    font: 600 clamp(80px, 18vw, 280px)/0.85 var(--display);
+    font: 600 clamp(80px, 16vw, 240px)/0.85 var(--display);
     letter-spacing: -0.055em; color: var(--fg); opacity: .08;
     margin: 40px 0 0; white-space: nowrap; overflow: hidden;
     text-wrap: nowrap;

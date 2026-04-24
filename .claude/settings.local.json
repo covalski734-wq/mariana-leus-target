@@ -16,7 +16,9 @@
       "Bash(xxd)",
       "Bash(mkdir -p /tmp/design-extracted)",
       "Bash(tar xf *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(git -C \"c:/Users/i_cov/mariana-target/mariana-leus-target\" log --oneline -5)",
+      "Bash(git -C \"c:/Users/i_cov/mariana-target/mariana-leus-target\" show f652344:src/sections/ContactSection.tsx)"
     ]
   }
 }
