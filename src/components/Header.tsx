@@ -16,16 +16,21 @@ export const Header: React.FC = () => {
   const location = useLocation()
 
   const navItems: NavItem[] = [
-    { label: t('header.hero'), id: 'hero' },
     { label: t('header.services'), id: 'services' },
     { label: t('header.process'), id: 'process' },
     { label: t('header.results'), id: 'results' },
-    { label: t('header.trust'), id: 'trust' },
     { label: t('header.testimonials'), id: 'testimonials' },
-    { label: t('header.blog'), id: 'blog' },
     { label: t('header.faq'), id: 'faq' },
     { label: t('header.about'), href: '/about' },
   ]
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      window.location.href = '/'
+    }
+  }
 
   const languages = ['ua', 'ru', 'en']
 
@@ -56,7 +61,7 @@ export const Header: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo & Brand */}
-          <div className="flex items-center space-x-3">
+          <button onClick={handleLogoClick} className="flex items-center space-x-3 focus-visible:outline-none">
             <img src="/logo.svg" alt="Mariana Leus" className="w-10 h-10 hover:scale-110 transition-transform duration-300" />
             <div className="hidden sm:flex flex-col text-center">
               <span className="font-bold text-xxs tracking-widest text-[color:var(--text-primary)]">MARIANA LEUS</span>
@@ -66,7 +71,7 @@ export const Header: React.FC = () => {
                 <div className="h-px w-6 bg-primary"></div>
               </div>
             </div>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">

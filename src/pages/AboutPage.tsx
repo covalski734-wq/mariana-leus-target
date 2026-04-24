@@ -70,24 +70,15 @@ export const AboutPage: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Photo placeholder */}
+            {/* Photo */}
             <motion.div {...fadeUp(0.15)} className="flex justify-center lg:justify-end">
               <div className="relative">
-                <div
-                  className="w-72 h-80 lg:w-80 lg:h-96 rounded-3xl overflow-hidden border border-surface shadow-2xl"
-                  style={{ background: 'rgba(var(--surface-rgb), 0.8)' }}
-                >
-                  {/* Placeholder image area */}
-                  <div className="w-full h-full flex flex-col items-center justify-center gap-4"
-                    style={{ background: 'linear-gradient(135deg, rgba(var(--primary-rgb),0.08) 0%, rgba(var(--surface-rgb),1) 100%)' }}
-                  >
-                    <div className="w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-primary/40">ML</span>
-                    </div>
-                    <p className="text-xs text-[color:var(--text-secondary)] text-center px-6 leading-relaxed opacity-60">
-                      {t('about.photoHint')}
-                    </p>
-                  </div>
+                <div className="w-72 h-80 lg:w-80 lg:h-96 rounded-3xl overflow-hidden border border-surface shadow-2xl">
+                  <img
+                    src="/mariana.jpg"
+                    alt="Mariana Leus — Paid Ads Specialist"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
                 {/* Floating badge */}
                 <motion.div

@@ -201,16 +201,16 @@ export const ContactSection: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right — form */}
+          {/* Right — form (opacity-only animation to avoid stacking-context from transform) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
             <div
               className="rounded-2xl border border-surface p-8 shadow-xl"
-              style={{ background: 'rgba(var(--surface-rgb), 0.9)', backdropFilter: 'blur(12px)' }}
+              style={{ background: 'rgba(var(--surface-rgb), 0.9)' }}
             >
               {/* Success state */}
               {status === 'success' ? (
@@ -282,6 +282,7 @@ export const ContactSection: React.FC = () => {
                     </label>
 
                     {isPhoneMethod ? (
+                      <div style={{ position: 'relative', zIndex: 9999 }}>
                       <Controller
                         name="contact_value"
                         control={control}
@@ -289,13 +290,17 @@ export const ContactSection: React.FC = () => {
                           required: true,
                           validate: (value) => {
                             const normalized = value?.toString().startsWith('+') ? value.toString() : `+${value}`
-                            return isValidPhoneNumber(normalized) || (t('contact.form.phoneError') as string)
+                            try {
+                              return isValidPhoneNumber(normalized) || (t('contact.form.phoneError') as string)
+                            } catch {
+                              return t('contact.form.phoneError') as string
+                            }
                           },
                         }}
                         render={({ field }) => (
                           <PhoneInput
                             {...field}
-                            country="us"
+                            country="ua"
                             onlyCountries={ALLOWED_PHONE_COUNTRIES}
                             enableSearch
                             countryCodeEditable
@@ -305,6 +310,7 @@ export const ContactSection: React.FC = () => {
                           />
                         )}
                       />
+                      </div>
                     ) : isEmailMethod ? (
                       <input
                         id="contact_value"
@@ -321,11 +327,12 @@ export const ContactSection: React.FC = () => {
                         className={inputClass}
                       />
                     ) : (
+                      // Telegram / Instagram — accept any text, no format validation
                       <input
                         id="contact_value"
                         type="text"
                         placeholder={valuePlaceholder[selectedMethod] ?? ''}
-                        {...register('contact_value', { required: true })}
+                        {...register('contact_value', { required: t('contact.form.contactValueError') as string })}
                         className={inputClass}
                       />
                     )}

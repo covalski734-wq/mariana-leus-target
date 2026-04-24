@@ -3,10 +3,10 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/Card'
 
-const imagePlaceholders = [
-  'Photo: short-form video ad creative (Reel or Story) — dark background, performance metrics overlay',
-  'Photo: ad copy mock-up on phone screen — clean white interface, highlighted CTA button',
-  'Photo: analytics dashboard screenshot — bar charts, ROAS, CPA numbers highlighted',
+const sectionImages = [
+  '/performance-driven-reels.png',
+  '/conversion-copy.png',
+  '/audit-insights.png',
 ]
 
 export const ContentSection: React.FC = () => {
@@ -46,15 +46,16 @@ export const ContentSection: React.FC = () => {
               viewport={{ once: true }}
             >
               <Card hover className="group overflow-hidden h-full flex flex-col">
-                {/* Image placeholder */}
-                <div className="h-48 rounded-xl border border-surface bg-gradient-to-br from-primary/10 to-accent/10 mb-6 flex flex-col items-center justify-center gap-2 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(var(--primary-rgb),0.05),rgba(var(--accent-rgb),0.08))]" />
-                  <span className="text-xs uppercase tracking-[0.28em] font-semibold text-primary z-10 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/10">
+                {/* Section image */}
+                <div className="h-48 rounded-xl overflow-hidden mb-6 relative">
+                  <img
+                    src={sectionImages[index]}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute top-3 left-3 text-xs uppercase tracking-[0.28em] font-semibold text-primary px-3 py-1.5 rounded-full border border-primary/20 bg-primary/10 backdrop-blur-sm">
                     {item.tag}
                   </span>
-                  <p className="text-[10px] text-[color:var(--text-muted)] z-10 text-center px-4 leading-snug">
-                    {imagePlaceholders[index]}
-                  </p>
                 </div>
                 <h3 className="text-xl font-bold text-[color:var(--text-primary)] mb-3">
                   {item.title}

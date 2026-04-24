@@ -1,168 +1,214 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import {
+  TrendingUp,
+  AttachMoney,
+  PeopleAlt,
+  CheckCircle,
+  ArrowForward,
+} from '@mui/icons-material'
 import { PageShell } from '@/components/PageShell'
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] },
-  viewport: { once: true },
-})
+function useCounter(end: number, duration: number, active: boolean) {
+  const [value, setValue] = useState(0)
+  useEffect(() => {
+    if (!active) return
+    const t0 = performance.now()
+    const tick = (now: number) => {
+      const p = Math.min((now - t0) / duration, 1)
+      setValue(Math.round((1 - Math.pow(1 - p, 3)) * end))
+      if (p < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }, [end, duration, active])
+  return value
+}
 
-const SocialPost: React.FC<{
-  brand: string
-  emoji: string
-  caption: string
-  likes: string
-  comments: string
-  shares: string
-  accent: string
-  delay: number
-}> = ({ brand, emoji, caption, likes, comments, shares, accent, delay }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 16, scale: 0.96 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-    className="rounded-2xl border p-4 shadow-lg"
-    style={{
-      borderColor: `${accent}30`,
-      background: `rgba(var(--surface-rgb), 0.9)`,
-      backdropFilter: 'blur(14px)',
-    }}
-  >
-    <div className="flex items-center gap-2.5 mb-3">
-      <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white"
-        style={{ background: `linear-gradient(135deg, ${accent}, ${accent}88)` }}
-      >
-        {brand[0]}
-      </div>
-      <div>
-        <p className="text-xs font-semibold text-[color:var(--text-primary)]">{brand}</p>
-        <p className="text-[10px] text-[color:var(--text-secondary)]">Sponsored · Meta Ads</p>
-      </div>
-    </div>
-    <div
-      className="h-24 rounded-xl mb-3 flex items-center justify-center text-4xl"
-      style={{ background: `linear-gradient(135deg, ${accent}22, ${accent}08)` }}
-    >
-      {emoji}
-    </div>
-    <p className="text-xs text-[color:var(--text-secondary)] leading-relaxed mb-3">{caption}</p>
-    <div className="flex gap-4 text-xs text-[color:var(--text-secondary)]">
-      <span>❤️ {likes}</span>
-      <span>💬 {comments}</span>
-      <span>↗ {shares}</span>
-    </div>
-  </motion.div>
-)
+const BARS = [35, 52, 44, 68, 58, 79, 92]
+const DAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+
+const FUNNEL = [
+  { stage: 'Impressions', val: '420K', pct: 100 },
+  { stage: 'Clicks', val: '18.4K', pct: 44 },
+  { stage: 'Leads', val: '1,247', pct: 30 },
+  { stage: 'Conversions', val: '312', pct: 20 },
+]
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+}
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
+}
 
 export const MetaAdsPage: React.FC = () => {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const benefits = t('services.benefits.metaAds', { returnObjects: true }) as string[]
   const details = t('services.details.metaAds')
-  const items = t('services.items', { returnObjects: true }) as { key: string; description: string }[]
-  const description = items.find((it) => it.key === 'metaAds')?.description ?? ''
+
+  const statsRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(statsRef, { once: true, margin: '-80px' })
+  const roas = useCounter(42, 1400, inView)
+  const cpa = useCounter(52, 1400, inView)
+  const reach = useCounter(340, 1600, inView)
+
+  const go = (id: string) => { sessionStorage.setItem('scrollTarget', id); navigate('/') }
 
   return (
     <PageShell>
-      {/* Hero */}
-      <section className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-8">
+      {/* ── HERO ─────────────────────────────────────── */}
+      <section className="relative overflow-hidden py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute w-[600px] h-[600px] rounded-full blur-[160px] opacity-30"
-            style={{ background: 'radial-gradient(circle, #7c3aed, #4f46e5)', top: '-200px', right: '-100px' }} />
-          <div className="absolute w-[400px] h-[400px] rounded-full blur-[120px] opacity-20"
-            style={{ background: 'radial-gradient(circle, #ec4899, #8b5cf6)', bottom: '-100px', left: '-80px' }} />
+          <div className="absolute -top-40 -right-20 w-[520px] h-[520px] rounded-full blur-[160px]"
+            style={{ background: 'rgba(99,60,180,0.18)' }} />
+          <div className="absolute -bottom-32 -left-16 w-[380px] h-[380px] rounded-full blur-[130px]"
+            style={{ background: 'rgba(var(--primary-rgb),0.12)' }} />
         </div>
 
-        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
-          <motion.div {...fadeUp()}>
-            <Link to="/#services" onClick={() => { window.location.href = '/#services' }}
-              className="inline-flex items-center gap-1.5 text-xs text-[color:var(--text-secondary)] hover:text-primary mb-8 transition-colors">
+        <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
+          {/* LEFT */}
+          <motion.div variants={stagger} initial="hidden" animate="show">
+            <motion.button variants={item}
+              onClick={() => go('services')}
+              className="text-xs text-[color:var(--text-secondary)] hover:text-primary mb-7 flex items-center gap-1 transition-colors">
               {t('services_pages.backToServices')}
-            </Link>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
-              style={{ background: 'rgba(124,58,237,0.12)', border: '1px solid rgba(124,58,237,0.3)', color: '#a78bfa' }}>
-              Meta Ads · Facebook · Instagram · TikTok
-            </div>
-            <h1 className="text-4xl lg:text-5xl font-bold text-[color:var(--text-primary)] leading-[1.08] tracking-[-0.03em] mb-6">
-              {details}
-            </h1>
-            <p className="text-lg text-[color:var(--text-secondary)] leading-relaxed mb-10 max-w-lg">
-              {description}
-            </p>
+            </motion.button>
 
-            <div className="grid grid-cols-3 gap-4 mb-10">
+            <motion.span variants={item}
+              className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold mb-6"
+              style={{ background: 'rgba(var(--primary-rgb),0.1)', border: '1px solid rgba(var(--primary-rgb),0.25)', color: 'rgb(var(--primary-rgb))' }}>
+              Meta Ads · Facebook · Instagram · TikTok
+            </motion.span>
+
+            <motion.h1 variants={item}
+              className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[color:var(--text-primary)] leading-[1.06] tracking-[-0.03em] mb-5">
+              {details}
+            </motion.h1>
+
+            <motion.p variants={item} className="text-lg text-[color:var(--text-secondary)] leading-relaxed mb-8 max-w-lg">
+              We build and manage Meta ad systems that drive consistent, measurable revenue — not just traffic and vanity metrics.
+            </motion.p>
+
+            {/* Animated counters */}
+            <motion.div variants={item} ref={statsRef} className="grid grid-cols-3 gap-3 mb-9">
               {[
-                { value: '4.2x', label: 'Avg. ROAS', color: '#a78bfa' },
-                { value: '−52%', label: 'CPA Reduction', color: '#34d399' },
-                { value: '+340%', label: 'Reach Growth', color: '#f472b6' },
-              ].map((s) => (
+                { value: `${(roas / 10).toFixed(1)}x`, label: 'Avg. ROAS', color: '#a78bfa' },
+                { value: `−${cpa}%`, label: 'CPA reduction', color: '#34d399' },
+                { value: `+${reach}%`, label: 'Reach growth', color: 'rgb(var(--primary-rgb))' },
+              ].map(s => (
                 <div key={s.label} className="rounded-2xl border border-surface p-4 text-center"
-                  style={{ background: 'rgba(var(--surface-rgb), 0.7)' }}>
+                  style={{ background: 'rgba(var(--surface-rgb),0.7)' }}>
                   <p className="text-2xl font-bold" style={{ color: s.color }}>{s.value}</p>
                   <p className="text-xs text-[color:var(--text-secondary)] mt-1">{s.label}</p>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="flex gap-3 flex-wrap">
-              <button onClick={() => { window.location.href = '/#contact' }}
-                className="px-6 py-3 rounded-xl text-white text-sm font-semibold transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)' }}>
+            <motion.div variants={item} className="flex gap-3 flex-wrap">
+              <button onClick={() => go('contact')}
+                className="px-6 py-3 rounded-xl text-white text-sm font-semibold hover:opacity-90 transition-opacity bg-primary">
                 {t('services_pages.getStarted')}
               </button>
-              <button onClick={() => { window.location.href = '/#contact' }}
+              <button onClick={() => go('contact')}
                 className="px-6 py-3 rounded-xl border border-surface text-sm font-semibold text-[color:var(--text-secondary)] hover:border-primary hover:text-primary transition-colors">
                 {t('services_pages.freeAudit')}
               </button>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Social posts visual */}
-          <div className="hidden lg:block relative">
-            <div className="space-y-4">
-              <SocialPost brand="Beauty Brand" emoji="💄" caption="Discover award-winning skincare. Free shipping on orders over $50."
-                likes="2,487" comments="318" shares="1.2k" accent="#7c3aed" delay={0.2} />
-              <SocialPost brand="E-Shop Growth" emoji="🛍️" caption="Summer sale — up to 60% off selected items. Limited time."
-                likes="1,834" comments="204" shares="870" accent="#ec4899" delay={0.35} />
+          {/* RIGHT — dashboard */}
+          <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }} className="hidden lg:block">
+            <div className="rounded-2xl border border-surface p-5 shadow-2xl"
+              style={{ background: 'rgba(var(--surface-rgb),0.94)' }}>
+              <div className="flex items-center justify-between mb-5">
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-[color:var(--text-secondary)]">Campaign Analytics</p>
+                  <p className="text-sm font-semibold text-[color:var(--text-primary)] mt-0.5">Q4 Performance</p>
+                </div>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold text-emerald-400"
+                  style={{ background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.2)' }}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Active
+                </div>
+              </div>
+
+              {/* Bar chart */}
+              <div className="mb-5">
+                <div className="flex justify-between text-[10px] text-[color:var(--text-secondary)] mb-2">
+                  <span>Weekly Revenue</span>
+                  <span className="text-emerald-400 font-semibold">+$18,400 · ↑28%</span>
+                </div>
+                <div className="h-[72px] flex items-end gap-1.5">
+                  {BARS.map((h, i) => (
+                    <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                      <motion.div
+                        initial={{ scaleY: 0 }} animate={inView ? { scaleY: 1 } : {}}
+                        transition={{ duration: 0.55, delay: 0.4 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ height: `${h}%`, transformOrigin: 'bottom', background: `rgba(var(--primary-rgb),${0.22 + i * 0.1})` }}
+                        className="w-full rounded-t-sm"
+                      />
+                      <span className="text-[9px] text-[color:var(--text-secondary)]">{DAYS[i]}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Metric chips */}
+              <div className="grid grid-cols-3 gap-2 mb-4">
+                {[
+                  { Icon: TrendingUp, label: 'ROAS', value: '4.2x', c: '#a78bfa' },
+                  { Icon: AttachMoney, label: 'CPA', value: '$14', c: '#34d399' },
+                  { Icon: PeopleAlt, label: 'Reach', value: '128K', c: 'rgb(var(--primary-rgb))' },
+                ].map(m => (
+                  <div key={m.label} className="rounded-xl border border-surface p-3"
+                    style={{ background: 'rgba(var(--surface-strong-rgb),0.8)' }}>
+                    <m.Icon sx={{ fontSize: 15, color: m.c }} />
+                    <p className="text-base font-bold mt-0.5" style={{ color: m.c }}>{m.value}</p>
+                    <p className="text-[10px] text-[color:var(--text-secondary)]">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Funnel */}
+              <div className="pt-4 border-t border-surface">
+                <p className="text-[10px] uppercase tracking-wider text-[color:var(--text-secondary)] mb-3">Conversion funnel</p>
+                {FUNNEL.map((f, i) => (
+                  <div key={f.stage} className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[10px] text-[color:var(--text-secondary)] w-[78px] shrink-0">{f.stage}</span>
+                    <div className="flex-1 h-1 rounded-full" style={{ background: 'rgba(var(--surface-strong-rgb),1)' }}>
+                      <motion.div initial={{ width: 0 }} animate={inView ? { width: `${f.pct}%` } : {}}
+                        transition={{ duration: 0.7, delay: 0.7 + i * 0.1 }}
+                        className="h-full rounded-full bg-primary" />
+                    </div>
+                    <span className="text-[10px] font-semibold text-[color:var(--text-primary)] w-10 text-right">{f.val}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            {/* ROAS floating card */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -right-6 top-8 rounded-2xl border p-4 shadow-2xl"
-              style={{
-                borderColor: 'rgba(124,58,237,0.25)',
-                background: 'rgba(var(--surface-rgb), 0.95)',
-                backdropFilter: 'blur(16px)',
-              }}
-            >
-              <p className="text-xs mb-1" style={{ color: '#a78bfa' }}>ROAS This Month</p>
-              <p className="text-3xl font-bold text-[color:var(--text-primary)]">4.2x</p>
-              <p className="text-xs font-semibold text-emerald-400 mt-0.5">↑ +18% vs last month</p>
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* What's included */}
+      {/* ── WHAT'S INCLUDED ── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
         <div className="max-w-[1000px] mx-auto">
-          <motion.div className="mb-12" {...fadeUp()}>
-            <p className="text-sm uppercase tracking-[0.32em] mb-3" style={{ color: '#a78bfa' }}>{t('services_pages.included')}</p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-12">
+            <p className="text-xs uppercase tracking-[0.32em] text-primary mb-3">{t('services_pages.included')}</p>
             <h2 className="text-3xl font-bold text-[color:var(--text-primary)]">Everything in the package</h2>
           </motion.div>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-3 gap-5">
             {benefits.map((b, i) => (
-              <motion.div key={i} {...fadeUp(i * 0.1)}
-                className="rounded-2xl border border-surface p-6"
-                style={{ background: 'rgba(var(--surface-rgb), 0.7)' }}>
-                <div className="w-8 h-8 rounded-lg mb-4 flex items-center justify-center"
-                  style={{ background: 'rgba(124,58,237,0.15)' }}>
-                  <span className="text-sm font-bold" style={{ color: '#a78bfa' }}>{i + 1}</span>
-                </div>
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}
+                className="rounded-2xl border border-surface p-6" style={{ background: 'rgba(var(--surface-rgb),0.7)' }}>
+                <CheckCircle sx={{ fontSize: 22, color: 'rgb(var(--primary-rgb))' }} className="mb-4" />
                 <p className="text-sm text-[color:var(--text-secondary)] leading-relaxed">{b}</p>
               </motion.div>
             ))}
@@ -170,25 +216,25 @@ export const MetaAdsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* ── PROCESS ── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1000px] mx-auto">
-          <motion.div className="mb-12" {...fadeUp()}>
-            <p className="text-sm uppercase tracking-[0.32em] mb-3" style={{ color: '#a78bfa' }}>{t('services_pages.howItWorks')}</p>
-            <h2 className="text-3xl font-bold text-[color:var(--text-primary)]">From zero to optimized in weeks</h2>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+            <p className="text-xs uppercase tracking-[0.32em] text-primary mb-3">{t('services_pages.howItWorks')}</p>
+            <h2 className="text-3xl font-bold text-[color:var(--text-primary)]">From setup to scale in 4 weeks</h2>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { step: '01', title: 'Audience Research', desc: 'Deep dive into your ideal customer: demographics, interests, behaviors, and look-alikes.' },
-              { step: '02', title: 'Creative Strategy', desc: 'Develop ad creatives and copy matched to each funnel stage — awareness, consideration, conversion.' },
-              { step: '03', title: 'Campaign Launch', desc: 'Structure campaigns for maximum reach efficiency — correct objectives, placements, and bidding.' },
-              { step: '04', title: 'Optimize & Scale', desc: 'Weekly A/B testing, budget reallocation to winners, and scaling profitable ad sets.' },
+              { n: '01', title: 'Audience Research', desc: 'Map demographics, interests, behaviors, and look-alike segments.' },
+              { n: '02', title: 'Creative Strategy', desc: 'Ad creatives matched to each funnel stage with built-in A/B structure.' },
+              { n: '03', title: 'Campaign Launch', desc: 'Proper objectives, placements, and bidding from day one.' },
+              { n: '04', title: 'Optimize & Scale', desc: 'Weekly testing cycles, reallocation to winners, systematic scaling.' },
             ].map((s, i) => (
-              <motion.div key={i} {...fadeUp(i * 0.1)}
-                className="rounded-2xl border border-surface p-6"
-                style={{ background: 'rgba(var(--surface-rgb), 0.6)' }}>
-                <p className="text-3xl font-bold mb-4" style={{ color: 'rgba(124,58,237,0.3)' }}>{s.step}</p>
-                <h3 className="text-base font-semibold text-[color:var(--text-primary)] mb-2">{s.title}</h3>
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}
+                className="rounded-2xl border border-surface p-6" style={{ background: 'rgba(var(--surface-rgb),0.6)' }}>
+                <p className="text-3xl font-bold mb-4" style={{ color: 'rgba(var(--primary-rgb),0.25)' }}>{s.n}</p>
+                <h3 className="text-sm font-semibold text-[color:var(--text-primary)] mb-2">{s.title}</h3>
                 <p className="text-sm text-[color:var(--text-secondary)] leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
@@ -196,15 +242,15 @@ export const MetaAdsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
-        <motion.div className="max-w-xl mx-auto text-center" {...fadeUp()}>
+        <motion.div className="max-w-xl mx-auto text-center"
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold text-[color:var(--text-primary)] mb-4">Ready to run profitable Meta Ads?</h2>
-          <p className="text-[color:var(--text-secondary)] mb-8">Get a free audit of your current ad account and a clear action plan.</p>
-          <button onClick={() => { window.location.href = '/#contact' }}
-            className="px-8 py-4 rounded-xl text-white font-semibold text-sm hover:opacity-90 transition-opacity"
-            style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)' }}>
-            {t('services_pages.freeAudit')} →
+          <p className="text-[color:var(--text-secondary)] mb-8">Free audit — see exactly where your budget leaks and what to fix first.</p>
+          <button onClick={() => go('contact')}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-white font-semibold hover:opacity-90 transition-opacity">
+            {t('services_pages.freeAudit')} <ArrowForward sx={{ fontSize: 18 }} />
           </button>
         </motion.div>
       </section>

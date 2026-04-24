@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, lazy, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './i18n/config'
 import { ThemeProvider } from '@/hooks/useTheme'
@@ -58,26 +58,44 @@ const SectionLoader = () => (
   <div className="flex justify-center py-20 text-[color:var(--text-muted)]">Loading…</div>
 )
 
-const LandingPage: React.FC = () => (
-  <>
-    <Header />
-    <main className="pt-20">
-      <HeroSection />
-      <Suspense fallback={<SectionLoader />}>
-        <ServicesSection />
-        <ProcessSection />
-        <ResultsSection />
-        <CaseStudiesSection />
-        <TrustSection />
-        <TestimonialsSection />
-        <ContentSection />
-        <FAQSection />
-        <ContactSection />
-      </Suspense>
-    </main>
-    <Footer />
-  </>
-)
+const LandingPage: React.FC = () => {
+  useEffect(() => {
+    const target = sessionStorage.getItem('scrollTarget')
+    if (target) {
+      sessionStorage.removeItem('scrollTarget')
+      const attempt = (tries = 0) => {
+        const el = document.getElementById(target)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        } else if (tries < 10) {
+          setTimeout(() => attempt(tries + 1), 150)
+        }
+      }
+      setTimeout(() => attempt(), 300)
+    }
+  }, [])
+
+  return (
+    <>
+      <Header />
+      <main className="pt-20">
+        <HeroSection />
+        <Suspense fallback={<SectionLoader />}>
+          <ServicesSection />
+          <ProcessSection />
+          <ResultsSection />
+          <CaseStudiesSection />
+          <TrustSection />
+          <TestimonialsSection />
+          <ContentSection />
+          <FAQSection />
+          <ContactSection />
+        </Suspense>
+      </main>
+      <Footer />
+    </>
+  )
+}
 
 const App: React.FC = () => {
   return (

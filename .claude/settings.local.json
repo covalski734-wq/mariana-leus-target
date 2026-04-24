@@ -3,7 +3,11 @@
     "allow": [
       "Bash(npx tsc *)",
       "Bash(npm install *)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "Bash(cp c:/Users/i_cov/mariana-target/mariana-leus-target/mariana.jpg c:/Users/i_cov/mariana-target/mariana-leus-target/public/mariana.jpg)",
+      "Bash(cp c:/Users/i_cov/mariana-target/mariana-leus-target/performance-driven-reels.png c:/Users/i_cov/mariana-target/mariana-leus-target/public/performance-driven-reels.png)",
+      "Bash(cp c:/Users/i_cov/mariana-target/mariana-leus-target/conversion-copy.png c:/Users/i_cov/mariana-target/mariana-leus-target/public/conversion-copy.png)",
+      "Bash(cp c:/Users/i_cov/mariana-target/mariana-leus-target/audit-insights.png c:/Users/i_cov/mariana-target/mariana-leus-target/public/audit-insights.png)"
     ]
   }
 }
