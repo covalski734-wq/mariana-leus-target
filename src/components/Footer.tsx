@@ -1,110 +1,59 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import clsx from 'clsx'
-import {
-  Telegram as TelegramIcon,
-  WhatsApp as WhatsAppIcon,
-  Phone as PhoneIcon,
-  Email as EmailIcon,
-  Instagram as InstagramIcon,
-} from '@mui/icons-material';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Logo } from './Logo';
+import { useLanguage } from '@/context/LanguageContext';
+
+const scrollToTop = (e: React.MouseEvent) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 export const Footer: React.FC = () => {
-  const { t } = useTranslation()
-  const contacts = [
-    {
-      name: 'Phone',
-      icon: <PhoneIcon />,
-      link: 'tel:+48795069922',
-      value: '+48 795 069 922',
-    },
-    {
-      name: 'Telegram',
-      icon: <TelegramIcon />,
-      link: 'https://t.me/mariana_01_0',
-      value: '@mariana_01_0',
-    },
-    {
-      name: 'Instagram',
-      icon: <InstagramIcon />,
-      link: 'https://instagram.com/mariana_leus_',
-      value: '@mariana_leus_',
-    },
-    {
-      name: 'Email',
-      icon: <EmailIcon />,
-      link: 'mailto:mariannaleus8@gmail.com',
-      value: 'marianaleus8@gmail.com',
-    },
-    {
-      name: 'WhatsApp',
-      icon: <WhatsAppIcon />,
-      link: 'https://wa.me/48795069922',
-      value: '+48 795 069 922',
-    },
-  ]
-
+  const { t } = useLanguage();
   return (
-    <footer className={clsx('bg-surface-strong border-t border-surface', 'transition-colors duration-300', 'mt-20 py-12')}>
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Contact Links */}
-        <div className="mb-12">
-          <h3 className="text-lg font-bold text-[color:var(--text-primary)] mb-6">{t('footer.contact')}</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            {contacts.map((contact) => (
-              <a
-                key={contact.name}
-                href={contact.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-lg bg-surface border border-surface transition-all duration-200 hover:border-primary/40 hover:bg-[rgba(var(--primary-rgb),0.05)]"
-              >
-                <span className="text-2xl">{contact.icon}</span>
-                <div>
-                  <p className="text-xs text-[color:var(--text-secondary)]">{contact.name}</p>
-                  <p className="text-sm font-semibold text-[color:var(--text-primary)] truncate">{contact.value}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Social Proof */}
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-6 lg:gap-8 py-10 lg:py-12 border-y border-surface">
-          <div className="text-center">
-            <p className="text-2xl font-bold text-primary">150+</p>
-            <p className="text-sm text-[color:var(--text-secondary)]">Happy Clients</p>
-          </div>
-          <div className="text-center">
-            <p className="text-2xl font-bold text-primary">8+</p>
-            <p className="text-sm text-[color:var(--text-secondary)]">Years Experience</p>
-          </div>
-          <div className="text-center">
-            <p className="text-2xl font-bold text-primary">320%</p>
-            <p className="text-sm text-[color:var(--text-secondary)]">Avg ROI</p>
-          </div>
-          <div className="text-center hidden md:block">
-            <p className="text-2xl font-bold text-primary">24/7</p>
-            <p className="text-sm text-[color:var(--text-secondary)]">Support</p>
-          </div>
-        </div>
-
-        {/* Links and Copyright */}
-        <div className="mt-10 lg:mt-12 pt-6 lg:pt-8 border-t border-surface/50">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex gap-6 lg:gap-8 text-sm text-[color:var(--text-secondary)]">
-              <Link to="/privacy" className="hover:text-primary transition-colors duration-200">
-                {t('footer.privacy')}
-              </Link>
-              <a href="#" className="hover:text-primary transition-colors duration-200">
-                {t('footer.terms')}
-              </a>
+    <footer>
+      <div className="container">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <div className="brand">
+              <Logo size={30} />
+              <div className="brand-name">Mariana Leus<span className="dim">&nbsp;· performance</span></div>
             </div>
-            <p className="text-sm text-[color:var(--text-secondary)]">© 2024 Targetologist. All rights reserved.</p>
+            <p>{t('footer.tagline')}</p>
           </div>
+          <div className="footer-col">
+            <h5>{t('footer.services')}</h5>
+            <Link to="/services/meta-ads">Meta Ads</Link>
+            <Link to="/services/google-ads">Google Ads</Link>
+            <Link to="/services/web-dev">Web Dev</Link>
+            <Link to="/services/smm">SMM</Link>
+            <Link to="/services/seo">SEO</Link>
+          </div>
+          <div className="footer-col">
+            <h5>{t('footer.studio')}</h5>
+            <a href="/#work">{t('footer.caseStudies')}</a>
+            <Link to="/about">{t('footer.about') || 'About'}</Link>
+            <a href="/#testimonials">{t('footer.clients')}</a>
+            <a href="/#contact">{t('footer.contact') || 'Contact'}</a>
+          </div>
+          <div className="footer-col">
+            <h5>{t('footer.elsewhere')}</h5>
+            <a href="https://t.me/marianaleus" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://instagram.com/marianaleus" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://facebook.com/marianaleus" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
+        <div className="giant-type">
+          <span className="giant-desktop">Mariana Leus</span>
+          <span className="giant-mobile">Mariana L.</span>
+        </div>
+        <div className="footer-bottom">
+          <div>{t('footer.copyright')}</div>
+          <div>{t('footer.location')}</div>
+          <div><a href="#top" onClick={scrollToTop}>{t('footer.backToTop')}</a></div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};

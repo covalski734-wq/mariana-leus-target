@@ -1,111 +1,82 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
-import { ServiceCard, ServiceItem } from '@/components/ServiceCard'
-import { ServiceDetailsPanel } from '@/components/ServiceDetailsPanel'
-import {
-  Campaign as CampaignIcon,
-  Facebook as FacebookIcon,
-  Google as GoogleIcon,
-  QueryStats as QueryStatsIcon,
-  ImportantDevices as ImportantDevicesIcon,
-} from '@mui/icons-material'
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { SERVICES } from '@/data';
+import { IconMeta, IconGoogle, IconCode, IconSocial, IconSearch, IconArrow } from '@/components/Icons';
+import { useLanguage } from '@/context/LanguageContext';
 
-const SERVICE_SLUG: Record<string, string> = {
-  metaAds: 'meta-ads',
-  googleAds: 'google-ads',
+const iconMap: Record<string, React.FC<{ size?: number }>> = {
+  meta: IconMeta,
+  google: IconGoogle,
+  code: IconCode,
+  social: IconSocial,
+  search: IconSearch,
+};
+
+// Map service id to translation key
+const svcKeyMap: Record<string, string> = {
+  meta: 'meta',
+  google: 'google',
+  web: 'web',
   smm: 'smm',
-  audit: 'audit',
-  webDev: 'web-dev',
-}
-
-const serviceIcons: Record<string, React.ReactNode> = {
-  metaAds: <FacebookIcon />,
-  googleAds: <GoogleIcon />,
-  smm: <CampaignIcon />,
-  audit: <QueryStatsIcon />,
-  webDev: <ImportantDevicesIcon />,
-}
+  seo: 'seo',
+};
 
 export const ServicesSection: React.FC = () => {
-  const { t } = useTranslation()
+  const gridRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
-  const services = useMemo(() => {
-    const items = t('services.items', { returnObjects: true }) as ServiceItem[]
-    return items.map((item) => ({
-      ...item,
-      icon: serviceIcons[item.key] ?? null,
-      details: t(`services.details.${item.key}`),
-      benefits: t(`services.benefits.${item.key}`, { returnObjects: true }) as string[],
-    }))
-  }, [t])
-
-  const [activeKey, setActiveKey] = useState<string>('metaAds')
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)')
-    const update = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile(e.matches)
-    update(mq)
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
-
-  const activeService = services.find((s) => s.key === activeKey) ?? services[0]
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = (e.currentTarget as HTMLDivElement);
+    const glow = card.querySelector('.glow') as HTMLElement | null;
+    if (!glow) return;
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mx', x + '%');
+    card.style.setProperty('--my', y + '%');
+  };
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface-strong">
-      <div className="max-w-[1440px] mx-auto">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-sm uppercase tracking-[0.32em] text-primary mb-4">{t('services.label')}</p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[color:var(--text-primary)] mb-4">
-            {t('services.title')}
-          </h2>
-          <p className="text-lg md:text-xl text-[color:var(--text-secondary)] max-w-3xl mx-auto">
-            {t('services.subtitle')}
-          </p>
-        </motion.div>
-
-        <div className="rounded-t-[2rem] border border-surface bg-surface-strong overflow-visible">
-          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-5 p-6">
-            {services.map((service, idx) => (
-              <motion.div
-                key={service.key}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.07 }}
-                viewport={{ once: true }}
-              >
-                <ServiceCard
-                  service={service}
-                  active={activeKey === service.key}
-                  isMobile={isMobile}
-                  slug={SERVICE_SLUG[service.key] ?? service.key}
-                  onToggle={() => setActiveKey((cur) => (cur === service.key ? '' : service.key))}
-                />
-              </motion.div>
-            ))}
+    <section className="services" id="services">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <div className="section-num">{t('services.sectionNum')}</div>
+            <h2>{t('services.title').split('\n').map((line, i, arr) => (
+              <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
+            ))}</h2>
           </div>
+          <p className="side">{t('services.desc')}</p>
+        </div>
 
-          {!isMobile && activeService && (
-            <motion.div
-              key={activeKey}
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="border-t border-surface px-6 py-8 rounded-b-[2rem] bg-surface"
-            >
-              <ServiceDetailsPanel service={activeService} />
-            </motion.div>
-          )}
+        <div className="services-grid" ref={gridRef}>
+          {SERVICES.map((svc) => {
+            const Icon = iconMap[svc.icon] ?? IconCode;
+            const key = svcKeyMap[svc.id] ?? svc.id;
+            const name = t(`services.${key}.name`);
+            const sub = t(`services.${key}.sub`);
+            const desc = t(`services.${key}.desc`);
+            return (
+              <div
+                key={svc.id}
+                className="svc reveal"
+                onMouseMove={handleMouseMove}
+              >
+                <div className="glow" />
+                <div className="svc-icon">
+                  <Icon size={20} />
+                </div>
+                <span className="svc-num">{svc.num}</span>
+                <h3>{name}<br /><small style={{ fontSize: '0.6em', opacity: 0.55, fontWeight: 400 }}>{sub}</small></h3>
+                <p>{desc}</p>
+                <Link to="/services" className="learn">
+                  {t('services.learnMore')} <IconArrow size={14} className="arrow" />
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

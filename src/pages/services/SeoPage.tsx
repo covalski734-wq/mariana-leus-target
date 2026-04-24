@@ -4,30 +4,36 @@ import { useLanguage } from '@/context/LanguageContext';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
 const SERVICE = {
-  id: 'google', num: '02', kicker: 'Paid Search', name: 'Google Ads', sub: 'Search, PMax, Display',
-  lede: 'Capture every high-intent search, stop wasting budget on junk queries, and make PMax behave like an asset — not a black box.',
+  id: 'seo', num: '05', kicker: 'Organic', name: 'SEO', sub: 'Technical + content',
+  lede: 'Technical hygiene, topic clusters, and an internal-link map that keeps paying you back after the retainer ends.',
   deliverables: [
-    { name: 'Search campaign rebuild', note: 'Single-theme ad groups, match-type hygiene, branded defense.' },
-    { name: 'Negative keyword system', note: 'Ongoing — negative lists per campaign, reviewed weekly.' },
-    { name: 'PMax asset groups that convert', note: 'Audience signals, brand exclusions, feed-based targeting for e-commerce.' },
-    { name: 'Conversion tracking audit', note: 'GA4, enhanced conversions, offline imports — numbers you can trust.' },
-    { name: 'Shopping feed optimisation', note: 'Title structure, custom labels, Merchant Center health.' },
-    { name: 'Monthly strategic review', note: 'Where to scale, where to cut, what to test next quarter.' },
+    { name: 'Technical audit', note: 'Crawl, index coverage, Core Web Vitals, structured data — with a fix-priority list.' },
+    { name: 'Keyword + topic research', note: 'Cluster map tied to buyer intent and business outcomes.' },
+    { name: 'Content brief system', note: 'SERP-aligned briefs your writers (or mine) ship against.' },
+    { name: 'On-page optimisation', note: 'Title/meta, internal linking, schema, image alts.' },
+    { name: 'Link acquisition', note: 'Digital PR and partner outreach — budget-optional, no PBNs.' },
+    { name: 'Quarterly strategy review', note: 'What moved, what plateaued, what to double down on.' },
   ],
   pricing: [
     { label: 'Engagement', val: 'Retainer', unit: 'monthly' },
-    { label: 'Starts at', val: '€1,900', unit: '/mo' },
-    { label: 'Ad spend', val: '€3k+', unit: 'minimum' },
-    { label: 'Commitment', val: '3 months', unit: 'then monthly' },
+    { label: 'Starts at', val: '€1,200', unit: '/mo' },
+    { label: 'Content', val: '+€k', unit: 'per brief' },
+    { label: 'Commitment', val: '6 months', unit: 'min. for results' },
   ],
   proof: [
-    { v: '62', l: 'Leads/month', d: 'B2B SaaS · LinkedIn + Search synced funnel' },
-    { v: '−48%', l: 'CPA reduction', d: 'Online education · PMax asset group rebuild' },
-    { v: '+184%', l: 'Enrolments', d: 'Online Education · webinar funnel at €40k/mo spend' },
+    { v: '×3.8', l: 'Organic traffic', d: 'B2B SaaS · 9 months · cluster strategy + PR' },
+    { v: '+214%', l: 'Non-brand clicks', d: 'E-commerce · technical + content sprint · 6 months' },
+    { v: '#1–3', l: 'SERP rank', d: 'Dental clinic · "stomatolog Warszawa" cluster, 12 terms' },
   ],
 };
 
-export const GoogleAdsPage: React.FC = () => {
+const ORGANIC_STATS = [
+  { label: 'Avg. organic traffic growth', value: '×3.8', note: 'after 9-month engagement' },
+  { label: 'Non-brand click lift', value: '+214%', note: 'technical + content sprint' },
+  { label: 'Top SERP positions', value: '#1–3', note: 'cluster-based targeting' },
+];
+
+export const SeoPage: React.FC = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -41,15 +47,15 @@ export const GoogleAdsPage: React.FC = () => {
 
   return (
     <>
-      {/* Page hero — gold/amber tones */}
+      {/* Page hero — cyan / data-analytics aesthetic */}
       <section className="pg-hero">
         <div className="mesh">
-          <div className="blob b1" style={{ background: 'radial-gradient(circle, #F7AD1A33 0%, transparent 70%)' }} />
-          <div className="blob b2" style={{ background: 'radial-gradient(circle, #004AAD33 0%, transparent 70%)' }} />
+          <div className="blob b1" style={{ background: 'radial-gradient(circle, #00B8D933 0%, transparent 70%)' }} />
+          <div className="blob b2" style={{ background: 'radial-gradient(circle, #004AAD22 0%, transparent 70%)' }} />
           <div className="blob b3" />
           <div className="blob b4" />
         </div>
-        <div className="hero-bgtype"><span>GOOGLE</span></div>
+        <div className="hero-bgtype"><span>SEO</span></div>
         <div className="grid-overlay" />
         <div className="container">
           <div className="eyebrow-row">
@@ -58,32 +64,38 @@ export const GoogleAdsPage: React.FC = () => {
               <span className="sep">/</span>
               <Link to="/services">Services</Link>
               <span className="sep">/</span>
-              Google Ads
+              SEO
             </div>
           </div>
           <div className="eyebrow" style={{ marginBottom: 20 }}>
-            <span className="dot" style={{ background: '#F7AD1A' }} />
+            <span className="dot" style={{ background: '#00B8D9' }} />
             {SERVICE.kicker} · {SERVICE.sub}
           </div>
           <h1>
-            Google Ads<br />
-            built on <em className="italic">intent</em>, not <span className="accent">guesswork.</span>
+            Organic growth that<br />
+            <em className="italic">compounds</em> <span className="accent">for years.</span>
           </h1>
           <p className="lede">{SERVICE.lede}</p>
         </div>
       </section>
 
-      {/* Intent callout */}
-      <div style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '24px 0' }}>
+      {/* Organic growth stats bar */}
+      <div style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '28px 0' }}>
         <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-            <span style={{ font: '600 13px/1 var(--mono)', color: '#F7AD1A', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              Why intent matters
-            </span>
-            <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
-            <span style={{ font: '400 14px/1.5 var(--display)', color: 'var(--fg-dim)', maxWidth: 480 }}>
-              Search ads reach people the moment they decide to buy. That single fact makes search 3–8× more efficient than social for B2B and high-consideration purchases.
-            </span>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24 }}>
+            {ORGANIC_STATS.map((s, i) => (
+              <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <div style={{ font: '400 11px/1 var(--mono)', color: '#00B8D9', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>
+                  {s.label}
+                </div>
+                <div style={{ font: '700 clamp(1.5rem,3vw,2.25rem)/1 var(--display)', letterSpacing: '-0.04em', color: 'var(--fg)' }}>
+                  {s.value}
+                </div>
+                <div style={{ font: '400 12px/1.4 var(--mono)', color: 'var(--fg-mute)' }}>
+                  {s.note}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -136,15 +148,15 @@ export const GoogleAdsPage: React.FC = () => {
       {/* CTA band */}
       <section className="cta-band">
         <div className="mesh">
-          <div className="blob b1" style={{ background: 'radial-gradient(circle, #F7AD1A22 0%, transparent 70%)' }} />
+          <div className="blob b1" style={{ background: 'radial-gradient(circle, #00B8D922 0%, transparent 70%)' }} />
           <div className="blob b2" />
           <div className="blob b3" />
         </div>
         <div className="container">
           <div className="cta-band-inner">
             <h3>
-              Stop paying for clicks<br />
-              that <em className="italic">never</em> <span className="accent">convert.</span>
+              Traffic that keeps<br />
+              <em className="italic">growing</em> <span className="accent">after month one.</span>
             </h3>
             <div className="ctas">
               <Link to="/#contact" className="btn btn-primary">

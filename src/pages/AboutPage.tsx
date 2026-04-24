@@ -1,183 +1,234 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
-import { PageShell } from '@/components/PageShell'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { IconArrow } from '@/components/Icons';
+import { useLanguage } from '@/context/LanguageContext';
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] },
-  viewport: { once: true },
-})
+const TIMELINE = [
+  { year: '2019', role: 'First paid media role', body: 'Joined a Warsaw-based e-commerce startup as their first in-house marketer. Ran Meta and Google campaigns from scratch — no playbook, no agency.' },
+  { year: '2020–21', role: 'Agency side', body: "Managed €1M+ in annual spend across 15+ accounts at a boutique performance agency. Learned what scales and what doesn't across e-com, SaaS, and local service businesses." },
+  { year: '2022', role: 'Going solo', body: 'Left the agency to work directly with founders. Smaller client roster, deeper involvement, and actual accountability for results.' },
+  { year: '2023', role: 'Expanded to web & SEO', body: 'Added landing page builds and SEO retainers to close the loop between traffic and conversion. Clients were losing leads to bad pages — I fixed that.' },
+  { year: '2024–now', role: 'Full-stack performance', body: 'Running a focused practice: Meta, Google, web, SMM, SEO. Based in Warsaw, working across Europe and remote-globally. 2 spots available for Q3.', current: true },
+];
 
-export const AboutPage: React.FC = () => {
-  const { t } = useTranslation()
+const PRINCIPLES = [
+  { n: '01', t: 'Numbers over narratives', d: "I don't run ads to win awards. Every decision is tied to a measurable business outcome — ROAS, CPL, CAC, revenue. If the metric doesn't improve, the approach changes." },
+  { n: '02', t: 'One client per niche', d: "If you're a dental clinic in Warsaw, no competitor works with me while you do. Conflict of interest is an integrity problem, not just a business one." },
+  { n: '03', t: 'Honest before comfortable', d: "If a campaign isn't working, you hear it from me before you see it in the dashboard. I'd rather lose a client with honesty than keep one with spin." },
+  { n: '04', t: 'Craft over volume', d: "I cap my client roster to keep quality high. I can't do good work for 20 accounts. So I don't try." },
+  { n: '05', t: 'Long-term compounding', d: "The best results I've delivered came from clients who stayed long enough for strategies to mature. I don't optimise for quick wins that don't hold." },
+  { n: '06', t: 'You own everything', d: "Ad accounts, creatives, data, code — all yours. Nothing is held hostage. If we stop working together, you keep all the assets and the knowledge." },
+];
 
-  const milestones = t('about.milestones', { returnObjects: true }) as { year: string; text: string }[]
-  const valueItems = t('about.valueItems', { returnObjects: true }) as { title: string; desc: string }[]
+const TOOLS = [
+  { group: 'Paid Media', chips: ['Meta Ads Manager', 'Google Ads', 'Google Analytics 4', 'Meta CAPI', 'Google Tag Manager', 'Looker Studio'] },
+  { group: 'Creative & Design', chips: ['Figma', 'Canva Pro', 'CapCut', 'Adobe Lightroom'] },
+  { group: 'Web & Landing Pages', chips: ['Webflow', 'Framer', 'React / Vite', 'HubSpot', 'Notion'] },
+  { group: 'SEO & Content', chips: ['Ahrefs', 'Screaming Frog', 'Surfer SEO', 'Google Search Console'] },
+];
 
+// ── sub-components ─────────────────────────────────────────────────────────────
+
+const AboutHero: React.FC = () => {
+  const { t } = useLanguage();
   return (
-    <PageShell>
-      {/* Hero */}
-      <section className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute w-[500px] h-[500px] rounded-full blur-[140px] bg-primary/8 -top-40 -right-40" />
-          <div className="absolute w-[400px] h-[400px] rounded-full blur-[120px] bg-accent/6 bottom-0 -left-32" />
+    <div className="ab-hero">
+      <div className="hero-bgtype" style={{ fontSize: 'clamp(100px,22vw,320px)', opacity: 0.06 }}><span>MARIANA</span></div>
+      <div className="mesh" style={{ opacity: 0.5 }}>
+        <div className="blob b1" /><div className="blob b2" />
+      </div>
+      <div className="grid-overlay" />
+      <div className="container">
+        <div className="crumb" style={{ marginBottom: 32, font: '400 13px/1 var(--mono)', color: 'var(--fg-mute)', display: 'flex', gap: 8, alignItems: 'center' }}>
+          <Link to="/">Home</Link>
+          <span>/</span>
+          <span>{t('aboutPage.crumb')}</span>
         </div>
-
-        <div className="max-w-[1100px] mx-auto">
-          <div className="grid lg:grid-cols-[1fr_400px] gap-16 items-center">
-            <motion.div {...fadeUp()}>
-              <p className="text-sm uppercase tracking-[0.32em] text-primary mb-4">{t('about.label')}</p>
-              <h1 className="text-5xl lg:text-6xl font-bold text-[color:var(--text-primary)] leading-[1.05] tracking-[-0.03em] mb-6">
-                {t('about.title')}
-              </h1>
-              <p className="text-xl text-[color:var(--text-secondary)] mb-4 leading-relaxed">
-                {t('about.subtitle')}
-              </p>
-              <p className="text-base text-[color:var(--text-secondary)] leading-relaxed max-w-lg">
-                {t('about.bio')}
-              </p>
-
-              <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-surface max-w-sm">
-                {[
-                  { value: t('about.experience'), label: 'Experience' },
-                  { value: t('about.clients'), label: 'Clients' },
-                  { value: t('about.countries'), label: 'Countries' },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <p className="text-2xl font-bold text-primary">{s.value}</p>
-                    <p className="text-xs text-[color:var(--text-secondary)] mt-0.5 uppercase tracking-wide">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 flex gap-3">
-                <Link
-                  to="/#contact"
-                  onClick={() => { window.location.href = '/#contact' }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity"
-                >
-                  {t('about.cta')}
-                </Link>
-                <Link
-                  to="/"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-surface text-sm font-semibold text-[color:var(--text-secondary)] hover:border-primary hover:text-primary transition-colors"
-                >
-                  ← Home
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Photo */}
-            <motion.div {...fadeUp(0.15)} className="flex justify-center lg:justify-end">
-              <div className="relative">
-                <div className="w-72 h-80 lg:w-80 lg:h-96 rounded-3xl overflow-hidden border border-surface shadow-2xl">
-                  <img
-                    src="/mariana.jpg"
-                    alt="Mariana Leus — Paid Ads Specialist"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                {/* Floating badge */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute -bottom-4 -left-6 rounded-2xl border border-surface px-4 py-3 shadow-xl"
-                  style={{ background: 'rgba(var(--surface-rgb), 0.95)', backdropFilter: 'blur(16px)' }}
-                >
-                  <p className="text-xs text-[color:var(--text-secondary)]">Average client ROI</p>
-                  <p className="text-xl font-bold text-primary">320%</p>
-                </motion.div>
-                <motion.div
-                  animate={{ y: [0, 5, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-                  className="absolute -top-4 -right-6 rounded-2xl border border-surface px-4 py-3 shadow-xl"
-                  style={{ background: 'rgba(var(--surface-rgb), 0.95)', backdropFilter: 'blur(16px)' }}
-                >
-                  <p className="text-xs text-[color:var(--text-secondary)]">Happy clients</p>
-                  <p className="text-xl font-bold text-emerald-500">150+</p>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Journey Timeline */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
-        <div className="max-w-[800px] mx-auto">
-          <motion.div className="mb-14" {...fadeUp()}>
-            <p className="text-sm uppercase tracking-[0.32em] text-primary mb-3">{t('about.journey')}</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-[color:var(--text-primary)]">My Journey</h2>
-          </motion.div>
-
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent" />
-
-            <div className="space-y-10">
-              {milestones.map((m, i) => (
-                <motion.div key={i} {...fadeUp(i * 0.08)} className="flex gap-6">
-                  <div className="flex-shrink-0 w-6 flex flex-col items-center pt-1">
-                    <div className="w-[22px] h-[22px] rounded-full border-2 border-primary bg-primary/20 flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                    </div>
-                  </div>
-                  <div className="pb-2">
-                    <p className="text-sm font-bold text-primary mb-1">{m.year}</p>
-                    <p className="text-[color:var(--text-secondary)] leading-relaxed">{m.text}</p>
-                  </div>
-                </motion.div>
-              ))}
+        <div className="ab-hero-grid">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 28 }}>
+              <span className="dot pulse" />
+              Performance marketer · Warsaw
+            </div>
+            <h1>
+              {t('aboutPage.heroTitle1')}{' '}
+              <em className="italic">{t('aboutPage.heroItalic')}</em>{' '}
+              {t('aboutPage.heroTitle2')}<br />
+              {t('aboutPage.heroTitle3')}{' '}
+              <span className="underline">{t('aboutPage.heroUnderline')}</span>
+            </h1>
+            <div style={{ marginTop: 32, display: 'flex', gap: 12 }}>
+              <a href="/#contact" className="btn btn-primary">
+                {t('aboutPage.ctaBook')} <IconArrow size={16} className="arrow" />
+              </a>
+              <Link to="/services" className="btn btn-ghost">
+                {t('aboutPage.ctaServices')}
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.div className="text-center mb-14" {...fadeUp()}>
-            <p className="text-sm uppercase tracking-[0.32em] text-primary mb-3">{t('about.values')}</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-[color:var(--text-primary)]">What I Stand For</h2>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            {valueItems.map((v, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp(i * 0.1)}
-                className="rounded-2xl border border-surface p-8"
-                style={{ background: 'rgba(var(--surface-rgb), 0.6)', backdropFilter: 'blur(12px)' }}
-              >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                  <span className="text-primary font-bold text-lg">{i + 1}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-[color:var(--text-primary)] mb-2">{v.title}</h3>
-                <p className="text-[color:var(--text-secondary)] leading-relaxed text-sm">{v.desc}</p>
-              </motion.div>
-            ))}
+          <div className="ab-hero-photo">
+            <img src="/mariana.jpg" alt="Mariana Leus" />
+            <div className="ab-photo-cap">{t('aboutPage.photoCaption')}</div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  );
+};
 
-      {/* CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-surface">
-        <motion.div className="max-w-xl mx-auto text-center" {...fadeUp()}>
-          <h2 className="text-3xl font-bold text-[color:var(--text-primary)] mb-4">{t('about.cta')}</h2>
-          <p className="text-[color:var(--text-secondary)] mb-8">
-            Ready to turn your ad budget into predictable revenue? Let's talk.
-          </p>
-          <button
-            onClick={() => { window.location.href = '/#contact' }}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-white font-semibold hover:opacity-90 transition-opacity"
-          >
-            Get in touch →
-          </button>
-        </motion.div>
-      </section>
-    </PageShell>
-  )
-}
+const AboutIntro: React.FC = () => {
+  const { t } = useLanguage();
+  return (
+    <div className="ab-intro container">
+      <div className="label">{t('aboutPage.introLabel')}</div>
+      <div className="prose">
+        <p>{t('aboutPage.intro1')}</p>
+        <p>{t('aboutPage.intro2')}</p>
+        <p>{t('aboutPage.intro3')}</p>
+      </div>
+    </div>
+  );
+};
+
+const TimelineSection: React.FC = () => {
+  const { t } = useLanguage();
+  return (
+    <div className="ab-timeline">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <div className="section-num">{t('aboutPage.timelineNum')}</div>
+            <h2>{t('aboutPage.timelineTitle')}</h2>
+          </div>
+          <p className="side">{t('aboutPage.timelineDesc')}</p>
+        </div>
+        <div className="tl-list">
+          {TIMELINE.map((item, i) => (
+            <div key={i} className={'tl-item' + ('current' in item && item.current ? ' current' : '')}>
+              <div className="tl-year">{item.year}</div>
+              <div className="tl-body">
+                <h4>{item.role}</h4>
+                <div className="tl-role">{item.year}</div>
+                <p>{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PrinciplesSection: React.FC = () => {
+  const { t } = useLanguage();
+  return (
+    <div className="ab-principles">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <div className="section-num">{t('aboutPage.principlesNum')}</div>
+            <h2>{t('aboutPage.principlesTitle')}</h2>
+          </div>
+          <p className="side">{t('aboutPage.principlesDesc')}</p>
+        </div>
+        <div className="pr-grid">
+          {PRINCIPLES.map((p, i) => (
+            <div key={i} className="pr-cell">
+              <div className="n">{p.n}</div>
+              <div className="t">{p.t}</div>
+              <div className="d">{p.d}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ToolkitSection: React.FC = () => {
+  const { t } = useLanguage();
+  return (
+    <div className="ab-tools">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <div className="section-num">{t('aboutPage.toolkitNum')}</div>
+            <h2>{t('aboutPage.toolkitTitle')}</h2>
+          </div>
+          <p className="side">{t('aboutPage.toolkitDesc')}</p>
+        </div>
+        <div className="tool-groups">
+          {TOOLS.map((g, i) => (
+            <div key={i} className="tool-group">
+              <h4>{g.group}</h4>
+              <div className="tool-chips">
+                {g.chips.map((c, j) => (
+                  <span key={j} className="tool-chip">{c}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const AboutQuote: React.FC = () => {
+  const { t } = useLanguage();
+  return (
+    <div className="ab-quote">
+      <div className="container">
+        <div className="q-mark">"</div>
+        <blockquote>{t('aboutPage.quote')}</blockquote>
+        <cite>{t('aboutPage.quoteSource')}</cite>
+      </div>
+    </div>
+  );
+};
+
+const AboutCta: React.FC = () => {
+  const { t } = useLanguage();
+  return (
+    <div className="cta-band">
+      <div className="mesh" style={{ opacity: 0.4 }}>
+        <div className="blob b1" /><div className="blob b2" />
+      </div>
+      <div className="container">
+        <div className="cta-band-inner">
+          <h3>
+            {t('aboutPage.ctaTitle1')}<br />
+            {t('aboutPage.ctaTitle2')}{' '}
+            {t('aboutPage.ctaTitle3')}{' '}
+            <em className="italic">{t('aboutPage.ctaItalic')}</em>{' '}
+            {t('aboutPage.ctaTitle4')}
+          </h3>
+          <div className="ctas">
+            <a
+              href="/#contact"
+              onClick={e => { e.preventDefault(); window.location.href = '/#contact'; }}
+              className="btn btn-primary"
+            >
+              {t('aboutPage.ctaBook')} <IconArrow size={16} className="arrow" />
+            </a>
+            <Link to="/services" className="btn btn-ghost">{t('aboutPage.ctaServices')}</Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ── page ───────────────────────────────────────────────────────────────────────
+
+export const AboutPage: React.FC = () => (
+  <>
+    <AboutHero />
+    <AboutIntro />
+    <TimelineSection />
+    <PrinciplesSection />
+    <ToolkitSection />
+    <AboutQuote />
+    <AboutCta />
+  </>
+);

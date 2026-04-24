@@ -1,207 +1,81 @@
-import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link, useLocation } from 'react-router-dom'
-import { useTheme } from '@/hooks/useTheme'
-import { Button } from '@/components/Button'
-import clsx from 'clsx'
-
-type NavItem =
-  | { label: string; id: string; href?: undefined }
-  | { label: string; href: string; id?: undefined }
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Logo } from './Logo';
+import { IconSun, IconMoon, IconArrow } from './Icons';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const Header: React.FC = () => {
-  const { t, i18n } = useTranslation()
-  const { theme, toggleTheme } = useTheme()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const location = useLocation()
+  const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || saved === 'light') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+  const { lang, setLang, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const navItems: NavItem[] = [
-    { label: t('header.services'), id: 'services' },
-    { label: t('header.process'), id: 'process' },
-    { label: t('header.results'), id: 'results' },
-    { label: t('header.testimonials'), id: 'testimonials' },
-    { label: t('header.faq'), id: 'faq' },
-    { label: t('header.about'), href: '/about' },
-  ]
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
-  const handleLogoClick = () => {
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else {
-      window.location.href = '/'
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Apply reveal animation on scroll
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal:not(.in)');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  });
+
+  const scrollTo = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      sessionStorage.setItem('scrollTarget', id);
+      return;
     }
-  }
-
-  const languages = ['ua', 'ru', 'en']
-
-  const scrollToSection = (id: string) => {
-    if (location.pathname === '/') {
-      const element = document.getElementById(id)
-      element?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      window.location.href = `/#${id}`
-    }
-    setIsMobileMenuOpen(false)
-  }
-
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang)
-    localStorage.setItem('language', lang)
-  }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
-    <header
-      className={clsx(
-        'fixed top-0 left-0 right-0 z-50',
-        'backdrop-blur-sm border-b transition-colors duration-300',
-        'border-surface'
-      )}
-      style={{ backgroundColor: 'rgba(var(--surface-rgb), 0.92)' }}
-    >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo & Brand */}
-          <button onClick={handleLogoClick} className="flex items-center space-x-3 focus-visible:outline-none">
-            <img src="/logo.svg" alt="Mariana Leus" className="w-10 h-10 hover:scale-110 transition-transform duration-300" />
-            <div className="hidden sm:flex flex-col text-center">
-              <span className="font-bold text-xxs tracking-widest text-[color:var(--text-primary)]">MARIANA LEUS</span>
-              <div className="flex items-center space-x-2">
-                <div className="h-px w-6 bg-primary"></div>
-                <span className="text-xs text-primary font-medium tracking-wide mt-0.5 items-center">DIGITAL MARKETING</span>
-                <div className="h-px w-6 bg-primary"></div>
-              </div>
-            </div>
-          </button>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            {navItems.map((item) =>
-              item.href ? (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="px-3 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id!)}
-                  className="px-3 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
-                >
-                  {item.label}
-                </button>
-              )
-            )}
-          </nav>
-
-          {/* Right Section */}
-          <div className="flex items-center gap-4">
-            {/* Language Switcher */}
-            <div className="flex gap-1">
-              {languages.map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => changeLanguage(lang)}
-                  className={clsx(
-                    'px-2 py-1 text-xs font-semibold rounded transition-colors duration-200',
-                    i18n.language === lang
-                      ? 'bg-primary text-white'
-                      : 'text-[color:var(--text-secondary)] hover:text-primary'
-                  )}
-                >
-                  {lang.toUpperCase()}
-                </button>
-              ))}
-            </div>
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg transition-all duration-300 hover:bg-[rgba(var(--border),0.12)] group"
-              aria-label="Toggle theme"
-              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {theme === 'dark' ? (
-                <svg className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="5" fill="currentColor" />
-                  <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 text-slate-700 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              )}
-            </button>
-
-            {/* Contact CTA */}
-            <Button
-              variant="primary"
-              size="sm"
-              onClick={() => scrollToSection('contact')}
-              className="hidden sm:inline-block"
-            >
-              {t('contact.title')}
-            </Button>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg transition-colors duration-200 hover:bg-[rgba(var(--border),0.16)]"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+    <header className={'nav' + (scrolled ? ' scrolled' : '')}>
+      <div className="container nav-inner">
+        <Link to="/" className="brand">
+          <Logo size={26} />
+          <div className="brand-name">Mariana Leus<span className="dim">&nbsp;· performance</span></div>
+        </Link>
+        <nav className="links" aria-label="Primary">
+          <Link to="/services">{t('header.services')}</Link>
+          <a href="/#work" onClick={scrollTo('work')}>{t('header.work')}</a>
+          <Link to="/about">{t('header.about')}</Link>
+          <a href="/#contact" onClick={scrollTo('contact')}>{t('header.contact')}</a>
+        </nav>
+        <div className="nav-right">
+          <div className="lang" role="tablist" aria-label="Language">
+            {(['EN', 'UA', 'RU'] as const).map(l => (
+              <button key={l} className={lang === l ? 'active' : ''} onClick={() => setLang(l)}>{l}</button>
+            ))}
           </div>
+          <button className="icon-btn" aria-label="Toggle theme" onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}>
+            {theme === 'dark' ? <IconSun size={16} /> : <IconMoon size={16} />}
+          </button>
+          <a href="/#contact" onClick={scrollTo('contact')} className="btn btn-primary" style={{ padding: '10px 16px', fontSize: 13 }}>
+            {t('header.bookCall')} <IconArrow size={14} className="arrow" />
+          </a>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <nav className="lg:hidden pb-4 space-y-2">
-            {navItems.map((item) =>
-              item.href ? (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full text-left px-4 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id!)}
-                  className="block w-full text-left px-4 py-2 text-sm font-medium text-[color:var(--text-secondary)] hover:text-primary transition-colors duration-200 rounded-md"
-                >
-                  {item.label}
-                </button>
-              )
-            )}
-            <Button
-              variant="primary"
-              size="sm"
-              onClick={() => scrollToSection('contact')}
-              className="w-full"
-            >
-              {t('contact.title')}
-            </Button>
-          </nav>
-        )}
       </div>
     </header>
-  )
-}
+  );
+};
