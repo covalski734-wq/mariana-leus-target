@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Counter } from '@/components/Counter';
 import { IconArrow } from '@/components/Icons';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 export const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [scrollPct, setScrollPct] = useState(0);
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const onScroll = () => {

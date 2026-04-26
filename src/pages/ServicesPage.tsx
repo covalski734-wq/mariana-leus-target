@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { IconCheck, IconArrow } from '@/components/Icons';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 // ── data ──────────────────────────────────────────────────────────────────────
 
@@ -160,7 +160,7 @@ const SvcPills: React.FC<{ active: string; onSelect: (id: string) => void }> = (
 );
 
 const SvcBlock: React.FC<{ svc: typeof SERVICE_DETAILS[0] }> = ({ svc }) => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const scrollTo = (e: React.MouseEvent) => {
     e.preventDefault();
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -229,14 +229,14 @@ const SvcBlock: React.FC<{ svc: typeof SERVICE_DETAILS[0] }> = ({ svc }) => {
 };
 
 const ProcessSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="svc-process">
       <div className="container">
         <div className="section-head">
           <div>
             <div className="section-num">{t('servicesPage.processNum')}</div>
-            <h2>{t('servicesPage.processTitle').split('\n').map((line, i, arr) => (
+            <h2>{t('servicesPage.processTitle').split('\n').map((line: string, i: number, arr: string[]) => (
               <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
             ))}</h2>
           </div>
@@ -259,14 +259,14 @@ const ProcessSection: React.FC = () => {
 
 const FaqSection: React.FC = () => {
   const [open, setOpen] = useState<number | null>(null);
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="faq">
       <div className="container">
         <div className="section-head">
           <div>
             <div className="section-num">{t('servicesPage.faqNum')}</div>
-            <h2>{t('servicesPage.faqTitle').split('\n').map((line, i, arr) => (
+            <h2>{t('servicesPage.faqTitle').split('\n').map((line: string, i: number, arr: string[]) => (
               <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
             ))}</h2>
           </div>
@@ -291,7 +291,7 @@ const FaqSection: React.FC = () => {
 };
 
 const CtaBand: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const scrollTo = (e: React.MouseEvent) => {
     e.preventDefault();
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -323,7 +323,7 @@ const CtaBand: React.FC = () => {
 export const ServicesPage: React.FC = () => {
   const [activeId, setActiveId] = useState(SERVICE_DETAILS[0].id);
   const blockRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const handlePillSelect = (id: string) => {
     setActiveId(id);

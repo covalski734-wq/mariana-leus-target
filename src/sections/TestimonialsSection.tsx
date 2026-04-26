@@ -1,18 +1,18 @@
 import React from 'react';
 import { TESTIMONIALS } from '@/data';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 const all = [...TESTIMONIALS, ...TESTIMONIALS];
 
 export const TestimonialsSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <section className="testimonials" id="testimonials">
       <div className="container">
         <div className="section-head">
           <div>
             <div className="section-num">{t('testimonials.sectionNum')}</div>
-            <h2>{t('testimonials.title').split('\n').map((line, i, arr) => (
+            <h2>{t('testimonials.title').split('\n').map((line: string, i: number, arr: string[]) => (
               <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
             ))}</h2>
           </div>

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES } from '@/data';
 import { IconMeta, IconGoogle, IconCode, IconSocial, IconSearch, IconArrow } from '@/components/Icons';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 const iconMap: Record<string, React.FC<{ size?: number }>> = {
   meta: IconMeta,
@@ -23,7 +23,7 @@ const svcKeyMap: Record<string, string> = {
 
 export const ServicesSection: React.FC = () => {
   const gridRef = useRef<HTMLDivElement>(null);
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = (e.currentTarget as HTMLDivElement);
@@ -42,7 +42,7 @@ export const ServicesSection: React.FC = () => {
         <div className="section-head">
           <div>
             <div className="section-num">{t('services.sectionNum')}</div>
-            <h2>{t('services.title').split('\n').map((line, i, arr) => (
+            <h2>{t('services.title').split('\n').map((line: string, i: number, arr: string[]) => (
               <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
             ))}</h2>
           </div>

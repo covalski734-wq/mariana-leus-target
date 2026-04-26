@@ -71,9 +71,14 @@
   [data-theme="light"] body::before { opacity: .20; }
 
   /* Reveal utility */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
-  .reveal.in { opacity: 1; transform: none; }
-  [data-motion="low"] .reveal { transition-duration: .35s; transform: none; }
+  /* Reveal — CSS animation (more reliable than transitions for IntersectionObserver) */
+  .reveal { opacity: 0; transform: translateY(28px); }
+  .reveal.in { animation: revealFadeIn 0.85s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes revealFadeIn {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  [data-motion="low"] .reveal.in { animation-duration: .3s; }
 
   /* Buttons */
   .btn {
@@ -384,7 +389,14 @@
     transition: transform 1s cubic-bezier(.2,.7,.2,1), opacity .8s ease;
     will-change: transform, opacity;
   }
-  .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9) contrast(1.02); transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+  .about-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: saturate(.9) contrast(1.02);
+    transform: translateY(calc(var(--ap, 1) * 100px));
+    opacity: calc(1 - var(--ap, 1) * 0.5);
+    transition: transform 0.08s linear, opacity 0.08s linear;
+    will-change: transform, opacity;
+  }
   .about-photo:hover img { transform: scale(1.03); }
   .about-photo::after {
     content: ""; position: absolute; inset: 0;
@@ -576,7 +588,8 @@
     .hero-cta .btn { justify-content: center; }
     .hero-cta .meta { margin: 4px 0 0; text-align: center; }
     .nav-right .lang { display: none; }
-    .nav-right .btn-primary span.desktop-only { display: none; }
+    .nav-right .btn-primary { display: none; }
+    .nav-right .icon-btn { display: none; }
     header.nav { padding: 12px 0; }
     .brand .dim { display: none; }
     .section-head { margin-bottom: 48px; }
@@ -913,3 +926,102 @@
 .cta-band h3 .italic { font-family: var(--serif); font-style: italic; font-weight: 300; }
 .cta-band .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 @media (max-width: 800px) { .cta-band-inner { grid-template-columns: 1fr; gap: 32px; } }
+
+/* ── reCAPTCHA badge — keep it above all page content ─────────────── */
+.grecaptcha-badge {
+  z-index: 9999 !important;
+  bottom: 80px !important;
+}
+@media (max-width: 640px) {
+  .grecaptcha-badge { bottom: 72px !important; }
+}
+
+/* ── Service page hero & stat bar ────────────────────────────────── */
+.svc-page-hero { padding: 160px 0 80px; }
+.svc-hero-headline {
+  font: 600 clamp(48px, 9vw, 130px)/0.94 var(--display);
+  letter-spacing: -0.045em; margin: 24px 0 20px; max-width: 18ch;
+  text-wrap: balance;
+}
+.svc-hero-headline em { font-family: var(--serif); font-style: italic; font-weight: 300; color: var(--fg); }
+.svc-bgtype { font-size: clamp(100px, 20vw, 300px); opacity: 0.07; }
+.svc-stat-bar {
+  display: flex; gap: 0; margin-top: 48px;
+  border: 1px solid var(--border-2); border-radius: var(--radius); overflow: hidden;
+  background: var(--surface);
+}
+.svc-stat {
+  flex: 1; padding: 24px 28px; border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.svc-stat:last-child { border-right: 0; }
+.svc-stat-v {
+  font: 600 clamp(24px, 3vw, 40px)/1 var(--display);
+  letter-spacing: -0.03em; color: var(--fg);
+}
+.svc-stat-l { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--fg-mute); }
+@media (max-width: 640px) {
+  .svc-stat-bar { flex-direction: column; }
+  .svc-stat { border-right: 0; border-bottom: 1px solid var(--border); }
+  .svc-stat:last-child { border-bottom: 0; }
+}
+
+/* ── Mobile hamburger & nav ──────────────────────────────────────── */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 8px 4px;
+  width: 36px; height: 36px;
+}
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--fg); border-radius: 2px; transition: all .3s ease; }
+@media (max-width: 1023px) { .hamburger { display: flex; } }
+
+.mobile-nav {
+  position: fixed; inset: 0; z-index: 9990;
+  background: var(--bg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0; padding: 40px 32px;
+  animation: mobileNavIn .25s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes mobileNavIn { from { opacity: 0; } to { opacity: 1; } }
+
+.mobile-nav-close {
+  position: absolute; top: 20px; right: 20px;
+  background: none; border: none; cursor: pointer;
+  color: var(--fg-dim); font-size: 28px; line-height: 1; padding: 8px;
+}
+.mobile-nav-close:hover { color: var(--fg); }
+
+.mobile-nav-links {
+  display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%;
+}
+.mobile-nav-links a,
+.mobile-nav-links button.mobile-link {
+  display: block; width: 100%; text-align: center;
+  font: 500 clamp(32px, 8vw, 52px)/1.15 var(--display);
+  letter-spacing: -0.04em; color: var(--fg);
+  background: none; border: none; cursor: pointer; text-decoration: none;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+  transition: color .2s, padding-left .2s;
+}
+.mobile-nav-links a:first-child,
+.mobile-nav-links button.mobile-link:first-child { border-top: 1px solid var(--border); }
+.mobile-nav-links a:hover,
+.mobile-nav-links button.mobile-link:hover { color: var(--brand-glow); padding-left: 12px; }
+
+.mobile-nav-bottom {
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  margin-top: 36px; width: 100%;
+}
+.mobile-lang {
+  display: flex; gap: 12px; align-items: center;
+}
+.mobile-lang button {
+  font: 500 12px/1 var(--mono) !important; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--fg-mute); background: none; border: 1px solid var(--border);
+  border-radius: 999px; padding: 8px 14px; cursor: pointer;
+  transition: all .2s;
+}
+.mobile-lang button:hover { color: var(--fg); border-color: var(--border-2); }
+.mobile-lang button.active { color: var(--bg); background: var(--fg); border-color: transparent; }
+.mobile-nav-cta { width: 100%; }
+.mobile-nav-cta .btn { width: 100%; justify-content: center; }

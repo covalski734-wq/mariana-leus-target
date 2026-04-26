@@ -1,25 +1,42 @@
 import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { IconArrow } from '@/components/Icons';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 export const AboutSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const photoRef = useRef<HTMLDivElement>(null);
-  const { t } = useLanguage();
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  // Set initial hidden state before scroll handler runs
+  useEffect(() => {
+    if (photoRef.current) photoRef.current.style.setProperty('--ap', '1');
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
       if (!sectionRef.current || !photoRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const vh = window.innerHeight;
-      const progress = Math.max(0, Math.min(1, 1 - (rect.top + rect.height * 0.3) / vh));
+      // Start animating when section enters bottom of viewport, complete when section center reaches 60% of viewport
+      const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh * 0.7)));
       photoRef.current.style.setProperty('--ap', String(1 - progress));
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const handleWorkWithMe = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      sessionStorage.setItem('scrollTarget', 'contact');
+      navigate('/');
+    }
+  };
 
   return (
     <section className="about" id="about" ref={sectionRef}>
@@ -56,9 +73,9 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            <Link to="/about" className="btn btn-ghost">
+            <a href="/#contact" onClick={handleWorkWithMe} className="btn btn-ghost">
               {t('about.cta')} <IconArrow size={16} className="arrow" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '@/context/LanguageContext';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
 const SERVICE = {
@@ -28,16 +28,9 @@ const SERVICE = {
 };
 
 export const GoogleAdsPage: React.FC = () => {
-  const { t } = useLanguage();
-
-  useEffect(() => {
-    const els = document.querySelectorAll('.reveal:not(.in)');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    els.forEach(el => io.observe(el));
-    return () => io.disconnect();
-  });
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const goToContact = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'contact'); navigate('/'); };
 
   return (
     <>
@@ -109,9 +102,9 @@ export const GoogleAdsPage: React.FC = () => {
                   <div className="sc-val">{p.val}<span className="unit">{p.unit}</span></div>
                 </div>
               ))}
-              <Link to="/#contact" className="btn btn-primary sc-cta" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>
+              <a href="/#contact" onClick={goToContact} className="btn btn-primary sc-cta" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
-              </Link>
+              </a>
               <div style={{ font: '400 12px/1.5 var(--mono)', color: 'var(--fg-mute)', marginTop: 12 }}>
                 Typical reply in under 2 hours · EN / UA / RU
               </div>
@@ -147,9 +140,9 @@ export const GoogleAdsPage: React.FC = () => {
               that <em className="italic">never</em> <span className="accent">convert.</span>
             </h3>
             <div className="ctas">
-              <Link to="/#contact" className="btn btn-primary">
+              <a href="/#contact" onClick={goToContact} className="btn btn-primary">
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
-              </Link>
+              </a>
               <Link to="/services" className="btn btn-ghost">
                 All services <IconArrow size={14} className="arrow" />
               </Link>

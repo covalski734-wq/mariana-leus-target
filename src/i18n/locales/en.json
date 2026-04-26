@@ -1,383 +1,169 @@
 {
-  "common": {
-    "tagline": "Targetologist",
-    "description": "Paid Ads Specialist: Meta Ads, Google Ads, SMM",
-    "lang": "Language"
-  },
   "header": {
-    "hero": "Hero",
     "services": "Services",
-    "process": "Process",
-    "results": "Results",
-    "trust": "About Me",
-    "testimonials": "Testimonials",
-    "blog": "Expertise",
-    "faq": "FAQ",
+    "work": "Work",
+    "about": "About",
     "contact": "Contact",
-    "about": "About"
+    "bookCall": "Book a call"
   },
   "hero": {
-    "headline": "Your Ads Will Work",
-    "headlinePart1": "Ads that actually",
-    "headlineAccent": "bring you clients",
-    "headlinePart2": "— not just clicks",
-    "subheadline": "I optimize your ad system to generate predictable revenue — not just traffic — by eliminating wasted spend at the source.",
-    "cta": "Get Consultation",
-    "urgency": "Only 5 spots for new clients this month",
-    "ctaPrimary": "Get free audit",
-    "ctaSecondary": "See how it works",
-    "stats": {
-      "clients": { "value": "150+", "label": "Clients" },
-      "years":   { "value": "8+",   "label": "Years" },
-      "roi":     { "value": "320%", "label": "Avg. ROI" }
-    }
-  },
-  "results": {
-    "title": "Our Clients' Results",
-    "subtitle": "Proof of Success in Numbers",
-    "quoteText": "The best return on investment I've ever had. Increased our revenue by 280% in just 3 months!",
-    "quoteAuthor": "John Smith — CEO, TechStart",
-    "metrics": [
-      {
-        "value": "320%",
-        "label": "Average ROI"
-      },
-      {
-        "value": "4.2x",
-        "label": "Ad Spend Profit"
-      },
-      {
-        "value": "63%",
-        "label": "CPA Reduction"
-      },
-      {
-        "value": "150+",
-        "label": "Satisfied Clients"
-      }
-    ]
+    "eyebrow": "Booking Q3 · 2 spots open",
+    "sig": "EST. 2019 · WARSAW / KYIV",
+    "line1": "Ads that",
+    "italic": "actually",
+    "line2": "return",
+    "accent": "revenue",
+    "sub": "I'm Mariana — a performance marketer who builds full-funnel growth systems for founders tired of agencies that report impressions instead of sales.",
+    "ctaPrimary": "Free consultation",
+    "ctaSecondary": "View case studies",
+    "scroll": "scroll",
+    "roas": "Avg ROAS · 90d",
+    "roasDelta": "↑ 212% vs pre-engagement",
+    "leads": "Leads / mo",
+    "leadsDelta": "14 active clients",
+    "managed": "Managed in 2025",
+    "managedDelta": "Jan–Dec",
+    "reply": "Reply time",
+    "replyValue": "< 2h",
+    "replyDelta": "EN / UA / RU"
   },
   "services": {
-    "label": "What I Do",
-    "viewPage": "View service page →",
-    "title": "My Services",
-    "subtitle": "Comprehensive digital growth for your business",
-    "items": [
-      {
-        "key": "metaAds",
-        "name": "Meta Ads",
-        "description": "Strategy, setup, and optimization of ad campaigns on Facebook, Instagram, and TikTok"
-      },
-      {
-        "key": "googleAds",
-        "name": "Google Ads",
-        "description": "Search advertising, video marketing, and display networks for maximum reach"
-      },
-      {
-        "key": "smm",
-        "name": "SMM",
-        "description": "Social media management, content planning, and community building"
-      },
-      {
-        "key": "audit",
-        "name": "Audit",
-        "description": "In-depth analysis of your current ad campaigns and identification of improvement opportunities"
-      },
-      {
-        "key": "webDev",
-        "name": "Web Development",
-        "description": "Conversion-focused website development for your business with landing pages and funnels"
-      }
-    ],
-    "labels": {
-      "metaAds": "Meta / SMM",
-      "googleAds": "Search & Display",
-      "smm": "Brand Growth",
-      "audit": "Account Audit",
-      "webDev": "Web Development"
-    },
-    "learnMore": "Learn more →",
-    "hideDetails": "Hide details",
-    "details": {
-      "metaAds": "High-ROI Meta campaigns built to increase conversions and reduce wasted spend across Facebook, Instagram and TikTok.",
-      "googleAds": "Search, video and display funnels tuned to capture intent-driven traffic and improve lead quality.",
-      "smm": "Social media strategies that improve brand trust, engagement, and audience retention across key channels.",
-      "audit": "Comprehensive funnel audits that identify wasted budgets, technical gaps and fast-win optimization opportunities.",
-      "webDev": "Conversion-focused website development that brings design, speed and analytics together for better ad conversion."
-    },
-    "benefits": {
-      "metaAds": [
-        "Ads optimized for sales outcomes, not just clicks.",
-        "Custom audiences, creative testing, and automated scaling.",
-        "Detailed ROAS reporting for every campaign."
-      ],
-      "googleAds": [
-        "Keyword strategies that reduce CPA and increase revenue.",
-        "Responsive search and video funnels for high-intent traffic.",
-        "Smart bidding and landing page alignment."
-      ],
-      "smm": [
-        "Weekly content planning with performance triggers.",
-        "Community growth with conversion-minded messaging.",
-        "Cross-channel momentum for retargeting and remarketing."
-      ],
-      "audit": [
-        "Full account, creative and funnel review.",
-        "Clear roadmap with prioritized improvement steps.",
-        "Budget optimization without losing momentum."
-      ],
-      "webDev": [
-        "Fast, lightweight landing pages that convert.",
-        "Ad landing pages built around user journeys.",
-        "Mobile-first design with fast load speed."
-      ]
-    }
+    "sectionNum": "/ 01 · Services",
+    "title": "Five disciplines.\nOne operator running all of them.",
+    "desc": "You don't need another agency juggling accounts between juniors. You need one senior who can see the whole funnel — from ad to landing page to CRM — and fix whichever part is losing you money this week.",
+    "learnMore": "Learn more",
+    "meta": { "name": "Meta Ads", "sub": "Facebook & Instagram", "desc": "Full-funnel campaigns engineered for purchase, lead, and conversation objectives — with creative testing baked in." },
+    "google": { "name": "Google Ads", "sub": "Search, PMax, Display", "desc": "High-intent traffic, ruthless negative-keyword hygiene, and PMax asset groups that actually convert." },
+    "web": { "name": "Website Development", "sub": "Landing pages & sites", "desc": "Conversion-first pages built for speed, clarity, and CRM integration — not just pretty." },
+    "smm": { "name": "Social Media Management", "sub": "Content + community", "desc": "Editorial calendars, short-form video, and community growth that supports paid acquisition." },
+    "seo": { "name": "SEO", "sub": "Organic growth", "desc": "Technical audits, content systems, and topic clusters that compound for 12+ months." }
   },
-  "caseStudies": {
-    "title": "Successful Cases",
-    "subtitle": "Selected campaigns that drove fast measurable growth",
-    "description": "Results from clients in e-commerce, SaaS and service businesses with clear ROI increases.",
-    "challenge": "Challenge:",
-    "solution": "Solution:",
-    "impact": "Impact:",
-    "items": [
-      {
-        "client": "E-Shop Growth",
-        "industry": "E-commerce",
-        "challenge": "High CPA from untargeted search and social traffic.",
-        "solution": "Optimized Google and Meta funnels to reach high-intent buyers and reduce wasted spend.",
-        "impact": "160% revenue increase in 6 weeks with 42% lower CPA.",
-        "metric": "160% ROI"
-      },
-      {
-        "client": "Beauty Brand",
-        "industry": "D2C Cosmetics",
-        "challenge": "Poor lead quality and inconsistent ad performance.",
-        "solution": "Launched a data-driven retargeting sequence and improved creative messaging.",
-        "impact": "280% ROI growth and stable weekly lead volume.",
-        "metric": "280% ROI"
-      },
-      {
-        "client": "Startup SaaS",
-        "industry": "Technology",
-        "challenge": "Low demo requests from paid campaigns.",
-        "solution": "Built a bespoke funnel with landing page testing and automated follow-up.",
-        "impact": "3x more qualified trials with 35% lower CAC.",
-        "metric": "3x Trials"
-      }
-    ]
-  },
-  "process": {
-    "title": "How I Work",
-    "subtitle": "5 Steps to Success",
-    "steps": [
-      {
-        "number": "1",
-        "title": "Research",
-        "description": "I analyze your business, competitors, and target audience"
-      },
-      {
-        "number": "2",
-        "title": "Strategy",
-        "description": "I develop a personalized strategy based on your goals and budget"
-      },
-      {
-        "number": "3",
-        "title": "Launch",
-        "description": "I set up and launch ad campaigns with maximum precision"
-      },
-      {
-        "number": "4",
-        "title": "Optimization",
-        "description": "I continuously monitor and optimize campaigns for best results"
-      },
-      {
-        "number": "5",
-        "title": "Reports",
-        "description": "I provide transparent reports on results and next steps"
-      }
-    ]
-  },
-  "trust": {
-    "title": "Why Choose Me",
-    "subtitle": "Open Communication and Results",
-    "items": [
-      {
-        "title": "8+ Years of Experience",
-        "description": "I've developed and optimized ad campaigns for 150+ companies"
-      },
-      {
-        "title": "Transparency",
-        "description": "Daily reports on spending, clicks, and conversions. No hidden fees"
-      },
-      {
-        "title": "Global Experience",
-        "description": "I've launched campaigns for clients from the USA, Canada, and Europe"
-      },
-      {
-        "title": "Personal Approach",
-        "description": "Your success is my success. I put maximum effort for every client"
-      }
-    ]
+  "cases": {
+    "sectionNum": "/ 02 · Selected work",
+    "title": "Numbers that survived\nthe finance team.",
+    "desc": "Every case below is measured against actual revenue — not CTR, not vanity reach. Pick a niche close to yours; results are usually directionally similar."
   },
   "testimonials": {
-    "label": "Client Reviews",
-    "title": "What My Clients Say",
-    "items": [
-      {
-        "name": "Ilya Petrov",
-        "company": "TechStart",
-        "text": "The best paid ads specialist I've ever hired. Results exceeded all expectations!"
-      },
-      {
-        "name": "Inna Sidorik",
-        "company": "Beauty Brand",
-        "text": "Professionalism at the highest level. ROI increased by 280% in the first month."
-      },
-      {
-        "name": "Denis Govorov",
-        "company": "E-Commerce Store",
-        "text": "Thank you for transparency and results. Finally, ads are bringing profit!"
-      }
-    ]
-  },
-  "blog": {
-    "title": "My Expertise",
-    "subtitle": "Learn About Trends and Strategies",
-    "items": [
-      {
-        "title": "Performance-driven Reels",
-        "description": "Premium short-form content concepts that boost engagement and lower CPM.",
-        "tag": "Reels"
-      },
-      {
-        "title": "Conversion Copy",
-        "description": "Ad copy designed to match search intent, reduce friction, and increase leads.",
-        "tag": "Copy"
-      },
-      {
-        "title": "Audit Insights",
-        "description": "Actionable audit highlights that expose wasted spend and unlock growth.",
-        "tag": "Audit"
-      }
-    ]
-  },
-  "contact": {
-    "title": "Start Today",
-    "subtitle": "Leave your contacts, and I'll get back to you",
-    "explanation": "Share your goals and I’ll design the first steps to higher conversions.",
-    "form": {
-      "name": "Your Name",
-      "contact_method": "Preferred Contact Method",
-      "contact_value": "Contact Details",
-      "message": "Your Message",
-      "messagePlaceholder": "Tell me about your business and goals…",
-      "submit": "Send Request",
-      "submitting": "Sending…",
-      "successTitle": "Request received!",
-      "successBody": "Thank you! We received your request and will contact you soon.",
-      "error": "Something went wrong. Please try again.",
-      "nameError": "Please enter your name",
-      "contactValueError": "Please provide your contact details",
-      "phoneError": "Please enter a valid phone number",
-      "emailError": "Please enter a valid email address",
-      "phonePlaceholder": "Enter phone number",
-      "helperText": "Please double-check your contact details",
-      "trustText": "We will get back to you within 12 hours",
-      "messageError": "Please describe your project or goal",
-      "valueLabelFor": {
-        "phone": "Phone Number",
-        "whatsapp": "WhatsApp Number",
-        "email": "Email Address",
-        "telegram": "Telegram Username",
-        "instagram": "Instagram Handle"
-      }
-    },
-    "methods": {
-      "phone": "Phone",
-      "whatsapp": "WhatsApp",
-      "email": "Email",
-      "telegram": "Telegram",
-      "instagram": "Instagram"
-    }
-  },
-  "footer": {
-    "links": "Links",
-    "contact": "Contacts",
-    "help": "Help",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Use",
-    "copyright": "© 2024 Targetologist. All rights reserved."
+    "sectionNum": "/ 03 · Clients",
+    "title": "What founders say\nafter the first quarter.",
+    "desc": "These aren't marketplace reviews. They're the founders who stuck around for year two."
   },
   "about": {
-    "label":      "About",
-    "title":      "Mariana Leus",
-    "subtitle":   "Paid Ads Specialist with 8+ years of experience",
-    "bio":        "I help businesses turn ad budgets into predictable revenue. I specialize in Meta Ads and Google Ads — from audit to scaling. Over 8 years I've delivered 200+ projects for clients across the USA, Canada, and Europe.",
-    "photoHint":  "Photo: professional portrait of Mariana Leus — business setting, neutral background, confident smile",
-    "experience": "8+ years",
-    "clients":    "150+ clients",
-    "countries":  "15+ countries",
-    "journey":    "My Journey",
-    "values":     "My Values",
-    "cta":        "Start working together",
-    "milestones": [
-      { "year": "2016", "text": "Started career in digital marketing, first Facebook ad campaigns" },
-      { "year": "2018", "text": "Google Ads certification, expansion to international markets" },
-      { "year": "2020", "text": "Launched independent practice, first clients from Europe and the US" },
-      { "year": "2022", "text": "150+ successful projects, specialization in e-commerce and SaaS" },
-      { "year": "2024", "text": "Top paid ads specialist for small and medium-sized businesses" }
-    ],
-    "valueItems": [
-      { "title": "Results over process",  "desc": "Every decision is measured by concrete numbers: ROI, CPA, ROAS" },
-      { "title": "Transparency",          "desc": "You see every dollar spent and understand exactly what you're paying for" },
-      { "title": "Continuous learning",   "desc": "Algorithms change — I continuously update my knowledge and approach" },
-      { "title": "Partnership",           "desc": "I treat every client's business as if it were my own" }
-    ]
+    "sectionNum": "/ 04 · About",
+    "badge": "Available for new projects",
+    "title": "Seven years inside other people's ad accounts — and I still find broken conversion events on day one.",
+    "p1": "I started in-house at a DTC brand that was hemorrhaging budget on lookalikes that didn't convert. After rebuilding the account from scratch and scaling to €1.2M/year, founders started asking me to do the same for them. I've been solo ever since.",
+    "p2": "I work with 10–14 clients at a time, never more. Every account has my hands in it — not a junior's, not an AI summary. If your numbers aren't moving in 60 days, you don't pay for month three.",
+    "yearsVal": "7y",
+    "yearsLabel": "Performance marketing",
+    "managedVal": "€2.4M",
+    "managedLabel": "Managed in 2025",
+    "brandsVal": "42",
+    "brandsLabel": "Brands scaled",
+    "cta": "Work with me"
   },
-  "services_pages": {
-    "backToServices": "← Back to services",
-    "getStarted":     "Get started",
-    "freeAudit":      "Get free audit",
-    "included":       "What's included",
-    "howItWorks":     "How it works",
-    "results":        "Client results"
+  "contact": {
+    "sectionNum": "/ 05 · Contact",
+    "title": "Fastest answer is\non Telegram.",
+    "desc": "Usually back within two hours during working days. For anything urgent, Telegram or WhatsApp.",
+    "telegramName": "Telegram · fastest",
+    "whatsappName": "WhatsApp",
+    "whatsappHandle": "+48 — on request",
+    "instagramName": "Instagram",
+    "facebookName": "Facebook",
+    "emailName": "Email",
+    "nameLabel": "Your name",
+    "namePlaceholder": "Oksana Kovalenko",
+    "businessLabel": "Business",
+    "businessPlaceholder": "Company + niche",
+    "budgetLabel": "Monthly ad budget",
+    "budgetDefault": "Select a range",
+    "budget1": "Under €2k / month",
+    "budget2": "€2k–5k / month",
+    "budget3": "€5k–15k / month",
+    "budget4": "€15k–50k / month",
+    "budget5": "€50k+ / month",
+    "budget6": "Not sure yet",
+    "contactMethodLabel": "Preferred contact method",
+    "messageLabel": "What do you want to grow?",
+    "messagePlaceholder": "A sentence or two is enough — what the business does, what you've tried, what 'success' looks like in 90 days.",
+    "submitBtn": "Send & book a free 30-min call",
+    "formFoot": "No auto-responders. No CRM drip. Real human reply.",
+    "successMsg": "Got it — I'll reply within 2 hours."
   },
-  "faq": {
-    "label": "FAQ",
-    "title": "Frequently Asked Questions",
-    "subtitle": "Everything you need to know before we start working together",
-    "cta":     "Still have questions?",
-    "ctaLink": "Get in touch →",
-    "items": [
-      {
-        "q": "How quickly will I see results?",
-        "a": "Most clients see measurable improvements within 2–4 weeks. Revenue uplift typically becomes clear by week 6–8 once the algorithm has enough data to optimize effectively."
-      },
-      {
-        "q": "What budget do I need to get started?",
-        "a": "I work with ad budgets starting from $1,000/month. The larger the budget, the faster we gather data and scale winning campaigns."
-      },
-      {
-        "q": "Which platforms do you advertise on?",
-        "a": "I specialize in Meta Ads (Facebook & Instagram) and Google Ads (Search, Display, YouTube). I can manage one or both platforms depending on where your audience spends time."
-      },
-      {
-        "q": "Do you sign a contract?",
-        "a": "Yes. Every client gets a clear service agreement outlining deliverables, timelines, and terms before we start — no surprises."
-      },
-      {
-        "q": "How do I stay updated on campaign performance?",
-        "a": "You receive a weekly report every Monday covering all key metrics: ROAS, CPA, leads, and ad spend. I'm also available for calls whenever you need to discuss strategy."
-      },
-      {
-        "q": "Can I get a free audit before committing?",
-        "a": "Absolutely. Fill in the contact form and I'll review your current ad account and send you a prioritized improvement plan — completely free, no obligation."
-      }
-    ]
+  "footer": {
+    "tagline": "Solo performance marketer for founders who want fewer dashboards and more revenue.",
+    "services": "Services",
+    "studio": "Studio",
+    "elsewhere": "Elsewhere",
+    "caseStudies": "Case studies",
+    "clients": "Clients",
+    "about": "About",
+    "contact": "Contact",
+    "copyright": "© 2026 Mariana Leus · Performance Marketing",
+    "location": "Warsaw · Kyiv · Remote worldwide",
+    "backToTop": "Back to top ↑"
   },
   "privacy": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: January 1, 2024",
-    "backHome": "← Back to home"
+    "updated": "Last updated: April 2026",
+    "intro": "This Privacy Policy explains how Mariana Leus collects, uses, and protects your personal information.",
+    "s1Title": "1. Information We Collect",
+    "s1": "We collect information you provide directly: name, business details, and any other information submitted through the contact form on this website.",
+    "s2Title": "2. How We Use Your Information",
+    "s2": "Your information is used solely to respond to your inquiry, schedule consultations, and provide the services you requested. We do not sell or share your data with third parties.",
+    "s3Title": "3. Data Storage",
+    "s3": "Form submissions are sent directly via email. No data is stored on our servers beyond what is necessary to respond to your inquiry.",
+    "s4Title": "4. Cookies",
+    "s4": "This website may use minimal technical cookies for analytics purposes. You can disable cookies in your browser settings at any time.",
+    "s5Title": "5. Contact",
+    "s5": "For any questions regarding this privacy policy, contact us at marianaleus8@gmail.com."
+  },
+  "servicesPage": {
+    "crumb": "Services",
+    "heroTitle1": "Five disciplines.",
+    "heroItalic": "One",
+    "heroTitle2": "P&L.",
+    "heroLede": "Every retainer is structured so the cost of working with me is paid back by month two. No dashboards you don't understand, no agency theatre — just the one or two levers that move your numbers.",
+    "processNum": "/ How we work",
+    "processTitle": "Four phases.\nNo surprises.",
+    "processDesc": "The shape of every engagement. Weeks are approximate; your team and brand will bend the schedule — I'll tell you how before we start.",
+    "faqNum": "/ FAQ",
+    "faqTitle": "Questions founders ask\nin the first 10 minutes.",
+    "faqDesc": "Can't find yours? Send it over via Telegram or email — I reply within 2 hours during business hours.",
+    "ctaTitle": "Ready to see what your\nactual ROAS should be?",
+    "ctaBookBtn": "Book a free audit",
+    "ctaTelegramBtn": "Message on Telegram"
+  },
+  "aboutPage": {
+    "crumb": "About",
+    "heroTitle1": "Seven years of watching",
+    "heroItalic": "other people's",
+    "heroTitle2": "ad accounts,",
+    "heroTitle3": "so you don't",
+    "heroUnderline": "have to.",
+    "photoCaption": "Warsaw · 2025 · 14-client cap",
+    "introLabel": "/ Introduction",
+    "intro1": "I started in-house at a skincare brand that was hemorrhaging budget on lookalikes that didn't convert. After rebuilding the account from scratch and scaling it to €1.2M in annual revenue, founders started asking me to do the same for them. I've been solo ever since — and I've kept it that way on purpose.",
+    "intro2": "Today I run a quiet, boring practice: 10–14 clients at a time, flat monthly retainers, no junior staff, no account managers, no sales funnel dressed up as a dashboard. If you're reading this page, the only person between you and your campaigns is me.",
+    "intro3": "Performance marketing rewards the patient and the specific. Most of what agencies sell as 'strategy' is a slideshow. The actual work is unglamorous: writing better ads, rebuilding tracking that never worked, killing audiences that never converted, and telling founders honestly when their product isn't ready to scale.",
+    "timelineNum": "/ Trajectory",
+    "timelineTitle": "How I got here.",
+    "timelineDesc": "Edited-down version. Full CV on request — but trajectory matters less than the shape of the practice now.",
+    "principlesNum": "/ Principles",
+    "principlesTitle": "Six things I won't bend on.",
+    "principlesDesc": "If any of these feel like friction, I'm probably not the right marketer for you — and that's fine. I'll recommend someone who is.",
+    "toolkitNum": "/ Toolkit",
+    "toolkitTitle": "What's in the stack.",
+    "toolkitDesc": "Tools are disposable. I care about the thinking, not the logos — but here's what I actually use day-to-day.",
+    "quote": "The edge isn't in the auction. It's in the ad.",
+    "quoteSource": "— Working belief, repeated weekly",
+    "ctaTitle1": "Want to see what",
+    "ctaTitle2": "working together",
+    "ctaTitle3": "would",
+    "ctaItalic": "actually",
+    "ctaTitle4": "look like?",
+    "ctaBook": "Book a 30-min call",
+    "ctaServices": "See services"
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Logo } from './Logo';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 const scrollToTop = (e: React.MouseEvent) => {
   e.preventDefault();
@@ -9,7 +9,19 @@ const scrollToTop = (e: React.MouseEvent) => {
 };
 
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const navToSection = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      sessionStorage.setItem('scrollTarget', id);
+      navigate('/');
+    }
+  };
+
   return (
     <footer>
       <div className="container">
@@ -31,10 +43,10 @@ export const Footer: React.FC = () => {
           </div>
           <div className="footer-col">
             <h5>{t('footer.studio')}</h5>
-            <a href="/#work">{t('footer.caseStudies')}</a>
+            <a href="/#work" onClick={navToSection('work')}>{t('footer.caseStudies')}</a>
             <Link to="/about">{t('footer.about') || 'About'}</Link>
-            <a href="/#testimonials">{t('footer.clients')}</a>
-            <a href="/#contact">{t('footer.contact') || 'Contact'}</a>
+            <a href="/#testimonials" onClick={navToSection('testimonials')}>{t('footer.clients')}</a>
+            <a href="/#contact" onClick={navToSection('contact')}>{t('footer.contact') || 'Contact'}</a>
           </div>
           <div className="footer-col">
             <h5>{t('footer.elsewhere')}</h5>

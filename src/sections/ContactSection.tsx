@@ -4,7 +4,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { isValidPhoneNumber } from 'libphonenumber-js';
 import { IconTelegram, IconWhatsApp, IconInstagram, IconMail, IconArrow, IconCheck } from '@/components/Icons';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | undefined;
 
@@ -35,7 +35,8 @@ const METHOD_LABELS: Record<ContactMethod, Record<string, string>> = {
 };
 
 export const ContactSection: React.FC = () => {
-  const { t, lang } = useLanguage();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language.toUpperCase() as 'EN' | 'UA' | 'RU';
   const [status, setStatus] = useState<'success' | 'error' | null>(null);
 
   const {
@@ -108,7 +109,7 @@ export const ContactSection: React.FC = () => {
         <div className="section-head reveal">
           <div>
             <div className="section-num">{t('contact.sectionNum')}</div>
-            <h2>{t('contact.title').split('\n').map((line, i, a) => (
+            <h2>{t('contact.title').split('\n').map((line: string, i: number, a: string[]) => (
               <React.Fragment key={i}>{line}{i < a.length - 1 && <br />}</React.Fragment>
             ))}</h2>
           </div>

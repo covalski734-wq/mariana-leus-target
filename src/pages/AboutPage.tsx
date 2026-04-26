@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IconArrow } from '@/components/Icons';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 const TIMELINE = [
   { year: '2019', role: 'First paid media role', body: 'Joined a Warsaw-based e-commerce startup as their first in-house marketer. Ran Meta and Google campaigns from scratch — no playbook, no agency.' },
@@ -30,7 +30,7 @@ const TOOLS = [
 // ── sub-components ─────────────────────────────────────────────────────────────
 
 const AboutHero: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="ab-hero">
       <div className="hero-bgtype" style={{ fontSize: 'clamp(100px,22vw,320px)', opacity: 0.06 }}><span>MARIANA</span></div>
@@ -77,7 +77,7 @@ const AboutHero: React.FC = () => {
 };
 
 const AboutIntro: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="ab-intro container">
       <div className="label">{t('aboutPage.introLabel')}</div>
@@ -91,7 +91,7 @@ const AboutIntro: React.FC = () => {
 };
 
 const TimelineSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="ab-timeline">
       <div className="container">
@@ -120,7 +120,7 @@ const TimelineSection: React.FC = () => {
 };
 
 const PrinciplesSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="ab-principles">
       <div className="container">
@@ -146,7 +146,7 @@ const PrinciplesSection: React.FC = () => {
 };
 
 const ToolkitSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="ab-tools">
       <div className="container">
@@ -175,7 +175,7 @@ const ToolkitSection: React.FC = () => {
 };
 
 const AboutQuote: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="ab-quote">
       <div className="container">
@@ -188,7 +188,7 @@ const AboutQuote: React.FC = () => {
 };
 
 const AboutCta: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <div className="cta-band">
       <div className="mesh" style={{ opacity: 0.4 }}>

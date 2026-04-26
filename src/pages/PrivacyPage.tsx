@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 export const PrivacyPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   return (
     <div className="pg-hero" style={{ minHeight: 'auto', paddingBottom: 80 }}>

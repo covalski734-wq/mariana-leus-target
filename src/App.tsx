@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { LanguageProvider } from '@/context/LanguageContext';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { HeroSection } from '@/sections/HeroSection';
@@ -17,6 +16,8 @@ import { GoogleAdsPage } from '@/pages/services/GoogleAdsPage';
 import { WebDevPage } from '@/pages/services/WebDevPage';
 import { SmmPage } from '@/pages/services/SmmPage';
 import { SeoPage } from '@/pages/services/SeoPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { useReveal } from '@/hooks/useReveal';
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -25,6 +26,8 @@ const ScrollToTop: React.FC = () => {
   }, [pathname]);
   return null;
 };
+
+const RevealObserver: React.FC = () => { useReveal(); return null; };
 
 const LandingPage: React.FC = () => {
   useEffect(() => {
@@ -54,22 +57,22 @@ const LandingPage: React.FC = () => {
 
 const App: React.FC = () => (
   <BrowserRouter>
-    <LanguageProvider>
-      <ScrollToTop />
-      <Header />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/services/meta-ads" element={<MetaAdsPage />} />
-        <Route path="/services/google-ads" element={<GoogleAdsPage />} />
-        <Route path="/services/web-dev" element={<WebDevPage />} />
-        <Route path="/services/smm" element={<SmmPage />} />
-        <Route path="/services/seo" element={<SeoPage />} />
-        <Route path="/privacy" element={<PrivacyPage />} />
-      </Routes>
-      <Footer />
-    </LanguageProvider>
+    <ScrollToTop />
+    <RevealObserver />
+    <Header />
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/services/meta-ads" element={<MetaAdsPage />} />
+      <Route path="/services/google-ads" element={<GoogleAdsPage />} />
+      <Route path="/services/web-dev" element={<WebDevPage />} />
+      <Route path="/services/smm" element={<SmmPage />} />
+      <Route path="/services/seo" element={<SeoPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+    <Footer />
   </BrowserRouter>
 );
 

@@ -1,17 +1,17 @@
 import React from 'react';
 import { CASES } from '@/data';
 import { IconArrowUp } from '@/components/Icons';
-import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 export const CaseStudiesSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   return (
     <section className="cases" id="work">
       <div className="container">
         <div className="section-head">
           <div>
             <div className="section-num">{t('cases.sectionNum')}</div>
-            <h2>{t('cases.title').split('\n').map((line, i, arr) => (
+            <h2>{t('cases.title').split('\n').map((line: string, i: number, arr: string[]) => (
               <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
             ))}</h2>
           </div>
