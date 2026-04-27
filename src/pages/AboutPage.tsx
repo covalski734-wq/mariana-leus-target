@@ -1,225 +1,235 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IconArrow } from '@/components/Icons';
-import { useTranslation } from 'react-i18next';
+
+// ── Data (matches Claude Design exactly) ────────────────────────────────────
 
 const TIMELINE = [
-  { year: '2019', role: 'First paid media role', body: 'Joined a Warsaw-based e-commerce startup as their first in-house marketer. Ran Meta and Google campaigns from scratch — no playbook, no agency.' },
-  { year: '2020–21', role: 'Agency side', body: "Managed €1M+ in annual spend across 15+ accounts at a boutique performance agency. Learned what scales and what doesn't across e-com, SaaS, and local service businesses." },
-  { year: '2022', role: 'Going solo', body: 'Left the agency to work directly with founders. Smaller client roster, deeper involvement, and actual accountability for results.' },
-  { year: '2023', role: 'Expanded to web & SEO', body: 'Added landing page builds and SEO retainers to close the loop between traffic and conversion. Clients were losing leads to bad pages — I fixed that.' },
-  { year: '2024–now', role: 'Full-stack performance', body: 'Running a focused practice: Meta, Google, web, SMM, SEO. Based in Warsaw, working across Europe and remote-globally. 2 spots available for Q3.', current: true },
+  {
+    year: '2018',
+    role: 'In-house growth · DTC skincare',
+    title: 'The job that broke my agency beliefs',
+    text: "Joined a skincare brand burning €40k/mo on lookalikes that weren't converting. Rebuilt the Meta account from scratch, scrapped the agency, and took the brand from break-even ROAS to 3.2× in four months. First time I realised most growth problems are creative problems disguised as algorithm problems.",
+  },
+  {
+    year: '2020',
+    role: 'Freelance · Kyiv',
+    title: 'First 10 clients, first rule',
+    text: "Went solo. Started taking on clients month-to-month — no annual contracts, no retainers dressed up as scope. Learned to say no quickly when the product or margins didn't support paid acquisition. That list of declined clients is as valuable as the list of accepted ones.",
+  },
+  {
+    year: '2022',
+    role: 'Relocation · Warsaw',
+    title: 'Scaling across three markets',
+    text: 'Moved to Warsaw. Started working across PL, DE, and UA markets simultaneously — three languages, three consumer psychologies, three ad account climates. Figured out how to structure campaigns that share creative pipelines but respect local shopping behaviour.',
+  },
+  {
+    year: '2024',
+    role: 'Solo practice, current',
+    title: '€2.4M managed, 14-client cap',
+    text: 'Formalised the practice around a hard cap of 14 concurrent clients and a flat retainer model. Every account is mine — no juniors, no white-label. Shipped a Telegram-first lead intake that now handles 40% of after-hours enquiries for service clients.',
+    current: true,
+  },
 ];
 
 const PRINCIPLES = [
-  { n: '01', t: 'Numbers over narratives', d: "I don't run ads to win awards. Every decision is tied to a measurable business outcome — ROAS, CPL, CAC, revenue. If the metric doesn't improve, the approach changes." },
-  { n: '02', t: 'One client per niche', d: "If you're a dental clinic in Warsaw, no competitor works with me while you do. Conflict of interest is an integrity problem, not just a business one." },
-  { n: '03', t: 'Honest before comfortable', d: "If a campaign isn't working, you hear it from me before you see it in the dashboard. I'd rather lose a client with honesty than keep one with spin." },
-  { n: '04', t: 'Craft over volume', d: "I cap my client roster to keep quality high. I can't do good work for 20 accounts. So I don't try." },
-  { n: '05', t: 'Long-term compounding', d: "The best results I've delivered came from clients who stayed long enough for strategies to mature. I don't optimise for quick wins that don't hold." },
-  { n: '06', t: 'You own everything', d: "Ad accounts, creatives, data, code — all yours. Nothing is held hostage. If we stop working together, you keep all the assets and the knowledge." },
+  { n: '01', t: 'Revenue is the only metric that matters', d: "ROAS, CTR, CPM — these are instruments, not goals. Every campaign I run is measured against the revenue line in your P&L. If it doesn't show up there, it doesn't count." },
+  { n: '02', t: 'Creative is 70% of performance', d: 'The algorithm is commoditised. Everyone bids the same auctions with the same pixels. The edge is what you show, how you say it, and who shows up in the shot. I obsess about creative testing — not targeting tricks.' },
+  { n: '03', t: 'Small, concentrated, slow', d: "I work with 10–14 clients, never more. I don't scale by hiring juniors or white-labelling. The brands I take on get my whole brain on their problem — that's the entire value proposition." },
+  { n: '04', t: 'Say no quickly', d: "If your margins can't support paid acquisition, or your product-market fit is shaky, I'll tell you on the first call and refund the audit. Wasting your budget is worse than losing your retainer." },
+  { n: '05', t: 'Plain-language reports', d: "Nobody reads 80-tab dashboards. Monday morning you get a 5-bullet note: what we ran, what moved, what I'm testing next. Charts are linked if you want them." },
+  { n: '06', t: 'Telegram over email', d: 'For founders I trust, Telegram is the primary channel. Emails are for contracts and invoices. Quick questions get 2-hour replies — which is the fastest response most performance marketers can promise honestly.' },
 ];
 
 const TOOLS = [
-  { group: 'Paid Media', chips: ['Meta Ads Manager', 'Google Ads', 'Google Analytics 4', 'Meta CAPI', 'Google Tag Manager', 'Looker Studio'] },
-  { group: 'Creative & Design', chips: ['Figma', 'Canva Pro', 'CapCut', 'Adobe Lightroom'] },
-  { group: 'Web & Landing Pages', chips: ['Webflow', 'Framer', 'React / Vite', 'HubSpot', 'Notion'] },
-  { group: 'SEO & Content', chips: ['Ahrefs', 'Screaming Frog', 'Surfer SEO', 'Google Search Console'] },
+  { group: 'Ads & tracking', items: ['Meta Ads Manager', 'Google Ads', 'Google Tag Manager', 'GA4', 'Meta CAPI', 'Hyros', 'TripleWhale', 'Matomo'] },
+  { group: 'Web & build', items: ['Webflow', 'Framer', 'Figma', 'Tilda', 'Next.js', 'Vercel', 'Shopify', 'WordPress'] },
+  { group: 'Analytics & research', items: ['Looker Studio', 'Hotjar', 'Microsoft Clarity', 'Mixpanel', 'Ahrefs', 'Semrush', 'Amplitude'] },
+  { group: 'Ops & comms', items: ['Notion', 'Telegram', 'Slack', 'Linear', 'Loom', 'HubSpot', 'Pipedrive'] },
 ];
 
-// ── sub-components ─────────────────────────────────────────────────────────────
+// ── Sub-components ────────────────────────────────────────────────────────────
 
 const AboutHero: React.FC = () => {
-  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const goToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    sessionStorage.setItem('scrollTarget', 'contact');
+    navigate('/');
+  };
   return (
-    <div className="ab-hero">
-      <div className="hero-bgtype" style={{ fontSize: 'clamp(100px,22vw,320px)', opacity: 0.06 }}><span>MARIANA</span></div>
-      <div className="mesh" style={{ opacity: 0.5 }}>
+    <section className="ab-hero">
+      <div className="mesh" aria-hidden="true">
         <div className="blob b1" /><div className="blob b2" />
+        <div className="blob b3" /><div className="blob b4" />
       </div>
-      <div className="grid-overlay" />
+      <div className="hero-bgtype"><span>ABOUT</span></div>
       <div className="container">
-        <div className="crumb" style={{ marginBottom: 32, font: '400 13px/1 var(--mono)', color: 'var(--fg-mute)', display: 'flex', gap: 8, alignItems: 'center' }}>
-          <Link to="/">Home</Link>
-          <span>/</span>
-          <span>{t('aboutPage.crumb')}</span>
+        <div style={{ position: 'relative', zIndex: 3, marginBottom: 32 }}>
+          <div className="crumb" style={{ font: '500 11px/1 var(--mono)', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-mute)', display: 'flex', alignItems: 'center', gap: 4 }}>
+            <Link to="/">Home</Link>
+            <span style={{ margin: '0 6px', opacity: .5 }}>/</span>
+            About
+          </div>
         </div>
         <div className="ab-hero-grid">
-          <div>
-            <div className="eyebrow" style={{ marginBottom: 28 }}>
-              <span className="dot pulse" />
-              Performance marketer · Warsaw
-            </div>
-            <h1>
-              {t('aboutPage.heroTitle1')}{' '}
-              <em className="italic">{t('aboutPage.heroItalic')}</em>{' '}
-              {t('aboutPage.heroTitle2')}<br />
-              {t('aboutPage.heroTitle3')}{' '}
-              <span className="underline">{t('aboutPage.heroUnderline')}</span>
-            </h1>
-            <div style={{ marginTop: 32, display: 'flex', gap: 12 }}>
-              <a href="/#contact" className="btn btn-primary">
-                {t('aboutPage.ctaBook')} <IconArrow size={16} className="arrow" />
-              </a>
-              <Link to="/services" className="btn btn-ghost">
-                {t('aboutPage.ctaServices')}
-              </Link>
-            </div>
-          </div>
+          <h1>
+            Seven years of watching<br />
+            <span className="italic">other people's</span> ad accounts,<br />
+            so you don't <span className="underline">have to.</span>
+          </h1>
           <div className="ab-hero-photo">
-            <img src="/mariana.jpg" alt="Mariana Leus" />
-            <div className="ab-photo-cap">{t('aboutPage.photoCaption')}</div>
+            <img src="/mariana.jpg" alt="Mariana Leus portrait" loading="lazy" />
+            <div className="ab-photo-cap">Warsaw · 2025 · 14-client cap</div>
           </div>
         </div>
+        <div style={{ marginTop: 40, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <a href="/#contact" onClick={goToContact} className="btn btn-primary">
+            Book a 30-min call <IconArrow size={14} className="arrow" />
+          </a>
+          <Link to="/services" className="btn btn-ghost">
+            See services <IconArrow size={14} className="arrow" />
+          </Link>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-const AboutIntro: React.FC = () => {
-  const { t } = useTranslation();
-  return (
-    <div className="ab-intro container">
-      <div className="label">{t('aboutPage.introLabel')}</div>
+const AboutIntro: React.FC = () => (
+  <section className="ab-intro">
+    <div className="container">
+      <div>
+        <div className="label">/ Introduction</div>
+      </div>
       <div className="prose">
-        <p>{t('aboutPage.intro1')}</p>
-        <p>{t('aboutPage.intro2')}</p>
-        <p>{t('aboutPage.intro3')}</p>
+        <p>I started in-house at a skincare brand that was hemorrhaging budget on lookalikes that didn't convert. After rebuilding the account from scratch and scaling it to €1.2M in annual revenue, founders started asking me to do the same for them. I've been solo ever since — and I've kept it that way on purpose.</p>
+        <p>Today I run a quiet, boring practice: 10–14 clients at a time, flat monthly retainers, no junior staff, no account managers, no sales funnel dressed up as a dashboard. If you're reading this page, the only person between you and your campaigns is me.</p>
+        <p>Performance marketing rewards the patient and the specific. Most of what agencies sell as "strategy" is a slideshow. The actual work is unglamorous: writing better ads, rebuilding tracking that never worked, killing audiences that never converted, and telling founders honestly when their product isn't ready to scale.</p>
       </div>
     </div>
-  );
-};
+  </section>
+);
 
-const TimelineSection: React.FC = () => {
-  const { t } = useTranslation();
-  return (
-    <div className="ab-timeline">
-      <div className="container">
-        <div className="section-head">
-          <div>
-            <div className="section-num">{t('aboutPage.timelineNum')}</div>
-            <h2>{t('aboutPage.timelineTitle')}</h2>
-          </div>
-          <p className="side">{t('aboutPage.timelineDesc')}</p>
+const TimelineSection: React.FC = () => (
+  <section className="ab-timeline">
+    <div className="container">
+      <div className="section-head reveal">
+        <div>
+          <div className="section-num">/ Trajectory</div>
+          <h2>How I got here.</h2>
         </div>
-        <div className="tl-list">
-          {TIMELINE.map((item, i) => (
-            <div key={i} className={'tl-item' + ('current' in item && item.current ? ' current' : '')}>
-              <div className="tl-year">{item.year}</div>
-              <div className="tl-body">
-                <h4>{item.role}</h4>
-                <div className="tl-role">{item.year}</div>
-                <p>{item.body}</p>
-              </div>
+        <div className="side">Edited-down version. Full CV on request — but trajectory matters less than the shape of the practice now.</div>
+      </div>
+      <div className="tl-list reveal">
+        {TIMELINE.map((item, i) => (
+          <div key={i} className={'tl-item' + (item.current ? ' current' : '')}>
+            <div className="tl-year">{item.year}</div>
+            <div className="tl-body">
+              <div className="tl-role">{item.role}</div>
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const PrinciplesSection: React.FC = () => {
-  const { t } = useTranslation();
-  return (
-    <div className="ab-principles">
-      <div className="container">
-        <div className="section-head">
-          <div>
-            <div className="section-num">{t('aboutPage.principlesNum')}</div>
-            <h2>{t('aboutPage.principlesTitle')}</h2>
           </div>
-          <p className="side">{t('aboutPage.principlesDesc')}</p>
-        </div>
-        <div className="pr-grid">
-          {PRINCIPLES.map((p, i) => (
-            <div key={i} className="pr-cell">
-              <div className="n">{p.n}</div>
-              <div className="t">{p.t}</div>
-              <div className="d">{p.d}</div>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
-  );
-};
+  </section>
+);
 
-const ToolkitSection: React.FC = () => {
-  const { t } = useTranslation();
-  return (
-    <div className="ab-tools">
-      <div className="container">
-        <div className="section-head">
-          <div>
-            <div className="section-num">{t('aboutPage.toolkitNum')}</div>
-            <h2>{t('aboutPage.toolkitTitle')}</h2>
+const PrinciplesSection: React.FC = () => (
+  <section className="ab-principles">
+    <div className="container">
+      <div className="section-head reveal">
+        <div>
+          <div className="section-num">/ Principles</div>
+          <h2>Six things I won't bend on.</h2>
+        </div>
+        <div className="side">If any of these feel like friction, I'm probably not the right marketer for you — and that's fine. I'll recommend someone who is.</div>
+      </div>
+      <div className="pr-grid reveal">
+        {PRINCIPLES.map(p => (
+          <div key={p.n} className="pr-cell">
+            <div className="n">{p.n}</div>
+            <div className="t">{p.t}</div>
+            <div className="d">{p.d}</div>
           </div>
-          <p className="side">{t('aboutPage.toolkitDesc')}</p>
-        </div>
-        <div className="tool-groups">
-          {TOOLS.map((g, i) => (
-            <div key={i} className="tool-group">
-              <h4>{g.group}</h4>
-              <div className="tool-chips">
-                {g.chips.map((c, j) => (
-                  <span key={j} className="tool-chip">{c}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
-  );
-};
+  </section>
+);
 
-const AboutQuote: React.FC = () => {
-  const { t } = useTranslation();
-  return (
-    <div className="ab-quote">
-      <div className="container">
-        <div className="q-mark">"</div>
-        <blockquote>{t('aboutPage.quote')}</blockquote>
-        <cite>{t('aboutPage.quoteSource')}</cite>
+const ToolkitSection: React.FC = () => (
+  <section className="ab-tools">
+    <div className="container">
+      <div className="section-head reveal">
+        <div>
+          <div className="section-num">/ Toolkit</div>
+          <h2>What's in the stack.</h2>
+        </div>
+        <div className="side">Tools are disposable. I care about the thinking, not the logos — but here's what I actually use day-to-day.</div>
+      </div>
+      <div className="tool-groups reveal">
+        {TOOLS.map(g => (
+          <div key={g.group} className="tool-group">
+            <h4>{g.group}</h4>
+            <div className="tool-chips">
+              {g.items.map(item => <span key={item} className="tool-chip">{item}</span>)}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
-  );
-};
+  </section>
+);
+
+const AboutQuote: React.FC = () => (
+  <section className="ab-quote">
+    <div className="container">
+      <div className="reveal">
+        <div className="q-mark">&ldquo;</div>
+        <blockquote>The edge isn't in the auction. It's in the ad.</blockquote>
+        <cite>— Working belief, repeated weekly</cite>
+      </div>
+    </div>
+  </section>
+);
 
 const AboutCta: React.FC = () => {
-  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const goToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    sessionStorage.setItem('scrollTarget', 'contact');
+    navigate('/');
+  };
   return (
-    <div className="cta-band">
-      <div className="mesh" style={{ opacity: 0.4 }}>
-        <div className="blob b1" /><div className="blob b2" />
+    <section className="cta-band">
+      <div className="mesh" aria-hidden="true">
+        <div className="blob b1" /><div className="blob b2" /><div className="blob b3" />
       </div>
       <div className="container">
         <div className="cta-band-inner">
           <h3>
-            {t('aboutPage.ctaTitle1')}<br />
-            {t('aboutPage.ctaTitle2')}{' '}
-            {t('aboutPage.ctaTitle3')}{' '}
-            <em className="italic">{t('aboutPage.ctaItalic')}</em>{' '}
-            {t('aboutPage.ctaTitle4')}
+            Want to see what<br />
+            working together<br />
+            would <span className="italic">actually</span> look like?
           </h3>
           <div className="ctas">
-            <a
-              href="/#contact"
-              onClick={e => { e.preventDefault(); window.location.href = '/#contact'; }}
-              className="btn btn-primary"
-            >
-              {t('aboutPage.ctaBook')} <IconArrow size={16} className="arrow" />
+            <a href="/#contact" onClick={goToContact} className="btn btn-primary">
+              Book a 30-min call <IconArrow size={14} className="arrow" />
             </a>
-            <Link to="/services" className="btn btn-ghost">{t('aboutPage.ctaServices')}</Link>
+            <Link to="/services" className="btn btn-ghost">
+              See services <IconArrow size={14} className="arrow" />
+            </Link>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-// ── page ───────────────────────────────────────────────────────────────────────
+// ── Page ─────────────────────────────────────────────────────────────────────
 
 export const AboutPage: React.FC = () => (
   <>
