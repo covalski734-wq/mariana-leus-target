@@ -46,7 +46,9 @@ export const ServicesSection: React.FC = () => {
               <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
             ))}</h2>
           </div>
-          <p className="side">{t('services.desc')}</p>
+          <p className="side">{t('services.desc').split('\n').map((line: string, i: number, arr: string[]) => (
+              <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
+            ))}</p>
         </div>
 
         <div className="services-grid" ref={gridRef}>
@@ -68,7 +70,9 @@ export const ServicesSection: React.FC = () => {
                 </div>
                 <span className="svc-num">{svc.num}</span>
                 <h3>{name}<br /><small style={{ fontSize: '0.6em', opacity: 0.55, fontWeight: 400 }}>{sub}</small></h3>
-                <p>{desc}</p>
+                <p>{desc.split('\n').map((line: string, i: number, arr: string[]) => (
+                    <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
+                  ))}</p>
                 <Link to="/services" className="learn">
                   {t('services.learnMore')} <IconArrow size={14} className="arrow" />
                 </Link>

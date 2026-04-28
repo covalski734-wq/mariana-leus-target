@@ -126,7 +126,7 @@ export const HeroSection: React.FC = () => {
           <div className="ribbon-cell">
             <div className="metric-label">{t('hero.managed')}</div>
             <div className="metric-value">
-              €<Counter to={2.4} suffix="M" />
+              $<Counter to={100} suffix="K" />
             </div>
             <div className="metric-delta">{t('hero.managedDelta')}</div>
           </div>
