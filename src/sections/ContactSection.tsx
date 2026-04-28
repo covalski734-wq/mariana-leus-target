@@ -119,11 +119,11 @@ export const ContactSection: React.FC = () => {
         <div className="contact-grid">
           {/* Channels */}
           <div className="channels reveal">
-            <a href="https://t.me/marianaleus" target="_blank" rel="noopener noreferrer" className="channel primary">
+            <a href="https://t.me/mariana_01_0" target="_blank" rel="noopener noreferrer" className="channel primary">
               <div className="ico"><IconTelegram size={22} /></div>
               <div className="meta">
                 <div className="name">{t('contact.telegramName')}</div>
-                <div className="handle">@marianaleus</div>
+                <div className="handle">@mariana_01_0</div>
               </div>
               <div className="arr"><IconArrow size={16} /></div>
             </a>
@@ -171,7 +171,7 @@ export const ContactSection: React.FC = () => {
                     placeholder={t('contact.namePlaceholder')}
                     className={errors.name ? 'error' : ''}
                     {...register('name', {
-                      required: { value: true, message: lang === 'UA' ? "Обов'язкове" : lang === 'RU' ? 'Обязательное' : 'Required' },
+                      required: { value: true, message: t('contact.errorRequired') },
                     })}
                   />
                   {errors.name && <div className="field-error">{errors.name.message}</div>}
@@ -213,49 +213,23 @@ export const ContactSection: React.FC = () => {
                     rules={{
                       required: {
                         value: true,
-                        message: lang === 'UA'
-                          ? "Обов'язкове"
-                          : lang === 'RU'
-                          ? 'Обязательное'
-                          : 'Required',
+                        message: t('contact.errorRequired'),
                       },
                       validate: (v) => {
                         if (selectedMethod === 'phone' || selectedMethod === 'whatsapp') {
                           try {
-                            return isValidPhoneNumber('+' + v) || (
-                              lang === 'UA'
-                                ? 'Невірний номер'
-                                : lang === 'RU'
-                                ? 'Неверный номер'
-                                : 'Invalid phone number'
-                            );
+                            return isValidPhoneNumber('+' + v) || t('contact.errorPhone');
                           } catch {
-                            return lang === 'UA'
-                              ? 'Невірний номер'
-                              : lang === 'RU'
-                              ? 'Неверный номер'
-                              : 'Invalid phone number';
+                            return t('contact.errorPhone');
                           }
                         }
 
                         if (selectedMethod === 'telegram') {
-                          return /^@[\w]{4,}$/.test(v) || (
-                            lang === 'UA'
-                              ? 'Формат: @username'
-                              : lang === 'RU'
-                              ? 'Формат: @username'
-                              : 'Format: @username'
-                          );
+                          return /^@[\w]{4,}$/.test(v) || t('contact.errorTelegram');
                         }
 
                         if (selectedMethod === 'email') {
-                          return EMAIL_RE.test(v) || (
-                            lang === 'UA'
-                              ? 'Невірний email'
-                              : lang === 'RU'
-                              ? 'Неверный email'
-                              : 'Invalid email'
-                          );
+                          return EMAIL_RE.test(v) || t('contact.errorEmail');
                         }
 
                         return true;
@@ -299,10 +273,10 @@ export const ContactSection: React.FC = () => {
                     placeholder={t('contact.messagePlaceholder')}
                     className={errors.message ? 'error' : ''}
                     {...register('message', {
-                      required: { value: true, message: lang === 'UA' ? "Обов'язкове" : lang === 'RU' ? 'Обязательное' : 'Required' },
+                      required: { value: true, message: t('contact.errorRequired') },
                       minLength: {
                         value: 10,
-                        message: lang === 'UA' ? 'Мінімум 10 символів' : lang === 'RU' ? 'Минимум 10 символов' : 'At least 10 characters',
+                        message: t('contact.errorMinLength'),
                       },
                     })}
                   />
@@ -311,11 +285,7 @@ export const ContactSection: React.FC = () => {
 
                 {status === 'error' && (
                   <div className="form-server-error">
-                    {lang === 'UA'
-                      ? 'Щось пішло не так. Спробуйте ще раз або напишіть у Telegram.'
-                      : lang === 'RU'
-                      ? 'Что-то пошло не так. Попробуйте ещё раз или напишите в Telegram.'
-                      : 'Something went wrong. Please try again or contact via Telegram.'}
+                    {t('contact.errorServer')}
                   </div>
                 )}
 

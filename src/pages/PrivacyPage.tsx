@@ -10,7 +10,7 @@ export const PrivacyPage: React.FC = () => {
       <div className="container" style={{ maxWidth: '52rem', paddingTop: 80 }}>
         {/* Breadcrumb */}
         <div className="crumb" style={{ marginBottom: 40, font: '400 13px/1 var(--mono)', color: 'var(--fg-mute)', display: 'flex', gap: 8, alignItems: 'center' }}>
-          <Link to="/">Home</Link>
+          <Link to="/">{t('aboutPage.home')}</Link>
           <span>/</span>
           <span>{t('privacy.title')}</span>
         </div>
@@ -43,7 +43,7 @@ export const PrivacyPage: React.FC = () => {
 
         <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
           <Link to="/" className="btn btn-ghost" style={{ fontSize: 14 }}>
-            ← Home
+            {t('privacy.backHome')}
           </Link>
         </div>
       </div>

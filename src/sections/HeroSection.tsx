@@ -1,7 +1,33 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Counter } from '@/components/Counter';
 import { IconArrow } from '@/components/Icons';
 import { useTranslation } from 'react-i18next';
+import { Logo } from '@/components/Logo';
+
+// Mobile-only entrance curtain — shown once per session
+const HeroCurtain: React.FC = () => {
+  const [visible, setVisible] = useState(() => !sessionStorage.getItem('hero-seen'));
+
+  useEffect(() => {
+    if (!visible) return;
+    sessionStorage.setItem('hero-seen', '1');
+    // Remove from DOM after animation finishes (panel lifts at 0.55s + 0.85s = ~1.45s)
+    const t = setTimeout(() => setVisible(false), 1600);
+    return () => clearTimeout(t);
+  }, [visible]);
+
+  if (!visible) return null;
+  return createPortal(
+    <div className="hero-curtain" aria-hidden="true">
+      <div className="hero-curtain-logo">
+        <Logo size={56} />
+      </div>
+      <div className="hero-curtain-panel" />
+    </div>,
+    document.body
+  );
+};
 
 export const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -25,6 +51,8 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
+    <>
+    <HeroCurtain />
     <section className="hero" id="top" ref={heroRef}>
       {/* Animated scan lines */}
       <div className="hero-lines">
@@ -117,5 +145,6 @@ export const HeroSection: React.FC = () => {
         <div className="si-track"><div className="si-dot" /></div>
       </div>
     </section>
+    </>
   );
 };

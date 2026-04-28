@@ -50,15 +50,15 @@ export const Footer: React.FC = () => {
           </div>
           <div className="footer-col">
             <h5>{t('footer.elsewhere')}</h5>
-            <a href="https://t.me/marianaleus" target="_blank" rel="noopener noreferrer">Telegram</a>
-            <a href="https://instagram.com/marianaleus" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://facebook.com/marianaleus" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://t.me@mariana_01_0" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://instagram.com/mariana_leus_" target="_blank" rel="noopener noreferrer">Instagram</a>
+            {/* <a href="https://facebook.com/marianaleus" target="_blank" rel="noopener noreferrer">Facebook</a> */}
+            <a href="https://wa.me/48795069922" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
         <div className="giant-type">
           <span className="giant-desktop">Mariana Leus</span>
-          <span className="giant-mobile">Mariana L.</span>
+          <span className="giant-mobile">Mariana L</span>
         </div>
         <div className="footer-bottom">
           <div>{t('footer.copyright')}</div>

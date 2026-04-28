@@ -1,45 +1,38 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const useReveal = () => {
-  const ioRef = useRef<IntersectionObserver | null>(null);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    ioRef.current?.disconnect();
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            const el = e.target as HTMLElement;
-            // Single rAF — browser has already painted the element in its hidden state.
-            // CSS animation (not transition) ensures it always plays from keyframe start.
-            requestAnimationFrame(() => {
-              el.classList.add('in');
-              io.unobserve(el);
-            });
-          }
-        });
-      },
-      // No rootMargin on mobile — smaller viewports need zero margin to trigger reliably.
-      // threshold 0.05 = fire as soon as 5% of the element is visible.
-      { threshold: 0.05 }
-    );
-
-    ioRef.current = io;
-
-    const observe = () => {
-      document.querySelectorAll<HTMLElement>('.reveal:not(.in)').forEach(el => io.observe(el));
+    const check = () => {
+      const vh = window.innerHeight;
+      document.querySelectorAll<HTMLElement>('.reveal:not(.in)').forEach(el => {
+        const { top } = el.getBoundingClientRect();
+        // Reveal when element's top edge is within the viewport + 80px buffer
+        if (top < vh + 80) {
+          el.classList.add('in');
+        }
+      });
     };
 
-    observe();
-    // Re-scan after 150ms for elements rendered asynchronously (lazy routes, etc.)
-    const t1 = setTimeout(observe, 150);
-    const t2 = setTimeout(observe, 500);
+    // Multiple passes to catch elements at different React render phases:
+    // t1=50ms  — first meaningful paint
+    // t2=250ms — after lazy/deferred renders
+    // t3=700ms — failsafe for slow / heavy pages
+    const t1 = setTimeout(check, 50);
+    const t2 = setTimeout(check, 250);
+    const t3 = setTimeout(check, 700);
+
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check, { passive: true });
 
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
-      io.disconnect();
+      clearTimeout(t3);
+      window.removeEventListener('scroll', check);
+      window.removeEventListener('resize', check);
     };
-  });
+  }, [pathname]); // Re-initialise on every route change
 };

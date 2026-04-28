@@ -3,34 +3,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
-const SERVICE = {
-  id: 'meta', num: '01', kicker: 'Paid Social', name: 'Meta Ads', sub: 'Facebook & Instagram',
-  lede: 'Full-funnel campaigns that hit purchase and lead objectives — engineered around creative, not just audiences.',
-  deliverables: [
-    { name: 'Account audit + structure rebuild', note: 'Week 1. New campaigns, CBO hygiene, pixel + CAPI verification.' },
-    { name: 'Creative testing framework', note: 'Weekly testing of 6–12 new creatives against clear hypotheses.' },
-    { name: 'Buyer-stage creative pipeline', note: 'Awareness · Consideration · Conversion creative, not one-size messaging.' },
-    { name: 'Audience ladder', note: 'Interest → Lookalike → Retargeting, with daily spend caps and negative overlap.' },
-    { name: 'Weekly performance reports', note: "Plain-language notes on what changed and what's next — no 80-tab dashboards." },
-    { name: 'Landing page split tests', note: 'Coordinated with the Website service when needed.' },
-  ],
-  pricing: [
-    { label: 'Engagement', val: 'Retainer', unit: 'monthly' },
-    { label: 'Starts at', val: '€2,400', unit: '/mo' },
-    { label: 'Ad spend', val: '€5k+', unit: 'minimum' },
-    { label: 'Commitment', val: '3 months', unit: 'then monthly' },
-  ],
-  proof: [
-    { v: '+312%', l: 'ROAS lift', d: 'DTC Skincare · 90 days · rebuild + creative system' },
-    { v: '€47', l: 'Cost per lead', d: 'Premium Dental Clinic · Warsaw · Meta lead gen' },
-    { v: '×2.4', l: 'AOV increase', d: 'Fashion e-commerce · bundle + retargeting strategy' },
-  ],
-};
+interface Deliverable { name: string; note: string; }
+interface PricingRow { label: string; val: string; unit: string; }
+interface ProofCell { v: string; l: string; d: string; }
 
 export const MetaAdsPage: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const goToContact = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'contact'); navigate('/'); };
+
+  const deliverables = t('metaAdsPage.deliverables', { returnObjects: true }) as Deliverable[];
+  const pricing = t('metaAdsPage.pricing', { returnObjects: true }) as PricingRow[];
+  const proof = t('metaAdsPage.proof', { returnObjects: true }) as ProofCell[];
 
   return (
     <>
@@ -47,22 +31,17 @@ export const MetaAdsPage: React.FC = () => {
         <div className="container">
           <div className="eyebrow-row">
             <div className="crumb">
-              <Link to="/">Home</Link>
+              <Link to="/">{t('aboutPage.home')}</Link>
               <span className="sep">/</span>
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('servicesPage.crumb')}</Link>
               <span className="sep">/</span>
-              Meta Ads
+              {t('metaAdsPage.crumb')}
             </div>
           </div>
-          <div className="eyebrow" style={{ marginBottom: 20 }}>
-            <span className="dot" style={{ background: 'var(--brand)' }} />
-            {SERVICE.kicker} · {SERVICE.sub}
-          </div>
           <h1>
-            Meta Ads<br />
-            <em className="italic">that</em> <span className="accent">convert.</span>
+            {t('metaAdsPage.heroLine1')}<br />
+            <em className="italic">{t('metaAdsPage.heroItalic')}</em> <span className="accent">{t('metaAdsPage.heroAccent')}</span>
           </h1>
-          <p className="lede">{SERVICE.lede}</p>
         </div>
       </section>
 
@@ -71,7 +50,7 @@ export const MetaAdsPage: React.FC = () => {
         <div className="container">
           <div className="svc-body reveal">
             <div className="svc-deliverables">
-              {SERVICE.deliverables.map((d, i) => (
+              {deliverables.map((d, i) => (
                 <div key={i} className="svc-deliv">
                   <span className="idx">{String(i + 1).padStart(2, '0')}</span>
                   <div className="name">{d.name}<small>{d.note}</small></div>
@@ -80,8 +59,8 @@ export const MetaAdsPage: React.FC = () => {
               ))}
             </div>
             <aside className="svc-sidecard">
-              <div className="sc-head">/ Engagement</div>
-              {SERVICE.pricing.map((p, i) => (
+              <div className="sc-head">{t('servicesPage.engagement')}</div>
+              {pricing.map((p, i) => (
                 <div key={i} className="sc-row">
                   <div className="sc-label">{p.label}</div>
                   <div className="sc-val">{p.val}<span className="unit">{p.unit}</span></div>
@@ -91,13 +70,13 @@ export const MetaAdsPage: React.FC = () => {
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <div style={{ font: '400 12px/1.5 var(--mono)', color: 'var(--fg-mute)', marginTop: 12 }}>
-                Typical reply in under 2 hours · EN / UA / RU
+                {t('metaAdsPage.replyNote')}
               </div>
             </aside>
           </div>
 
           <div className="svc-proof reveal">
-            {SERVICE.proof.map((p, i) => (
+            {proof.map((p, i) => (
               <div key={i} className="svc-proof-cell">
                 <div className="metric-label">{p.l}</div>
                 <div className="metric-value">
@@ -121,15 +100,15 @@ export const MetaAdsPage: React.FC = () => {
         <div className="container">
           <div className="cta-band-inner">
             <h3>
-              Ready to scale<br />
-              your <em className="italic">Meta</em> results?
+              {t('metaAdsPage.ctaTitle1')}<br />
+              {t('metaAdsPage.ctaTitle2')} <em className="italic">{t('metaAdsPage.ctaItalic')}</em> {t('metaAdsPage.ctaTitle3')}
             </h3>
             <div className="ctas">
               <a href="/#contact" onClick={goToContact} className="btn btn-primary">
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <Link to="/services" className="btn btn-ghost">
-                All services <IconArrow size={14} className="arrow" />
+                {t('servicesPage.allServices')} <IconArrow size={14} className="arrow" />
               </Link>
             </div>
           </div>

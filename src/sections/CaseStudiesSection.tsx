@@ -1,10 +1,20 @@
 import React from 'react';
-import { CASES } from '@/data';
 import { IconArrowUp } from '@/components/Icons';
 import { useTranslation } from 'react-i18next';
 
+interface CaseItem {
+  niche: string;
+  result: string;
+  unit: string;
+  title: string;
+  desc: string;
+  gradient: [string, string];
+}
+
 export const CaseStudiesSection: React.FC = () => {
   const { t } = useTranslation();
+  const cases = t('cases.items', { returnObjects: true }) as CaseItem[];
+
   return (
     <section className="cases" id="work">
       <div className="container">
@@ -19,7 +29,7 @@ export const CaseStudiesSection: React.FC = () => {
         </div>
 
         <div className="cases-grid">
-          {CASES.map((c, i) => (
+          {cases.map((c, i) => (
             <div key={i} className="case reveal">
               <div className="case-top">
                 <span className="case-niche">{c.niche}</span>

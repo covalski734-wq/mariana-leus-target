@@ -3,34 +3,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
-const SERVICE = {
-  id: 'google', num: '02', kicker: 'Paid Search', name: 'Google Ads', sub: 'Search, PMax, Display',
-  lede: 'Capture every high-intent search, stop wasting budget on junk queries, and make PMax behave like an asset — not a black box.',
-  deliverables: [
-    { name: 'Search campaign rebuild', note: 'Single-theme ad groups, match-type hygiene, branded defense.' },
-    { name: 'Negative keyword system', note: 'Ongoing — negative lists per campaign, reviewed weekly.' },
-    { name: 'PMax asset groups that convert', note: 'Audience signals, brand exclusions, feed-based targeting for e-commerce.' },
-    { name: 'Conversion tracking audit', note: 'GA4, enhanced conversions, offline imports — numbers you can trust.' },
-    { name: 'Shopping feed optimisation', note: 'Title structure, custom labels, Merchant Center health.' },
-    { name: 'Monthly strategic review', note: 'Where to scale, where to cut, what to test next quarter.' },
-  ],
-  pricing: [
-    { label: 'Engagement', val: 'Retainer', unit: 'monthly' },
-    { label: 'Starts at', val: '€1,900', unit: '/mo' },
-    { label: 'Ad spend', val: '€3k+', unit: 'minimum' },
-    { label: 'Commitment', val: '3 months', unit: 'then monthly' },
-  ],
-  proof: [
-    { v: '62', l: 'Leads/month', d: 'B2B SaaS · LinkedIn + Search synced funnel' },
-    { v: '−48%', l: 'CPA reduction', d: 'Online education · PMax asset group rebuild' },
-    { v: '+184%', l: 'Enrolments', d: 'Online Education · webinar funnel at €40k/mo spend' },
-  ],
-};
+interface Deliverable { name: string; note: string; }
+interface PricingRow { label: string; val: string; unit: string; }
+interface ProofCell { v: string; l: string; d: string; }
 
 export const GoogleAdsPage: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const goToContact = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'contact'); navigate('/'); };
+
+  const deliverables = t('googleAdsPage.deliverables', { returnObjects: true }) as Deliverable[];
+  const pricing = t('googleAdsPage.pricing', { returnObjects: true }) as PricingRow[];
+  const proof = t('googleAdsPage.proof', { returnObjects: true }) as ProofCell[];
 
   return (
     <>
@@ -47,22 +31,17 @@ export const GoogleAdsPage: React.FC = () => {
         <div className="container">
           <div className="eyebrow-row">
             <div className="crumb">
-              <Link to="/">Home</Link>
+              <Link to="/">{t('aboutPage.home')}</Link>
               <span className="sep">/</span>
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('servicesPage.crumb')}</Link>
               <span className="sep">/</span>
-              Google Ads
+              {t('googleAdsPage.crumb')}
             </div>
           </div>
-          <div className="eyebrow" style={{ marginBottom: 20 }}>
-            <span className="dot" style={{ background: '#F7AD1A' }} />
-            {SERVICE.kicker} · {SERVICE.sub}
-          </div>
           <h1>
-            Google Ads<br />
-            built on <em className="italic">intent</em>, not <span className="accent">guesswork.</span>
+            {t('googleAdsPage.heroLine1')}<br />
+            {t('googleAdsPage.heroLine2')} <em className="italic">{t('googleAdsPage.heroItalic')}</em>, {t('googleAdsPage.heroLine2b')} <span className="accent">{t('googleAdsPage.heroAccent')}</span>
           </h1>
-          <p className="lede">{SERVICE.lede}</p>
         </div>
       </section>
 
@@ -71,11 +50,11 @@ export const GoogleAdsPage: React.FC = () => {
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
             <span style={{ font: '600 13px/1 var(--mono)', color: '#F7AD1A', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              Why intent matters
+              {t('googleAdsPage.intentLabel')}
             </span>
             <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
             <span style={{ font: '400 14px/1.5 var(--display)', color: 'var(--fg-dim)', maxWidth: 480 }}>
-              Search ads reach people the moment they decide to buy. That single fact makes search 3–8× more efficient than social for B2B and high-consideration purchases.
+              {t('googleAdsPage.intentDesc')}
             </span>
           </div>
         </div>
@@ -86,7 +65,7 @@ export const GoogleAdsPage: React.FC = () => {
         <div className="container">
           <div className="svc-body reveal">
             <div className="svc-deliverables">
-              {SERVICE.deliverables.map((d, i) => (
+              {deliverables.map((d, i) => (
                 <div key={i} className="svc-deliv">
                   <span className="idx">{String(i + 1).padStart(2, '0')}</span>
                   <div className="name">{d.name}<small>{d.note}</small></div>
@@ -95,8 +74,8 @@ export const GoogleAdsPage: React.FC = () => {
               ))}
             </div>
             <aside className="svc-sidecard">
-              <div className="sc-head">/ Engagement</div>
-              {SERVICE.pricing.map((p, i) => (
+              <div className="sc-head">{t('servicesPage.engagement')}</div>
+              {pricing.map((p, i) => (
                 <div key={i} className="sc-row">
                   <div className="sc-label">{p.label}</div>
                   <div className="sc-val">{p.val}<span className="unit">{p.unit}</span></div>
@@ -106,13 +85,13 @@ export const GoogleAdsPage: React.FC = () => {
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <div style={{ font: '400 12px/1.5 var(--mono)', color: 'var(--fg-mute)', marginTop: 12 }}>
-                Typical reply in under 2 hours · EN / UA / RU
+                {t('googleAdsPage.replyNote')}
               </div>
             </aside>
           </div>
 
           <div className="svc-proof reveal">
-            {SERVICE.proof.map((p, i) => (
+            {proof.map((p, i) => (
               <div key={i} className="svc-proof-cell">
                 <div className="metric-label">{p.l}</div>
                 <div className="metric-value">
@@ -136,15 +115,15 @@ export const GoogleAdsPage: React.FC = () => {
         <div className="container">
           <div className="cta-band-inner">
             <h3>
-              Stop paying for clicks<br />
-              that <em className="italic">never</em> <span className="accent">convert.</span>
+              {t('googleAdsPage.ctaLine1')}<br />
+              {t('googleAdsPage.ctaLine2')} <em className="italic">{t('googleAdsPage.ctaItalic')}</em> <span className="accent">{t('googleAdsPage.ctaAccent')}</span>
             </h3>
             <div className="ctas">
               <a href="/#contact" onClick={goToContact} className="btn btn-primary">
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <Link to="/services" className="btn btn-ghost">
-                All services <IconArrow size={14} className="arrow" />
+                {t('servicesPage.allServices')} <IconArrow size={14} className="arrow" />
               </Link>
             </div>
           </div>

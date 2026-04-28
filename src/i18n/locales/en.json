@@ -41,12 +41,27 @@
   "cases": {
     "sectionNum": "/ 02 · Selected work",
     "title": "Numbers that survived\nthe finance team.",
-    "desc": "Every case below is measured against actual revenue — not CTR, not vanity reach. Pick a niche close to yours; results are usually directionally similar."
+    "desc": "Every case below is measured against actual revenue — not CTR, not vanity reach. Pick a niche close to yours; results are usually directionally similar.",
+    "items": [
+      { "niche": "DTC Skincare", "result": "+312%", "unit": "ROAS", "title": "From €0.8 to €3.3 ROAS in 90 days", "desc": "Restructured Meta campaigns around buyer-stage creative, killed overlapping audiences, and rebuilt the landing page around a single promise.", "gradient": ["#004AAD", "#00B8D9"] },
+      { "niche": "B2B SaaS", "result": "62", "unit": "leads/mo", "title": "Qualified B2B pipeline from LinkedIn + Google", "desc": "Cold LinkedIn outbound synced with retargeting via Google Search — from 4 demos/month to 62 booked calls in one quarter.", "gradient": ["#6B2FF7", "#004AAD"] },
+      { "niche": "Premium Dental Clinic · Warsaw", "result": "€47", "unit": "CPL", "title": "A booked-out calendar, not just leads", "desc": "Moved from €180 cost per lead on Google to €47 on Meta, and rebuilt the booking flow so 68% of form fills now turn into confirmed visits. Telegram bot handles after-hours.", "gradient": ["#004AAD", "#25C55E"] },
+      { "niche": "Fashion e-commerce", "result": "×2.4", "unit": "AOV", "title": "Higher cart value without more traffic", "desc": "Product bundles, post-purchase upsells, and lookalike ladders — more revenue from the exact same ad spend.", "gradient": ["#F7AD1A", "#004AAD"] },
+      { "niche": "Online Education", "result": "+184%", "unit": "enrolments", "title": "Webinar funnel that scales past €40k/mo", "desc": "Built a webinar-to-waitlist-to-cohort funnel with nurturing via email and Telegram — ad spend scaled 4× without CPA drift.", "gradient": ["#00B8D9", "#6B2FF7"] }
+    ]
   },
   "testimonials": {
     "sectionNum": "/ 03 · Clients",
     "title": "What founders say\nafter the first quarter.",
-    "desc": "These aren't marketplace reviews. They're the founders who stuck around for year two."
+    "desc": "These aren't marketplace reviews. They're the founders who stuck around for year two.",
+    "items": [
+      { "name": "Oksana M.", "role": "Founder · Skincare brand", "text": "Mariana doesn't just run ads — she rethinks the whole funnel. First month with her, our ROAS went from break-even to 3.2×. Still climbing.", "stars": 5, "init": "OM" },
+      { "name": "Daniel K.", "role": "CMO · SaaS platform", "text": "We had been burning budget on agencies that showed dashboards and nothing else. Mariana shipped a new landing page, rebuilt our Google structure, and leads doubled in six weeks.", "stars": 5, "init": "DK" },
+      { "name": "Iryna P.", "role": "Owner · Dental clinic", "text": "I was sceptical about Meta for medical services. She proved me wrong — €47 cost per booked consult, and the chairs are full.", "stars": 5, "init": "IP" },
+      { "name": "Marcin W.", "role": "Head of Growth · D2C", "text": "Clear communication, honest reports, no jargon. If something isn't working, she tells you before you notice. Rare.", "stars": 5, "init": "MW" },
+      { "name": "Sofia R.", "role": "Founder · Fashion label", "text": "Our AOV went up 2.4× without touching ad spend. She treats our P&L like it's her own.", "stars": 5, "init": "SR" },
+      { "name": "Andriy V.", "role": "Director · Online school", "text": "Scaled our webinar funnel from 4k to 40k per month in revenue. Strategy, copy, creative testing — all handled.", "stars": 5, "init": "AV" }
+    ]
   },
   "about": {
     "sectionNum": "/ 04 · About",
@@ -89,7 +104,13 @@
     "messagePlaceholder": "A sentence or two is enough — what the business does, what you've tried, what 'success' looks like in 90 days.",
     "submitBtn": "Send & book a free 30-min call",
     "formFoot": "No auto-responders. No CRM drip. Real human reply.",
-    "successMsg": "Got it — I'll reply within 2 hours."
+    "successMsg": "Got it — I'll reply within 2 hours.",
+    "errorRequired": "Required",
+    "errorPhone": "Invalid phone number",
+    "errorTelegram": "Format: @username",
+    "errorEmail": "Invalid email",
+    "errorMinLength": "At least 10 characters",
+    "errorServer": "Something went wrong. Please try again or contact via Telegram."
   },
   "footer": {
     "tagline": "Solo performance marketer for founders who want fewer dashboards and more revenue.",
@@ -117,7 +138,14 @@
     "s4Title": "4. Cookies",
     "s4": "This website may use minimal technical cookies for analytics purposes. You can disable cookies in your browser settings at any time.",
     "s5Title": "5. Contact",
-    "s5": "For any questions regarding this privacy policy, contact us at marianaleus8@gmail.com."
+    "s5": "For any questions regarding this privacy policy, contact us at marianaleus8@gmail.com.",
+    "backHome": "← Home"
+  },
+  "notFound": {
+    "titleLine1": "Page not",
+    "titleLine2": "found.",
+    "sub": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Back to home"
   },
   "servicesPage": {
     "crumb": "Services",
@@ -128,15 +156,152 @@
     "processNum": "/ How we work",
     "processTitle": "Four phases.\nNo surprises.",
     "processDesc": "The shape of every engagement. Weeks are approximate; your team and brand will bend the schedule — I'll tell you how before we start.",
+    "investment": "Investment",
+    "backHome": "← Back home",
+    "allServices": "All services",
     "faqNum": "/ FAQ",
     "faqTitle": "Questions founders ask\nin the first 10 minutes.",
     "faqDesc": "Can't find yours? Send it over via Telegram or email — I reply within 2 hours during business hours.",
     "ctaTitle": "Ready to see what your\nactual ROAS should be?",
     "ctaBookBtn": "Book a free audit",
-    "ctaTelegramBtn": "Message on Telegram"
+    "ctaTelegramBtn": "Message on Telegram",
+    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "engagement": "/ Engagement",
+    "serviceDetails": [
+      {
+        "id": "meta", "num": "01", "kicker": "Paid Social", "name": "Meta Ads", "sub": "Facebook & Instagram", "tag": "Revenue + leads",
+        "lede": "Full-funnel campaigns that hit purchase and lead objectives — engineered around creative, not just audiences.",
+        "deliverables": [
+          { "name": "Account audit + structure rebuild", "note": "Week 1. New campaigns, CBO hygiene, pixel + CAPI verification." },
+          { "name": "Creative testing framework", "note": "Weekly testing of 6–12 new creatives against clear hypotheses." },
+          { "name": "Buyer-stage creative pipeline", "note": "Awareness · Consideration · Conversion creative, not one-size messaging." },
+          { "name": "Audience ladder", "note": "Interest → Lookalike → Retargeting, with daily spend caps and negative overlap." },
+          { "name": "Weekly performance reports", "note": "Plain-language notes on what changed and what's next — no 80-tab dashboards." },
+          { "name": "Landing page split tests", "note": "Coordinated with the Website service when needed." }
+        ],
+        "pricing": [
+          { "label": "Engagement", "val": "Retainer", "unit": "monthly" },
+          { "label": "Starts at", "val": "€2,400", "unit": "/mo" },
+          { "label": "Ad spend", "val": "€5k+", "unit": "minimum" },
+          { "label": "Commitment", "val": "3 months", "unit": "then monthly" }
+        ],
+        "proof": [
+          { "v": "+312%", "l": "ROAS lift", "d": "DTC Skincare · 90 days · rebuild + creative system" },
+          { "v": "€47", "l": "Cost per lead", "d": "Premium Dental Clinic · Warsaw · Meta lead gen" },
+          { "v": "×2.4", "l": "AOV increase", "d": "Fashion e-commerce · bundle + retargeting strategy" }
+        ]
+      },
+      {
+        "id": "google", "num": "02", "kicker": "Paid Search", "name": "Google Ads", "sub": "Search, PMax, Display", "tag": "High-intent traffic",
+        "lede": "Capture every high-intent search, stop wasting budget on junk queries, and make PMax behave like an asset — not a black box.",
+        "deliverables": [
+          { "name": "Search campaign rebuild", "note": "Single-theme ad groups, match-type hygiene, branded defense." },
+          { "name": "Negative keyword system", "note": "Ongoing — negative lists per campaign, reviewed weekly." },
+          { "name": "PMax asset groups that convert", "note": "Audience signals, brand exclusions, feed-based targeting for e-commerce." },
+          { "name": "Conversion tracking audit", "note": "GA4, enhanced conversions, offline imports — numbers you can trust." },
+          { "name": "Shopping feed optimisation", "note": "Title structure, custom labels, Merchant Center health." },
+          { "name": "Monthly strategic review", "note": "Where to scale, where to cut, what to test next quarter." }
+        ],
+        "pricing": [
+          { "label": "Engagement", "val": "Retainer", "unit": "monthly" },
+          { "label": "Starts at", "val": "€1,900", "unit": "/mo" },
+          { "label": "Ad spend", "val": "€3k+", "unit": "minimum" },
+          { "label": "Commitment", "val": "3 months", "unit": "then monthly" }
+        ],
+        "proof": [
+          { "v": "62", "l": "Leads/month", "d": "B2B SaaS · LinkedIn + Search synced funnel" },
+          { "v": "−48%", "l": "CPA reduction", "d": "Online education · PMax asset group rebuild" },
+          { "v": "+184%", "l": "Enrolments", "d": "Online Education · webinar funnel at €40k/mo spend" }
+        ]
+      },
+      {
+        "id": "web", "num": "03", "kicker": "Conversion", "name": "Website & Landing Pages", "sub": "Designed to convert", "tag": "Ship in 2–3 weeks",
+        "lede": "Pages built around one promise, one action, and one measurable outcome. Fast, accessible, CRM-wired.",
+        "deliverables": [
+          { "name": "Conversion-led design", "note": "Wireframe → hi-fi → build, all against a measurable hypothesis." },
+          { "name": "Webflow, Framer, or custom", "note": "Depending on CMS needs, team skill, and integration surface." },
+          { "name": "Page-speed engineering", "note": "Targets Lighthouse 95+ on mobile; image + font hygiene baked in." },
+          { "name": "Form + CRM wiring", "note": "Telegram bot, email, HubSpot, Notion, Sheets — whatever your stack is." },
+          { "name": "Analytics + tagging", "note": "GA4, Meta CAPI, Google Tag Manager; events aligned to ad campaigns." },
+          { "name": "A/B test setup", "note": "Hero, offer, and CTA variants with a clear statistical plan." }
+        ],
+        "pricing": [
+          { "label": "Engagement", "val": "Project", "unit": "fixed" },
+          { "label": "Landing page", "val": "€2,800", "unit": "starts at" },
+          { "label": "Full site", "val": "€6,500", "unit": "starts at" },
+          { "label": "Timeline", "val": "2–3 wk", "unit": "typical" }
+        ],
+        "proof": [
+          { "v": "+41%", "l": "Form-fill rate", "d": "Dental clinic · rebuild with Telegram-bot booking" },
+          { "v": "1.4s", "l": "Time to interactive", "d": "DTC skincare · from 4.8s to 1.4s mobile" },
+          { "v": "×2.1", "l": "Trial-to-paid", "d": "SaaS · pricing page rework + activation email flow" }
+        ]
+      },
+      {
+        "id": "smm", "num": "04", "kicker": "Social", "name": "Social Media Management", "sub": "Content + community", "tag": "Organic that supports paid",
+        "lede": "Editorial calendars, short-form video briefs, and community replies that feed retargeting audiences worth buying back.",
+        "deliverables": [
+          { "name": "Monthly editorial calendar", "note": "Pillars, formats, posting cadence — aligned to launches and ads." },
+          { "name": "Short-form video briefs", "note": "Hooks, beats, shot lists for Reels / TikTok — you or a creator films." },
+          { "name": "Content production (optional)", "note": "Photo + video shoots with vetted creators, €2k–€6k add-on." },
+          { "name": "Community management", "note": "Reply within 2h in business hours, escalation flow for leads." },
+          { "name": "UGC sourcing", "note": "Briefs, whitelisting, rights — creator content that fuels paid." },
+          { "name": "Monthly analytics report", "note": "Growth, saves, share rate, and what's worth repurposing." }
+        ],
+        "pricing": [
+          { "label": "Engagement", "val": "Retainer", "unit": "monthly" },
+          { "label": "Management", "val": "€1,400", "unit": "/mo" },
+          { "label": "Production", "val": "+€2k", "unit": "optional" },
+          { "label": "Commitment", "val": "3 months", "unit": "then monthly" }
+        ],
+        "proof": [
+          { "v": "+6.8k", "l": "IG followers", "d": "Fashion label · 4-month content sprint, €0 paid boost" },
+          { "v": "×3.2", "l": "UGC ad ROAS", "d": "Skincare · creator content fed into Meta retargeting" },
+          { "v": "2h", "l": "Avg reply time", "d": "Dental clinic · community mgmt during booking hours" }
+        ]
+      },
+      {
+        "id": "seo", "num": "05", "kicker": "Organic", "name": "SEO", "sub": "Technical + content", "tag": "Compound growth",
+        "lede": "Technical hygiene, topic clusters, and an internal-link map that keeps paying you back after the retainer ends.",
+        "deliverables": [
+          { "name": "Technical audit", "note": "Crawl, index coverage, Core Web Vitals, structured data — with a fix-priority list." },
+          { "name": "Keyword + topic research", "note": "Cluster map tied to buyer intent and business outcomes." },
+          { "name": "Content brief system", "note": "SERP-aligned briefs your writers (or mine) ship against." },
+          { "name": "On-page optimisation", "note": "Title/meta, internal linking, schema, image alts." },
+          { "name": "Link acquisition", "note": "Digital PR and partner outreach — budget-optional, no PBNs." },
+          { "name": "Quarterly strategy review", "note": "What moved, what plateaued, what to double down on." }
+        ],
+        "pricing": [
+          { "label": "Engagement", "val": "Retainer", "unit": "monthly" },
+          { "label": "Starts at", "val": "€1,200", "unit": "/mo" },
+          { "label": "Content", "val": "+€k", "unit": "per brief" },
+          { "label": "Commitment", "val": "6 months", "unit": "min. for results" }
+        ],
+        "proof": [
+          { "v": "×3.8", "l": "Organic traffic", "d": "B2B SaaS · 9 months · cluster strategy + PR" },
+          { "v": "+214%", "l": "Non-brand clicks", "d": "E-commerce · technical + content sprint · 6 months" },
+          { "v": "#1–3", "l": "SERP rank", "d": "Dental clinic · \"stomatolog Warszawa\" cluster, 12 terms" }
+        ]
+      }
+    ],
+    "processSteps": [
+      { "n": "01", "t": "Audit", "d": "I review your current setup — ad accounts, landing pages, tracking — and identify the biggest leaks.", "w": "Week 1" },
+      { "n": "02", "t": "Strategy", "d": "A written plan: what we run, what we cut, what we test first, and what we're measuring.", "w": "Week 1–2" },
+      { "n": "03", "t": "Build", "d": "Campaigns, creatives, and tracking built to the plan. No wasted clicks before launch.", "w": "Week 2–3" },
+      { "n": "04", "t": "Iterate", "d": "Weekly reviews, creative testing, and continuous optimisation against the agreed KPIs.", "w": "Ongoing" }
+    ],
+    "faqItems": [
+      { "q": "Do you work with clients outside Europe?", "a": "Yes. Most of my clients are European-based, but I work with brands globally — time zones permitting. I typically cover CET business hours plus some evenings." },
+      { "q": "What ad spend do you require?", "a": "It depends on the service. Meta Ads requires a minimum of €5k/month in spend for the economics to make sense. Google Ads starts at €3k. SEO and SMM have no spend floor — they are flat retainers." },
+      { "q": "Do you work with multiple clients in the same niche?", "a": "No. I take one client per niche at a time. If you are a dental clinic in Warsaw, no competitor will work with me while you are a client." },
+      { "q": "How do you report results?", "a": "Weekly Loom video + written summary. No 50-tab dashboards. You get what changed, why, and what's next. If something isn't working, you hear it from me before you see it in the numbers." },
+      { "q": "Can I hire you for a one-off project?", "a": "For Web Dev — yes, I do fixed-scope projects. For paid media (Meta, Google), results compound over months, so I don't offer one-off campaign setups without a minimum 3-month commitment." },
+      { "q": "What makes you different from an agency?", "a": "You work directly with me, not an account manager. I cap the number of clients I take to keep quality high. And I have skin in the game — my reputation is my only business, so I won't inflate vanity metrics." }
+    ]
   },
   "aboutPage": {
     "crumb": "About",
+    "home": "Home",
     "heroTitle1": "Seven years of watching",
     "heroItalic": "other people's",
     "heroTitle2": "ad accounts,",
@@ -164,6 +329,224 @@
     "ctaItalic": "actually",
     "ctaTitle4": "look like?",
     "ctaBook": "Book a 30-min call",
-    "ctaServices": "See services"
+    "ctaServices": "See services",
+    "timeline": [
+      {
+        "year": "2018",
+        "role": "In-house growth · DTC skincare",
+        "title": "The job that broke my agency beliefs",
+        "text": "Joined a skincare brand burning €40k/mo on lookalikes that weren't converting. Rebuilt the Meta account from scratch, scrapped the agency, and took the brand from break-even ROAS to 3.2× in four months. First time I realised most growth problems are creative problems disguised as algorithm problems."
+      },
+      {
+        "year": "2020",
+        "role": "Freelance · Kyiv",
+        "title": "First 10 clients, first rule",
+        "text": "Went solo. Started taking on clients month-to-month — no annual contracts, no retainers dressed up as scope. Learned to say no quickly when the product or margins didn't support paid acquisition. That list of declined clients is as valuable as the list of accepted ones."
+      },
+      {
+        "year": "2022",
+        "role": "Relocation · Warsaw",
+        "title": "Scaling across three markets",
+        "text": "Moved to Warsaw. Started working across PL, DE, and UA markets simultaneously — three languages, three consumer psychologies, three ad account climates. Figured out how to structure campaigns that share creative pipelines but respect local shopping behaviour."
+      },
+      {
+        "year": "2024",
+        "role": "Solo practice, current",
+        "title": "€2.4M managed, 14-client cap",
+        "text": "Formalised the practice around a hard cap of 14 concurrent clients and a flat retainer model. Every account is mine — no juniors, no white-label. Shipped a Telegram-first lead intake that now handles 40% of after-hours enquiries for service clients.",
+        "current": true
+      }
+    ],
+    "principles": [
+      { "n": "01", "t": "Revenue is the only metric that matters", "d": "ROAS, CTR, CPM — these are instruments, not goals. Every campaign I run is measured against the revenue line in your P&L. If it doesn't show up there, it doesn't count." },
+      { "n": "02", "t": "Creative is 70% of performance", "d": "The algorithm is commoditised. Everyone bids the same auctions with the same pixels. The edge is what you show, how you say it, and who shows up in the shot. I obsess about creative testing — not targeting tricks." },
+      { "n": "03", "t": "Small, concentrated, slow", "d": "I work with 10–14 clients, never more. I don't scale by hiring juniors or white-labelling. The brands I take on get my whole brain on their problem — that's the entire value proposition." },
+      { "n": "04", "t": "Say no quickly", "d": "If your margins can't support paid acquisition, or your product-market fit is shaky, I'll tell you on the first call and refund the audit. Wasting your budget is worse than losing your retainer." },
+      { "n": "05", "t": "Plain-language reports", "d": "Nobody reads 80-tab dashboards. Monday morning you get a 5-bullet note: what we ran, what moved, what I'm testing next. Charts are linked if you want them." },
+      { "n": "06", "t": "Telegram over email", "d": "For founders I trust, Telegram is the primary channel. Emails are for contracts and invoices. Quick questions get 2-hour replies — which is the fastest response most performance marketers can promise honestly." }
+    ],
+    "tools": [
+      { "group": "Ads & tracking", "items": ["Meta Ads Manager", "Google Ads", "Google Tag Manager", "GA4", "Meta CAPI", "Hyros", "TripleWhale", "Matomo"] },
+      { "group": "Web & build", "items": ["Webflow", "Framer", "Figma", "Tilda", "Next.js", "Vercel", "Shopify", "WordPress"] },
+      { "group": "Analytics & research", "items": ["Looker Studio", "Hotjar", "Microsoft Clarity", "Mixpanel", "Ahrefs", "Semrush", "Amplitude"] },
+      { "group": "Ops & comms", "items": ["Notion", "Telegram", "Slack", "Linear", "Loom", "HubSpot", "Pipedrive"] }
+    ]
+  },
+  "metaAdsPage": {
+    "crumb": "Meta Ads",
+    "heroLine1": "Meta Ads",
+    "heroItalic": "that",
+    "heroAccent": "convert.",
+    "ctaTitle1": "Ready to scale",
+    "ctaTitle2": "your",
+    "ctaItalic": "Meta",
+    "ctaTitle3": "results?",
+    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "deliverables": [
+      { "name": "Account audit + structure rebuild", "note": "Week 1. New campaigns, CBO hygiene, pixel + CAPI verification." },
+      { "name": "Creative testing framework", "note": "Weekly testing of 6–12 new creatives against clear hypotheses." },
+      { "name": "Buyer-stage creative pipeline", "note": "Awareness · Consideration · Conversion creative, not one-size messaging." },
+      { "name": "Audience ladder", "note": "Interest → Lookalike → Retargeting, with daily spend caps and negative overlap." },
+      { "name": "Weekly performance reports", "note": "Plain-language notes on what changed and what's next — no 80-tab dashboards." },
+      { "name": "Landing page split tests", "note": "Coordinated with the Website service when needed." }
+    ],
+    "pricing": [
+      { "label": "Engagement", "val": "Retainer", "unit": "monthly" },
+      { "label": "Starts at", "val": "€2,400", "unit": "/mo" },
+      { "label": "Ad spend", "val": "€5k+", "unit": "minimum" },
+      { "label": "Commitment", "val": "3 months", "unit": "then monthly" }
+    ],
+    "proof": [
+      { "v": "+312%", "l": "ROAS lift", "d": "DTC Skincare · 90 days · rebuild + creative system" },
+      { "v": "€47", "l": "Cost per lead", "d": "Premium Dental Clinic · Warsaw · Meta lead gen" },
+      { "v": "×2.4", "l": "AOV increase", "d": "Fashion e-commerce · bundle + retargeting strategy" }
+    ]
+  },
+  "googleAdsPage": {
+    "crumb": "Google Ads",
+    "heroLine1": "Google Ads",
+    "heroLine2": "built on",
+    "heroItalic": "intent",
+    "heroAccent": "guesswork.",
+    "heroLine2b": "not",
+    "intentLabel": "Why intent matters",
+    "intentDesc": "Search ads reach people the moment they decide to buy. That single fact makes search 3–8× more efficient than social for B2B and high-consideration purchases.",
+    "ctaLine1": "Stop paying for clicks",
+    "ctaLine2": "that",
+    "ctaItalic": "never",
+    "ctaAccent": "convert.",
+    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "deliverables": [
+      { "name": "Search campaign rebuild", "note": "Single-theme ad groups, match-type hygiene, branded defense." },
+      { "name": "Negative keyword system", "note": "Ongoing — negative lists per campaign, reviewed weekly." },
+      { "name": "PMax asset groups that convert", "note": "Audience signals, brand exclusions, feed-based targeting for e-commerce." },
+      { "name": "Conversion tracking audit", "note": "GA4, enhanced conversions, offline imports — numbers you can trust." },
+      { "name": "Shopping feed optimisation", "note": "Title structure, custom labels, Merchant Center health." },
+      { "name": "Monthly strategic review", "note": "Where to scale, where to cut, what to test next quarter." }
+    ],
+    "pricing": [
+      { "label": "Engagement", "val": "Retainer", "unit": "monthly" },
+      { "label": "Starts at", "val": "€1,900", "unit": "/mo" },
+      { "label": "Ad spend", "val": "€3k+", "unit": "minimum" },
+      { "label": "Commitment", "val": "3 months", "unit": "then monthly" }
+    ],
+    "proof": [
+      { "v": "62", "l": "Leads/month", "d": "B2B SaaS · LinkedIn + Search synced funnel" },
+      { "v": "−48%", "l": "CPA reduction", "d": "Online education · PMax asset group rebuild" },
+      { "v": "+184%", "l": "Enrolments", "d": "Online Education · webinar funnel at €40k/mo spend" }
+    ]
+  },
+  "webDevPage": {
+    "crumb": "Web Dev",
+    "kicker": "Conversion · Ship in 2–3 weeks",
+    "heroComment": "// ",
+    "heroLine1": "Pages that",
+    "heroItalic": "convert,",
+    "heroLine2": "not just",
+    "heroAccent": "impress.",
+    "heroLede": "Conversion-first pages built for speed, clarity, and CRM integration. Every pixel earns its place — no decorative fluff, just the one action that moves your metric.",
+    "heroCta": "Get a free brief",
+    "allServices": "All services",
+    "lighthouseLabel": "Lighthouse · Mobile",
+    "speedBefore": "Before",
+    "speedAfter": "After",
+    "speedCaption": "Time to Interactive · DTC skincare client · mobile",
+    "stackLabel": "/ What I build with",
+    "sectionKicker": "Website & Landing Pages",
+    "sectionTitle": "Six things you get\non every project.",
+    "sectionDesc": "No discovery retainers. No scope creep. A fixed brief, a fixed price, and a page that proves itself in 30 days.",
+    "ctaLine1": "Your next page should",
+    "ctaLine2": "pay for itself in",
+    "ctaItalic": "30 days.",
+    "replyNote": "Reply in under 2 hours · EN / UA / RU",
+    "deliverables": [
+      { "name": "Conversion-led design", "note": "Wireframe → hi-fi → build, all against a measurable hypothesis." },
+      { "name": "Webflow, Framer, or custom", "note": "Depending on CMS needs, team skill, and integration surface." },
+      { "name": "Page-speed engineering", "note": "Targets Lighthouse 95+ on mobile; image + font hygiene baked in." },
+      { "name": "Form + CRM wiring", "note": "Telegram bot, email, HubSpot, Notion, Sheets — whatever your stack is." },
+      { "name": "Analytics + tagging", "note": "GA4, Meta CAPI, Google Tag Manager; events aligned to ad campaigns." },
+      { "name": "A/B test setup", "note": "Hero, offer, and CTA variants with a clear statistical plan." }
+    ],
+    "pricing": [
+      { "label": "Engagement", "val": "Project", "unit": "fixed" },
+      { "label": "Landing page", "val": "€2,800", "unit": "starts at" },
+      { "label": "Full site", "val": "€6,500", "unit": "starts at" },
+      { "label": "Timeline", "val": "2–3 wk", "unit": "typical" }
+    ],
+    "proof": [
+      { "v": "+41%", "l": "Form-fill rate", "d": "Dental clinic · rebuild with Telegram-bot booking" },
+      { "v": "1.4s", "l": "Time to interactive", "d": "DTC skincare · from 4.8s to 1.4s mobile" },
+      { "v": "×2.1", "l": "Trial-to-paid", "d": "SaaS · pricing page rework + activation email flow" }
+    ],
+    "lighthouse": [
+      { "label": "Performance", "score": 98, "color": "#25C55E" },
+      { "label": "Accessibility", "score": 100, "color": "#25C55E" },
+      { "label": "SEO", "score": 97, "color": "#25C55E" }
+    ]
+  },
+  "smmPage": {
+    "crumb": "Social Media",
+    "heroLine1": "Content that",
+    "heroItalic": "compounds",
+    "heroLine2": "into",
+    "heroAccent": "real audience.",
+    "ctaLine1": "Build an audience",
+    "ctaLine2": "that",
+    "ctaItalic": "buys",
+    "ctaAccent": "back.",
+    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "deliverables": [
+      { "name": "Monthly editorial calendar", "note": "Pillars, formats, posting cadence — aligned to launches and ads." },
+      { "name": "Short-form video briefs", "note": "Hooks, beats, shot lists for Reels / TikTok — you or a creator films." },
+      { "name": "Content production (optional)", "note": "Photo + video shoots with vetted creators, €2k–€6k add-on." },
+      { "name": "Community management", "note": "Reply within 2h in business hours, escalation flow for leads." },
+      { "name": "UGC sourcing", "note": "Briefs, whitelisting, rights — creator content that fuels paid." },
+      { "name": "Monthly analytics report", "note": "Growth, saves, share rate, and what's worth repurposing." }
+    ],
+    "pricing": [
+      { "label": "Engagement", "val": "Retainer", "unit": "monthly" },
+      { "label": "Management", "val": "€1,400", "unit": "/mo" },
+      { "label": "Production", "val": "+€2k", "unit": "optional" },
+      { "label": "Commitment", "val": "3 months", "unit": "then monthly" }
+    ],
+    "proof": [
+      { "v": "+6.8k", "l": "IG followers", "d": "Fashion label · 4-month content sprint, €0 paid boost" },
+      { "v": "×3.2", "l": "UGC ad ROAS", "d": "Skincare · creator content fed into Meta retargeting" },
+      { "v": "2h", "l": "Avg reply time", "d": "Dental clinic · community mgmt during booking hours" }
+    ]
+  },
+  "seoPage": {
+    "crumb": "SEO",
+    "heroLine1": "Organic growth that",
+    "heroItalic": "compounds",
+    "heroAccent": "for years.",
+    "ctaLine1": "Traffic that keeps",
+    "ctaItalic": "growing",
+    "ctaAccent": "after month one.",
+    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "organicStats": [
+      { "label": "Avg. organic traffic growth", "value": "×3.8", "note": "after 9-month engagement" },
+      { "label": "Non-brand click lift", "value": "+214%", "note": "technical + content sprint" },
+      { "label": "Top SERP positions", "value": "#1–3", "note": "cluster-based targeting" }
+    ],
+    "deliverables": [
+      { "name": "Technical audit", "note": "Crawl, index coverage, Core Web Vitals, structured data — with a fix-priority list." },
+      { "name": "Keyword + topic research", "note": "Cluster map tied to buyer intent and business outcomes." },
+      { "name": "Content brief system", "note": "SERP-aligned briefs your writers (or mine) ship against." },
+      { "name": "On-page optimisation", "note": "Title/meta, internal linking, schema, image alts." },
+      { "name": "Link acquisition", "note": "Digital PR and partner outreach — budget-optional, no PBNs." },
+      { "name": "Quarterly strategy review", "note": "What moved, what plateaued, what to double down on." }
+    ],
+    "pricing": [
+      { "label": "Engagement", "val": "Retainer", "unit": "monthly" },
+      { "label": "Starts at", "val": "€1,200", "unit": "/mo" },
+      { "label": "Content", "val": "+€k", "unit": "per brief" },
+      { "label": "Commitment", "val": "6 months", "unit": "min. for results" }
+    ],
+    "proof": [
+      { "v": "×3.8", "l": "Organic traffic", "d": "B2B SaaS · 9 months · cluster strategy + PR" },
+      { "v": "+214%", "l": "Non-brand clicks", "d": "E-commerce · technical + content sprint · 6 months" },
+      { "v": "#1–3", "l": "SERP rank", "d": "Dental clinic · \"stomatolog Warszawa\" cluster, 12 terms" }
+    ]
   }
 }

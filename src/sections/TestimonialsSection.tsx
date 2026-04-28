@@ -1,11 +1,19 @@
 import React from 'react';
-import { TESTIMONIALS } from '@/data';
 import { useTranslation } from 'react-i18next';
 
-const all = [...TESTIMONIALS, ...TESTIMONIALS];
+interface TestimonialItem {
+  name: string;
+  role: string;
+  text: string;
+  stars: number;
+  init: string;
+}
 
 export const TestimonialsSection: React.FC = () => {
   const { t } = useTranslation();
+  const testimonials = t('testimonials.items', { returnObjects: true }) as TestimonialItem[];
+  const all = [...testimonials, ...testimonials];
+
   return (
     <section className="testimonials" id="testimonials">
       <div className="container">
@@ -22,15 +30,15 @@ export const TestimonialsSection: React.FC = () => {
 
       <div style={{ overflow: 'hidden' }}>
         <div className="marquee">
-          {all.map((t, i) => (
+          {all.map((item, i) => (
             <div key={i} className="t-card">
-              <div className="t-stars">{'★'.repeat(t.stars)}</div>
-              <p>"{t.text}"</p>
+              <div className="t-stars">{'★'.repeat(item.stars)}</div>
+              <p>"{item.text}"</p>
               <div className="t-who">
-                <div className="t-avatar">{t.init}</div>
+                <div className="t-avatar">{item.init}</div>
                 <div>
-                  <div className="t-name">{t.name}</div>
-                  <div className="t-role">{t.role}</div>
+                  <div className="t-name">{item.name}</div>
+                  <div className="t-role">{item.role}</div>
                 </div>
               </div>
             </div>

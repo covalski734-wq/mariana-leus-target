@@ -3,34 +3,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
-const SERVICE = {
-  id: 'smm', num: '04', kicker: 'Social', name: 'Social Media Management', sub: 'Content + community',
-  lede: 'Editorial calendars, short-form video briefs, and community replies that feed retargeting audiences worth buying back.',
-  deliverables: [
-    { name: 'Monthly editorial calendar', note: 'Pillars, formats, posting cadence — aligned to launches and ads.' },
-    { name: 'Short-form video briefs', note: 'Hooks, beats, shot lists for Reels / TikTok — you or a creator films.' },
-    { name: 'Content production (optional)', note: 'Photo + video shoots with vetted creators, €2k–€6k add-on.' },
-    { name: 'Community management', note: 'Reply within 2h in business hours, escalation flow for leads.' },
-    { name: 'UGC sourcing', note: 'Briefs, whitelisting, rights — creator content that fuels paid.' },
-    { name: 'Monthly analytics report', note: "Growth, saves, share rate, and what's worth repurposing." },
-  ],
-  pricing: [
-    { label: 'Engagement', val: 'Retainer', unit: 'monthly' },
-    { label: 'Management', val: '€1,400', unit: '/mo' },
-    { label: 'Production', val: '+€2k', unit: 'optional' },
-    { label: 'Commitment', val: '3 months', unit: 'then monthly' },
-  ],
-  proof: [
-    { v: '+6.8k', l: 'IG followers', d: 'Fashion label · 4-month content sprint, €0 paid boost' },
-    { v: '×3.2', l: 'UGC ad ROAS', d: 'Skincare · creator content fed into Meta retargeting' },
-    { v: '2h', l: 'Avg reply time', d: 'Dental clinic · community mgmt during booking hours' },
-  ],
-};
+interface Deliverable { name: string; note: string; }
+interface PricingRow { label: string; val: string; unit: string; }
+interface ProofCell { v: string; l: string; d: string; }
 
 export const SmmPage: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const goToContact = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'contact'); navigate('/'); };
+
+  const deliverables = t('smmPage.deliverables', { returnObjects: true }) as Deliverable[];
+  const pricing = t('smmPage.pricing', { returnObjects: true }) as PricingRow[];
+  const proof = t('smmPage.proof', { returnObjects: true }) as ProofCell[];
+
+  // kicker and sub come from the first serviceDetail matching smm (for the eyebrow)
+  const serviceDetails = t('servicesPage.serviceDetails', { returnObjects: true }) as Array<{ id: string; kicker: string; sub: string; }>;
+  const smmDetail = serviceDetails.find(s => s.id === 'smm');
 
   return (
     <>
@@ -47,22 +35,23 @@ export const SmmPage: React.FC = () => {
         <div className="container">
           <div className="eyebrow-row">
             <div className="crumb">
-              <Link to="/">Home</Link>
+              <Link to="/">{t('aboutPage.home')}</Link>
               <span className="sep">/</span>
-              <Link to="/services">Services</Link>
+              <Link to="/services">{t('servicesPage.crumb')}</Link>
               <span className="sep">/</span>
-              Social Media
+              {t('smmPage.crumb')}
             </div>
           </div>
-          <div className="eyebrow" style={{ marginBottom: 20 }}>
-            <span className="dot" style={{ background: '#25C55E' }} />
-            {SERVICE.kicker} · {SERVICE.sub}
-          </div>
+          {smmDetail && (
+            <div className="eyebrow" style={{ marginBottom: 20 }}>
+              <span className="dot" style={{ background: '#25C55E' }} />
+              {smmDetail.kicker} · {smmDetail.sub}
+            </div>
+          )}
           <h1>
-            Content that <em className="italic">compounds</em><br />
-            into <span className="accent">real audience.</span>
+            {t('smmPage.heroLine1')} <em className="italic">{t('smmPage.heroItalic')}</em><br />
+            {t('smmPage.heroLine2')} <span className="accent">{t('smmPage.heroAccent')}</span>
           </h1>
-          <p className="lede">{SERVICE.lede}</p>
         </div>
       </section>
 
@@ -71,7 +60,7 @@ export const SmmPage: React.FC = () => {
         <div className="container">
           <div className="svc-body reveal">
             <div className="svc-deliverables">
-              {SERVICE.deliverables.map((d, i) => (
+              {deliverables.map((d, i) => (
                 <div key={i} className="svc-deliv">
                   <span className="idx">{String(i + 1).padStart(2, '0')}</span>
                   <div className="name">{d.name}<small>{d.note}</small></div>
@@ -80,8 +69,8 @@ export const SmmPage: React.FC = () => {
               ))}
             </div>
             <aside className="svc-sidecard">
-              <div className="sc-head">/ Engagement</div>
-              {SERVICE.pricing.map((p, i) => (
+              <div className="sc-head">{t('servicesPage.engagement')}</div>
+              {pricing.map((p, i) => (
                 <div key={i} className="sc-row">
                   <div className="sc-label">{p.label}</div>
                   <div className="sc-val">{p.val}<span className="unit">{p.unit}</span></div>
@@ -91,13 +80,13 @@ export const SmmPage: React.FC = () => {
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <div style={{ font: '400 12px/1.5 var(--mono)', color: 'var(--fg-mute)', marginTop: 12 }}>
-                Typical reply in under 2 hours · EN / UA / RU
+                {t('smmPage.replyNote')}
               </div>
             </aside>
           </div>
 
           <div className="svc-proof reveal">
-            {SERVICE.proof.map((p, i) => (
+            {proof.map((p, i) => (
               <div key={i} className="svc-proof-cell">
                 <div className="metric-label">{p.l}</div>
                 <div className="metric-value">
@@ -121,15 +110,15 @@ export const SmmPage: React.FC = () => {
         <div className="container">
           <div className="cta-band-inner">
             <h3>
-              Build an audience<br />
-              that <em className="italic">buys</em> <span className="accent">back.</span>
+              {t('smmPage.ctaLine1')}<br />
+              {t('smmPage.ctaLine2')} <em className="italic">{t('smmPage.ctaItalic')}</em> <span className="accent">{t('smmPage.ctaAccent')}</span>
             </h3>
             <div className="ctas">
               <a href="/#contact" onClick={goToContact} className="btn btn-primary">
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <Link to="/services" className="btn btn-ghost">
-                All services <IconArrow size={14} className="arrow" />
+                {t('servicesPage.allServices')} <IconArrow size={14} className="arrow" />
               </Link>
             </div>
           </div>
