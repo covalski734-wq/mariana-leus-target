@@ -20,7 +20,11 @@
       "Bash(git -C \"c:/Users/i_cov/mariana-target/mariana-leus-target\" log --oneline -5)",
       "Bash(git -C \"c:/Users/i_cov/mariana-target/mariana-leus-target\" show f652344:src/sections/ContactSection.tsx)",
       "Bash(cp \"C:/Users/i_cov/.claude/projects/c--Users-i-cov-mariana-target-mariana-leus-target/52e5447d-bb5c-4fba-aac5-9ceaff8bb81a/tool-results/webfetch-1777330904814-wkbw4y.bin\" /tmp/about-design.gz)",
-      "Bash(gunzip -f /tmp/about-design.gz)"
+      "Bash(gunzip -f /tmp/about-design.gz)",
+      "Bash(Get-ChildItem -Path src -Recurse)",
+      "Bash(Select-Object FullName)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\i_cov\\\\mariana-target\\\\mariana-leus-target\" -Recurse -Directory)",
+      "Bash(Select-Object -ExpandProperty FullName)"
     ]
   }
 }

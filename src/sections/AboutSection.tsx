@@ -57,6 +57,7 @@ export const AboutSection: React.FC = () => {
             <h2>{t('about.title')}</h2>
             <p>{t('about.p1')}</p>
             <p>{t('about.p2')}</p>
+            <p>{t('about.p3')}</p>
 
             <div className="about-stats">
               <div className="about-stat">

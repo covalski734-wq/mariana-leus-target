@@ -49,7 +49,7 @@ export const CaseStudiesSection: React.FC = () => {
               </div>
 
               <div className="case-result">
-                {c.result.startsWith('+') || c.result.startsWith('×') || c.result.startsWith('€')
+                {c.result.startsWith('+') || c.result.startsWith('×') || c.result.startsWith('€') || c.result.startsWith('$') || c.result.startsWith('≈')
                   ? <><span className="plus">{c.result.charAt(0)}</span>{c.result.slice(1)}</>
                   : c.result
                 }
