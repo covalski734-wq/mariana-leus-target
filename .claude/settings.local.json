@@ -24,7 +24,9 @@
       "Bash(Get-ChildItem -Path src -Recurse)",
       "Bash(Select-Object FullName)",
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\i_cov\\\\mariana-target\\\\mariana-leus-target\" -Recurse -Directory)",
-      "Bash(Select-Object -ExpandProperty FullName)"
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\i_cov\\\\mariana-target\\\\mariana-leus-target\" -Recurse -Directory | Where-Object { $_.Name -like 'src' -or $_.Name -like 'pages' -or $_.Name -like 'sections' } | Select-Object -ExpandProperty FullName | head -20)",
+      "Bash(node -e ' *)"
     ]
   }
 }

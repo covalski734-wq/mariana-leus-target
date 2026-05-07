@@ -348,13 +348,14 @@
   .case p { font: 400 14px/1.5 var(--display); color: var(--fg-dim); margin: 0; max-width: 440px; }
   .case .preview { height: 110px; border-radius: 10px; background: linear-gradient(135deg, var(--surface-2), var(--surface)); border: 1px solid var(--border); position: relative; overflow: hidden; }
   .case .preview-mesh {
-    position: absolute; inset: 0;
+    position: absolute; inset: -60%;
     background: radial-gradient(circle at 30% 40%, rgba(0,74,173,.4), transparent 50%),
                 radial-gradient(circle at 70% 70%, var(--brand-glow), transparent 60%);
     filter: blur(30px); opacity: .7;
     transition: transform .8s cubic-bezier(.2,.7,.2,1);
   }
-  .case:hover .preview-mesh { transform: scale(1.2) rotate(10deg); }
+  .case .preview-mesh[style*="background-image"] { filter: none; opacity: 1; }
+  .case:hover .preview-mesh { transform: scale(1.04) rotate(8deg); }
   .case-arrow { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border-2); display: grid; place-items: center; color: var(--fg-dim); transition: all .3s ease; flex-shrink: 0; }
   .case:hover .case-arrow { background: var(--brand); color: #fff; border-color: transparent; transform: rotate(-45deg); }
 

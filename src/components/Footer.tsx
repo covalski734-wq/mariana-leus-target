@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
           </div>
           <div className="footer-col">
             <h5>{t('footer.elsewhere')}</h5>
-            <a href="https://t.me@mariana_01_0" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://t.me/mariana_01_0" target="_blank" rel="noopener noreferrer">Telegram</a>
             <a href="https://instagram.com/mariana_leus_" target="_blank" rel="noopener noreferrer">Instagram</a>
             {/* <a href="https://facebook.com/marianaleus" target="_blank" rel="noopener noreferrer">Facebook</a> */}
             <a href="https://wa.me/48795069922" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -63,7 +63,10 @@ export const Footer: React.FC = () => {
         <div className="footer-bottom">
           <div>{t('footer.copyright')}</div>
           <div>{t('footer.location')}</div>
-          <div><a href="#top" onClick={scrollToTop}>{t('footer.backToTop')}</a></div>
+          <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+            <Link to="/privacy" style={{ opacity: 0.5, fontSize: 12, fontFamily: 'var(--mono)' }}>{t('privacy.footerLink')}</Link>
+            <a href="#top" onClick={scrollToTop}>{t('footer.backToTop')}</a>
+          </div>
         </div>
       </div>
     </footer>

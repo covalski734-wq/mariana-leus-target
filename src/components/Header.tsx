@@ -59,7 +59,7 @@ export const Header: React.FC = () => {
     <div className="mobile-nav">
       <button className="mobile-nav-close" onClick={() => setMobileOpen(false)} aria-label="Close menu">✕</button>
       <div className="mobile-nav-links">
-        <Link to="/services" onClick={() => setMobileOpen(false)}>{t('header.services')}</Link>
+        <a href="/#services" onClick={scrollTo('services')}>{t('header.services')}</a>
         <button className="mobile-link" onClick={scrollTo('work')}>{t('header.work')}</button>
         <Link to="/about" onClick={() => setMobileOpen(false)}>{t('header.about')}</Link>
         <button className="mobile-link" onClick={scrollTo('contact')}>{t('header.contact')}</button>
@@ -98,7 +98,7 @@ export const Header: React.FC = () => {
             <div className="brand-name">Mariana Leus<span className="dim">&nbsp;· performance</span></div>
           </Link>
           <nav className="links" aria-label="Primary">
-            <Link to="/services">{t('header.services')}</Link>
+            <a href="/#services" onClick={scrollTo('services')}>{t('header.services')}</a>
             <a href="/#work" onClick={scrollTo('work')}>{t('header.work')}</a>
             <Link to="/about">{t('header.about')}</Link>
             <a href="/#contact" onClick={scrollTo('contact')}>{t('header.contact')}</a>

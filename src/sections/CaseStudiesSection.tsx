@@ -9,6 +9,7 @@ interface CaseItem {
   title: string;
   desc: string;
   gradient: [string, string];
+  image?: string;
 }
 
 export const CaseStudiesSection: React.FC = () => {
@@ -41,7 +42,12 @@ export const CaseStudiesSection: React.FC = () => {
               <div className="preview">
                 <div
                   className="preview-mesh"
-                  style={{
+                  style={c.image ? {
+                    backgroundImage: `url(${c.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                  } : {
                     background: `radial-gradient(circle at 30% 40%, ${c.gradient[0]}66, transparent 50%),
                                  radial-gradient(circle at 70% 70%, ${c.gradient[1]}99, transparent 60%)`,
                   }}

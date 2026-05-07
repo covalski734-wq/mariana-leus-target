@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IconArrow } from '@/components/Icons';
 import { useTranslation } from 'react-i18next';
 
@@ -74,9 +74,14 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            <a href="/#contact" onClick={handleWorkWithMe} className="btn btn-ghost">
-              {t('about.cta')} <IconArrow size={16} className="arrow" />
-            </a>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <a href="/#contact" onClick={handleWorkWithMe} className="btn btn-ghost">
+                {t('about.cta')} <IconArrow size={16} className="arrow" />
+              </a>
+              <Link to="/about" className="btn btn-ghost">
+                {t('about.ctaAbout')} <IconArrow size={16} className="arrow" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

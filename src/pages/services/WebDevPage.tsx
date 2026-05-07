@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { IconArrow, IconCheck } from '@/components/Icons';
 
 interface Deliverable { name: string; note: string; }
-interface PricingRow { label: string; val: string; unit: string; }
 interface ProofCell { v: string; l: string; d: string; }
 interface LighthouseScore { label: string; score: number; color: string; }
+interface SidecardItem { label: string; val: string; }
 
-const STACK = ['Webflow', 'Framer', 'Next.js', 'React', 'Figma', 'Vercel', 'Shopify', 'HubSpot', 'GA4', 'GTM', 'Meta CAPI', 'Telegram Bot'];
+const STACK = ['React / Next.js', 'TypeScript', 'Node.js', 'REST API', 'WordPress', 'Webflow / Framer', 'HTML / CSS / Tailwind', 'PostgreSQL', '.NET', 'Git'];
 
 // Animated Lighthouse score circle
 const ScoreCircle: React.FC<{ score: number; label: string; color: string }> = ({ score, label, color }) => {
@@ -100,11 +100,17 @@ export const WebDevPage: React.FC = () => {
     sessionStorage.setItem('scrollTarget', 'contact');
     navigate('/');
   };
+  const goToServices = (e: React.MouseEvent) => {
+    e.preventDefault();
+    sessionStorage.setItem('scrollTarget', 'services');
+    navigate('/');
+  };
 
   const deliverables = t('webDevPage.deliverables', { returnObjects: true }) as Deliverable[];
-  const pricing = t('webDevPage.pricing', { returnObjects: true }) as PricingRow[];
   const proof = t('webDevPage.proof', { returnObjects: true }) as ProofCell[];
   const lighthouse = t('webDevPage.lighthouse', { returnObjects: true }) as LighthouseScore[];
+  const sidecard = t('webDevPage.sidecard', { returnObjects: true }) as SidecardItem[];
+  const types = t('webDevPage.types', { returnObjects: true }) as string[];
 
   return (
     <>
@@ -121,7 +127,7 @@ export const WebDevPage: React.FC = () => {
         <div className="container">
           <div className="crumb" style={{ font: '500 11px/1 var(--mono)', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-mute)', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 40 }}>
             <Link to="/">{t('aboutPage.home')}</Link><span style={{ opacity: .4 }}>/</span>
-            <Link to="/services">{t('servicesPage.crumb')}</Link><span style={{ opacity: .4 }}>/</span>
+            <a href="/#services" onClick={goToServices}>{t('servicesPage.crumb')}</a><span style={{ opacity: .4 }}>/</span>
             <span>{t('webDevPage.crumb')}</span>
           </div>
 
@@ -143,9 +149,9 @@ export const WebDevPage: React.FC = () => {
                 <a href="/#contact" onClick={goToContact} className="btn btn-primary">
                   {t('webDevPage.heroCta')} <IconArrow size={14} className="arrow" />
                 </a>
-                <Link to="/services" className="btn btn-ghost">
+                <a href="/#services" onClick={goToServices} className="btn btn-ghost">
                   {t('webDevPage.allServices')}
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -211,6 +217,22 @@ export const WebDevPage: React.FC = () => {
             </div>
           </div>
 
+          <div className="reveal" style={{ marginBottom: 48, padding: '32px', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 12 }}>
+            <p style={{ font: '400 clamp(1rem,1.8vw,1.125rem)/1.6 var(--display)', color: 'var(--fg)', marginBottom: 8 }}>
+              {t('webDevPage.typesIntro')}
+            </p>
+            <p style={{ font: '400 14px/1.5 var(--display)', color: 'var(--fg-dim)', marginBottom: 24 }}>
+              {t('webDevPage.typesDesc')}
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {types.map((type) => (
+                <span key={type} className="stack-chip" style={{ color: '#6B2FF7', borderColor: '#6B2FF722' }}>
+                  {type}
+                </span>
+              ))}
+            </div>
+          </div>
+
           <div className="svc-body reveal">
             <div className="svc-deliverables">
               {deliverables.map((d, i) => (
@@ -230,15 +252,19 @@ export const WebDevPage: React.FC = () => {
             </div>
 
             <aside className="svc-sidecard webdev-sidecard">
-              <div className="sc-head">{t('servicesPage.engagement')}</div>
-              {pricing.map((p, i) => (
-                <div key={i} className="sc-row">
-                  <div className="sc-label">{p.label}</div>
-                  <div className="sc-val">{p.val}<span className="unit">{p.unit}</span></div>
+              <div className="sc-head" style={{ marginBottom: 16, color: '#6B2FF7' }}>/ Web Dev</div>
+              {sidecard.map((item, i) => (
+                <div key={i} style={{ borderBottom: '1px solid var(--border)', padding: '12px 0' }}>
+                  <div style={{ font: '500 10px/1 var(--mono)', color: '#6B2FF7', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>
+                    {item.label}
+                  </div>
+                  <div style={{ font: '400 13px/1.5 var(--display)', color: 'var(--fg-dim)' }}>
+                    {item.val}
+                  </div>
                 </div>
               ))}
               <a href="/#contact" onClick={goToContact} className="btn btn-primary sc-cta"
-                style={{ marginTop: 16, width: '100%', justifyContent: 'center', background: 'linear-gradient(135deg, #6B2FF7, #004AAD)' }}>
+                style={{ marginTop: 20, width: '100%', justifyContent: 'center', background: 'linear-gradient(135deg, #6B2FF7, #004AAD)' }}>
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <div style={{ font: '400 12px/1.5 var(--mono)', color: 'var(--fg-mute)', marginTop: 12 }}>
@@ -281,9 +307,9 @@ export const WebDevPage: React.FC = () => {
                 style={{ background: 'linear-gradient(135deg, #6B2FF7, #004AAD)' }}>
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
-              <Link to="/services" className="btn btn-ghost">
+              <a href="/#services" onClick={goToServices} className="btn btn-ghost">
                 {t('servicesPage.allServices')} <IconArrow size={14} className="arrow" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

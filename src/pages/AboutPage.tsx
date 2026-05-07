@@ -13,6 +13,11 @@ const AboutHero: React.FC = () => {
     sessionStorage.setItem('scrollTarget', 'contact');
     navigate('/');
   };
+  const goToServices = (e: React.MouseEvent) => {
+    e.preventDefault();
+    sessionStorage.setItem('scrollTarget', 'services');
+    navigate('/');
+  };
   return (
     <section className="ab-hero">
       <div className="mesh" aria-hidden="true">
@@ -29,11 +34,14 @@ const AboutHero: React.FC = () => {
           </div>
         </div>
         <div className="ab-hero-grid">
-          <h1>
-            {t('aboutPage.heroTitle1')}<br />
-            <span className="italic">{t('aboutPage.heroItalic')}</span> {t('aboutPage.heroTitle2')}<br />
-            {t('aboutPage.heroTitle3')} <span className="underline">{t('aboutPage.heroUnderline')}</span>
-          </h1>
+          <div>
+            <h1 style={{ marginBottom: 16 }}>
+              {t('aboutPage.heroPrefix')}<span className="italic">{t('aboutPage.heroItalic')}</span>{t('aboutPage.heroMiddle')}<span className="underline">{t('aboutPage.heroUnderline')}</span>
+            </h1>
+            <p style={{ font: '400 clamp(1rem,2vw,1.25rem)/1.5 var(--display)', color: 'var(--fg-dim)', maxWidth: 480 }}>
+              {t('aboutPage.heroSub')}
+            </p>
+          </div>
           <div className="ab-hero-photo">
             <img src="/mariana.jpg" alt="Mariana Leus portrait" loading="lazy" />
             <div className="ab-photo-cap">{t('aboutPage.photoCaption')}</div>
@@ -43,9 +51,9 @@ const AboutHero: React.FC = () => {
           <a href="/#contact" onClick={goToContact} className="btn btn-primary">
             {t('aboutPage.ctaBook')} <IconArrow size={14} className="arrow" />
           </a>
-          <Link to="/services" className="btn btn-ghost">
+          <a href="/#services" onClick={goToServices} className="btn btn-ghost">
             {t('aboutPage.ctaServices')} <IconArrow size={14} className="arrow" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>
@@ -184,6 +192,11 @@ const AboutCta: React.FC = () => {
     sessionStorage.setItem('scrollTarget', 'contact');
     navigate('/');
   };
+  const goToServices = (e: React.MouseEvent) => {
+    e.preventDefault();
+    sessionStorage.setItem('scrollTarget', 'services');
+    navigate('/');
+  };
   return (
     <section className="cta-band">
       <div className="mesh" aria-hidden="true">
@@ -200,9 +213,9 @@ const AboutCta: React.FC = () => {
             <a href="/#contact" onClick={goToContact} className="btn btn-primary">
               {t('aboutPage.ctaBook')} <IconArrow size={14} className="arrow" />
             </a>
-            <Link to="/services" className="btn btn-ghost">
+            <a href="/#services" onClick={goToServices} className="btn btn-ghost">
               {t('aboutPage.ctaServices')} <IconArrow size={14} className="arrow" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>

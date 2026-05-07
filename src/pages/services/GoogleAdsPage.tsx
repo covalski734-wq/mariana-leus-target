@@ -4,21 +4,21 @@ import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
 interface Deliverable { name: string; note: string; }
-interface PricingRow { label: string; val: string; unit: string; }
 interface ProofCell { v: string; l: string; d: string; }
+interface SidecardItem { label: string; val: string; }
 
 export const GoogleAdsPage: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const goToContact = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'contact'); navigate('/'); };
+  const goToServices = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'services'); navigate('/'); };
 
   const deliverables = t('googleAdsPage.deliverables', { returnObjects: true }) as Deliverable[];
-  const pricing = t('googleAdsPage.pricing', { returnObjects: true }) as PricingRow[];
   const proof = t('googleAdsPage.proof', { returnObjects: true }) as ProofCell[];
+  const sidecard = t('googleAdsPage.sidecard', { returnObjects: true }) as SidecardItem[];
 
   return (
     <>
-      {/* Page hero — gold/amber tones */}
       <section className="pg-hero">
         <div className="mesh">
           <div className="blob b1" style={{ background: 'radial-gradient(circle, #F7AD1A33 0%, transparent 70%)' }} />
@@ -33,7 +33,7 @@ export const GoogleAdsPage: React.FC = () => {
             <div className="crumb">
               <Link to="/">{t('aboutPage.home')}</Link>
               <span className="sep">/</span>
-              <Link to="/services">{t('servicesPage.crumb')}</Link>
+              <a href="/#services" onClick={goToServices}>{t('servicesPage.crumb')}</a>
               <span className="sep">/</span>
               {t('googleAdsPage.crumb')}
             </div>
@@ -45,7 +45,6 @@ export const GoogleAdsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Intent callout */}
       <div style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '24px 0' }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
@@ -60,7 +59,6 @@ export const GoogleAdsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Service block */}
       <section className="svc-block" style={{ borderTop: 0 }}>
         <div className="container">
           <div className="svc-body reveal">
@@ -74,14 +72,18 @@ export const GoogleAdsPage: React.FC = () => {
               ))}
             </div>
             <aside className="svc-sidecard">
-              <div className="sc-head">{t('servicesPage.engagement')}</div>
-              {pricing.map((p, i) => (
-                <div key={i} className="sc-row">
-                  <div className="sc-label">{p.label}</div>
-                  <div className="sc-val">{p.val}<span className="unit">{p.unit}</span></div>
+              <div className="sc-head" style={{ marginBottom: 16 }}>/ Google Ads</div>
+              {sidecard.map((item, i) => (
+                <div key={i} style={{ borderBottom: '1px solid var(--border)', padding: '12px 0' }}>
+                  <div style={{ font: '500 10px/1 var(--mono)', color: '#F7AD1A', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>
+                    {item.label}
+                  </div>
+                  <div style={{ font: '400 13px/1.5 var(--display)', color: 'var(--fg-dim)' }}>
+                    {item.val}
+                  </div>
                 </div>
               ))}
-              <a href="/#contact" onClick={goToContact} className="btn btn-primary sc-cta" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>
+              <a href="/#contact" onClick={goToContact} className="btn btn-primary sc-cta" style={{ marginTop: 20, width: '100%', justifyContent: 'center' }}>
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <div style={{ font: '400 12px/1.5 var(--mono)', color: 'var(--fg-mute)', marginTop: 12 }}>
@@ -105,7 +107,6 @@ export const GoogleAdsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA band */}
       <section className="cta-band">
         <div className="mesh">
           <div className="blob b1" style={{ background: 'radial-gradient(circle, #F7AD1A22 0%, transparent 70%)' }} />
@@ -122,9 +123,9 @@ export const GoogleAdsPage: React.FC = () => {
               <a href="/#contact" onClick={goToContact} className="btn btn-primary">
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
-              <Link to="/services" className="btn btn-ghost">
+              <a href="/#services" onClick={goToServices} className="btn btn-ghost">
                 {t('servicesPage.allServices')} <IconArrow size={14} className="arrow" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

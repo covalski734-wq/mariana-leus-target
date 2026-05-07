@@ -12,13 +12,20 @@ const iconMap: Record<string, React.FC<{ size?: number }>> = {
   search: IconSearch,
 };
 
-// Map service id to translation key
 const svcKeyMap: Record<string, string> = {
   meta: 'meta',
   google: 'google',
   web: 'web',
   smm: 'smm',
   seo: 'seo',
+};
+
+const svcRouteMap: Record<string, string> = {
+  meta: '/services/meta-ads',
+  google: '/services/google-ads',
+  web: '/services/web-dev',
+  smm: '/services/smm',
+  seo: '/services/seo',
 };
 
 export const ServicesSection: React.FC = () => {
@@ -73,7 +80,7 @@ export const ServicesSection: React.FC = () => {
                 <p>{desc.split('\n').map((line: string, i: number, arr: string[]) => (
                     <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
                   ))}</p>
-                <Link to="/services" className="learn">
+                <Link to={svcRouteMap[svc.id] ?? '/services/meta-ads'} className="learn">
                   {t('services.learnMore')} <IconArrow size={14} className="arrow" />
                 </Link>
               </div>

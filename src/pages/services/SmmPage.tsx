@@ -4,25 +4,21 @@ import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
 interface Deliverable { name: string; note: string; }
-interface PricingRow { label: string; val: string; unit: string; }
 interface ProofCell { v: string; l: string; d: string; }
+interface SidecardItem { label: string; val: string; }
 
 export const SmmPage: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const goToContact = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'contact'); navigate('/'); };
+  const goToServices = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'services'); navigate('/'); };
 
   const deliverables = t('smmPage.deliverables', { returnObjects: true }) as Deliverable[];
-  const pricing = t('smmPage.pricing', { returnObjects: true }) as PricingRow[];
   const proof = t('smmPage.proof', { returnObjects: true }) as ProofCell[];
-
-  // kicker and sub come from the first serviceDetail matching smm (for the eyebrow)
-  const serviceDetails = t('servicesPage.serviceDetails', { returnObjects: true }) as Array<{ id: string; kicker: string; sub: string; }>;
-  const smmDetail = serviceDetails.find(s => s.id === 'smm');
+  const sidecard = t('smmPage.sidecard', { returnObjects: true }) as SidecardItem[];
 
   return (
     <>
-      {/* Page hero — green / content-card feel */}
       <section className="pg-hero">
         <div className="mesh">
           <div className="blob b1" style={{ background: 'radial-gradient(circle, #25C55E33 0%, transparent 70%)' }} />
@@ -37,25 +33,25 @@ export const SmmPage: React.FC = () => {
             <div className="crumb">
               <Link to="/">{t('aboutPage.home')}</Link>
               <span className="sep">/</span>
-              <Link to="/services">{t('servicesPage.crumb')}</Link>
+              <a href="/#services" onClick={goToServices}>{t('servicesPage.crumb')}</a>
               <span className="sep">/</span>
               {t('smmPage.crumb')}
             </div>
           </div>
-          {smmDetail && (
-            <div className="eyebrow" style={{ marginBottom: 20 }}>
-              <span className="dot" style={{ background: '#25C55E' }} />
-              {smmDetail.kicker} · {smmDetail.sub}
-            </div>
-          )}
+          <div className="eyebrow" style={{ marginBottom: 20 }}>
+            <span className="dot" style={{ background: '#25C55E' }} />
+            SMM
+          </div>
           <h1>
             {t('smmPage.heroLine1')} <em className="italic">{t('smmPage.heroItalic')}</em><br />
             {t('smmPage.heroLine2')} <span className="accent">{t('smmPage.heroAccent')}</span>
           </h1>
+          <p style={{ font: '400 clamp(0.95rem,1.6vw,1.125rem)/1.6 var(--display)', color: 'var(--fg-dim)', marginTop: 20, maxWidth: 560 }}>
+            {t('smmPage.lede')}
+          </p>
         </div>
       </section>
 
-      {/* Service block */}
       <section className="svc-block" style={{ borderTop: 0 }}>
         <div className="container">
           <div className="svc-body reveal">
@@ -69,14 +65,18 @@ export const SmmPage: React.FC = () => {
               ))}
             </div>
             <aside className="svc-sidecard">
-              <div className="sc-head">{t('servicesPage.engagement')}</div>
-              {pricing.map((p, i) => (
-                <div key={i} className="sc-row">
-                  <div className="sc-label">{p.label}</div>
-                  <div className="sc-val">{p.val}<span className="unit">{p.unit}</span></div>
+              <div className="sc-head" style={{ marginBottom: 16 }}>/ SMM</div>
+              {sidecard.map((item, i) => (
+                <div key={i} style={{ borderBottom: '1px solid var(--border)', padding: '12px 0' }}>
+                  <div style={{ font: '500 10px/1 var(--mono)', color: '#25C55E', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>
+                    {item.label}
+                  </div>
+                  <div style={{ font: '400 13px/1.5 var(--display)', color: 'var(--fg-dim)' }}>
+                    {item.val}
+                  </div>
                 </div>
               ))}
-              <a href="/#contact" onClick={goToContact} className="btn btn-primary sc-cta" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>
+              <a href="/#contact" onClick={goToContact} className="btn btn-primary sc-cta" style={{ marginTop: 20, width: '100%', justifyContent: 'center' }}>
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <div style={{ font: '400 12px/1.5 var(--mono)', color: 'var(--fg-mute)', marginTop: 12 }}>
@@ -100,7 +100,6 @@ export const SmmPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA band */}
       <section className="cta-band">
         <div className="mesh">
           <div className="blob b1" style={{ background: 'radial-gradient(circle, #25C55E22 0%, transparent 70%)' }} />
@@ -117,9 +116,9 @@ export const SmmPage: React.FC = () => {
               <a href="/#contact" onClick={goToContact} className="btn btn-primary">
                 {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
               </a>
-              <Link to="/services" className="btn btn-ghost">
+              <a href="/#services" onClick={goToServices} className="btn btn-ghost">
                 {t('servicesPage.allServices')} <IconArrow size={14} className="arrow" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
