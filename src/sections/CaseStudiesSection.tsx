@@ -10,6 +10,7 @@ interface CaseItem {
   desc: string;
   gradient: [string, string];
   image?: string;
+  instagram?: string;
 }
 
 export const CaseStudiesSection: React.FC = () => {
@@ -34,9 +35,14 @@ export const CaseStudiesSection: React.FC = () => {
             <div key={i} className="case reveal">
               <div className="case-top">
                 <span className="case-niche">{c.niche}</span>
-                <div className="case-arrow">
+                <a
+                  href={c.instagram ?? 'https://www.instagram.com/mariana_leus_/'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="case-arrow"
+                >
                   <IconArrowUp size={14} />
-                </div>
+                </a>
               </div>
 
               <div className="preview">
@@ -67,6 +73,17 @@ export const CaseStudiesSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        <p style={{
+          marginTop: 32,
+          marginBottom: 0,
+          font: `400 italic clamp(1.25rem, 2.5vw, 2rem)/1.2 var(--serif)`,
+          color: 'var(--fg-dim)',
+          textAlign: 'center',
+          letterSpacing: '-0.01em',
+        }}>
+          {t('cases.moreNote')}
+        </p>
       </div>
     </section>
   );

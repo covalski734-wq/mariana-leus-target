@@ -73,7 +73,11 @@
           "#004AAD",
           "#00B8D9"
         ],
-        "image": "/sushi.jpg"
+        "image": "/sushi.jpg",
+        "instagram": "https://www.instagram.com/p/DXWcdaOinaO",
+        "tags": [
+          "meta"
+        ]
       },
       {
         "niche": "Fence · USA",
@@ -85,7 +89,11 @@
           "#6B2FF7",
           "#004AAD"
         ],
-        "image": "/fence.jpg"
+        "image": "/fence.jpg",
+        "instagram": "https://www.instagram.com/p/DXb3cTdCsWA",
+        "tags": [
+          "meta"
+        ]
       },
       {
         "niche": "Detailing · Canada",
@@ -97,7 +105,12 @@
           "#004AAD",
           "#25C55E"
         ],
-        "image": "/detailing.webp"
+        "image": "/detailing.webp",
+        "instagram": "https://www.instagram.com/p/DYQADI9DcjP",
+        "tags": [
+          "meta",
+          "google"
+        ]
       },
       {
         "niche": "Karaoke bar · Czech Republic",
@@ -109,9 +122,15 @@
           "#F7AD1A",
           "#004AAD"
         ],
-        "image": "/caraoke.jpg"
+        "image": "/caraoke.jpg",
+        "instagram": "https://www.instagram.com/mariana_leus_/",
+        "tags": [
+          "meta",
+          "google"
+        ]
       }
-    ]
+    ],
+    "moreNote": "More cases — on service pages"
   },
   "testimonials": {
     "sectionNum": "/ 03 · Clients",
@@ -168,7 +187,7 @@
     "title": "4 years inside ad accounts — and most businesses have the same problem",
     "p1": "I've worked across different niches — from services to e-commerce. In most cases, results come not from a single channel but from a system.",
     "p2": "I work with multiple traffic sources and analyse the full customer journey: from ad to lead to sale. At the start I run an audit of traffic, website and communication to find growth points.",
-    "yearsVal": "4y",
+    "yearsVal": "4 years",
     "yearsLabel": "Performance marketing",
     "managedVal": "$100k+",
     "managedLabel": "Ad budget",
@@ -266,6 +285,8 @@
     "faqDesc": "Can't find yours? Send it over via Telegram or email — I reply within 2 hours during business hours.",
     "ctaTitle": "Ready to see what your\nactual ROAS should be?",
     "ctaBookBtn": "Book a free audit",
+    "ctaBookConsultBtn": "Get an audit review",
+    "ctaBookConsultBtn2": "Schedule a consultation",
     "ctaTelegramBtn": "Message on Telegram",
     "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
     "engagement": "/ Engagement",
@@ -704,9 +725,10 @@
     "heroSub": "so you don't have to do it yourself.",
     "photoCaption": "Poland · 2026 · 14-client cap",
     "introLabel": "/ Introduction",
-    "intro1": "I started in-house at a skincare brand that was hemorrhaging budget on lookalikes that didn't convert. After rebuilding the account from scratch and scaling it to €1.2M in annual revenue, founders started asking me to do the same for them. I've been solo ever since — and I've kept it that way on purpose.",
-    "intro2": "Today I run a quiet, boring practice: 10–14 clients at a time, flat monthly retainers, no junior staff, no account managers, no sales funnel dressed up as a dashboard. If you're reading this page, the only person between you and your campaigns is me.",
-    "intro3": "Performance marketing rewards the patient and the specific. Most of what agencies sell as 'strategy' is a slideshow. The actual work is unglamorous: writing better ads, rebuilding tracking that never worked, killing audiences that never converted, and telling founders honestly when their product isn't ready to scale.",
+    "intro1": "I've worked with different niches, from services to e-commerce — and in most cases, results come not from one channel but from a system. I work with several traffic sources at once and look at the full customer journey: from ad to lead to sale. That's why the point is not just to launch ads, but to understand exactly where the business is losing money.",
+    "intro2": "At the first touchpoint, I audit all key areas — traffic, website, communication — to find weak spots and growth opportunities.",
+    "intro3": "I work with 10–14 clients at a time, no more. I lead every project personally and give it enough attention, because I work not with isolated tools but with a system. I also give recommendations on content, website and client communication — from page structure to conversation scripts.",
+    "intro4": "My job is not clicks or leads, but sales and business profit. That's why we work as one team, where both sides are invested in the result.",
     "timelineNum": "/ Trajectory",
     "timelineTitle": "How I started in digital",
     "timelineDesc": "A brief overview of my experience, approach to advertising, and journey in marketing & performance.",
@@ -715,7 +737,7 @@
     "principlesDesc": "My approach to work, communication, and advertising — applied to every project.",
     "toolkitNum": "/ Toolkit",
     "toolkitTitle": "What's in the stack.",
-    "toolkitDesc": "Tools are disposable. I care about the thinking, not the logos — but here's what I actually use day-to-day.",
+    "toolkitDesc": "These are the tools I use every day to work on advertising, analytics and business growth.",
     "quote": "Strong marketing is a combination of analytics, creativity and systems.",
     "quoteSource": "What practice proves, not theory",
     "ctaTitle1": "Want to see what",
@@ -910,15 +932,15 @@
     "heroLine2b": "not",
     "intentLabel": "Why intent matters",
     "intentDesc": "Capture ready demand, remove budget waste and turn Google Ads into a stable sales channel.",
-    "ctaLine1": "Stop paying for clicks",
-    "ctaLine2": "that",
-    "ctaItalic": "never",
-    "ctaAccent": "convert.",
+    "ctaLine1": "Turn advertising",
+    "ctaLine2": "into",
+    "ctaItalic": "leads, not ",
+    "ctaAccent": "just traffic.",
     "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
     "sidecard": [
       {
         "label": "Who it's for",
-        "val": "Businesses already running ads or looking to scale"
+        "val": "Businesses just entering advertising or scaling up"
       },
       {
         "label": "Good fit if",
@@ -1011,24 +1033,24 @@
     "crumb": "Web Dev",
     "kicker": "Conversion · Ship in 2–3 weeks",
     "heroComment": "// ",
-    "heroLine1": "Pages that",
-    "heroItalic": "convert,",
-    "heroLine2": "not just",
-    "heroAccent": "impress.",
-    "heroLede": "Conversion-first pages built for speed, clarity, and CRM integration. Every pixel earns its place — no decorative fluff, just the one action that moves your metric.",
-    "heroCta": "Get a free brief",
+    "heroLine1": "Design should",
+    "heroItalic": "sell,",
+    "heroLine2": "not just look",
+    "heroAccent": "beautiful.",
+    "heroLede": "Thoughtful structure, fast loading and CRM integration — so your ads work more effectively.",
+    "heroCta": "Calculate the cost",
     "allServices": "All services",
     "lighthouseLabel": "Lighthouse · Mobile",
     "speedBefore": "Before",
     "speedAfter": "After",
-    "speedCaption": "Time to Interactive · DTC skincare client · mobile",
-    "stackLabel": "/ What I build with",
+    "speedCaption": "Loading speed",
+    "stackLabel": "/ What we build with",
     "sectionKicker": "Website & Landing Pages",
     "sectionTitle": "What's included in development",
     "sectionDesc": "Every site is built for specific business goals — from structure and design to integrations and analytics.",
-    "ctaLine1": "Your next page should",
-    "ctaLine2": "pay for itself in",
-    "ctaItalic": "30 days.",
+    "ctaLine1": "Your website should",
+    "ctaLine2": "help your ads",
+    "ctaItalic": "sell.",
     "replyNote": "Reply in under 2 hours · EN / UA / RU",
     "typesIntro": "We build websites for different business needs — from simple landing pages to large-scale web solutions.",
     "typesDesc": "Each project is adapted for advertising, user experience, and future business growth.",
@@ -1156,16 +1178,18 @@
         "score": 97,
         "color": "#25C55E"
       }
-    ]
+    ],
+    "caseTitle": "This site is part of the case study too.",
+    "caseText": "Everything you see here is an example of our approach to structure, speed and conversion."
   },
   "smmPage": {
     "crumb": "SMM",
     "lede": "Social media management for consistent audience contact, brand support and increased sales through content.",
     "heroLine1": "Content that",
-    "heroItalic": "compounds",
-    "heroLine2": "into",
-    "heroAccent": "real audience.",
-    "ctaLine1": "Build an audience",
+    "heroItalic": "turns ",
+    "heroLine2": "attention into",
+    "heroAccent": "an audience.",
+    "ctaLine1": "Let's build an audience",
     "ctaLine2": "that",
     "ctaItalic": "buys",
     "ctaAccent": "back.",
@@ -1263,9 +1287,9 @@
     "heroLine1": "Consultations and",
     "heroItalic": "strategy",
     "heroAccent": "for business.",
-    "ctaLine1": "Want to understand",
-    "ctaItalic": "advertising",
-    "ctaAccent": "and marketing?",
+    "ctaLine1": "Not sure",
+    "ctaItalic": "what is blocking",
+    "ctaAccent": "business growth?",
     "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
     "deliverables": [
       {
@@ -1308,6 +1332,23 @@
         "v": "#1–3",
         "l": "SERP rank",
         "d": "Dental clinic · \"stomatolog Warszawa\" cluster, 12 terms"
+      }
+    ],
+    "consultCards": [
+      {
+        "num": "01",
+        "title": "WHERE LEADS ARE LOST",
+        "desc": "Ads • website • communication"
+      },
+      {
+        "num": "02",
+        "title": "WHAT IS BLOCKING GROWTH",
+        "desc": "offer • structure • analytics"
+      },
+      {
+        "num": "03",
+        "title": "WHAT TO DO NEXT",
+        "desc": "step-by-step plan for your business"
       }
     ]
   }

@@ -72,6 +72,7 @@ const AboutIntro: React.FC = () => {
           <p>{t('aboutPage.intro1')}</p>
           <p>{t('aboutPage.intro2')}</p>
           <p>{t('aboutPage.intro3')}</p>
+          <p>{t('aboutPage.intro4')}</p>
         </div>
       </div>
     </section>

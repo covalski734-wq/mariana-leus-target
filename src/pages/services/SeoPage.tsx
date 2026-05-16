@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
 interface Deliverable { name: string; note: string; }
-interface ProofCell { v: string; l: string; d: string; }
+interface ConsultCard { num: string; title: string; desc: string; }
 
 const CONSULT_STEPS = [
   { n: '01', label: 'Запит' },
@@ -61,7 +61,7 @@ export const SeoPage: React.FC = () => {
   const goToServices = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'services'); navigate('/'); };
 
   const deliverables = t('seoPage.deliverables', { returnObjects: true }) as Deliverable[];
-  const proof = t('seoPage.proof', { returnObjects: true }) as ProofCell[];
+  const consultCards = t('seoPage.consultCards', { returnObjects: true }) as ConsultCard[];
 
   return (
     <>
@@ -111,23 +111,20 @@ export const SeoPage: React.FC = () => {
               <div className="sc-head">/ Консультації</div>
               <ConsultWidget />
               <a href="/#contact" onClick={goToContact} className="btn btn-primary sc-cta" style={{ marginTop: 20, width: '100%', justifyContent: 'center' }}>
-                {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
+                {t('servicesPage.ctaBookConsultBtn')} <IconArrow size={14} className="arrow" />
               </a>
               <div style={{ font: '400 12px/1.5 var(--mono)', color: 'var(--fg-mute)', marginTop: 12 }}>
                 {t('seoPage.replyNote')}
               </div>
             </aside>
-          </div>
-
-          <div className="svc-proof reveal">
-            {proof.map((p, i) => (
+          </div>          <div className="svc-proof reveal">
+            {consultCards.map((c, i) => (
               <div key={i} className="svc-proof-cell">
-                <div className="metric-label">{p.l}</div>
-                <div className="metric-value">
-                  {['+', '×', '−'].some(s => p.v.startsWith(s)) && <span className="plus">{p.v[0]}</span>}
-                  {['+', '×', '−'].some(s => p.v.startsWith(s)) ? p.v.slice(1) : p.v}
+                <div className="metric-label" style={{ color: '#00B8D9' }}>{c.num}</div>
+                <div style={{ font: '600 clamp(13px,1.4vw,15px)/1.3 var(--mono)', letterSpacing: '0.04em', margin: '10px 0 8px', color: 'var(--fg)' }}>
+                  {c.title}
                 </div>
-                <div className="metric-desc">{p.d}</div>
+                <div className="metric-desc">{c.desc}</div>
               </div>
             ))}
           </div>
@@ -148,7 +145,7 @@ export const SeoPage: React.FC = () => {
             </h3>
             <div className="ctas">
               <a href="/#contact" onClick={goToContact} className="btn btn-primary">
-                {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
+                {t('servicesPage.ctaBookConsultBtn2')} <IconArrow size={14} className="arrow" />
               </a>
               <a href="/#services" onClick={goToServices} className="btn btn-ghost">
                 {t('servicesPage.allServices')} <IconArrow size={14} className="arrow" />

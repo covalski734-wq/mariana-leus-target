@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const p=require\\('./package.json'\\); const all={...p.dependencies,...p.devDependencies}; console.log\\(Object.keys\\(all\\).filter\\(k=>k.includes\\('icon'\\)||k.includes\\('lucide'\\)||k.includes\\('hero'\\)\\).join\\(', '\\)\\)\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

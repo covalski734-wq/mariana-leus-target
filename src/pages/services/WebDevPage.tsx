@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { IconArrow, IconCheck } from '@/components/Icons';
 
 interface Deliverable { name: string; note: string; }
-interface ProofCell { v: string; l: string; d: string; }
 interface LighthouseScore { label: string; score: number; color: string; }
 interface SidecardItem { label: string; val: string; }
 
@@ -107,7 +106,6 @@ export const WebDevPage: React.FC = () => {
   };
 
   const deliverables = t('webDevPage.deliverables', { returnObjects: true }) as Deliverable[];
-  const proof = t('webDevPage.proof', { returnObjects: true }) as ProofCell[];
   const lighthouse = t('webDevPage.lighthouse', { returnObjects: true }) as LighthouseScore[];
   const sidecard = t('webDevPage.sidecard', { returnObjects: true }) as SidecardItem[];
   const types = t('webDevPage.types', { returnObjects: true }) as string[];
@@ -273,18 +271,23 @@ export const WebDevPage: React.FC = () => {
             </aside>
           </div>
 
-          {/* Proof */}
-          <div className="svc-proof reveal">
-            {proof.map((p, i) => (
-              <div key={i} className="svc-proof-cell webdev-proof-cell">
-                <div className="metric-label">{p.l}</div>
-                <div className="metric-value" style={{ color: '#6B2FF7' }}>
-                  {['+', '×', '−'].some(s => p.v.startsWith(s)) && <span className="plus">{p.v[0]}</span>}
-                  {['+', '×', '−'].some(s => p.v.startsWith(s)) ? p.v.slice(1) : p.v}
-                </div>
-                <div className="metric-desc">{p.d}</div>
-              </div>
-            ))}
+          <div className="reveal" style={{
+            marginTop: 40,
+            padding: '40px 48px',
+            border: '1px solid var(--border)',
+            borderRadius: 12,
+            background: 'var(--surface)',
+            borderLeft: '3px solid #6B2FF7',
+          }}>
+            {/* <div style={{ font: '500 10px/1 var(--mono)', color: '#6B2FF7', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 20 }}>
+              / Case
+            </div> */}
+            <h3 style={{ font: '600 clamp(1.25rem,2.5vw,1.75rem)/1.2 var(--display)', letterSpacing: '-0.025em', margin: '0 0 14px', color: 'var(--fg)' }}>
+              {t('webDevPage.caseTitle')}
+            </h3>
+            <p style={{ font: '400 clamp(14px,1.3vw,16px)/1.7 var(--display)', color: 'var(--fg-dim)', maxWidth: 560, margin: 0 }}>
+              {t('webDevPage.caseText')}
+            </p>
           </div>
         </div>
       </section>
@@ -305,7 +308,7 @@ export const WebDevPage: React.FC = () => {
             <div className="ctas">
               <a href="/#contact" onClick={goToContact} className="btn btn-primary"
                 style={{ background: 'linear-gradient(135deg, #6B2FF7, #004AAD)' }}>
-                {t('servicesPage.ctaBookBtn')} <IconArrow size={14} className="arrow" />
+                {t('webDevPage.heroCta')} <IconArrow size={14} className="arrow" />
               </a>
               <a href="/#services" onClick={goToServices} className="btn btn-ghost">
                 {t('servicesPage.allServices')} <IconArrow size={14} className="arrow" />

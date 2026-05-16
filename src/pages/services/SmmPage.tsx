@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow } from '@/components/Icons';
 
 interface Deliverable { name: string; note: string; }
-interface ProofCell { v: string; l: string; d: string; }
 interface SidecardItem { label: string; val: string; }
 
 export const SmmPage: React.FC = () => {
@@ -14,7 +13,6 @@ export const SmmPage: React.FC = () => {
   const goToServices = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'services'); navigate('/'); };
 
   const deliverables = t('smmPage.deliverables', { returnObjects: true }) as Deliverable[];
-  const proof = t('smmPage.proof', { returnObjects: true }) as ProofCell[];
   const sidecard = t('smmPage.sidecard', { returnObjects: true }) as SidecardItem[];
 
   return (
@@ -85,7 +83,7 @@ export const SmmPage: React.FC = () => {
             </aside>
           </div>
 
-          <div className="svc-proof reveal">
+          {/* <div className="svc-proof reveal">
             {proof.map((p, i) => (
               <div key={i} className="svc-proof-cell">
                 <div className="metric-label">{p.l}</div>
@@ -96,7 +94,7 @@ export const SmmPage: React.FC = () => {
                 <div className="metric-desc">{p.d}</div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 

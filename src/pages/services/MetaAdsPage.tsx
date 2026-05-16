@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { IconCheck, IconArrow } from '@/components/Icons';
+import { IconCheck, IconArrow, IconArrowUp } from '@/components/Icons';
 
 interface Deliverable { name: string; note: string; }
-interface ProofCell { v: string; l: string; d: string; }
+interface CaseItem { niche: string; result: string; unit: string; title: string; instagram?: string; tags?: string[]; }
 
 const META_BARS = [
-  { label: 'ROAS', pct: 88 },
-  { label: 'CTR', pct: 73 },
-  { label: 'Conv.', pct: 91 },
-  { label: 'Reach', pct: 65 },
-  { label: 'CPL', pct: 82 },
+  { label: 'ROAS', pct: 88, value: '3.5' },
+  { label: 'CTR', pct: 73, value: '2.8%' },
+  { label: 'Conv.', pct: 91, value: '145' },
+  { label: 'Reach', pct: 65, value: '47,574' },
+  { label: 'CPL', pct: 82, value: '$12.67' },
 ];
 
 const MetaWidget: React.FC = () => {
@@ -30,7 +30,7 @@ const MetaWidget: React.FC = () => {
         <div key={b.label} style={{ marginBottom: 14 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5, font: '400 11px/1 var(--mono)', color: 'var(--fg-dim)' }}>
             <span>{b.label}</span>
-            <span style={{ color: 'var(--fg)' }}>{b.pct}%</span>
+            <span style={{ color: 'var(--fg)' }}>{b.value}</span>
           </div>
           <div style={{ height: 3, background: 'var(--border)', borderRadius: 2, overflow: 'hidden' }}>
             <div style={{
@@ -68,7 +68,7 @@ export const MetaAdsPage: React.FC = () => {
   const goToServices = (e: React.MouseEvent) => { e.preventDefault(); sessionStorage.setItem('scrollTarget', 'services'); navigate('/'); };
 
   const deliverables = t('metaAdsPage.deliverables', { returnObjects: true }) as Deliverable[];
-  const proof = t('metaAdsPage.proof', { returnObjects: true }) as ProofCell[];
+  const cases = (t('cases.items', { returnObjects: true }) as CaseItem[]).filter(c => c.tags?.includes('meta'));
 
   return (
     <>
@@ -129,15 +129,27 @@ export const MetaAdsPage: React.FC = () => {
             </aside>
           </div>
 
-          <div className="svc-proof reveal">
-            {proof.map((p, i) => (
+          <div className="svc-proof-4 reveal">
+            {cases.map((c, i) => (
               <div key={i} className="svc-proof-cell">
-                <div className="metric-label">{p.l}</div>
-                <div className="metric-value">
-                  {['+', '×', '−'].some(s => p.v.startsWith(s)) && <span className="plus">{p.v[0]}</span>}
-                  {['+', '×', '−'].some(s => p.v.startsWith(s)) ? p.v.slice(1) : p.v}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                  <div className="metric-label">{c.niche}</div>
+                  <a
+                    href={c.instagram ?? 'https://www.instagram.com/mariana_leus_/'}
+                    target="_blank" rel="noopener noreferrer"
+                    className="case-arrow"
+                    style={{ width: 26, height: 26, flexShrink: 0 }}
+                  >
+                    <IconArrowUp size={12} />
+                  </a>
                 </div>
-                <div className="metric-desc">{p.d}</div>
+                <div className="metric-value">
+                  {['+','×','€','$','≈'].some(s => c.result.startsWith(s))
+                    ? <><span className="plus">{c.result[0]}</span>{c.result.slice(1)}</>
+                    : c.result}
+                  {' '}<span style={{ fontSize: '0.45em', opacity: 0.55, fontWeight: 400 }}>{c.unit}</span>
+                </div>
+                <div className="metric-desc">{c.title}</div>
               </div>
             ))}
           </div>

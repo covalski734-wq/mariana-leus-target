@@ -4,7 +4,8 @@ import { SERVICES } from '@/data';
 import { IconMeta, IconGoogle, IconCode, IconSocial, IconSearch, IconArrow } from '@/components/Icons';
 import { useTranslation } from 'react-i18next';
 
-const iconMap: Record<string, React.FC<{ size?: number }>> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const iconMap: Record<string, React.ComponentType<any>> = {
   meta: IconMeta,
   google: IconGoogle,
   code: IconCode,
@@ -25,7 +26,7 @@ const svcRouteMap: Record<string, string> = {
   google: '/services/google-ads',
   web: '/services/web-dev',
   smm: '/services/smm',
-  seo: '/services/seo',
+  seo: '/services/consultation',
 };
 
 export const ServicesSection: React.FC = () => {

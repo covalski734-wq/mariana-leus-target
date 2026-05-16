@@ -335,7 +335,7 @@
     background: var(--bg);
     position: relative; overflow: hidden;
     transition: transform .5s cubic-bezier(.2,.7,.2,1), border-color .4s ease;
-    cursor: pointer;
+    /* cursor: pointer; */
     display: flex; flex-direction: column;
   }
   .case:hover { transform: translateY(-4px); border-color: var(--border-2); }
@@ -1032,7 +1032,19 @@
 }
 [data-aesthetic="editorial"] .cta-band h3 { font-weight: 400; font-style: italic; }
 .cta-band h3 .italic { font-family: var(--serif); font-style: italic; font-weight: 300; }
+.cta-band h3 .accent { position: relative; display: inline-block; }
+.cta-band h3 .accent::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0.08em; height: 0.12em;
+  background: linear-gradient(90deg, var(--brand), var(--brand-glow));
+  border-radius: 2px; transform-origin: left;
+  animation: underlineIn 1.4s cubic-bezier(.2,.7,.2,1) .5s both;
+}
 .cta-band .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.svc-proof-4 {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px;
+}
+@media (max-width: 960px) { .svc-proof-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .svc-proof-4 { grid-template-columns: 1fr; } }
 @media (max-width: 800px) { .cta-band-inner { grid-template-columns: 1fr; gap: 32px; } }
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -1070,6 +1082,13 @@
 .webdev-headline {
   font: 600 clamp(48px, 7vw, 96px)/0.95 var(--display);
   letter-spacing: -0.045em; margin: 0;
+}
+.webdev-headline .accent { position: relative; display: inline-block; }
+.webdev-headline .accent::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0.08em; height: 0.12em;
+  background: linear-gradient(90deg, #6B2FF7, #004AAD);
+  border-radius: 2px; transform-origin: left;
+  animation: underlineIn 1.4s cubic-bezier(.2,.7,.2,1) .5s both;
 }
 .webdev-lede { font: 400 clamp(16px,1.3vw,19px)/1.6 var(--display); color: var(--fg-dim); max-width: 500px; margin: 0; }
 .webdev-hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }

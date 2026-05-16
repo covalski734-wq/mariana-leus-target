@@ -69,6 +69,7 @@ const App: React.FC = () => (
       <Route path="/services/web-dev" element={<WebDevPage />} />
       <Route path="/services/smm" element={<SmmPage />} />
       <Route path="/services/seo" element={<SeoPage />} />
+      <Route path="/services/consultation" element={<SeoPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
