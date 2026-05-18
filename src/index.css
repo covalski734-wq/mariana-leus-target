@@ -361,10 +361,10 @@
 
   /* Testimonials */
   .testimonials { padding: var(--pad-section) 0; overflow: hidden; }
-  .marquee { display: flex; gap: 20px; animation: marquee 50s linear infinite; width: max-content; }
-  .marquee:hover { animation-play-state: paused; }
-  [data-motion="low"] .marquee { animation: none; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { overflow-x: scroll; overflow-y: hidden; cursor: grab; scrollbar-width: none; -ms-overflow-style: none; }
+  .marquee-track::-webkit-scrollbar { display: none; }
+  .marquee-track.dragging { cursor: grabbing; }
+  .marquee { display: flex; gap: 20px; width: max-content; }
   .t-card {
     width: 420px; flex-shrink: 0;
     padding: 32px; border: 1px solid var(--border); border-radius: var(--radius);

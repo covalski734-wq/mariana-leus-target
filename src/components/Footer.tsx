@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
             <Link to="/services/google-ads">Google Ads</Link>
             <Link to="/services/web-dev">Web Dev</Link>
             <Link to="/services/smm">SMM</Link>
-            <Link to="/services/consultation">Консультації</Link>
+            <Link to="/services/consultation">{t('footer.consultLink')}</Link>
           </div>
           <div className="footer-col">
             <h5>{t('footer.studio')}</h5>

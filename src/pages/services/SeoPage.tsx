@@ -5,27 +5,24 @@ import { IconCheck, IconArrow } from '@/components/Icons';
 
 interface Deliverable { name: string; note: string; }
 interface ConsultCard { num: string; title: string; desc: string; }
-
-const CONSULT_STEPS = [
-  { n: '01', label: 'Запит' },
-  { n: '02', label: 'Аудит' },
-  { n: '03', label: 'Стратегія' },
-  { n: '04', label: 'Впровадження' },
-];
+interface ConsultStep { n: string; label: string; }
 
 const ConsultWidget: React.FC = () => {
+  const { t } = useTranslation();
+  const steps = t('seoPage.consultSteps', { returnObjects: true }) as ConsultStep[];
   const [active, setActive] = useState(0);
   useEffect(() => {
-    const iv = setInterval(() => setActive(p => (p + 1) % CONSULT_STEPS.length), 1800);
+    const iv = setInterval(() => setActive(p => (p + 1) % steps.length), 1800);
     return () => clearInterval(iv);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [steps.length]);
 
   return (
     <div style={{ padding: '20px 0 4px' }}>
       <div style={{ font: '500 10px/1 var(--mono)', color: '#00B8D9', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 20 }}>
         ◉ Consultation flow
       </div>
-      {CONSULT_STEPS.map((s, i) => (
+      {steps.map((s, i) => (
         <div key={s.n} style={{
           display: 'flex', alignItems: 'center', gap: 12,
           padding: '10px 12px', marginBottom: 6,
@@ -41,14 +38,13 @@ const ConsultWidget: React.FC = () => {
             {s.label}
           </span>
           {active === i && (
-            <span style={{ marginLeft: 'auto', width: 6, height: 6, borderRadius: '50%', background: '#00B8D9', flexShrink: 0,
-              boxShadow: '0 0 6px #00B8D9' }} />
+            <span style={{ marginLeft: 'auto', width: 6, height: 6, borderRadius: '50%', background: '#00B8D9', flexShrink: 0, boxShadow: '0 0 6px #00B8D9' }} />
           )}
         </div>
       ))}
       <div style={{ marginTop: 16, padding: '12px 14px', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 6 }}>
-        <div style={{ font: '400 10px/1.4 var(--mono)', color: 'var(--fg-mute)', marginBottom: 6 }}>ПІДТРИМКА ПІСЛЯ</div>
-        <div style={{ font: '500 13px/1 var(--mono)', color: '#00B8D9' }}>7 днів · включено</div>
+        <div style={{ font: '400 10px/1.4 var(--mono)', color: 'var(--fg-mute)', marginBottom: 6 }}>{t('seoPage.supportLabel')}</div>
+        <div style={{ font: '500 13px/1 var(--mono)', color: '#00B8D9' }}>{t('seoPage.supportDays')}</div>
       </div>
     </div>
   );
@@ -72,7 +68,7 @@ export const SeoPage: React.FC = () => {
           <div className="blob b3" />
           <div className="blob b4" />
         </div>
-        <div className="hero-bgtype"><span>СТРАТЕГІЯ</span></div>
+        <div className="hero-bgtype"><span>{t('seoPage.heroBg')}</span></div>
         <div className="grid-overlay" />
         <div className="container">
           <div className="eyebrow-row">
@@ -86,7 +82,7 @@ export const SeoPage: React.FC = () => {
           </div>
           <div className="eyebrow" style={{ marginBottom: 20 }}>
             <span className="dot" style={{ background: '#00B8D9' }} />
-            СТРАТЕГІЯ · Консультації
+            {t('seoPage.eyebrowText')}
           </div>
           <h1>
             {t('seoPage.heroLine1')}<br />
@@ -108,7 +104,7 @@ export const SeoPage: React.FC = () => {
               ))}
             </div>
             <aside className="svc-sidecard">
-              <div className="sc-head">/ Консультації</div>
+              <div className="sc-head">{t('seoPage.sidecardHead')}</div>
               <ConsultWidget />
               <a href="/#contact" onClick={goToContact} className="btn btn-primary sc-cta" style={{ marginTop: 20, width: '100%', justifyContent: 'center' }}>
                 {t('servicesPage.ctaBookConsultBtn')} <IconArrow size={14} className="arrow" />

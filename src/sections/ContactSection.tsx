@@ -74,12 +74,27 @@ export const ContactSection: React.FC = () => {
   const executeRecaptcha = async (): Promise<string | undefined> => {
     const g = (window as unknown as { grecaptcha?: { execute: (k: string, o: { action: string }) => Promise<string> } }).grecaptcha;
     if (!RECAPTCHA_SITE_KEY || !g) return undefined;
-    return g.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form' });
+    try {
+      return await Promise.race([
+        g.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form' }),
+        new Promise<undefined>((resolve) => setTimeout(() => resolve(undefined), 3000)),
+      ]);
+    } catch {
+      return undefined;
+    }
   };
 
   const onSubmit = async (data: FormValues) => {
     setStatus(null);
     try {
+      // In dev, skip the real API call
+      if (import.meta.env.DEV) {
+        console.log('[DEV] form submit:', data);
+        await new Promise(r => setTimeout(r, 600));
+        setStatus('success');
+        reset({ name: '', contact_method: 'telegram', contact_value: '', message: '' });
+        return;
+      }
       const token = await executeRecaptcha();
       const sp = new URLSearchParams(window.location.search);
       const utm = Object.fromEntries(

@@ -134,50 +134,90 @@
   },
   "testimonials": {
     "sectionNum": "/ 03 · Clients",
-    "title": "What founders say\nafter the first quarter.",
-    "desc": "These aren't marketplace reviews. They're the founders who stuck around for year two.",
+    "title": "What clients say",
+    "desc": "Real results from clients we have worked with for 3+ months — they stay because they see growth in leads and sales.",
     "items": [
       {
-        "name": "Oksana M.",
-        "role": "Founder · Skincare brand",
-        "text": "Mariana doesn't just run ads — she rethinks the whole funnel. First month with her, our ROAS went from break-even to 3.2×. Still climbing.",
+        "name": "Максим Н.",
+        "role": "Restaurant",
         "stars": 5,
-        "init": "OM"
+        "init": "МН",
+        "services": [
+          "Meta Ads",
+          "SMM"
+        ],
+        "text": "Мар'яна, твоя робота ефективна.\nСМС-розсилки працюють — є відкриття, є реакції, є замовлення.\nТаргет налаштований грамотно — приходить цільова аудиторія, бюджет використовується раціонально.\nТи завжди на зв'язку, вникаєш у завдання, реагуєш швидко.\nЯ бачу результат і розумію, що з тобою можна працювати довгостроково.\nДякую."
       },
       {
-        "name": "Daniel K.",
-        "role": "CMO · SaaS platform",
-        "text": "We had been burning budget on agencies that showed dashboards and nothing else. Mariana shipped a new landing page, rebuilt our Google structure, and leads doubled in six weeks.",
+        "name": "Тетяна С.",
+        "role": "Hair colourist",
         "stars": 5,
-        "init": "DK"
+        "init": "ТС",
+        "services": [
+          "Meta Ads"
+        ],
+        "text": "Знайти \"свого\" таргетолога — це як знайти хорошого колориста.\nЗ першої ж розмови я зрозуміла, що маю справу з професіоналом, який не просто налаштовує рекламу, а глибоко занурюється в мій напрямок, розуміє специфіку й дійсно хоче дати результат.\nЗаявки пішли з перших днів, і найголовніше — це саме моя цільова аудиторія.\nЯк майстер-колорист, я особливо ціную індивідуальний підхід, увагу до дрібниць та естетику — і все це було.\nЩиро дякую за співпрацю! Рекомендую від серця!"
       },
       {
-        "name": "Iryna P.",
-        "role": "Owner · Dental clinic",
-        "text": "I was sceptical about Meta for medical services. She proved me wrong — €47 cost per booked consult, and the chairs are full.",
+        "name": "Наталія П.",
+        "role": "Online store",
         "stars": 5,
-        "init": "IP"
+        "init": "НП",
+        "services": [
+          "Consultation"
+        ],
+        "text": "Консультация замечательная, мне понравилось, что узнала ответы на все интересующие меня вопросы. Получила советы по оформлению и продвижению профиля, а также поняла, как работать дальше в плане продвижения страницы.\nТакже огромный плюс, что можно получить запись разговора и взять для себя что-то, что не удалось запомнить.\nСпасибо."
       },
       {
-        "name": "Marcin W.",
-        "role": "Head of Growth · D2C",
-        "text": "Clear communication, honest reports, no jargon. If something isn't working, she tells you before you notice. Rare.",
+        "name": "Олексій С.",
+        "role": "Entrepreneur",
         "stars": 5,
-        "init": "MW"
+        "init": "ОС",
+        "services": [
+          "Consultation"
+        ],
+        "text": "На консультации мне все понравилось. Вышел довольно интересный созвон. Открыл для себя много новых вещей, о которых до этого не знал. Полтора часа пролетело на одном дыхании.\nСпасибо тебе ещё раз! Теперь в моих контактах +1 таргетолог!"
       },
       {
-        "name": "Sofia R.",
-        "role": "Founder · Fashion label",
-        "text": "Our AOV went up 2.4× without touching ad spend. She treats our P&L like it's her own.",
+        "name": "Юлія Р.",
+        "role": "Entrepreneur",
         "stars": 5,
-        "init": "SR"
+        "init": "ЮР",
+        "services": [
+          "Meta Ads"
+        ],
+        "text": "Мар'яна, розмова з тобою мене надихнула! Я щиро дякую тобі за приділений час.\nТепер я ще краще розумію свої слабкі місця і буду над ними працювати.\nСподіваюсь, у цьому ти мені допоможеш і покажеш результат, бо з попереднім таргетологом мені не дуже пощастило."
       },
       {
-        "name": "Andriy V.",
-        "role": "Director · Online school",
-        "text": "Scaled our webinar funnel from 4k to 40k per month in revenue. Strategy, copy, creative testing — all handled.",
+        "name": "Дмитро Л.",
+        "role": "Owner · Bar",
         "stars": 5,
-        "init": "AV"
+        "init": "ДЛ",
+        "services": [
+          "Meta Ads",
+          "SMM"
+        ],
+        "text": "Обратился за помощью с продвижением своего бара, потому что не хватало стабильных посетителей и хотелось улучшить присутствие в Instagram. В работе занимались настройкой рекламы и развитием соцсетей: проработали подачу, запустили рекламные кампании, протестировали разные подходы.\nВ результате стало приходить больше посетителей. Особенно понравилось, что всё объяснялось простым языком.\nРаботой остался доволен и могу рекомендовать другим, потому что видно, что человек действительно заинтересован в результате."
+      },
+      {
+        "name": "Данило М.",
+        "role": "Freelancer · Developer",
+        "stars": 5,
+        "init": "ДМ",
+        "services": [
+          "Google Ads"
+        ],
+        "text": "Я ИП, фуллстэк-разработчик, сижу на фрилансе. Пришёл с простой задачей — нужны были клиенты на разработку, потому что сарафан это конечно хорошо, но хотелось стабильности. Посоветовали Марьяну, обратился, настроили рекламу и пошли заявки, причём нормальные, по делу.\nПо работе все хорошо, на связи, объясняет по-человечески, без лишнего.\nВ общем, рекомендую. Спасибо."
+      },
+      {
+        "name": "Андрій М.",
+        "role": "Owner · Online school",
+        "stars": 5,
+        "init": "АМ",
+        "services": [
+          "Consultation"
+        ],
+        "text": "Консультація була дуже корисною. Зрозумів слабкі сторони своєї маркетингової компанії й почав рухатися в правильному напрямку завдяки тобі. Також почув усі відповіді на питання, які мене цікавили. Велике спасибі."
       }
     ]
   },
@@ -243,7 +283,8 @@
     "contact": "Contact",
     "copyright": "© 2026 Mariana Leus · Performance Marketing",
     "location": "Warsaw · Kyiv · Remote worldwide",
-    "backToTop": "Back to top ↑"
+    "backToTop": "Back to top ↑",
+    "consultLink": "Consultations"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -1350,6 +1391,29 @@
         "title": "WHAT TO DO NEXT",
         "desc": "step-by-step plan for your business"
       }
-    ]
+    ],
+    "consultSteps": [
+      {
+        "n": "01",
+        "label": "Request"
+      },
+      {
+        "n": "02",
+        "label": "Audit"
+      },
+      {
+        "n": "03",
+        "label": "Strategy"
+      },
+      {
+        "n": "04",
+        "label": "Execution"
+      }
+    ],
+    "supportLabel": "SUPPORT AFTER",
+    "supportDays": "7 days · included",
+    "heroBg": "STRATEGY",
+    "eyebrowText": "STRATEGY · Consultations",
+    "sidecardHead": "/ Consultations"
   }
 }

@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(node -e \"const p=require\\('./package.json'\\); const all={...p.dependencies,...p.devDependencies}; console.log\\(Object.keys\\(all\\).filter\\(k=>k.includes\\('icon'\\)||k.includes\\('lucide'\\)||k.includes\\('hero'\\)\\).join\\(', '\\)\\)\")",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(grep -v \"//\\\\|t\\(\\\\|t\\\\`\\\\|console\\\\|\\\\\\\\.json\")",
+      "Bash(grep -v \"^\\\\s*//\")",
+      "Bash(grep -v \"t\\(\\\\`\")",
+      "Bash(grep \"'>\\\\\\\\|\\\\\">\")"
     ]
   }
 }
