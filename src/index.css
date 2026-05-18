@@ -1227,13 +1227,10 @@
   .hero-curtain { display: none; }
 }
 
-/* ── reCAPTCHA badge — keep it above all page content ─────────────── */
+/* ── reCAPTCHA badge ───────────────────────────────────────────────── */
 .grecaptcha-badge {
   z-index: 9999 !important;
   bottom: 80px !important;
-}
-@media (max-width: 640px) {
-  .grecaptcha-badge { bottom: 72px !important; }
 }
 
 /* ── Service page hero & stat bar ────────────────────────────────── */

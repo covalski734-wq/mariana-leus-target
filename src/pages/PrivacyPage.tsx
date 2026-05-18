@@ -15,7 +15,7 @@ export const PrivacyPage: React.FC = () => {
           <span>{t('privacy.title')}</span>
         </div>
 
-        <h1 style={{ fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 700, marginBottom: '0.5rem', letterSpacing: '-0.03em' }}>
+        <h1 style={{ fontSize: 'clamp(1.5rem,5vw,3rem)', fontWeight: 700, marginBottom: '0.5rem', letterSpacing: '-0.03em', wordBreak: 'break-word', overflowWrap: 'break-word' }}>
           {t('privacy.title')}
         </h1>
         <p style={{ fontSize: '0.875rem', color: 'var(--fg-mute)', marginBottom: '3rem', fontFamily: 'var(--mono)' }}>

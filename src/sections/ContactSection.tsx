@@ -71,6 +71,7 @@ export const ContactSection: React.FC = () => {
     document.body.appendChild(script);
   }, []);
 
+
   const executeRecaptcha = async (): Promise<string | undefined> => {
     const g = (window as unknown as { grecaptcha?: { execute: (k: string, o: { action: string }) => Promise<string> } }).grecaptcha;
     if (!RECAPTCHA_SITE_KEY || !g) return undefined;
