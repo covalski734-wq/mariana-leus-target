@@ -166,7 +166,7 @@ export const MetaAdsPage: React.FC = () => {
           <div className="cta-band-inner">
             <h3>
               {t('metaAdsPage.ctaTitle1')}<br />
-              {t('metaAdsPage.ctaTitle2')} <em className="italic">{t('metaAdsPage.ctaItalic')}</em> {t('metaAdsPage.ctaTitle3')}
+              {t('metaAdsPage.ctaTitle2')} <em className="italic">{t('metaAdsPage.ctaItalic')}</em>&nbsp;{t('metaAdsPage.ctaTitle3')}
             </h3>
             <div className="ctas">
               <a href="/#contact" onClick={goToContact} className="btn btn-primary">

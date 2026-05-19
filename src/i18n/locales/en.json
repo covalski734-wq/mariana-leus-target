@@ -1,74 +1,74 @@
 {
   "header": {
     "services": "Services",
-    "work": "Work",
-    "about": "About",
+    "work": "Case Studies",
+    "about": "About Me",
     "contact": "Contact",
-    "bookCall": "Book a call"
+    "bookCall": "Book a Call"
   },
   "hero": {
-    "eyebrow": "Booking open · 4 spots available",
+    "eyebrow": "Promotion onboarding · 4 spots available",
     "sig": "Since 2023 · EUROPE / CANADA / USA",
     "line1": "Ads that",
     "italic": "actually",
     "line2": "return",
     "accent": "revenue",
-    "sub": "I'm Mariana — a performance marketer who builds full-funnel growth systems for founders tired of agencies that report impressions instead of sales.",
-    "ctaPrimary": "Free consultation",
-    "ctaSecondary": "View case studies",
+    "sub": "I’m Mariana — I help businesses build a steady flow of clients through advertising and a sales system. I don’t just launch ads — I build the full chain: traffic → website → inquiries → sales.",
+    "ctaPrimary": "Free Consultation",
+    "ctaSecondary": "View Case Studies",
     "scroll": "scroll",
-    "roas": "Avg ROAS · 90d",
+    "roas": "Average ROAS · 90 days",
     "roasDelta": "Depends on the niche",
-    "leads": "Leads / mo",
-    "leadsDelta": "On active projects",
-    "managed": "Ad budget",
+    "leads": "Leads / month",
+    "leadsDelta": "across active projects",
+    "managed": "Ad Budget",
     "managedDelta": "(Google Ads + Meta Ads)",
-    "reply": "Reply time",
-    "replyValue": "< 2h",
-    "replyDelta": "EN / UA / RU"
+    "reply": "Response Time",
+    "replyValue": "< 2 hours",
+    "replyDelta": "UA / RU"
   },
   "services": {
     "sectionNum": "/ 01 · Services",
-    "title": "Five disciplines.\nOne operator running all of them.",
-    "desc": "You don't need another agency juggling accounts between juniors. You need one senior who can see the whole funnel — from ad to landing page to CRM — and fix whichever part is losing you money this week.",
-    "learnMore": "Learn more",
+    "title": "Five directions.\nOne operator for all of them.",
+    "desc": "You don’t need an agency where your project gets lost among dozens of others. You need one specialist who manages the ads, sees the full customer journey, and fixes what actually impacts results.",
+    "learnMore": "Learn More",
     "meta": {
       "name": "Meta Ads",
       "sub": "Facebook & Instagram",
-      "desc": "Full-funnel campaigns engineered for purchase, lead, and conversation objectives — with creative testing baked in."
+      "desc": "Audiences, creatives, funnel, testing\nResult: a steady flow of inquiries and controlled lead cost"
     },
     "google": {
       "name": "Google Ads",
       "sub": "Search, PMax, Display",
-      "desc": "High-intent traffic, ruthless negative-keyword hygiene, and PMax asset groups that actually convert."
+      "desc": "Keywords, campaign structure, negative keywords, optimization\nResult: inquiries from high-intent demand, not just traffic"
     },
     "web": {
       "name": "Website Development",
-      "sub": "Landing pages & sites",
-      "desc": "Conversion-first pages built for speed, clarity, and CRM integration — not just pretty."
+      "sub": "Landing Pages and Websites",
+      "desc": "Structure, UX, speed, CRM integration\nResult: conversion into inquiries, not just views"
     },
     "smm": {
-      "name": "Social Media Management",
-      "sub": "Content + community",
-      "desc": "Editorial calendars, short-form video, and community growth that supports paid acquisition."
+      "name": "SMM",
+      "sub": "Facebook & Instagram",
+      "desc": "Content plan development, video editing, social media management, design, consistent posting\nResult: trust + stronger advertising"
     },
     "seo": {
-      "name": "SEO",
-      "sub": "Organic growth",
-      "desc": "Technical audits, content systems, and topic clusters that compound for 12+ months."
+      "name": "Consulting",
+      "sub": "Organic Growth",
+      "desc": "Situation review, ad audit, recommendations, action plan, or one-time setup / launch\nResult: a clear understanding of what to do next + a clear plan without chaos"
     }
   },
   "cases": {
-    "sectionNum": "/ 02 · Selected work",
-    "title": "Real cases and client results",
-    "desc": "All cases are real client results. I show leads and sales, not CTR. Results depend on niche, geography and seasonality. Numbers in your niche may differ.",
+    "sectionNum": "/ 02 · Selected Work",
+    "title": "Real Client Case Studies and Results",
+    "desc": "All case studies show real client results. I don’t show CTR — I show inquiries and sales. Results depend on niche, geography, and seasonality. Numbers in your niche may be different.",
     "items": [
       {
         "niche": "Sushi Delivery · Poland",
         "result": "≈28 zł",
-        "unit": "per order",
-        "title": "Average check: 150–200 zł",
-        "desc": "New restaurant with no clients → built a system with Meta Ads + offers + content → stable orders and profit.",
+        "unit": "per purchase",
+        "title": "Average order value: 150–200 zł",
+        "desc": "A new restaurant with no clients → built a system with Meta Ads + offers + content → steady orders and profit.",
         "gradient": [
           "#004AAD",
           "#00B8D9"
@@ -84,7 +84,7 @@
         "result": "+395 leads",
         "unit": "≈ $12 per lead",
         "title": "$4,809 spent",
-        "desc": "Unstable leads → built a system (Meta Ads + creatives + offer + retargeting, plus SMM) → stable lead flow and ROI.",
+        "desc": "Leads were unstable → built a system (Meta Ads + creatives + offer + retargeting, plus SMM) → a steady flow of inquiries and return on ad spend.",
         "gradient": [
           "#6B2FF7",
           "#004AAD"
@@ -100,7 +100,7 @@
         "result": "$18",
         "unit": "CPL",
         "title": "773+ Google Ads conversions",
-        "desc": "Google Ads handles main demand. Meta Ads amplifies results and brings cheaper additional leads.",
+        "desc": "Google Ads captures the main demand. Meta Ads strengthens the result and brings cheaper additional leads.",
         "gradient": [
           "#004AAD",
           "#25C55E"
@@ -113,11 +113,11 @@
         ]
       },
       {
-        "niche": "Karaoke bar · Czech Republic",
+        "niche": "Karaoke Bar · Czechia",
         "result": "×2",
         "unit": "guests",
         "title": "Ads started bringing people in",
-        "desc": "Set up Google Ads and Meta Ads to show to people already searching for karaoke. Removed irrelevant queries and tested different promos and corporate events.",
+        "desc": "Set up Google Ads and Meta Ads to reach people already looking for karaoke. Removed irrelevant queries and tested different promotions and corporate offers.",
         "gradient": [
           "#F7AD1A",
           "#004AAD"
@@ -130,18 +130,18 @@
         ]
       }
     ],
-    "moreNote": "More cases — on service pages"
+    "moreNote": "More case studies — on the service pages"
   },
   "testimonials": {
     "sectionNum": "/ 03 · Clients",
-    "title": "What clients say",
-    "desc": "Real results from clients we have worked with for 3+ months — they stay because they see growth in leads and sales.",
+    "title": "What Clients Say",
+    "desc": "These are not “reviews” — they are results from clients we’ve worked with for 3+ months. They stay because they see growth in inquiries and sales.",
     "items": [
       {
-        "name": "Максим Н.",
+        "name": "Maksym N.",
         "role": "Restaurant",
         "stars": 5,
-        "init": "МН",
+        "init": "MN",
         "services": [
           "Meta Ads",
           "SMM"
@@ -149,50 +149,50 @@
         "text": "Мар'яна, твоя робота ефективна.\nСМС-розсилки працюють — є відкриття, є реакції, є замовлення.\nТаргет налаштований грамотно — приходить цільова аудиторія, бюджет використовується раціонально.\nТи завжди на зв'язку, вникаєш у завдання, реагуєш швидко.\nЯ бачу результат і розумію, що з тобою можна працювати довгостроково.\nДякую."
       },
       {
-        "name": "Тетяна С.",
-        "role": "Hair colourist",
+        "name": "Tetiana S.",
+        "role": "Colorist",
         "stars": 5,
-        "init": "ТС",
+        "init": "TS",
         "services": [
           "Meta Ads"
         ],
         "text": "Знайти \"свого\" таргетолога — це як знайти хорошого колориста.\nЗ першої ж розмови я зрозуміла, що маю справу з професіоналом, який не просто налаштовує рекламу, а глибоко занурюється в мій напрямок, розуміє специфіку й дійсно хоче дати результат.\nЗаявки пішли з перших днів, і найголовніше — це саме моя цільова аудиторія.\nЯк майстер-колорист, я особливо ціную індивідуальний підхід, увагу до дрібниць та естетику — і все це було.\nЩиро дякую за співпрацю! Рекомендую від серця!"
       },
       {
-        "name": "Наталія П.",
-        "role": "Online store",
+        "name": "Nataliia P.",
+        "role": "Online Store",
         "stars": 5,
-        "init": "НП",
+        "init": "NP",
         "services": [
           "Consultation"
         ],
         "text": "Консультация замечательная, мне понравилось, что узнала ответы на все интересующие меня вопросы. Получила советы по оформлению и продвижению профиля, а также поняла, как работать дальше в плане продвижения страницы.\nТакже огромный плюс, что можно получить запись разговора и взять для себя что-то, что не удалось запомнить.\nСпасибо."
       },
       {
-        "name": "Олексій С.",
+        "name": "Oleksii S.",
         "role": "Entrepreneur",
         "stars": 5,
-        "init": "ОС",
+        "init": "OS",
         "services": [
           "Consultation"
         ],
         "text": "На консультации мне все понравилось. Вышел довольно интересный созвон. Открыл для себя много новых вещей, о которых до этого не знал. Полтора часа пролетело на одном дыхании.\nСпасибо тебе ещё раз! Теперь в моих контактах +1 таргетолог!"
       },
       {
-        "name": "Юлія Р.",
+        "name": "Yuliia R.",
         "role": "Entrepreneur",
         "stars": 5,
-        "init": "ЮР",
+        "init": "YR",
         "services": [
           "Meta Ads"
         ],
         "text": "Мар'яна, розмова з тобою мене надихнула! Я щиро дякую тобі за приділений час.\nТепер я ще краще розумію свої слабкі місця і буду над ними працювати.\nСподіваюсь, у цьому ти мені допоможеш і покажеш результат, бо з попереднім таргетологом мені не дуже пощастило."
       },
       {
-        "name": "Дмитро Л.",
+        "name": "Dmytro L.",
         "role": "Owner · Bar",
         "stars": 5,
-        "init": "ДЛ",
+        "init": "DL",
         "services": [
           "Meta Ads",
           "SMM"
@@ -200,20 +200,20 @@
         "text": "Обратился за помощью с продвижением своего бара, потому что не хватало стабильных посетителей и хотелось улучшить присутствие в Instagram. В работе занимались настройкой рекламы и развитием соцсетей: проработали подачу, запустили рекламные кампании, протестировали разные подходы.\nВ результате стало приходить больше посетителей. Особенно понравилось, что всё объяснялось простым языком.\nРаботой остался доволен и могу рекомендовать другим, потому что видно, что человек действительно заинтересован в результате."
       },
       {
-        "name": "Данило М.",
-        "role": "Freelancer · Developer",
+        "name": "Danylo M.",
+        "role": "Sole Proprietor · Developer",
         "stars": 5,
-        "init": "ДМ",
+        "init": "DM",
         "services": [
           "Google Ads"
         ],
         "text": "Я ИП, фуллстэк-разработчик, сижу на фрилансе. Пришёл с простой задачей — нужны были клиенты на разработку, потому что сарафан это конечно хорошо, но хотелось стабильности. Посоветовали Марьяну, обратился, настроили рекламу и пошли заявки, причём нормальные, по делу.\nПо работе все хорошо, на связи, объясняет по-человечески, без лишнего.\nВ общем, рекомендую. Спасибо."
       },
       {
-        "name": "Андрій М.",
-        "role": "Owner · Online school",
+        "name": "Andrii M.",
+        "role": "Owner · Online School",
         "stars": 5,
-        "init": "АМ",
+        "init": "AM",
         "services": [
           "Consultation"
         ],
@@ -222,163 +222,163 @@
     ]
   },
   "about": {
-    "sectionNum": "/ 04 · About",
-    "badge": "Available for new projects",
+    "sectionNum": "/ 04 · About Me",
+    "badge": "Open to new projects",
     "title": "4 years inside ad accounts — and most businesses have the same problem",
-    "p1": "I've worked across different niches — from services to e-commerce. In most cases, results come not from a single channel but from a system.",
-    "p2": "I work with multiple traffic sources and analyse the full customer journey: from ad to lead to sale. At the start I run an audit of traffic, website and communication to find growth points.",
+    "p1": "I’ve worked with different niches — from services to e-commerce. In most cases, results come not from one channel, but from a system.",
+    "p2": "I work with several traffic sources and analyze the full customer journey: from ad to inquiry to sale. At the start, I audit traffic, the website, and communication to find growth points.",
+    "p3": "I manage 10–14 clients at a time, no more. Every project is handled personally, without template solutions. My goal is not just leads, but sales and business profit.",
     "yearsVal": "4 years",
-    "yearsLabel": "Performance marketing",
-    "managedVal": "$100k+",
-    "managedLabel": "Ad budget",
+    "yearsLabel": "Performance Marketing",
+    "managedVal": " $100k+",
+    "managedLabel": "Budget",
     "brandsVal": "30+",
     "brandsLabel": "Projects",
-    "cta": "Work with me",
-    "ctaAbout": "More about me",
-    "p3": "I manage 10–14 clients at a time, no more. Every project is personal — no template solutions. My goal isn't just leads, but sales and business profit."
+    "cta": "Work With Me",
+    "ctaAbout": "More About Me"
   },
   "contact": {
     "sectionNum": "/ 05 · Contact",
-    "title": "Fastest answer is\non Telegram.",
-    "desc": "Usually back within two hours during working days. For anything urgent, Telegram or WhatsApp.",
+    "title": "Fastest response —\non Telegram.",
+    "desc": "I usually respond within two hours during business hours. For urgent questions — Telegram or WhatsApp.",
     "telegramName": "Telegram · fastest",
     "whatsappName": "WhatsApp",
-    "whatsappHandle": "+48 — on request",
+    "whatsappHandle": "+48 — upon request",
     "instagramName": "Instagram",
     "facebookName": "Facebook",
     "emailName": "Email",
-    "nameLabel": "Your name",
+    "nameLabel": "Your Name",
     "namePlaceholder": "Oksana Kovalenko",
     "businessLabel": "Business",
     "businessPlaceholder": "Company + niche",
-    "budgetLabel": "Monthly ad budget",
-    "budgetDefault": "Select a range",
-    "budget1": "Under €2k / month",
+    "budgetLabel": "Monthly Ad Budget",
+    "budgetDefault": "Choose a range",
+    "budget1": "Up to €2k / month",
     "budget2": "€2k–5k / month",
     "budget3": "€5k–15k / month",
     "budget4": "€15k–50k / month",
     "budget5": "€50k+ / month",
-    "budget6": "Not sure yet",
-    "contactMethodLabel": "Preferred contact method",
-    "messageLabel": "What do you want to grow?",
-    "messagePlaceholder": "A sentence or two is enough — what the business does, what you've tried, what 'success' looks like in 90 days.",
-    "submitBtn": "Send & book a free 30-min call",
-    "formFoot": "No auto-responders. No CRM drip. Real human reply.",
-    "successMsg": "Got it — I'll reply within 2 hours.",
+    "budget6": "Not decided yet",
+    "contactMethodLabel": "Preferred Contact Method",
+    "messageLabel": "This will help me better understand your situation",
+    "messagePlaceholder": "Write a few sentences — what you do, your geography, and what you’ve already tried",
+    "submitBtn": "Submit Request",
+    "formFoot": "No autoresponders. No CRM email blasts. A real human response.",
+    "successMsg": "Received — I’ll reply within 2 hours.",
     "errorRequired": "Required",
-    "errorPhone": "Invalid phone number",
+    "errorPhone": "Invalid number",
     "errorTelegram": "Format: @username",
     "errorEmail": "Invalid email",
-    "errorMinLength": "At least 10 characters",
-    "errorServer": "Something went wrong. Please try again or contact via Telegram."
+    "errorMinLength": "Minimum 10 characters",
+    "errorServer": "Something went wrong. Try again or message me on Telegram."
   },
   "footer": {
-    "tagline": "Solo performance marketer for founders who want fewer dashboards and more revenue.",
+    "tagline": "For businesses that want more than numbers — they want more revenue",
     "services": "Services",
     "studio": "Studio",
-    "elsewhere": "Elsewhere",
-    "caseStudies": "Case studies",
+    "elsewhere": "Contacts",
+    "caseStudies": "Case Studies",
     "clients": "Clients",
-    "about": "About",
+    "about": "About Me",
     "contact": "Contact",
     "copyright": "© 2026 Mariana Leus · Performance Marketing",
-    "location": "Warsaw · Kyiv · Remote worldwide",
-    "backToTop": "Back to top ↑",
-    "consultLink": "Consultations"
+    "location": "Europe · Canada · USA",
+    "backToTop": "Back to Top ↑",
+    "consultLink": "Consulting"
   },
   "privacy": {
     "title": "Privacy Policy",
     "updated": "Updated: April 2026",
-    "intro": "This Privacy Policy describes how Mariana Leus processes and protects information you provide through the website.",
+    "intro": "This Privacy Policy explains how Mariana Leus processes and protects the information you leave through the website.",
     "s1Title": "1. What data may be collected",
-    "s1": "When filling out the contact form, you may provide: your name, company name, contact details, information about your business or inquiry.",
-    "s2Title": "2. How data is used",
-    "s2": "The information provided is used exclusively for: contacting you, discussing collaboration, conducting consultations, providing marketing or digital services. Your data is not sold or shared with third parties.",
-    "s3Title": "3. Data processing and storage",
-    "s3": "Information submitted through the site is processed via email and used solely within the scope of collaboration communication.",
+    "s1": "When filling out the contact form, you may provide: your name, company name, contact details, and information about your business or request.",
+    "s2Title": "2. What the data is used for",
+    "s2": "The information provided is used only to contact you, discuss cooperation, conduct consultations, and provide marketing or digital services. Your data is not sold or transferred to third parties.",
+    "s3Title": "3. Processing and storing information",
+    "s3": "Information submitted through the website is processed via email and used only within communication related to cooperation.",
     "s4Title": "4. Cookies and analytics",
-    "s4": "The site may use cookies and basic analytics tools to improve site performance and analyse traffic. You can restrict or disable cookies in your browser settings at any time.",
+    "s4": "The website may use cookies and basic analytics tools to improve website performance and analyze visits. You can limit or disable cookies in your browser settings if you wish.",
     "s5Title": "5. Contact",
-    "s5": "If you have any questions about this Privacy Policy, please contact: marianaleus8@gmail.com.",
+    "s5": "If you have questions about this Privacy Policy, you can contact: marianaleus8@gmail.com.",
     "backHome": "← Home",
     "footerLink": "Privacy Policy"
   },
   "notFound": {
     "titleLine1": "Page not",
     "titleLine2": "found.",
-    "sub": "The page you're looking for doesn't exist or has been moved.",
-    "cta": "Back to home"
+    "sub": "The page you’re looking for does not exist or has been moved.",
+    "cta": "Go Home"
   },
   "servicesPage": {
     "crumb": "Services",
-    "heroTitle1": "Five disciplines.",
+    "heroTitle1": "Five directions.",
     "heroItalic": "One",
     "heroTitle2": "P&L.",
-    "heroLede": "Every retainer is structured so the cost of working with me is paid back by month two. No dashboards you don't understand, no agency theatre — just the one or two levers that move your numbers.",
-    "processNum": "/ How we work",
+    "heroLede": "Every retainer is structured so the cost of working with me pays off by the second month. No dashboards you don’t understand, no agency theater — only one or two levers that move your numbers.",
+    "processNum": "/ How We Work",
     "processTitle": "Four phases.\nNo surprises.",
-    "processDesc": "The shape of every engagement. Weeks are approximate; your team and brand will bend the schedule — I'll tell you how before we start.",
+    "processDesc": "This is what every cooperation looks like. Weeks are approximate; your team and brand may adjust the timeline — I’ll explain it before we start.",
     "investment": "Investment",
-    "backHome": "← Back home",
-    "allServices": "All services",
+    "backHome": "← Home",
+    "allServices": "All Services",
     "faqNum": "/ FAQ",
-    "faqTitle": "Questions founders ask\nin the first 10 minutes.",
-    "faqDesc": "Can't find yours? Send it over via Telegram or email — I reply within 2 hours during business hours.",
-    "ctaTitle": "Ready to see what your\nactual ROAS should be?",
-    "ctaBookBtn": "Book a free audit",
-    "ctaBookConsultBtn": "Get an audit review",
-    "ctaBookConsultBtn2": "Schedule a consultation",
+    "faqTitle": "Founder questions\nin the first 10 minutes.",
+    "faqDesc": "Didn’t find your question? Message me on Telegram or email — I respond within 2 hours during business hours.",
+    "ctaTitle": "Ready to find out what\nyour ROAS should be?",
+    "ctaBookBtn": "Request a Free Audit",
+    "ctaBookConsultBtn": "Get an Analysis",
+    "ctaBookConsultBtn2": "Schedule a Consultation",
     "ctaTelegramBtn": "Message on Telegram",
-    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
-    "engagement": "/ Engagement",
+    "replyNote": "Typical response in under 2 hours · EN / UA / RU",
+    "engagement": "/ Terms",
     "serviceDetails": [
       {
         "id": "meta",
         "num": "01",
-        "kicker": "Paid Social",
+        "kicker": "Client Growth From Social Media",
         "name": "Meta Ads",
         "sub": "Facebook & Instagram",
-        "tag": "Revenue + leads",
-        "lede": "Full-funnel campaigns that hit purchase and lead objectives — engineered around creative, not just audiences.",
+        "tag": "Revenue + Leads",
+        "lede": "Full-funnel campaigns focused on purchases and clients to increase business profitability",
         "deliverables": [
           {
-            "name": "Account audit + structure rebuild",
-            "note": "Week 1. New campaigns, CBO hygiene, pixel + CAPI verification."
+            "name": "Account Audit and Structure Rebuild",
+            "note": "Week 1. New campaigns, CBO hygiene, Pixel verification + CAPI."
           },
           {
-            "name": "Creative testing framework",
-            "note": "Weekly testing of 6–12 new creatives against clear hypotheses."
+            "name": "Creative Testing System",
+            "note": "Weekly testing of 6–12 new creatives based on clear hypotheses."
           },
           {
-            "name": "Buyer-stage creative pipeline",
-            "note": "Awareness · Consideration · Conversion creative, not one-size messaging."
+            "name": "Stage-Based Creative Pipeline",
+            "note": "Awareness · Consideration · Conversion — not one-size-fits-all messaging."
           },
           {
-            "name": "Audience ladder",
-            "note": "Interest → Lookalike → Retargeting, with daily spend caps and negative overlap."
+            "name": "Audience Lift",
+            "note": "Interests → Lookalike → Retargeting, with daily limits and overlap exclusions."
           },
           {
-            "name": "Weekly performance reports",
-            "note": "Plain-language notes on what changed and what's next — no 80-tab dashboards."
+            "name": "Weekly Performance Reports",
+            "note": "Clear notes on what changed and what’s next — without 80-tab dashboards."
           },
           {
-            "name": "Landing page split tests",
-            "note": "Coordinated with the Website service when needed."
+            "name": "Landing Page A/B Tests",
+            "note": "Coordinated with website development when needed."
           }
         ],
         "pricing": [
           {
-            "label": "Engagement",
+            "label": "Format",
             "val": "Retainer",
             "unit": "monthly"
           },
           {
-            "label": "Starts at",
+            "label": "From",
             "val": "€2,400",
             "unit": "/mo"
           },
           {
-            "label": "Ad spend",
+            "label": "Ad Budget",
             "val": "€5k+",
             "unit": "minimum"
           },
@@ -391,18 +391,18 @@
         "proof": [
           {
             "v": "+312%",
-            "l": "ROAS lift",
-            "d": "DTC Skincare · 90 days · rebuild + creative system"
+            "l": "ROAS Growth",
+            "d": "DTC Cosmetics · 90 days · rebuild + creative system"
           },
           {
             "v": "€47",
-            "l": "Cost per lead",
-            "d": "Premium Dental Clinic · Warsaw · Meta lead gen"
+            "l": "Cost per Lead",
+            "d": "Premium Dentistry · Warsaw · Meta lead generation"
           },
           {
             "v": "×2.4",
-            "l": "AOV increase",
-            "d": "Fashion e-commerce · bundle + retargeting strategy"
+            "l": "AOV Growth",
+            "d": "Fashion e-commerce · bundle strategy + retargeting"
           }
         ]
       },
@@ -412,47 +412,47 @@
         "kicker": "Paid Search",
         "name": "Google Ads",
         "sub": "Search, PMax, Display",
-        "tag": "High-intent traffic",
-        "lede": "Capture every high-intent search, stop wasting budget on junk queries, and make PMax behave like an asset — not a black box.",
+        "tag": "High-Converting Traffic",
+        "lede": "Capture ready-to-buy demand, eliminate budget waste, and turn Google Ads into a stable sales channel.",
         "deliverables": [
           {
-            "name": "Search campaign rebuild",
-            "note": "Single-theme ad groups, match-type hygiene, branded defense."
+            "name": "Search Campaign Rebuild",
+            "note": "Single-theme ad groups, match type hygiene, brand protection."
           },
           {
-            "name": "Negative keyword system",
-            "note": "Ongoing — negative lists per campaign, reviewed weekly."
+            "name": "Negative Keyword System",
+            "note": "Ongoing work — negative keyword lists for each campaign, reviewed weekly."
           },
           {
-            "name": "PMax asset groups that convert",
+            "name": "Converting PMax Asset Groups",
             "note": "Audience signals, brand exclusions, feed-based targeting for e-commerce."
           },
           {
-            "name": "Conversion tracking audit",
+            "name": "Conversion Tracking Audit",
             "note": "GA4, enhanced conversions, offline imports — numbers you can trust."
           },
           {
-            "name": "Shopping feed optimisation",
+            "name": "Shopping Feed Optimization",
             "note": "Title structure, custom labels, Merchant Center health."
           },
           {
-            "name": "Monthly strategic review",
+            "name": "Monthly Strategic Review",
             "note": "Where to scale, where to cut, what to test next quarter."
           }
         ],
         "pricing": [
           {
-            "label": "Engagement",
+            "label": "Format",
             "val": "Retainer",
             "unit": "monthly"
           },
           {
-            "label": "Starts at",
+            "label": "From",
             "val": "€1,900",
             "unit": "/mo"
           },
           {
-            "label": "Ad spend",
+            "label": "Ad Budget",
             "val": "€3k+",
             "unit": "minimum"
           },
@@ -466,17 +466,17 @@
           {
             "v": "62",
             "l": "Leads/month",
-            "d": "B2B SaaS · LinkedIn + Search synced funnel"
+            "d": "B2B SaaS · synchronized LinkedIn + Search funnel"
           },
           {
             "v": "−48%",
-            "l": "CPA reduction",
-            "d": "Online education · PMax asset group rebuild"
+            "l": "CPA Reduction",
+            "d": "Online Education · PMax asset group rebuild"
           },
           {
             "v": "+184%",
-            "l": "Enrolments",
-            "d": "Online Education · webinar funnel at €40k/mo spend"
+            "l": "Registrations",
+            "d": "Online Education · webinar funnel at €40k/month spend"
           }
         ]
       },
@@ -484,113 +484,113 @@
         "id": "web",
         "num": "03",
         "kicker": "Conversion",
-        "name": "Website & Landing Pages",
-        "sub": "Designed to convert",
-        "tag": "Ship in 2–3 weeks",
-        "lede": "Pages built around one promise, one action, and one measurable outcome. Fast, accessible, CRM-wired.",
+        "name": "Websites and Landing Pages",
+        "sub": "Built for Conversion",
+        "tag": "Launch in 2–3 Weeks",
+        "lede": "Pages built around one promise, one action, and one measurable result. Fast, accessible, and connected to CRM.",
         "deliverables": [
           {
-            "name": "Conversion-led design",
-            "note": "Wireframe → hi-fi → build, all against a measurable hypothesis."
+            "name": "Conversion-Focused Design",
+            "note": "Wireframe → high-fidelity → development, all built around a measurable hypothesis."
           },
           {
-            "name": "Webflow, Framer, or custom",
-            "note": "Depending on CMS needs, team skill, and integration surface."
+            "name": "Webflow, Framer, or Custom",
+            "note": "Depending on CMS needs, team skills, and integrations."
           },
           {
-            "name": "Page-speed engineering",
-            "note": "Targets Lighthouse 95+ on mobile; image + font hygiene baked in."
+            "name": "Page Speed Engineering",
+            "note": "Target Lighthouse 95+ on mobile; image and font optimization."
           },
           {
-            "name": "Form + CRM wiring",
-            "note": "Telegram bot, email, HubSpot, Notion, Sheets — whatever your stack is."
+            "name": "Form + CRM Connection",
+            "note": "Telegram bot, email, HubSpot, Notion, Sheets — whatever your stack requires."
           },
           {
-            "name": "Analytics + tagging",
-            "note": "GA4, Meta CAPI, Google Tag Manager; events aligned to ad campaigns."
+            "name": "Analytics + Tags",
+            "note": "GA4, Meta CAPI, Google Tag Manager; events aligned with ad campaigns."
           },
           {
-            "name": "A/B test setup",
+            "name": "A/B Test Setup",
             "note": "Hero, offer, and CTA variants with a clear statistical plan."
           }
         ],
         "pricing": [
           {
-            "label": "Engagement",
+            "label": "Format",
             "val": "Project",
-            "unit": "fixed"
+            "unit": "fixed price"
           },
           {
-            "label": "Landing page",
+            "label": "Landing Page",
             "val": "€2,800",
-            "unit": "starts at"
+            "unit": "from"
           },
           {
-            "label": "Full site",
+            "label": "Full Website",
             "val": "€6,500",
-            "unit": "starts at"
+            "unit": "from"
           },
           {
             "label": "Timeline",
-            "val": "2–3 wk",
+            "val": "2–3 weeks",
             "unit": "typical"
           }
         ],
         "proof": [
           {
             "v": "+41%",
-            "l": "Form-fill rate",
-            "d": "Dental clinic · rebuild with Telegram-bot booking"
+            "l": "Form Submissions",
+            "d": "Dentistry · rebuild with Telegram booking bot"
           },
           {
             "v": "1.4s",
-            "l": "Time to interactive",
-            "d": "DTC skincare · from 4.8s to 1.4s mobile"
+            "l": "Time to Interactive",
+            "d": "DTC Cosmetics · from 4.8s to 1.4s on mobile"
           },
           {
             "v": "×2.1",
-            "l": "Trial-to-paid",
-            "d": "SaaS · pricing page rework + activation email flow"
+            "l": "Payment Conversion",
+            "d": "SaaS · pricing page redesign + email activation funnel"
           }
         ]
       },
       {
         "id": "smm",
         "num": "04",
-        "kicker": "Social",
-        "name": "Social Media Management",
-        "sub": "Content + community",
-        "tag": "Organic that supports paid",
-        "lede": "Editorial calendars, short-form video briefs, and community replies that feed retargeting audiences worth buying back.",
+        "kicker": "Social Media",
+        "name": "SMM",
+        "sub": "Content + Community",
+        "tag": "Organic Content That Supports Paid Ads",
+        "lede": "Social media management for consistent audience contact, brand support, and sales growth through content.",
         "deliverables": [
           {
-            "name": "Monthly editorial calendar",
-            "note": "Pillars, formats, posting cadence — aligned to launches and ads."
+            "name": "Monthly Editorial Calendar",
+            "note": "Content pillars, formats, posting cadence — aligned with launches and advertising."
           },
           {
-            "name": "Short-form video briefs",
-            "note": "Hooks, beats, shot lists for Reels / TikTok — you or a creator films."
+            "name": "Short-Form Video Briefs",
+            "note": "Hooks, structure, shot lists for Reels / TikTok — filmed by you or a creator."
           },
           {
-            "name": "Content production (optional)",
-            "note": "Photo + video shoots with vetted creators, €2k–€6k add-on."
+            "name": "Content Production (Optional)",
+            "note": "Photo and video shoots with vetted creators, additional €2k–€6k."
           },
           {
-            "name": "Community management",
-            "note": "Reply within 2h in business hours, escalation flow for leads."
+            "name": "Community Management",
+            "note": "Response within 2 hours during business hours, escalation workflow for leads."
           },
           {
-            "name": "UGC sourcing",
-            "note": "Briefs, whitelisting, rights — creator content that fuels paid."
+            "name": "UGC Sourcing",
+            "note": "Briefs, whitelisting, rights — creator content that fuels paid ads."
           },
           {
-            "name": "Monthly analytics report",
-            "note": "Growth, saves, share rate, and what's worth repurposing."
+            "name": "Monthly Analytics Report",
+            "note": "Growth, saves, share rate, and what should be reused."
           }
         ],
         "pricing": [
           {
-            "label": "Engagement",
+            "label": "Format",
             "val": "Retainer",
             "unit": "monthly"
           },
@@ -613,63 +613,63 @@
         "proof": [
           {
             "v": "+6.8k",
-            "l": "IG followers",
-            "d": "Fashion label · 4-month content sprint, €0 paid boost"
+            "l": "IG Followers",
+            "d": "Fashion brand · 4-month content sprint, €0 paid promotion"
           },
           {
             "v": "×3.2",
-            "l": "UGC ad ROAS",
-            "d": "Skincare · creator content fed into Meta retargeting"
+            "l": "UGC Ad ROAS",
+            "d": "Cosmetics · creator content in Meta retargeting"
           },
           {
             "v": "2h",
-            "l": "Avg reply time",
-            "d": "Dental clinic · community mgmt during booking hours"
+            "l": "Average Response Time",
+            "d": "Dentistry · community management during booking hours"
           }
         ]
       },
       {
         "id": "seo",
         "num": "05",
-        "kicker": "Organic",
-        "name": "SEO",
-        "sub": "Technical + content",
-        "tag": "Compound growth",
-        "lede": "Technical hygiene, topic clusters, and an internal-link map that keeps paying you back after the retainer ends.",
+        "kicker": "STRATEGY",
+        "name": "Consulting",
+        "sub": "Marketing & Performance",
+        "tag": "Systematic Approach",
+        "lede": "Practical consulting for businesses that want to understand how advertising works, optimize spend, or launch marketing on their own.",
         "deliverables": [
           {
-            "name": "Technical audit",
-            "note": "Crawl, index coverage, Core Web Vitals, structured data — with a fix-priority list."
+            "name": "Technical Audit",
+            "note": "Crawling, index coverage, Core Web Vitals, structured data — with a prioritized list of fixes."
           },
           {
-            "name": "Keyword + topic research",
-            "note": "Cluster map tied to buyer intent and business outcomes."
+            "name": "Keyword and Topic Research",
+            "note": "A cluster map tied to buyer intent and business outcomes."
           },
           {
-            "name": "Content brief system",
-            "note": "SERP-aligned briefs your writers (or mine) ship against."
+            "name": "Content Brief System",
+            "note": "SERP-aligned briefs for your writers or mine."
           },
           {
-            "name": "On-page optimisation",
-            "note": "Title/meta, internal linking, schema, image alts."
+            "name": "On-Page Optimization",
+            "note": "Headings/meta, internal linking, schema, image alt text."
           },
           {
-            "name": "Link acquisition",
-            "note": "Digital PR and partner outreach — budget-optional, no PBNs."
+            "name": "Link Acquisition",
+            "note": "Digital PR and partner outreach — optional budget, no PBN."
           },
           {
-            "name": "Quarterly strategy review",
-            "note": "What moved, what plateaued, what to double down on."
+            "name": "Quarterly Strategic Review",
+            "note": "What grew, what stalled, where to double down."
           }
         ],
         "pricing": [
           {
-            "label": "Engagement",
+            "label": "Format",
             "val": "Retainer",
             "unit": "monthly"
           },
           {
-            "label": "Starts at",
+            "label": "From",
             "val": "€1,200",
             "unit": "/mo"
           },
@@ -681,24 +681,24 @@
           {
             "label": "Commitment",
             "val": "6 months",
-            "unit": "min. for results"
+            "unit": "minimum for results"
           }
         ],
         "proof": [
           {
             "v": "×3.8",
-            "l": "Organic traffic",
+            "l": "Organic Traffic",
             "d": "B2B SaaS · 9 months · cluster strategy + PR"
           },
           {
             "v": "+214%",
-            "l": "Non-brand clicks",
+            "l": "Non-Brand Clicks",
             "d": "E-commerce · technical + content sprint · 6 months"
           },
           {
             "v": "#1–3",
-            "l": "SERP rank",
-            "d": "Dental clinic · \"stomatolog Warszawa\" cluster, 12 terms"
+            "l": "SERP Positions",
+            "d": "Dentistry · “dentist Warsaw” cluster, 12 queries"
           }
         ]
       }
@@ -707,149 +707,149 @@
       {
         "n": "01",
         "t": "Audit",
-        "d": "I review your current setup — ad accounts, landing pages, tracking — and identify the biggest leaks.",
+        "d": "I review your current structure — ad accounts, landing pages, tracking — and identify the biggest leaks.",
         "w": "Week 1"
       },
       {
         "n": "02",
         "t": "Strategy",
-        "d": "A written plan: what we run, what we cut, what we test first, and what we're measuring.",
+        "d": "A written plan: what we launch, what we turn off, what we test first, and what we measure.",
         "w": "Week 1–2"
       },
       {
         "n": "03",
         "t": "Build",
-        "d": "Campaigns, creatives, and tracking built to the plan. No wasted clicks before launch.",
+        "d": "Campaigns, creatives, and tracking built according to the plan. Not a single unnecessary click before launch.",
         "w": "Week 2–3"
       },
       {
         "n": "04",
-        "t": "Iterate",
-        "d": "Weekly reviews, creative testing, and continuous optimisation against the agreed KPIs.",
+        "t": "Iteration",
+        "d": "Weekly reviews, creative testing, and ongoing optimization according to agreed KPIs.",
         "w": "Ongoing"
       }
     ],
     "faqItems": [
       {
         "q": "Do you work with clients outside Europe?",
-        "a": "Yes. Most of my clients are European-based, but I work with brands globally — time zones permitting. I typically cover CET business hours plus some evenings."
+        "a": "Yes. Most of my clients are from Europe, but I work with brands worldwide depending on time zones. I’m usually available during CET business hours and some evenings."
       },
       {
-        "q": "What ad spend do you require?",
-        "a": "It depends on the service. Meta Ads requires a minimum of €5k/month in spend for the economics to make sense. Google Ads starts at €3k. SEO and SMM have no spend floor — they are flat retainers."
+        "q": "What is the minimum ad budget?",
+        "a": "It depends on the service. Meta Ads requires at least €5k/month in spend for the economics to make sense. Google Ads starts from €3k. SEO and SMM have no minimum ad spend — they are fixed retainers."
       },
       {
-        "q": "Do you work with multiple clients in the same niche?",
-        "a": "No. I take one client per niche at a time. If you are a dental clinic in Warsaw, no competitor will work with me while you are a client."
+        "q": "Do you take multiple clients from the same niche?",
+        "a": "No. I take one client per niche at a time. If you are a dental clinic in Warsaw, none of your competitors will be my client while you are."
       },
       {
         "q": "How do you report results?",
-        "a": "Weekly Loom video + written summary. No 50-tab dashboards. You get what changed, why, and what's next. If something isn't working, you hear it from me before you see it in the numbers."
+        "a": "A weekly Loom video + written summary. No 50-tab dashboards. You get: what changed, why, and what’s next. If something isn’t working, you hear it from me before you see it in the numbers."
       },
       {
-        "q": "Can I hire you for a one-off project?",
-        "a": "For Web Dev — yes, I do fixed-scope projects. For paid media (Meta, Google), results compound over months, so I don't offer one-off campaign setups without a minimum 3-month commitment."
+        "q": "Can I hire you for a one-time project?",
+        "a": "For Web Dev — yes, I do fixed-scope projects. For paid media (Meta, Google), results compound over months, so I don’t offer one-time campaign setups without a minimum 3-month commitment."
       },
       {
-        "q": "What makes you different from an agency?",
-        "a": "You work directly with me, not an account manager. I cap the number of clients I take to keep quality high. And I have skin in the game — my reputation is my only business, so I won't inflate vanity metrics."
+        "q": "How are you different from an agency?",
+        "a": "You work directly with me, not an account manager. I limit the number of clients to maintain quality. And I’m personally invested — my reputation is my business, so I don’t inflate vanity metrics."
       }
     ]
   },
   "aboutPage": {
-    "crumb": "About",
+    "crumb": "About Me",
     "home": "Home",
-    "heroPrefix": "4 years of ",
-    "heroItalic": "practice",
+    "heroPrefix": "4 years ",
+    "heroItalic": "of practice",
     "heroMiddle": " in digital ",
     "heroUnderline": "marketing",
-    "heroSub": "so you don't have to do it yourself.",
-    "photoCaption": "Poland · 2026 · 14-client cap",
-    "introLabel": "/ Introduction",
-    "intro1": "I've worked with different niches, from services to e-commerce — and in most cases, results come not from one channel but from a system. I work with several traffic sources at once and look at the full customer journey: from ad to lead to sale. That's why the point is not just to launch ads, but to understand exactly where the business is losing money.",
-    "intro2": "At the first touchpoint, I audit all key areas — traffic, website, communication — to find weak spots and growth opportunities.",
-    "intro3": "I work with 10–14 clients at a time, no more. I lead every project personally and give it enough attention, because I work not with isolated tools but with a system. I also give recommendations on content, website and client communication — from page structure to conversation scripts.",
-    "intro4": "My job is not clicks or leads, but sales and business profit. That's why we work as one team, where both sides are invested in the result.",
-    "timelineNum": "/ Trajectory",
-    "timelineTitle": "How I started in digital",
-    "timelineDesc": "A brief overview of my experience, approach to advertising, and journey in marketing & performance.",
+    "heroSub": "so you don’t have to do it yourself.",
+    "photoCaption": "Poland · 2026 · 14-client limit",
+    "introLabel": "/ Intro",
+    "intro1": "I’ve worked with different niches, from services to e-commerce — and in most cases, results come not from one channel, but from a system. I work with several traffic sources at once and look at the full customer journey: from ad to inquiry to sale. That’s why it’s important not just to launch ads, but to understand exactly where the business is losing money.",
+    "intro2": "At the first touchpoint, I audit all key points — traffic, website, communication — to find weak spots and growth opportunities.",
+    "intro3": "I work with 10–14 clients at a time, no more. I manage every project personally and give it enough attention because I work not with isolated tools, but with a system. I also provide recommendations on content, the website, and client communication — from page structure to messaging scripts.",
+    "intro4": "My goal is not clicks or leads, but sales and business profit. That’s why we work as one team, where both sides are invested in the result.",
+    "timelineNum": "/ Journey",
+    "timelineTitle": "How I Started Working in Digital",
+    "timelineDesc": "A brief look at my experience, approach to advertising, and path in marketing & performance.",
     "principlesNum": "/ Principles",
-    "principlesTitle": "Six things I won't bend on.",
-    "principlesDesc": "My approach to work, communication, and advertising — applied to every project.",
-    "toolkitNum": "/ Toolkit",
-    "toolkitTitle": "What's in the stack.",
-    "toolkitDesc": "These are the tools I use every day to work on advertising, analytics and business growth.",
-    "quote": "Strong marketing is a combination of analytics, creativity and systems.",
+    "principlesTitle": "Six Things I Won’t Compromise On",
+    "principlesDesc": "The approach to work, communication, and advertising that I follow in every project.",
+    "toolkitNum": "/ Tools",
+    "toolkitTitle": "What’s in the Stack",
+    "toolkitDesc": "These are the tools I use every day to work on advertising, analytics, and business growth.",
+    "quote": "Strong marketing is a combination of analytics, creativity, and consistency.",
     "quoteSource": "What practice proves, not theory",
-    "ctaTitle1": "Want to see what",
-    "ctaTitle2": "working together",
-    "ctaTitle3": "would",
-    "ctaItalic": "actually",
-    "ctaTitle4": "look like?",
-    "ctaBook": "Book a 30-min call",
-    "ctaServices": "See services",
+    "ctaTitle1": "Want to see",
+    "ctaTitle2": "what",
+    "ctaTitle3": "our",
+    "ctaItalic": "joint",
+    "ctaTitle4": "work could look like?",
+    "ctaBook": "Book a 30-Min Call",
+    "ctaServices": "View Services",
     "timeline": [
       {
         "year": "2022–2023",
-        "role": "Starting in digital & learning",
-        "title": "First steps in advertising",
-        "text": "Started learning targeted advertising, content and social media for business. Simultaneously took courses and tested first ad campaigns in practice."
+        "role": "Start in Digital and Training",
+        "title": "First Steps in Advertising",
+        "text": "I started studying targeted advertising, content, and social media for business. At the same time, I completed training and tested my first ad campaigns in practice."
       },
       {
         "year": "2024",
-        "role": "International experience",
+        "role": "International Experience",
         "title": "Poland and Ukraine",
-        "text": "Started working with businesses in Poland and Ukraine. This gave understanding of different markets, audiences and advertising approaches in different countries."
+        "text": "I started working with businesses in Poland and Ukraine. This gave me an understanding of different markets, audiences, and advertising approaches in different countries."
       },
       {
         "year": "2025",
-        "role": "Agency work",
+        "role": "Agency Work",
         "title": "USA and Canada",
-        "text": "Moved to an agency where I gained experience working with different niches in the USA and Canada, ad budgets and marketing strategies. That's when I started seeing advertising as a business growth system, not just running campaigns."
+        "text": "I moved to an agency, where I gained experience working with different niches in the USA and Canada, ad budgets, and marketing strategies. That’s when I started seeing advertising as a business growth system, not just ad launches."
       },
       {
         "year": "2025–2026",
-        "role": "Performance marketing, web & analytics",
-        "title": "Systematic approach",
-        "text": "Today I work with advertising, websites, analytics and content together. Main focus — systematic business growth, ad ROI and building marketing that works long-term.",
+        "role": "Performance Marketing, Web, and Analytics",
+        "title": "Systematic Approach",
+        "text": "Today I work with advertising, websites, analytics, and content as one connected system. The main focus is systematic business growth, ad payback, and building marketing that works long term.",
         "current": true
       }
     ],
     "principles": [
       {
         "n": "01",
-        "t": "Focus on business results",
-        "d": "Advertising is measured not just by clicks or reach, but by how it affects leads, sales and profit."
+        "t": "Focus on Business Results",
+        "d": "Advertising is evaluated not only by clicks or reach, but by how it affects inquiries, sales, and profit."
       },
       {
         "n": "02",
-        "t": "Systematic approach to advertising",
-        "d": "Analytics, testing, creatives and optimisation work together, not separately from each other."
+        "t": "Systematic Approach to Advertising",
+        "d": "Analytics, testing, creatives, and optimization work together, not separately."
       },
       {
         "n": "03",
-        "t": "Quality over quantity",
-        "d": "I work with a limited number of projects to go deeper into the client's business and marketing."
+        "t": "Quality Over Quantity",
+        "d": "I work with a limited number of projects so I can go deeper into the client’s business and marketing."
       },
       {
         "n": "04",
-        "t": "Transparency in work & communication",
-        "d": "Clear explanations, openness in processes and an honest view of results and growth opportunities."
+        "t": "Transparency in Work and Communication",
+        "d": "Clear explanations, open processes, and an honest view of results and growth opportunities."
       },
       {
         "n": "05",
-        "t": "Marketing for each specific business",
-        "d": "There's no universal 'working scheme' — strategy depends on the niche, audience and company goals."
+        "t": "Marketing Built Around a Specific Business",
+        "d": "There is no universal “working formula” — strategy depends on the niche, audience, and company goals."
       },
       {
         "n": "06",
-        "t": "Long-term approach",
-        "d": "The main goal is building a stable client acquisition system, not short-term results."
+        "t": "Long-Term Approach",
+        "d": "The main goal is building a stable client acquisition system, not a short-term result."
       }
     ],
     "tools": [
       {
-        "group": "Ads & tracking",
+        "group": "Advertising and Tracking",
         "items": [
           "Meta Ads Manager",
           "Google Ads",
@@ -861,14 +861,14 @@
         ]
       },
       {
-        "group": "Analytics & research",
+        "group": "Analytics and Research",
         "items": [
           "Looker Studio",
           "GA4"
         ]
       },
       {
-        "group": "Ops & comms",
+        "group": "Operations and Communication",
         "items": [
           "Telegram",
           "Trello",
@@ -876,7 +876,7 @@
         ]
       },
       {
-        "group": "Web & build",
+        "group": "Web and Development",
         "items": [
           "React / Next.js",
           "TypeScript",
@@ -894,98 +894,98 @@
   },
   "metaAdsPage": {
     "crumb": "Meta Ads",
-    "kicker": "Growing clients from social media",
+    "kicker": "Client Growth From Social Media",
     "lede": "Full-funnel campaigns focused on purchases and clients to increase business profitability",
-    "heroLine1": "Meta Ads",
+    "heroLine1": "Meta Ads,",
     "heroItalic": "that",
-    "heroAccent": "convert.",
+    "heroAccent": "converts.",
     "ctaTitle1": "Ready to scale",
-    "ctaTitle2": "your",
+    "ctaTitle2": "your results",
     "ctaItalic": "Meta",
-    "ctaTitle3": "results?",
-    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "ctaTitle3": "?",
+    "replyNote": "Typical response in under 2 hours · EN / UA / RU",
     "deliverables": [
       {
-        "name": "Meta Ads audit & strategy",
-        "note": "Analysis of account, competitors, offers, brand positioning and current sales funnel."
+        "name": "Meta Ads Audit and Strategy",
+        "note": "Analysis of the account, competitors, offers, brand positioning, and current sales funnel."
       },
       {
-        "name": "Ad structure rebuild",
-        "note": "New campaign system for Facebook and Instagram focused on scaling and stability."
+        "name": "Ad Structure Rebuild",
+        "note": "A new campaign system for Facebook and Instagram focused on scaling and stability."
       },
       {
-        "name": "Creative testing system",
-        "note": "Regular testing of new videos, banners, offers, copy and ad formats."
+        "name": "Creative Testing System",
+        "note": "Regular testing of new videos, banners, offers, copy, and ad formats."
       },
       {
-        "name": "Campaign optimisation",
-        "note": "Budget, bids, audience and results control to reduce cost per lead."
+        "name": "Ad Campaign Optimization",
+        "note": "Budget, bid, audience, and result control to reduce inquiry cost."
       },
       {
-        "name": "Audience lift & retargeting",
-        "note": "Building the customer journey: cold audience → engagement → re-touch → lead."
+        "name": "Audience Lift and Retargeting",
+        "note": "Building the customer journey: cold audience → interaction → follow-up touchpoint → inquiry."
       },
       {
-        "name": "Brand analysis & recommendations",
-        "note": "Recommendations for Instagram, Facebook, website, DMs and overall online positioning."
+        "name": "Brand Analysis and Recommendations",
+        "note": "Recommendations for Instagram, Facebook, the website, messaging, and overall online business positioning."
       },
       {
-        "name": "Conversion point testing",
-        "note": "Running ads to messages, forms, website or landing pages — whichever works best in the niche."
+        "name": "Testing Different Conversion Points",
+        "note": "Launching ads to messages, forms, a website, or landing pages — depending on what works best in the niche."
       },
       {
-        "name": "Analytics, Pixel & tracking",
-        "note": "Checking Meta Pixel, events, conversions, CAPI and data collection accuracy."
+        "name": "Analytics, Pixel, and Tracking",
+        "note": "Checking Meta Pixel, events, conversions, CAPI, and data collection accuracy."
       },
       {
-        "name": "Monthly reporting & insights",
-        "note": "Simple, clear reports: what worked, what changed and where we're headed."
+        "name": "Monthly Reporting and Insights",
+        "note": "Simple, clear reports: what worked, what changed, and where we go next."
       },
       {
-        "name": "Focus on business profitability",
-        "note": "The main goal is not just leads or reach, but revenue growth and ad ROI."
+        "name": "Focus on Business Profitability",
+        "note": "The main goal is not just inquiries or reach, but sales growth and ad payback."
       }
     ],
     "proof": [
       {
         "v": "+312%",
-        "l": "ROAS lift",
-        "d": "DTC Skincare · 90 days · rebuild + creative system"
+        "l": "ROAS Growth",
+        "d": "DTC Cosmetics · 90 days · rebuild + creative system"
       },
       {
         "v": "€47",
-        "l": "Cost per lead",
-        "d": "Premium Dental Clinic · Warsaw · Meta lead gen"
+        "l": "Cost per Lead",
+        "d": "Premium Dentistry · Warsaw · Meta lead generation"
       },
       {
         "v": "×2.4",
-        "l": "AOV increase",
-        "d": "Fashion e-commerce · bundle + retargeting strategy"
+        "l": "AOV Growth",
+        "d": "Fashion e-commerce · bundle strategy + retargeting"
       }
     ]
   },
   "googleAdsPage": {
     "crumb": "Google Ads",
-    "heroLine1": "Google Ads",
+    "heroLine1": "Google Ads,",
     "heroLine2": "built on",
     "heroItalic": "intent",
     "heroAccent": "guesswork.",
     "heroLine2b": "not",
-    "intentLabel": "Why intent matters",
-    "intentDesc": "Capture ready demand, remove budget waste and turn Google Ads into a stable sales channel.",
-    "ctaLine1": "Turn advertising",
+    "intentLabel": "Why Intent Matters",
+    "intentDesc": "Capture ready-to-buy demand, eliminate budget waste, and turn Google Ads into a stable sales channel.",
+    "ctaLine1": "Turn ads",
     "ctaLine2": "into",
-    "ctaItalic": "leads, not ",
+    "ctaItalic": "inquiries, not ",
     "ctaAccent": "just traffic.",
-    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "replyNote": "Typical response in under 2 hours · EN / UA / RU",
     "sidecard": [
       {
-        "label": "Who it's for",
-        "val": "Businesses just entering advertising or scaling up"
+        "label": "Who It’s For",
+        "val": "For businesses that are just entering advertising or scaling"
       },
       {
-        "label": "Good fit if",
-        "val": "You need a stable lead flow and control over ad spend"
+        "label": "Best If",
+        "val": "You need a steady flow of inquiries and control over advertising"
       },
       {
         "label": "Approach",
@@ -993,11 +993,11 @@
       },
       {
         "label": "Focus",
-        "val": "Ad ROI and profit growth"
+        "val": "Ad payback and profit growth"
       },
       {
-        "label": "Also includes",
-        "val": "Analytics • Conversions • Optimisation • Scaling"
+        "label": "Additionally",
+        "val": "Analytics • Conversions • Optimization • Scaling"
       },
       {
         "label": "Result",
@@ -1006,43 +1006,43 @@
     ],
     "deliverables": [
       {
-        "name": "Strategy & campaign rebuild",
+        "name": "Strategy and Ad Rebuild",
         "note": "Creating a clear campaign structure for stable growth and budget control."
       },
       {
-        "name": "Traffic quality control",
-        "note": "Filtering irrelevant queries and focusing on audiences ready to buy."
+        "name": "Traffic Quality Control",
+        "note": "Filtering out irrelevant queries and focusing on an audience that is actually ready to buy."
       },
       {
-        "name": "Campaign testing system",
-        "note": "Ongoing testing of offers, creatives and campaign types for best results."
+        "name": "Campaign Testing System",
+        "note": "Ongoing testing of offers, creatives, and campaign types to find the best results."
       },
       {
-        "name": "Analytics & result tracking",
-        "note": "Checking conversions, analytics and data accuracy for data-driven decisions."
+        "name": "Analytics and Result Tracking",
+        "note": "Checking conversions, analytics, and data accuracy to make decisions based on numbers."
       },
       {
-        "name": "Shopping & e-commerce ad optimisation",
-        "note": "Work on product ads, feed and account structure for online sales growth."
+        "name": "Shopping and E-commerce Ad Optimization",
+        "note": "Working with product ads, the feed, and account structure to grow online sales."
       },
       {
-        "name": "Ongoing optimisation & scaling",
-        "note": "Result analysis, finding growth points and scaling profitable campaigns."
+        "name": "Regular Optimization and Scaling",
+        "note": "Analyzing results, finding growth points, and scaling profitable campaigns."
       }
     ],
     "pricing": [
       {
-        "label": "Engagement",
+        "label": "Format",
         "val": "Retainer",
         "unit": "monthly"
       },
       {
-        "label": "Starts at",
+        "label": "From",
         "val": "€1,900",
         "unit": "/mo"
       },
       {
-        "label": "Ad spend",
+        "label": "Ad Budget",
         "val": "€3k+",
         "unit": "minimum"
       },
@@ -1056,74 +1056,74 @@
       {
         "v": "62",
         "l": "Leads/month",
-        "d": "B2B SaaS · LinkedIn + Search synced funnel"
+        "d": "B2B SaaS · synchronized LinkedIn + Search funnel"
       },
       {
         "v": "−48%",
-        "l": "CPA reduction",
-        "d": "Online education · PMax asset group rebuild"
+        "l": "CPA Reduction",
+        "d": "Online Education · PMax asset group rebuild"
       },
       {
         "v": "+184%",
-        "l": "Enrolments",
-        "d": "Online Education · webinar funnel at €40k/mo spend"
+        "l": "Registrations",
+        "d": "Online Education · webinar funnel at €40k/month spend"
       }
     ]
   },
   "webDevPage": {
     "crumb": "Web Dev",
-    "kicker": "Conversion · Ship in 2–3 weeks",
+    "kicker": "Conversion · Launch in 2–3 weeks",
     "heroComment": "// ",
     "heroLine1": "Design should",
     "heroItalic": "sell,",
     "heroLine2": "not just look",
-    "heroAccent": "beautiful.",
-    "heroLede": "Thoughtful structure, fast loading and CRM integration — so your ads work more effectively.",
-    "heroCta": "Calculate the cost",
-    "allServices": "All services",
+    "heroAccent": "nice.",
+    "heroLede": "Thoughtful structure, fast loading, and CRM integration — so advertising works more effectively.",
+    "heroCta": "Calculate Cost",
+    "allServices": "All Services",
     "lighthouseLabel": "Lighthouse · Mobile",
     "speedBefore": "Before",
     "speedAfter": "After",
-    "speedCaption": "Loading speed",
-    "stackLabel": "/ What we build with",
-    "sectionKicker": "Website & Landing Pages",
-    "sectionTitle": "What's included in development",
-    "sectionDesc": "Every site is built for specific business goals — from structure and design to integrations and analytics.",
+    "speedCaption": "Loading Speed",
+    "stackLabel": "/ What We Build With",
+    "sectionKicker": "Websites and Landing Pages",
+    "sectionTitle": "What Development Includes",
+    "sectionDesc": "Every website is built around specific business goals — from structure and design to integrations and analytics.",
     "ctaLine1": "Your website should",
-    "ctaLine2": "help your ads",
+    "ctaLine2": "help ads",
     "ctaItalic": "sell.",
-    "replyNote": "Reply in under 2 hours · EN / UA / RU",
-    "typesIntro": "We build websites for different business needs — from simple landing pages to large-scale web solutions.",
-    "typesDesc": "Each project is adapted for advertising, user experience, and future business growth.",
+    "replyNote": "Response in under 2 hours · EN / UA / RU",
+    "typesIntro": "We create websites for different business goals — from simple landing pages to large-scale web solutions.",
+    "typesDesc": "Every project is adapted for advertising, user convenience, and future business growth.",
     "types": [
-      "Landing pages",
-      "Multi-page sites",
-      "Corporate sites",
-      "Online stores",
-      "Product catalogues",
-      "Business cards",
-      "Promo sites",
-      "Service sites",
-      "Booking sites",
-      "E-commerce sites",
-      "Portfolio sites",
-      "Blog sites",
-      "CRM platforms",
-      "Web apps",
-      "Custom web solutions"
+      "Landing Pages",
+      "Multi-Page Websites",
+      "Corporate Websites",
+      "Online Stores",
+      "Product Catalogs",
+      "Business Card Websites",
+      "Promo Websites",
+      "Service Websites",
+      "Booking Websites",
+      "E-commerce Websites",
+      "Portfolio Websites",
+      "Blog Websites",
+      "CRM Platforms",
+      "Web Applications",
+      "Custom Web Solutions"
     ],
     "sidecard": [
       {
         "label": "Format",
-        "val": "One-time build or ongoing support"
+        "val": "One-time development or long-term support"
       },
       {
         "label": "Approach",
-        "val": "Site built for your business goals"
+        "val": "A website built around business tasks and goals"
       },
       {
-        "label": "Also includes",
-        "val": "Optimisation, support and site development"
+        "label": "Additionally",
+        "val": "Website optimization, support, and development"
       },
       {
         "label": "Integrations",
@@ -1131,76 +1131,76 @@
       },
       {
         "label": "Timeline",
-        "val": "Depends on project complexity and features"
+        "val": "Depends on project complexity and functionality"
       },
       {
         "label": "Result",
-        "val": "A ready site for ads, sales and business scaling"
+        "val": "A ready website for advertising, sales, and business scaling"
       }
     ],
     "deliverables": [
       {
-        "name": "Sites for ads & conversion",
-        "note": "Page structure is built to guide users toward a lead or purchase."
+        "name": "Websites Built for Ads and Conversion",
+        "note": "The page structure is built to lead the user to an inquiry or purchase."
       },
       {
-        "name": "Modern design & mobile adaptation",
-        "note": "Site looks correct on phone, tablet and desktop."
+        "name": "Modern Design and Mobile Adaptation",
+        "note": "The website displays correctly on phones, tablets, and computers."
       },
       {
-        "name": "Speed & user comfort",
-        "note": "Load speed optimisation and smooth site interaction."
+        "name": "Speed and User Comfort",
+        "note": "Loading speed optimization and improved ease of interaction with the website."
       },
       {
-        "name": "Form & CRM connection",
-        "note": "Leads can automatically go to Telegram, email or a CRM system."
+        "name": "Forms and CRM Connection",
+        "note": "Inquiries can automatically go to Telegram, email, or a CRM system."
       },
       {
-        "name": "Analytics & ad preparation",
-        "note": "Google Analytics, Meta Pixel, conversions and basic tracking setup."
+        "name": "Analytics and Ad Preparation",
+        "note": "Connecting Google Analytics, Meta Pixel, conversions, and basic tracking."
       },
       {
-        "name": "Scalability & future development",
-        "note": "The site can be expanded with new pages, integrations and features."
+        "name": "Scalability and Future Development",
+        "note": "The website can be expanded with new pages, integrations, and functionality in the future."
       }
     ],
     "pricing": [
       {
-        "label": "Engagement",
+        "label": "Format",
         "val": "Project",
-        "unit": "fixed"
+        "unit": "fixed price"
       },
       {
-        "label": "Landing page",
+        "label": "Landing Page",
         "val": "€2,800",
-        "unit": "starts at"
+        "unit": "from"
       },
       {
-        "label": "Full site",
+        "label": "Full Website",
         "val": "€6,500",
-        "unit": "starts at"
+        "unit": "from"
       },
       {
         "label": "Timeline",
-        "val": "2–3 wk",
+        "val": "2–3 weeks",
         "unit": "typical"
       }
     ],
     "proof": [
       {
         "v": "+41%",
-        "l": "Form-fill rate",
-        "d": "Dental clinic · rebuild with Telegram-bot booking"
+        "l": "Form Submissions",
+        "d": "Dentistry · rebuild with Telegram booking bot"
       },
       {
         "v": "1.4s",
-        "l": "Time to interactive",
-        "d": "DTC skincare · from 4.8s to 1.4s mobile"
+        "l": "Time to Interactive",
+        "d": "DTC Cosmetics · from 4.8s to 1.4s on mobile"
       },
       {
         "v": "×2.1",
-        "l": "Trial-to-paid",
-        "d": "SaaS · pricing page rework + activation email flow"
+        "l": "Payment Conversion",
+        "d": "SaaS · pricing page redesign + email activation funnel"
       }
     ],
     "lighthouse": [
@@ -1220,41 +1220,41 @@
         "color": "#25C55E"
       }
     ],
-    "caseTitle": "This site is part of the case study too.",
-    "caseText": "Everything you see here is an example of our approach to structure, speed and conversion."
+    "caseTitle": "This website is part of the case study too.",
+    "caseText": "Everything you see here is an example of our approach to structure, speed, and conversion."
   },
   "smmPage": {
     "crumb": "SMM",
-    "lede": "Social media management for consistent audience contact, brand support and increased sales through content.",
+    "lede": "Social media management for consistent audience contact, brand support, and sales growth through content.",
     "heroLine1": "Content that",
     "heroItalic": "turns ",
     "heroLine2": "attention into",
     "heroAccent": "an audience.",
-    "ctaLine1": "Let's build an audience",
+    "ctaLine1": "Let’s build an audience",
     "ctaLine2": "that",
     "ctaItalic": "buys",
-    "ctaAccent": "back.",
-    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "ctaAccent": "again.",
+    "replyNote": "Typical response in under 2 hours · EN / UA / RU",
     "sidecard": [
       {
-        "label": "Who it's for",
-        "val": "Businesses that want to stay in their audience's attention regularly"
+        "label": "Who It’s For",
+        "val": "For businesses that want to stay consistently visible to their audience"
       },
       {
-        "label": "Main goal",
-        "val": "Brand support, trust and sales through content"
+        "label": "Main Goal",
+        "val": "Supporting brand, trust, and sales through content"
       },
       {
         "label": "Format",
-        "val": "Content plan • Editing • Design • Content publishing"
+        "val": "Content Plan • Editing • Design • Content Publishing"
       },
       {
-        "label": "Good fit for",
-        "val": "Local business • Services • HoReCa • Brands • Expert pages"
+        "label": "Suitable For",
+        "val": "Local Business • Services • HoReCa • Brands • Expert Pages"
       },
       {
-        "label": "Also includes",
-        "val": "Content for ads, warming up and increasing page activity"
+        "label": "Additionally",
+        "val": "Content for ads, nurturing, and increasing page activity"
       },
       {
         "label": "Result",
@@ -1263,29 +1263,29 @@
     ],
     "deliverables": [
       {
-        "name": "Strategy & content plan",
-        "note": "Developing topics, themes and content structure for your business and audience."
+        "name": "Strategy and Content Plan",
+        "note": "Development of content pillars, topics, and structure for your business and audience."
       },
       {
-        "name": "Content editing & design",
-        "note": "Video editing, post design, stories and short-form content for social media."
+        "name": "Content Editing and Design",
+        "note": "Video editing, design of posts, stories, and short-form content for social media."
       },
       {
-        "name": "Publishing & social media management",
+        "name": "Publishing and Social Media Management",
         "note": "Regular content publishing and maintaining page activity."
       },
       {
-        "name": "Content for sales & audience warm-up",
-        "note": "Content that helps stay in clients' attention and strengthens brand trust."
+        "name": "Content for Sales and Audience Nurturing",
+        "note": "Content that helps you stay visible to clients and strengthens trust in the brand."
       },
       {
-        "name": "Platforms we work with",
+        "name": "Social Platforms We Work With",
         "note": "Instagram • Facebook • TikTok • LinkedIn • Threads • Google Business Profile"
       }
     ],
     "pricing": [
       {
-        "label": "Engagement",
+        "label": "Format",
         "val": "Retainer",
         "unit": "monthly"
       },
@@ -1308,82 +1308,82 @@
     "proof": [
       {
         "v": "+6.8k",
-        "l": "IG followers",
-        "d": "Fashion label · 4-month content sprint, €0 paid boost"
+        "l": "IG Followers",
+        "d": "Fashion brand · 4-month content sprint, €0 paid promotion"
       },
       {
         "v": "×3.2",
-        "l": "UGC ad ROAS",
-        "d": "Skincare · creator content fed into Meta retargeting"
+        "l": "UGC Ad ROAS",
+        "d": "Cosmetics · creator content in Meta retargeting"
       },
       {
         "v": "2h",
-        "l": "Avg reply time",
-        "d": "Dental clinic · community mgmt during booking hours"
+        "l": "Average Response Time",
+        "d": "Dentistry · community management during booking hours"
       }
     ]
   },
   "seoPage": {
-    "crumb": "Consultations",
-    "heroLine1": "Consultations and",
+    "crumb": "Consulting",
+    "heroLine1": "Consulting and",
     "heroItalic": "strategy",
-    "heroAccent": "for business.",
-    "ctaLine1": "Not sure",
-    "ctaItalic": "what is blocking",
+    "heroAccent": "for Business.",
+    "ctaLine1": "Don’t understand",
+    "ctaItalic": "what is slowing down",
     "ctaAccent": "business growth?",
-    "replyNote": "Typical reply in under 2 hours · EN / UA / RU",
+    "replyNote": "Typical response in under 2 hours · EN / UA / RU",
     "deliverables": [
       {
-        "name": "Ad audit & recommendations",
-        "note": "Review of current ad campaigns, mistakes, growth points and optimisation opportunities."
+        "name": "Ad Audit and Recommendations",
+        "note": "Review of current ad campaigns, mistakes, growth points, and optimization opportunities."
       },
       {
-        "name": "One-time ad setup",
+        "name": "One-Time Ad Setup",
         "note": "Help launching Google Ads or Meta Ads without long-term management."
       },
       {
-        "name": "Business training",
-        "note": "Explaining how to independently launch and control advertising for your business."
+        "name": "Business Training",
+        "note": "Explanation of how to launch and control advertising for your business on your own."
       },
       {
-        "name": "Social media & content recommendations",
-        "note": "Advice on Instagram, Facebook, website, brand positioning and communication improvements."
+        "name": "Social Media and Content Recommendations",
+        "note": "Advice on Instagram, Facebook, the website, positioning, improving brand communication, and increasing conversion."
       },
       {
-        "name": "Post-consultation support",
-        "note": "7 days of support to implement recommendations and answer questions."
+        "name": "Support After the Consultation",
+        "note": "7 days of support to implement recommendations and get help if questions come up."
       },
       {
-        "name": "Practical approach — no fluff",
-        "note": "Focus on real actions you can implement in your business immediately."
+        "name": "Practical Approach Without Fluff",
+        "note": "Focus on real actions that can be implemented in the business right away."
       }
     ],
     "proof": [
       {
         "v": "×3.8",
-        "l": "Organic traffic",
+        "l": "Organic Traffic",
         "d": "B2B SaaS · 9 months · cluster strategy + PR"
       },
       {
         "v": "+214%",
-        "l": "Non-brand clicks",
+        "l": "Non-Brand Clicks",
         "d": "E-commerce · technical + content sprint · 6 months"
       },
       {
         "v": "#1–3",
-        "l": "SERP rank",
-        "d": "Dental clinic · \"stomatolog Warszawa\" cluster, 12 terms"
+        "l": "SERP Positions",
+        "d": "Dentistry · “dentist Warsaw” cluster, 12 queries"
       }
     ],
     "consultCards": [
       {
         "num": "01",
-        "title": "WHERE LEADS ARE LOST",
-        "desc": "Ads • website • communication"
+        "title": "WHERE INQUIRIES ARE LOST",
+        "desc": "Ads • Website • Communication"
       },
       {
         "num": "02",
-        "title": "WHAT IS BLOCKING GROWTH",
+        "title": "WHAT SLOWS GROWTH",
         "desc": "offer • structure • analytics"
       },
       {
@@ -1407,13 +1407,13 @@
       },
       {
         "n": "04",
-        "label": "Execution"
+        "label": "Implementation"
       }
     ],
     "supportLabel": "SUPPORT AFTER",
     "supportDays": "7 days · included",
     "heroBg": "STRATEGY",
-    "eyebrowText": "STRATEGY · Consultations",
-    "sidecardHead": "/ Consultations"
+    "eyebrowText": "STRATEGY · Consulting",
+    "sidecardHead": "/ Consulting"
   }
 }
