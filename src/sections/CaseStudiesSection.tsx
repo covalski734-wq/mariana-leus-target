@@ -11,11 +11,12 @@ interface CaseItem {
   gradient: [string, string];
   image?: string;
   instagram?: string;
+  mainPage?: boolean;
 }
 
 export const CaseStudiesSection: React.FC = () => {
   const { t } = useTranslation();
-  const cases = t('cases.items', { returnObjects: true }) as CaseItem[];
+  const cases = (t('cases.items', { returnObjects: true }) as CaseItem[]).filter(c => c.mainPage !== false);
 
   return (
     <section className="cases" id="work">

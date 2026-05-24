@@ -77,7 +77,8 @@
         "instagram": "https://www.instagram.com/p/DXWcdaOinaO",
         "tags": [
           "meta"
-        ]
+        ],
+        "mainPage": true
       },
       {
         "niche": "Fence · США",
@@ -93,7 +94,8 @@
         "instagram": "https://www.instagram.com/p/DXb3cTdCsWA",
         "tags": [
           "meta"
-        ]
+        ],
+        "mainPage": true
       },
       {
         "niche": "Детейлинг · Канада",
@@ -110,7 +112,8 @@
         "tags": [
           "meta",
           "google"
-        ]
+        ],
+        "mainPage": true
       },
       {
         "niche": "Караоке-бар · Чехия",
@@ -127,7 +130,24 @@
         "tags": [
           "meta",
           "google"
-        ]
+        ],
+        "mainPage": true
+      },
+      {
+        "niche": "Клининг · Канада",
+        "result": "+952",
+        "unit": "заявки / 3 мес",
+        "title": "89 продаж · $17,000+ потенциальная выручка",
+        "desc": "Старт с нуля: без базы, без прогретой аудитории, в конкурентной нише. Система Meta Ads + контент + ремаркетинг + переписки → 952 заявки, 89 продаж, ≈$42 за продажу.",
+        "gradient": [
+          "#004AAD",
+          "#00C48C"
+        ],
+        "instagram": "https://www.instagram.com/p/DYuElO7KJ3o/",
+        "tags": [
+          "meta"
+        ],
+        "mainPage": false
       }
     ],
     "moreNote": "Больше кейсов — на страницах услуг"

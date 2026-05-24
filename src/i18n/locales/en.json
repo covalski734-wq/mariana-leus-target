@@ -77,7 +77,8 @@
         "instagram": "https://www.instagram.com/p/DXWcdaOinaO",
         "tags": [
           "meta"
-        ]
+        ],
+        "mainPage": true
       },
       {
         "niche": "Fence · USA",
@@ -93,7 +94,8 @@
         "instagram": "https://www.instagram.com/p/DXb3cTdCsWA",
         "tags": [
           "meta"
-        ]
+        ],
+        "mainPage": true
       },
       {
         "niche": "Detailing · Canada",
@@ -110,7 +112,8 @@
         "tags": [
           "meta",
           "google"
-        ]
+        ],
+        "mainPage": true
       },
       {
         "niche": "Karaoke Bar · Czechia",
@@ -127,7 +130,24 @@
         "tags": [
           "meta",
           "google"
-        ]
+        ],
+        "mainPage": true
+      },
+      {
+        "niche": "Cleaning · Canada",
+        "result": "+952",
+        "unit": "leads / 3 mo",
+        "title": "89 sales · $17,000+ potential revenue",
+        "desc": "Started from 0: no base, no warm audience, competitive niche. Built a system — Meta Ads + content + remarketing + follow-ups → 952 leads, 89 sales, ≈$42 per sale.",
+        "gradient": [
+          "#004AAD",
+          "#00C48C"
+        ],
+        "instagram": "https://www.instagram.com/p/DYuElO7KJ3o/",
+        "tags": [
+          "meta"
+        ],
+        "mainPage": false
       }
     ],
     "moreNote": "More case studies — on the service pages"
