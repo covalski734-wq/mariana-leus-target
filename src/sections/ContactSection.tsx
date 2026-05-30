@@ -167,6 +167,14 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="arr"><IconArrow size={16} /></div>
             </a>
+            <a href="https://www.linkedin.com/in/%D0%BC%D0%B0%D1%80%D1%8C%D1%8F%D0%BD%D0%B0-%D0%BB%D0%B5%D1%83%D1%81-013236191/" className="channel">
+              <div className="ico"><IconMail size={22} /></div>
+              <div className="meta">
+                <div className="name">{t('contact.linkedinName')}</div>
+                <div className="handle">www.linkedin.com</div>
+              </div>
+              <div className="arr"><IconArrow size={16} /></div>
+            </a>
           </div>
 
           {/* Form */}

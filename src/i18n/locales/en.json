@@ -148,6 +148,22 @@
           "meta"
         ],
         "mainPage": false
+      },
+      {
+        "niche": "New Cleaning · Canada",
+        "result": "$7,000",
+        "unit": "revenue / 2 mo",
+        "title": "36 sales · Listowel, Ontario",
+        "desc": "New cleaning business with no client base. In 2 months of Meta Ads — 36 sales, $7,000 in revenue, and client trust built from scratch. Ads brought people who actually booked the service.",
+        "gradient": [
+          "#004AAD",
+          "#00C48C"
+        ],
+        "instagram": "https://www.instagram.com/p/DY38bPWldHo/",
+        "tags": [
+          "meta"
+        ],
+        "mainPage": false
       }
     ],
     "moreNote": "More case studies — on the service pages"
@@ -267,6 +283,7 @@
     "instagramName": "Instagram",
     "facebookName": "Facebook",
     "emailName": "Email",
+    "linkedinName": "LinkedIn",
     "nameLabel": "Your Name",
     "namePlaceholder": "Oksana Kovalenko",
     "businessLabel": "Business",
