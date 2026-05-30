@@ -166,7 +166,9 @@
         "mainPage": false
       }
     ],
-    "moreNote": "Більше кейсів — на сторінках послуг"
+    "moreNote": "Більше кейсів — на сторінках послуг",
+    "showMore": "Показати більше",
+    "showLess": "Згорнути"
   },
   "testimonials": {
     "sectionNum": "/ 03 · Клієнти",

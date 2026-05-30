@@ -166,7 +166,9 @@
         "mainPage": false
       }
     ],
-    "moreNote": "More case studies — on the service pages"
+    "moreNote": "More case studies — on the service pages",
+    "showMore": "Show more",
+    "showLess": "Show less"
   },
   "testimonials": {
     "sectionNum": "/ 03 · Clients",

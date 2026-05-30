@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IconCheck, IconArrow, IconArrowUp } from '@/components/Icons';
@@ -6,6 +6,29 @@ import { IconCheck, IconArrow, IconArrowUp } from '@/components/Icons';
 interface Deliverable { name: string; note: string; }
 interface SidecardItem { label: string; val: string; }
 interface CaseItem { niche: string; result: string; unit: string; title: string; instagram?: string; tags?: string[]; }
+
+const CaseCell: React.FC<{ c: CaseItem }> = ({ c }) => (
+  <div className="svc-proof-cell">
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+      <div className="metric-label">{c.niche}</div>
+      <a
+        href={c.instagram ?? 'https://www.instagram.com/mariana_leus_/'}
+        target="_blank" rel="noopener noreferrer"
+        className="case-arrow"
+        style={{ width: 26, height: 26, flexShrink: 0 }}
+      >
+        <IconArrowUp size={12} />
+      </a>
+    </div>
+    <div className="metric-value">
+      {['+','×','€','$','≈'].some(s => c.result.startsWith(s))
+        ? <><span className="plus">{c.result[0]}</span>{c.result.slice(1)}</>
+        : c.result}
+      {' '}<span style={{ fontSize: '0.45em', opacity: 0.55, fontWeight: 400 }}>{c.unit}</span>
+    </div>
+    <div className="metric-desc">{c.title}</div>
+  </div>
+);
 
 export const GoogleAdsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -15,7 +38,12 @@ export const GoogleAdsPage: React.FC = () => {
 
   const deliverables = t('googleAdsPage.deliverables', { returnObjects: true }) as Deliverable[];
   const sidecard = t('googleAdsPage.sidecard', { returnObjects: true }) as SidecardItem[];
-  const cases = (t('cases.items', { returnObjects: true }) as CaseItem[]).filter(c => c.tags?.includes('google'));
+  const [showAllCases, setShowAllCases] = useState(false);
+  const allCases = (t('cases.items', { returnObjects: true }) as CaseItem[]).filter(c => c.tags?.includes('google'));
+  const CASES_LIMIT = 4;
+  const hasMore = allCases.length > 5;
+  const visibleCases = hasMore ? allCases.slice(0, CASES_LIMIT) : allCases;
+  const hiddenCases = hasMore ? allCases.slice(CASES_LIMIT) : [];
 
   return (
     <>
@@ -93,29 +121,38 @@ export const GoogleAdsPage: React.FC = () => {
           </div>
 
           <div className="svc-proof-4 reveal">
-            {cases.map((c, i) => (
-              <div key={i} className="svc-proof-cell">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                  <div className="metric-label">{c.niche}</div>
-                  <a
-                    href={c.instagram ?? 'https://www.instagram.com/mariana_leus_/'}
-                    target="_blank" rel="noopener noreferrer"
-                    className="case-arrow"
-                    style={{ width: 26, height: 26, flexShrink: 0 }}
-                  >
-                    <IconArrowUp size={12} />
-                  </a>
-                </div>
-                <div className="metric-value">
-                  {['+','×','€','$','≈'].some(s => c.result.startsWith(s))
-                    ? <><span className="plus">{c.result[0]}</span>{c.result.slice(1)}</>
-                    : c.result}
-                  {' '}<span style={{ fontSize: '0.45em', opacity: 0.55, fontWeight: 400 }}>{c.unit}</span>
-                </div>
-                <div className="metric-desc">{c.title}</div>
-              </div>
+            {visibleCases.map((c, i) => (
+              <CaseCell key={i} c={c} />
             ))}
           </div>
+          {hasMore && (
+            <>
+              <div style={{
+                overflow: 'hidden',
+                maxHeight: showAllCases ? 2000 : 0,
+                opacity: showAllCases ? 1 : 0,
+                transition: 'max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.45s cubic-bezier(.4,0,.2,1)',
+              }}>
+                <div className="svc-proof-4" style={{ marginTop: 0 }}>
+                  {hiddenCases.map((c, i) => (
+                    <CaseCell key={i} c={c} />
+                  ))}
+                </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: 24 }}>
+                <button
+                  onClick={() => setShowAllCases(v => !v)}
+                  className="btn btn-ghost"
+                  style={{ minWidth: 180, display: 'inline-flex', alignItems: 'center', gap: 8, justifyContent: 'center' }}
+                >
+                  {showAllCases ? t('cases.showLess') : t('cases.showMore')}
+                  <span style={{ display: 'inline-flex', transform: showAllCases ? 'rotate(-90deg)' : 'rotate(90deg)', transition: 'transform 0.3s ease' }}>
+                    <IconArrow size={14} className="arrow" />
+                  </span>
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </section>
 
