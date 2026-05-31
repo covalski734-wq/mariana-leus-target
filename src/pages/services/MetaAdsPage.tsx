@@ -170,7 +170,7 @@ export const MetaAdsPage: React.FC = () => {
                 opacity: showAllCases ? 1 : 0,
                 transition: 'max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.45s cubic-bezier(.4,0,.2,1)',
               }}>
-                <div className="svc-proof-4" style={{ marginTop: 0 }}>
+                <div className="svc-proof-4" style={{ marginTop: 16 }}>
                   {hiddenCases.map((c, i) => (
                     <CaseCell key={i} c={c} />
                   ))}
