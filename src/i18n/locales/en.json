@@ -134,6 +134,22 @@
         "mainPage": true
       },
       {
+        "niche": "Local Business · Google Ads",
+        "result": "$18,000",
+        "unit": "profit",
+        "title": "$1,800 ad budget",
+        "desc": "Ads should not be judged only by clicks and form submissions. For a local business, the full picture matters: how many people showed interest, how many reached the estimate stage, how many became clients, and how much profit it generated.",
+        "gradient": [
+          "#F7AD1A",
+          "#004AAD"
+        ],
+        "instagram": "https://www.instagram.com/reel/DaU7BNxKBmu/?igsh=cGFodXZjb3NleHk0",
+        "tags": [
+          "google"
+        ],
+        "mainPage": false
+      },
+      {
         "niche": "Cleaning · Canada",
         "result": "+952",
         "unit": "leads / 3 mo",

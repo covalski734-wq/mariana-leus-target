@@ -14,9 +14,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const stored = localStorage.getItem('theme') as Theme | null
     if (stored) return stored
 
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark'
-    }
     return 'light'
   })
 
@@ -24,6 +21,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('theme', theme)
     const root = document.documentElement
 
+    root.setAttribute('data-theme', theme)
     root.classList.toggle('dark', theme === 'dark')
     root.classList.toggle('light', theme === 'light')
   }, [theme])

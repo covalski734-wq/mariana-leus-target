@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('theme');
     if (saved === 'dark' || saved === 'light') return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return 'light';
   });
   const { t, i18n } = useTranslation();
   const lang = i18n.language.toUpperCase() as 'EN' | 'UA' | 'RU';
