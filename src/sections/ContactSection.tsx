@@ -10,7 +10,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | u
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type ContactMethod = 'phone' | 'telegram' | 'whatsapp' | 'email';
+type ContactMethod = 'telegram' | 'whatsapp' | 'email';
 
 interface FormValues {
   name: string;
@@ -28,7 +28,7 @@ const PHONE_COUNTRIES = [
 ] as const;
 
 const METHOD_LABELS: Record<ContactMethod, Record<string, string>> = {
-  phone:    { EN: 'Phone', UA: 'Телефон', RU: 'Телефон' },
+  // phone:    { EN: 'Phone', UA: 'Телефон', RU: 'Телефон' },
   telegram: { EN: 'Telegram', UA: 'Telegram', RU: 'Telegram' },
   whatsapp: { EN: 'WhatsApp', UA: 'WhatsApp', RU: 'WhatsApp' },
   email:    { EN: 'Email', UA: 'Email', RU: 'Email' },
@@ -111,7 +111,7 @@ export const ContactSection: React.FC = () => {
       });
       if (!res.ok) throw new Error('failed');
       setStatus('success');
-      reset({ name: '', contact_method: 'phone', contact_value: '', message: '' });
+      reset({ name: '', contact_method: 'telegram', contact_value: '', message: '' });
     } catch {
       setStatus('error');
     }
@@ -240,7 +240,7 @@ export const ContactSection: React.FC = () => {
                         message: t('contact.errorRequired'),
                       },
                       validate: (v) => {
-                        if (selectedMethod === 'phone' || selectedMethod === 'whatsapp') {
+                        if (selectedMethod === 'whatsapp') {
                           try {
                             return isValidPhoneNumber('+' + v) || t('contact.errorPhone');
                           } catch {
@@ -260,7 +260,7 @@ export const ContactSection: React.FC = () => {
                       },
                     }}
                     render={({ field }) => {
-                      if (selectedMethod === 'phone' || selectedMethod === 'whatsapp') {
+                      if (selectedMethod === 'whatsapp') {
                         return (
                           <PhoneInput
                             country="pl"
