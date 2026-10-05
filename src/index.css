@@ -1058,7 +1058,7 @@
 }
 .cta-band .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 .svc-proof-4 {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 48px;
 }
 @media (max-width: 960px) { .svc-proof-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .svc-proof-4 { grid-template-columns: 1fr; } }
@@ -1511,3 +1511,64 @@
 .mobile-lang button.active { color: var(--bg); background: var(--fg); border-color: transparent; }
 .mobile-nav-cta { width: 100%; }
 .mobile-nav-cta .btn { width: 100%; justify-content: center; }
+
+/* Compact advertising case studies */
+.short-case { min-width: 0; }
+.short-case-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+.short-case-top .metric-label { line-height: 1.6; margin: 0; max-width: 85%; }
+.short-case-top .case-arrow { width: 30px; height: 30px; flex-shrink: 0; }
+.short-case .metric-value { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 10px; }
+.short-case-unit { font: 400 14px/1.5 var(--display); letter-spacing: 0; color: var(--fg-dim); }
+.short-case .metric-desc { font-weight: 600; color: var(--fg); }
+.short-case-description { font: 400 14px/1.65 var(--display); color: var(--fg-dim); margin: 12px 0 0; max-width: 62ch; }
+
+/* Website portfolio */
+.web-portfolio { padding: clamp(56px, 7vw, 100px) 0; border-top: 1px solid var(--border); background: var(--bg); }
+.web-portfolio-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.web-project { min-width: 0; display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--surface); }
+.web-project-preview { display: block; width: 100%; padding: 18px 18px 0; border: 0; cursor: pointer; background: #e4ddd2; text-align: left; overflow: hidden; }
+.project-skyline { background: #303037; }
+.project-maryna { background: #b9d9e1; }
+.browser-frame { height: 25px; display: flex; align-items: center; gap: 12px; border-radius: 7px 7px 0 0; background: #f5f5f5; color: #666; font: 400 9px/1 var(--mono); padding: 0 10px; }
+.browser-dots { display: flex; gap: 3px; }
+.browser-dots i { width: 4px; height: 4px; background: #bbb; border-radius: 50%; }
+.web-project-preview img { width: 100%; height: auto; display: block; transition: filter .2s; }
+.web-project-preview:hover img { filter: brightness(1.08); }
+.web-project-body { padding: 24px; display: flex; flex-direction: column; flex: 1; align-items: flex-start; }
+.web-project-niche { font: 500 10px/1.6 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-dim); margin: 0 0 10px; }
+.web-project h3 { font: 600 clamp(21px, 2vw, 27px)/1.15 var(--display); letter-spacing: -.025em; margin: 0 0 16px; color: var(--fg); }
+.web-project-type { display: inline-block; border: 1px solid var(--border); border-radius: 5px; padding: 6px 9px; font: 500 11px/1.4 var(--display); color: var(--fg); }
+.web-project-summary { font: 400 14px/1.65 var(--display); color: var(--fg-dim); margin: 16px 0 24px; }
+.web-project-technology { font: 400 12px/1.5 var(--display); color: var(--fg-dim); margin: 12px 0 0; }
+.web-project-technology strong { font-weight: 500; color: var(--fg); }
+.web-project-more { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: auto; border: 0; border-top: 1px solid var(--border); background: transparent; padding: 18px 0 0; color: var(--fg); font: 600 13px/1.4 var(--display); cursor: pointer; }
+.web-project-more:hover { color: var(--brand); }
+.project-dialog { width: min(1040px, calc(100% - 48px)); max-height: calc(100dvh - 48px); padding: 0; margin: auto; border: 1px solid var(--border); border-radius: 18px; background: var(--bg); color: var(--fg); overflow: auto; overscroll-behavior: contain; }
+.project-dialog::backdrop { background: #080a14bb; backdrop-filter: blur(8px); }
+.project-dialog-bar { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-bottom: 1px solid var(--border); background: var(--bg); font: 500 13px/1.4 var(--display); }
+.project-close { width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; background: var(--surface); color: var(--fg); font: 400 28px/1 var(--display); cursor: pointer; }
+.project-dialog-body { padding: clamp(20px, 4vw, 40px); }
+.project-dialog h2 { font: 600 clamp(28px, 5vw, 46px)/1.1 var(--display); letter-spacing: -.04em; margin: 0 0 18px; }
+.project-tags { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; font: 400 12px/1.5 var(--mono); color: var(--fg-dim); }
+.project-hero-image { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; }
+.project-description-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 32px 0; }
+.project-description-grid h3 { font: 600 17px/1.4 var(--display); margin: 0 0 10px; }
+.project-description-grid p { font: 400 14px/1.75 var(--display); color: var(--fg-dim); margin: 0; }
+.project-screen-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .32fr); gap: 24px; align-items: start; margin: 0 0 32px; }
+.project-screen-grid figure { margin: 0; min-width: 0; }
+.project-screen-grid img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--border); }
+.project-screen-grid figcaption { font: 400 11px/1.5 var(--mono); color: var(--fg-dim); margin-top: 10px; }
+.web-portfolio button:focus-visible, .web-portfolio a:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+@media (max-width: 1050px) {
+  .web-portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+}
+@media (max-width: 600px) {
+  .web-portfolio-grid { grid-template-columns: minmax(0, 1fr); }
+  .web-project-body { padding: 22px; }
+  .project-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 20px); border-radius: 12px; }
+  .project-dialog-bar { padding: 10px 16px; }
+  .project-description-grid { grid-template-columns: 1fr; gap: 24px; margin: 24px 0; }
+  .project-screen-grid { grid-template-columns: 1fr; }
+  .project-mobile-screen { max-width: 240px; justify-self: center; }
+  .project-dialog-body > .btn { width: 100%; justify-content: center; }
+}

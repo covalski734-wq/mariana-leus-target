@@ -41,6 +41,7 @@ export const CaseStudiesSection: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="case-arrow"
+                  aria-label={`${t('cases.viewCase')}: ${c.niche}`}
                 >
                   <IconArrowUp size={14} />
                 </a>

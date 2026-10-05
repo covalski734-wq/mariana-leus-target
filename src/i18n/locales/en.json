@@ -68,7 +68,7 @@
         "result": "≈28 zł",
         "unit": "per purchase",
         "title": "Average order value: 150–200 zł",
-        "desc": "A new restaurant with no clients → built a system with Meta Ads + offers + content → steady orders and profit.",
+        "desc": "Combined Meta Ads, offers and content for a new restaurant. Built an order channel with an average cost per purchase of ≈28 zł.",
         "gradient": [
           "#004AAD",
           "#00B8D9"
@@ -85,7 +85,7 @@
         "result": "+395 leads",
         "unit": "≈ $12 per lead",
         "title": "$4,809 spent",
-        "desc": "Leads were unstable → built a system (Meta Ads + creatives + offer + retargeting, plus SMM) → a steady flow of inquiries and return on ad spend.",
+        "desc": "Combined Meta Ads, creatives and retargeting with SMM support. Generated 395 leads on a $4,809 budget.",
         "gradient": [
           "#6B2FF7",
           "#004AAD"
@@ -102,7 +102,7 @@
         "result": "$18",
         "unit": "CPL",
         "title": "773+ Google Ads conversions",
-        "desc": "Google Ads captures the main demand. Meta Ads strengthens the result and brings cheaper additional leads.",
+        "desc": "Google Ads captures existing demand, while Meta Ads brings additional enquiries. Google delivered over 773 conversions.",
         "gradient": [
           "#004AAD",
           "#25C55E"
@@ -120,7 +120,7 @@
         "result": "×2",
         "unit": "guests",
         "title": "Ads started bringing people in",
-        "desc": "Set up Google Ads and Meta Ads to reach people already looking for karaoke. Removed irrelevant queries and tested different promotions and corporate offers.",
+        "desc": "Combined Google Ads and Meta Ads, filtered irrelevant searches and tested offers and corporate events. Guest numbers doubled.",
         "gradient": [
           "#F7AD1A",
           "#004AAD"
@@ -138,7 +138,7 @@
         "result": "$18,000",
         "unit": "profit",
         "title": "$1,800 ad budget",
-        "desc": "Ads should not be judged only by clicks and form submissions. For a local business, the full picture matters: how many people showed interest, how many reached the estimate stage, how many became clients, and how much profit it generated.",
+        "desc": "Tracked the journey from ad enquiry to estimate and sale. A $1,800 ad budget generated $18,000 in profit.",
         "gradient": [
           "#F7AD1A",
           "#004AAD"
@@ -154,7 +154,7 @@
         "result": "+952",
         "unit": "leads / 3 mo",
         "title": "89 sales · $18,000+ potential revenue",
-        "desc": "Started from 0: no base, no warm audience, competitive niche. Built a system — Meta Ads + content + remarketing + follow-ups → 952 leads, 89 sales, ≈$42 per sale.",
+        "desc": "Started without a customer base using Meta Ads, content and remarketing. In 3 months: 952 leads and 89 sales at ≈$42 per sale.",
         "gradient": [
           "#004AAD",
           "#00C48C"
@@ -170,7 +170,7 @@
         "result": "$7,000",
         "unit": "revenue / 2 mo",
         "title": "36 sales · Listowel, Ontario",
-        "desc": "New cleaning business with no client base. In 2 months of Meta Ads — 36 sales, $7,000 in revenue, and client trust built from scratch. Ads brought people who actually booked the service.",
+        "desc": "Launched Meta Ads for a new cleaning business in Listowel. Generated 36 sales and $7,000 in revenue in 2 months.",
         "gradient": [
           "#004AAD",
           "#00C48C"
@@ -180,17 +180,45 @@
           "meta"
         ],
         "mainPage": false
+      },
+      {
+        "niche": "Sushi delivery · Poland · Google Ads",
+        "result": "327",
+        "unit": "purchases · 6.1× ROAS",
+        "title": "4,024 zł ad spend → 24,681 zł revenue",
+        "desc": "Added Google Search alongside Meta Ads to capture existing demand. Delivered 327 purchases in 4 months and an additional steady sales channel.",
+        "gradient": [
+          "#F7AD1A",
+          "#004AAD"
+        ],
+        "image": "/sushi.jpg",
+        "instagram": "https://www.instagram.com/p/Dd8ahcXCPoN/",
+        "tags": [
+          "google"
+        ],
+        "mainPage": false
       }
     ],
     "moreNote": "More case studies — on the service pages",
     "showMore": "Show more",
-    "showLess": "Show less"
+    "showLess": "Show less",
+    "viewCase": "View case"
   },
   "testimonials": {
     "sectionNum": "/ 03 · Clients",
     "title": "What Clients Say",
-    "desc": "These are not “reviews” — they are results from clients we’ve worked with for 3+ months. They stay because they see growth in inquiries and sales.",
+    "desc": "Our clients share their experience of working together, receiving enquiries and seeing results for their businesses.",
     "items": [
+      {
+        "name": "Maryna Cleaning",
+        "role": "Cleaning · Canada",
+        "init": "MC",
+        "services": [
+          "Google Ads",
+          "Website redesign"
+        ],
+        "text": "I want to share my experience working with Mariana. I found her on Instagram without a recommendation. We agreed to work together and it has been two months. I am very happy. We run Google ads and see results: orders almost every day. I have a cleaning business; she redesigned my website, keeps everything under control and listens to me. She is skilled and responsible. The advertising pays off. Highly recommended!"
+      },
       {
         "name": "Maksym N.",
         "role": "Restaurant",
@@ -1470,5 +1498,55 @@
     "heroBg": "STRATEGY",
     "eyebrowText": "STRATEGY · Consulting",
     "sidecardHead": "/ Consulting"
+  },
+  "webPortfolio": {
+    "title": "Our work",
+    "intro": "Websites for real businesses, from targeted updates to builds from scratch. Open a case study to explore the details.",
+    "details": "View case study",
+    "close": "Close case study",
+    "desktop": "Homepage · desktop",
+    "mobile": "Mobile version",
+    "work": "What we did",
+    "benefit": "What it means for the business",
+    "visit": "Visit website",
+    "items": [
+      {
+        "id": "skyline",
+        "name": "Skyline Stretch Ceilings",
+        "url": "https://skylineceilings.ca/",
+        "niche": "Stretch ceilings · Canada",
+        "type": "Built from scratch",
+        "platform": "React + Vite",
+        "summary": "The client wanted to introduce stretch ceilings to the Canadian market and test demand. We built a website to explain the product and help generate enquiries.",
+        "work": "Built the website from scratch with React + Vite. Showed how stretch ceilings look in an interior, the available lighting options and the installation process. Added project examples, FAQs and the option to request a quote via WhatsApp.",
+        "benefit": "The website provides a starting point for testing a new niche in Canada. The business can send ad traffic to it, explain the product’s benefits and collect initial enquiries to understand how local customers respond to the offer.",
+        "detailCaption": "Completed project portfolio"
+      },
+      {
+        "id": "maryna",
+        "name": "Maryna Cleaning",
+        "url": "https://marynacleaning.com/",
+        "niche": "Cleaning · Canada",
+        "type": "Redesign and ad preparation",
+        "platform": "SendPulse",
+        "summary": "A refreshed website for a Niagara Region cleaning business, alongside Google Ads management.",
+        "work": "Redesigned the existing website as part of our Google Ads engagement. The website presents services, pricing, cleaning results, reviews and an enquiry form with job details.",
+        "benefit": "Customers can explore services and share their cleaning requirements in one enquiry. The owner reports almost daily orders and advertising that pays for itself from the combined website and Google Ads work.",
+        "detailCaption": "Services and starting prices"
+      },
+      {
+        "id": "tile",
+        "name": "Tile Expert Solutions",
+        "url": "https://tileexpertsolutions.com/",
+        "niche": "Tile installation & remodeling · USA",
+        "type": "Website updates",
+        "platform": "WordPress",
+        "summary": "Targeted updates to an existing website for a tile installation and remodeling contractor in Minnesota.",
+        "work": "Made updates to the existing website. This case study shows its current version, including service information, project examples and the estimate request form.",
+        "benefit": "The website helps visitors explore services, assess the contractor’s experience and request an estimate with their project type and ZIP code.",
+        "detailCaption": "Service overview"
+      }
+    ],
+    "technology": "Technology"
   }
 }

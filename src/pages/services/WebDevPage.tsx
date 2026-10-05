@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IconArrow, IconCheck } from '@/components/Icons';
+import { WebPortfolioSection } from '@/sections/WebPortfolioSection';
 
 interface Deliverable { name: string; note: string; }
 interface LighthouseScore { label: string; score: number; color: string; }
@@ -184,6 +185,8 @@ export const WebDevPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <WebPortfolioSection />
 
       {/* ── Tech stack ──────────────────────────────────────────────── */}
       <section className="webdev-stack">

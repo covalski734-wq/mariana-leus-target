@@ -5,7 +5,7 @@ interface TestimonialItem {
   name: string;
   role: string;
   text: string;
-  stars: number;
+  stars?: number;
   init: string;
   services?: string[];
 }
@@ -100,7 +100,7 @@ export const TestimonialsSection: React.FC = () => {
           {all.map((item, i) => (
             <div key={i} className="t-card">
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-                <div className="t-stars">{'★'.repeat(item.stars)}</div>
+                {item.stars && <div className="t-stars">{'★'.repeat(item.stars)}</div>}
                 {item.services?.map(s => (
                   <span key={s} style={{
                     font: '500 10px/1 var(--mono)',
