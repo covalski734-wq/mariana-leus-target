@@ -13,7 +13,7 @@
     "italic": "actually",
     "line2": "return",
     "accent": "revenue",
-    "sub": "I’m Mariana — I help businesses build a steady flow of clients through advertising and a sales system. I don’t just launch ads — I build the full chain: traffic → website → inquiries → sales.",
+    "sub": "I’m Mariana - I help businesses build a steady flow of clients through advertising and a sales system. I don’t just launch ads - I build the full chain: traffic → website → inquiries → sales.",
     "ctaPrimary": "Free Consultation",
     "ctaSecondary": "View Case Studies",
     "scroll": "scroll",
@@ -61,7 +61,7 @@
   "cases": {
     "sectionNum": "/ 02 · Selected Work",
     "title": "Real Client Case Studies and Results",
-    "desc": "All case studies show real client results. I don’t show CTR — I show inquiries and sales. Results depend on niche, geography, and seasonality. Numbers in your niche may be different.",
+    "desc": "All case studies show real client results. I don’t show CTR - I show inquiries and sales. Results depend on niche, geography, and seasonality. Numbers in your niche may be different.",
     "items": [
       {
         "niche": "Sushi Delivery · Poland",
@@ -113,7 +113,13 @@
           "meta",
           "google"
         ],
-        "mainPage": true
+        "mainPage": true,
+        "meta": {
+          "result": "$8.25",
+          "unit": "CPL",
+          "title": "93 messages from Meta Ads",
+          "desc": "Meta Ads was used as an additional channel. It brought lower-cost enquiries and increased the flow of leads, but the audience was colder, so Google Ads remained the main source of clients."
+        }
       },
       {
         "niche": "Karaoke Bar · Czechia",
@@ -199,7 +205,7 @@
         "mainPage": false
       }
     ],
-    "moreNote": "More case studies — on the service pages",
+    "moreNote": "More case studies - on the service pages",
     "showMore": "Show more",
     "showLess": "Show less",
     "viewCase": "View case"
@@ -228,7 +234,7 @@
           "Meta Ads",
           "SMM"
         ],
-        "text": "Мар'яна, твоя робота ефективна.\nСМС-розсилки працюють — є відкриття, є реакції, є замовлення.\nТаргет налаштований грамотно — приходить цільова аудиторія, бюджет використовується раціонально.\nТи завжди на зв'язку, вникаєш у завдання, реагуєш швидко.\nЯ бачу результат і розумію, що з тобою можна працювати довгостроково.\nДякую."
+        "text": "Мар'яна, твоя робота ефективна.\nСМС-розсилки працюють - є відкриття, є реакції, є замовлення.\nТаргет налаштований грамотно - приходить цільова аудиторія, бюджет використовується раціонально.\nТи завжди на зв'язку, вникаєш у завдання, реагуєш швидко.\nЯ бачу результат і розумію, що з тобою можна працювати довгостроково.\nДякую."
       },
       {
         "name": "Tetiana S.",
@@ -238,7 +244,7 @@
         "services": [
           "Meta Ads"
         ],
-        "text": "Знайти \"свого\" таргетолога — це як знайти хорошого колориста.\nЗ першої ж розмови я зрозуміла, що маю справу з професіоналом, який не просто налаштовує рекламу, а глибоко занурюється в мій напрямок, розуміє специфіку й дійсно хоче дати результат.\nЗаявки пішли з перших днів, і найголовніше — це саме моя цільова аудиторія.\nЯк майстер-колорист, я особливо ціную індивідуальний підхід, увагу до дрібниць та естетику — і все це було.\nЩиро дякую за співпрацю! Рекомендую від серця!"
+        "text": "Знайти \"свого\" таргетолога - це як знайти хорошого колориста.\nЗ першої ж розмови я зрозуміла, що маю справу з професіоналом, який не просто налаштовує рекламу, а глибоко занурюється в мій напрямок, розуміє специфіку й дійсно хоче дати результат.\nЗаявки пішли з перших днів, і найголовніше - це саме моя цільова аудиторія.\nЯк майстер-колорист, я особливо ціную індивідуальний підхід, увагу до дрібниць та естетику - і все це було.\nЩиро дякую за співпрацю! Рекомендую від серця!"
       },
       {
         "name": "Nataliia P.",
@@ -289,7 +295,7 @@
         "services": [
           "Google Ads"
         ],
-        "text": "Я ИП, фуллстэк-разработчик, сижу на фрилансе. Пришёл с простой задачей — нужны были клиенты на разработку, потому что сарафан это конечно хорошо, но хотелось стабильности. Посоветовали Марьяну, обратился, настроили рекламу и пошли заявки, причём нормальные, по делу.\nПо работе все хорошо, на связи, объясняет по-человечески, без лишнего.\nВ общем, рекомендую. Спасибо."
+        "text": "Я ИП, фуллстэк-разработчик, сижу на фрилансе. Пришёл с простой задачей - нужны были клиенты на разработку, потому что сарафан это конечно хорошо, но хотелось стабильности. Посоветовали Марьяну, обратился, настроили рекламу и пошли заявки, причём нормальные, по делу.\nПо работе все хорошо, на связи, объясняет по-человечески, без лишнего.\nВ общем, рекомендую. Спасибо."
       },
       {
         "name": "Andrii M.",
@@ -306,8 +312,8 @@
   "about": {
     "sectionNum": "/ 04 · About Me",
     "badge": "Open to new projects",
-    "title": "4 years inside ad accounts — and most businesses have the same problem",
-    "p1": "I’ve worked with different niches — from services to e-commerce. In most cases, results come not from one channel, but from a system.",
+    "title": "4 years inside ad accounts - and most businesses have the same problem",
+    "p1": "I’ve worked with different niches - from services to e-commerce. In most cases, results come not from one channel, but from a system.",
     "p2": "I work with several traffic sources and analyze the full customer journey: from ad to inquiry to sale. At the start, I audit traffic, the website, and communication to find growth points.",
     "p3": "I manage 10–14 clients at a time, no more. Every project is handled personally, without template solutions. My goal is not just leads, but sales and business profit.",
     "yearsVal": "4 years",
@@ -321,11 +327,11 @@
   },
   "contact": {
     "sectionNum": "/ 05 · Contact",
-    "title": "Fastest response —\non Telegram.",
-    "desc": "I usually respond within two hours during business hours. For urgent questions — Telegram or WhatsApp.",
+    "title": "Fastest response -\non Telegram.",
+    "desc": "I usually respond within two hours during business hours. For urgent questions - Telegram or WhatsApp.",
     "telegramName": "Telegram · fastest",
     "whatsappName": "WhatsApp",
-    "whatsappHandle": "+48 — upon request",
+    "whatsappHandle": "+48 - upon request",
     "instagramName": "Instagram",
     "facebookName": "Facebook",
     "emailName": "Email",
@@ -344,10 +350,10 @@
     "budget6": "Not decided yet",
     "contactMethodLabel": "Preferred Contact Method",
     "messageLabel": "This will help me better understand your situation",
-    "messagePlaceholder": "Write a few sentences — what you do, your geography, and what you’ve already tried",
+    "messagePlaceholder": "Write a few sentences - what you do, your geography, and what you’ve already tried",
     "submitBtn": "Submit Request",
     "formFoot": "No autoresponders. No CRM email blasts. A real human response.",
-    "successMsg": "Received — I’ll reply within 2 hours.",
+    "successMsg": "Received - I’ll reply within 2 hours.",
     "errorRequired": "Required",
     "errorPhone": "Invalid number",
     "errorTelegram": "Format: @username",
@@ -356,7 +362,7 @@
     "errorServer": "Something went wrong. Try again or message me on Telegram."
   },
   "footer": {
-    "tagline": "For businesses that want more than numbers — they want more revenue",
+    "tagline": "For businesses that want more than numbers - they want more revenue",
     "services": "Services",
     "studio": "Studio",
     "elsewhere": "Contacts",
@@ -397,16 +403,16 @@
     "heroTitle1": "Five directions.",
     "heroItalic": "One",
     "heroTitle2": "P&L.",
-    "heroLede": "Every retainer is structured so the cost of working with me pays off by the second month. No dashboards you don’t understand, no agency theater — only one or two levers that move your numbers.",
+    "heroLede": "Every retainer is structured so the cost of working with me pays off by the second month. No dashboards you don’t understand, no agency theater - only one or two levers that move your numbers.",
     "processNum": "/ How We Work",
     "processTitle": "Four phases.\nNo surprises.",
-    "processDesc": "This is what every cooperation looks like. Weeks are approximate; your team and brand may adjust the timeline — I’ll explain it before we start.",
+    "processDesc": "This is what every cooperation looks like. Weeks are approximate; your team and brand may adjust the timeline - I’ll explain it before we start.",
     "investment": "Investment",
     "backHome": "← Home",
     "allServices": "All Services",
     "faqNum": "/ FAQ",
     "faqTitle": "Founder questions\nin the first 10 minutes.",
-    "faqDesc": "Didn’t find your question? Message me on Telegram or email — I respond within 2 hours during business hours.",
+    "faqDesc": "Didn’t find your question? Message me on Telegram or email - I respond within 2 hours during business hours.",
     "ctaTitle": "Ready to find out what\nyour ROAS should be?",
     "ctaBookBtn": "Request a Free Audit",
     "ctaBookConsultBtn": "Get an Analysis",
@@ -434,7 +440,7 @@
           },
           {
             "name": "Stage-Based Creative Pipeline",
-            "note": "Awareness · Consideration · Conversion — not one-size-fits-all messaging."
+            "note": "Awareness · Consideration · Conversion - not one-size-fits-all messaging."
           },
           {
             "name": "Audience Lift",
@@ -442,7 +448,7 @@
           },
           {
             "name": "Weekly Performance Reports",
-            "note": "Clear notes on what changed and what’s next — without 80-tab dashboards."
+            "note": "Clear notes on what changed and what’s next - without 80-tab dashboards."
           },
           {
             "name": "Landing Page A/B Tests",
@@ -504,7 +510,7 @@
           },
           {
             "name": "Negative Keyword System",
-            "note": "Ongoing work — negative keyword lists for each campaign, reviewed weekly."
+            "note": "Ongoing work - negative keyword lists for each campaign, reviewed weekly."
           },
           {
             "name": "Converting PMax Asset Groups",
@@ -512,7 +518,7 @@
           },
           {
             "name": "Conversion Tracking Audit",
-            "note": "GA4, enhanced conversions, offline imports — numbers you can trust."
+            "note": "GA4, enhanced conversions, offline imports - numbers you can trust."
           },
           {
             "name": "Shopping Feed Optimization",
@@ -586,7 +592,7 @@
           },
           {
             "name": "Form + CRM Connection",
-            "note": "Telegram bot, email, HubSpot, Notion, Sheets — whatever your stack requires."
+            "note": "Telegram bot, email, HubSpot, Notion, Sheets - whatever your stack requires."
           },
           {
             "name": "Analytics + Tags",
@@ -648,11 +654,11 @@
         "deliverables": [
           {
             "name": "Monthly Editorial Calendar",
-            "note": "Content pillars, formats, posting cadence — aligned with launches and advertising."
+            "note": "Content pillars, formats, posting cadence - aligned with launches and advertising."
           },
           {
             "name": "Short-Form Video Briefs",
-            "note": "Hooks, structure, shot lists for Reels / TikTok — filmed by you or a creator."
+            "note": "Hooks, structure, shot lists for Reels / TikTok - filmed by you or a creator."
           },
           {
             "name": "Content Production (Optional)",
@@ -664,7 +670,7 @@
           },
           {
             "name": "UGC Sourcing",
-            "note": "Briefs, whitelisting, rights — creator content that fuels paid ads."
+            "note": "Briefs, whitelisting, rights - creator content that fuels paid ads."
           },
           {
             "name": "Monthly Analytics Report",
@@ -722,7 +728,7 @@
         "deliverables": [
           {
             "name": "Technical Audit",
-            "note": "Crawling, index coverage, Core Web Vitals, structured data — with a prioritized list of fixes."
+            "note": "Crawling, index coverage, Core Web Vitals, structured data - with a prioritized list of fixes."
           },
           {
             "name": "Keyword and Topic Research",
@@ -738,7 +744,7 @@
           },
           {
             "name": "Link Acquisition",
-            "note": "Digital PR and partner outreach — optional budget, no PBN."
+            "note": "Digital PR and partner outreach - optional budget, no PBN."
           },
           {
             "name": "Quarterly Strategic Review",
@@ -790,7 +796,7 @@
       {
         "n": "01",
         "t": "Audit",
-        "d": "I review your current structure — ad accounts, landing pages, tracking — and identify the biggest leaks.",
+        "d": "I review your current structure - ad accounts, landing pages, tracking - and identify the biggest leaks.",
         "w": "Week 1"
       },
       {
@@ -819,7 +825,7 @@
       },
       {
         "q": "What is the minimum ad budget?",
-        "a": "It depends on the service. Meta Ads requires at least €5k/month in spend for the economics to make sense. Google Ads starts from €3k. SEO and SMM have no minimum ad spend — they are fixed retainers."
+        "a": "It depends on the service. Meta Ads requires at least €5k/month in spend for the economics to make sense. Google Ads starts from €3k. SEO and SMM have no minimum ad spend - they are fixed retainers."
       },
       {
         "q": "Do you take multiple clients from the same niche?",
@@ -831,11 +837,11 @@
       },
       {
         "q": "Can I hire you for a one-time project?",
-        "a": "For Web Dev — yes, I do fixed-scope projects. For paid media (Meta, Google), results compound over months, so I don’t offer one-time campaign setups without a minimum 3-month commitment."
+        "a": "For Web Dev - yes, I do fixed-scope projects. For paid media (Meta, Google), results compound over months, so I don’t offer one-time campaign setups without a minimum 3-month commitment."
       },
       {
         "q": "How are you different from an agency?",
-        "a": "You work directly with me, not an account manager. I limit the number of clients to maintain quality. And I’m personally invested — my reputation is my business, so I don’t inflate vanity metrics."
+        "a": "You work directly with me, not an account manager. I limit the number of clients to maintain quality. And I’m personally invested - my reputation is my business, so I don’t inflate vanity metrics."
       }
     ]
   },
@@ -849,9 +855,9 @@
     "heroSub": "so you don’t have to do it yourself.",
     "photoCaption": "Poland · 2026 · 14-client limit",
     "introLabel": "/ Intro",
-    "intro1": "I’ve worked with different niches, from services to e-commerce — and in most cases, results come not from one channel, but from a system. I work with several traffic sources at once and look at the full customer journey: from ad to inquiry to sale. That’s why it’s important not just to launch ads, but to understand exactly where the business is losing money.",
-    "intro2": "At the first touchpoint, I audit all key points — traffic, website, communication — to find weak spots and growth opportunities.",
-    "intro3": "I work with 10–14 clients at a time, no more. I manage every project personally and give it enough attention because I work not with isolated tools, but with a system. I also provide recommendations on content, the website, and client communication — from page structure to messaging scripts.",
+    "intro1": "I’ve worked with different niches, from services to e-commerce - and in most cases, results come not from one channel, but from a system. I work with several traffic sources at once and look at the full customer journey: from ad to inquiry to sale. That’s why it’s important not just to launch ads, but to understand exactly where the business is losing money.",
+    "intro2": "At the first touchpoint, I audit all key points - traffic, website, communication - to find weak spots and growth opportunities.",
+    "intro3": "I work with 10–14 clients at a time, no more. I manage every project personally and give it enough attention because I work not with isolated tools, but with a system. I also provide recommendations on content, the website, and client communication - from page structure to messaging scripts.",
     "intro4": "My goal is not clicks or leads, but sales and business profit. That’s why we work as one team, where both sides are invested in the result.",
     "timelineNum": "/ Journey",
     "timelineTitle": "How I Started Working in Digital",
@@ -922,7 +928,7 @@
       {
         "n": "05",
         "t": "Marketing Built Around a Specific Business",
-        "d": "There is no universal “working formula” — strategy depends on the niche, audience, and company goals."
+        "d": "There is no universal “working formula” - strategy depends on the niche, audience, and company goals."
       },
       {
         "n": "06",
@@ -1014,7 +1020,7 @@
       },
       {
         "name": "Testing Different Conversion Points",
-        "note": "Launching ads to messages, forms, a website, or landing pages — depending on what works best in the niche."
+        "note": "Launching ads to messages, forms, a website, or landing pages - depending on what works best in the niche."
       },
       {
         "name": "Analytics, Pixel, and Tracking",
@@ -1084,7 +1090,7 @@
       },
       {
         "label": "Result",
-        "val": "Less wasted budget — more controlled growth"
+        "val": "Less wasted budget - more controlled growth"
       }
     ],
     "deliverables": [
@@ -1161,7 +1167,7 @@
     "heroItalic": "sell,",
     "heroLine2": "not just look",
     "heroAccent": "nice.",
-    "heroLede": "Thoughtful structure, fast loading, and CRM integration — so advertising works more effectively.",
+    "heroLede": "Thoughtful structure, fast loading, and CRM integration - so advertising works more effectively.",
     "heroCta": "Calculate Cost",
     "allServices": "All Services",
     "lighthouseLabel": "Lighthouse · Mobile",
@@ -1171,12 +1177,12 @@
     "stackLabel": "/ What We Build With",
     "sectionKicker": "Websites and Landing Pages",
     "sectionTitle": "What Development Includes",
-    "sectionDesc": "Every website is built around specific business goals — from structure and design to integrations and analytics.",
+    "sectionDesc": "Every website is built around specific business goals - from structure and design to integrations and analytics.",
     "ctaLine1": "Your website should",
     "ctaLine2": "help ads",
     "ctaItalic": "sell.",
     "replyNote": "Response in under 2 hours · EN / UA / RU",
-    "typesIntro": "We create websites for different business goals — from simple landing pages to large-scale web solutions.",
+    "typesIntro": "We create websites for different business goals - from simple landing pages to large-scale web solutions.",
     "typesDesc": "Every project is adapted for advertising, user convenience, and future business growth.",
     "types": [
       "Landing Pages",
@@ -1303,7 +1309,7 @@
         "color": "#25C55E"
       }
     ],
-    "caseTitle": "This website is part of the case study too.",
+    "caseTitle": "This website is also part of the case study.",
     "caseText": "Everything you see here is an example of our approach to structure, speed, and conversion."
   },
   "smmPage": {
@@ -1508,12 +1514,10 @@
     "mobile": "Mobile version",
     "work": "What we did",
     "benefit": "What it means for the business",
-    "visit": "Visit website",
     "items": [
       {
         "id": "skyline",
         "name": "Skyline Stretch Ceilings",
-        "url": "https://skylineceilings.ca/",
         "niche": "Stretch ceilings · Canada",
         "type": "Built from scratch",
         "platform": "React + Vite",
@@ -1525,7 +1529,6 @@
       {
         "id": "maryna",
         "name": "Maryna Cleaning",
-        "url": "https://marynacleaning.com/",
         "niche": "Cleaning · Canada",
         "type": "Redesign and ad preparation",
         "platform": "SendPulse",
@@ -1537,7 +1540,6 @@
       {
         "id": "tile",
         "name": "Tile Expert Solutions",
-        "url": "https://tileexpertsolutions.com/",
         "niche": "Tile installation & remodeling · USA",
         "type": "Website updates",
         "platform": "WordPress",

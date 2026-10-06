@@ -10,7 +10,7 @@ const SCAN_ISSUES = [
   { text: 'No conversion tracking installed', level: 'high' as const },
   { text: 'Zero negative keywords in campaigns', level: 'medium' as const },
   { text: 'No A/B creative test active', level: 'medium' as const },
-  { text: 'Manual bidding — no Smart Bidding', level: 'low' as const },
+  { text: 'Manual bidding - no Smart Bidding', level: 'low' as const },
 ]
 
 const ScannerVisual: React.FC = () => {
@@ -128,7 +128,7 @@ const ScannerVisual: React.FC = () => {
           </div>
           <div className="flex items-center gap-1.5 mt-3">
             <CheckCircle sx={{ fontSize: 13, color: '#34d399' }} />
-            <p className="text-[10px] text-emerald-400 font-semibold">After audit — target score: 87+</p>
+            <p className="text-[10px] text-emerald-400 font-semibold">After audit - target score: 87+</p>
           </div>
         </motion.div>
       )}
@@ -198,7 +198,7 @@ export const AuditPage: React.FC = () => {
 
             <motion.p variants={fadeItem}
               className="text-lg text-[color:var(--text-secondary)] leading-relaxed mb-8 max-w-lg">
-              Most ad accounts leak 20–40% of budget on preventable issues. We find them all — and fix them.
+              Most ad accounts leak 20–40% of budget on preventable issues. We find them all - and fix them.
             </motion.p>
 
             <motion.div variants={fadeItem} className="grid grid-cols-3 gap-3 mb-8">
@@ -228,7 +228,7 @@ export const AuditPage: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — animated scanner */}
+          {/* RIGHT - animated scanner */}
           <div className="hidden lg:block">
             <ScannerVisual />
           </div>
@@ -347,7 +347,7 @@ export const AuditPage: React.FC = () => {
         <motion.div className="max-w-xl mx-auto text-center"
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-3xl font-bold text-[color:var(--text-primary)] mb-4">Find out where your budget goes</h2>
-          <p className="text-[color:var(--text-secondary)] mb-8">Free initial audit — no commitment, zero changes to your account.</p>
+          <p className="text-[color:var(--text-secondary)] mb-8">Free initial audit - no commitment, zero changes to your account.</p>
           <button onClick={() => go('contact')}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white font-semibold hover:opacity-90 transition-opacity"
             style={{ background: 'linear-gradient(135deg,#059669,#10b981)' }}>

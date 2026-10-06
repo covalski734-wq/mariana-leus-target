@@ -10,6 +10,7 @@ export interface CaseItem {
   desc: string;
   instagram?: string;
   tags?: string[];
+  meta?: Pick<CaseItem, 'result' | 'unit' | 'title' | 'desc'>;
 }
 
 export const CaseCell: React.FC<{ c: CaseItem }> = ({ c }) => {

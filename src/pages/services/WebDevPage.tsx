@@ -37,7 +37,7 @@ const ScoreCircle: React.FC<{ score: number; label: string; color: string }> = (
   );
 };
 
-// Terminal-style build log (visual effect — intentionally kept hardcoded)
+// Terminal-style build log (visual effect - intentionally kept hardcoded)
 const BuildLog: React.FC = () => {
   const [lines, setLines] = useState<string[]>([]);
   const LOG = [
@@ -45,9 +45,9 @@ const BuildLog: React.FC = () => {
     '▲ Next.js 14.2.0',
     '',
     '✓ Compiled in 1.4s',
-    '✓ Linting — passed',
-    '✓ Images optimised — 94% smaller',
-    '✓ Lighthouse mobile — 98',
+    '✓ Linting - passed',
+    '✓ Images optimised - 94% smaller',
+    '✓ Lighthouse mobile - 98',
     '',
     'Route (app)           Size',
     '/ (home)              4.2 kB',

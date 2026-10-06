@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IconArrow, IconArrowUp } from '@/components/Icons';
+import { IconArrow } from '@/components/Icons';
 
 interface Project {
-  id: string; name: string; url: string; niche: string; type: string;
+  id: string; name: string; niche: string; type: string;
   summary: string; work: string; benefit: string; platform: string; detailCaption: string;
 }
 
@@ -40,7 +40,7 @@ export const WebPortfolioSection: React.FC = () => {
             <article className="web-project" key={project.id}>
               <button className={`web-project-preview project-${project.id}`} onClick={() => setSelectedId(project.id)}
                 aria-label={`${t('webPortfolio.details')}: ${project.name}`} aria-haspopup="dialog">
-                <div className="browser-frame"><div className="browser-dots" aria-hidden="true"><i /><i /><i /></div><span>{new URL(project.url).hostname}</span></div>
+                <div className="browser-frame"><div className="browser-dots" aria-hidden="true"><i /><i /><i /></div><span>{project.name}</span></div>
                 <img src={`/portfolio/${project.id}-desktop.jpg`} alt={`${project.name}: ${t('webPortfolio.desktop')}`} width="1440" height="1000" loading="lazy" />
               </button>
               <div className="web-project-body">
@@ -77,9 +77,6 @@ export const WebPortfolioSection: React.FC = () => {
               <figure><img src={`/portfolio/${selected.id}-detail.jpg`} alt={`${selected.name}: ${selected.detailCaption}`} width="1440" height="1000" loading="lazy" /><figcaption>{selected.detailCaption}</figcaption></figure>
               <figure className="project-mobile-screen"><img src={`/portfolio/${selected.id}-mobile.jpg`} alt={`${selected.name}: ${t('webPortfolio.mobile')}`} width="390" height="844" loading="lazy" /><figcaption>{t('webPortfolio.mobile')}</figcaption></figure>
             </div>
-            <a className="btn btn-primary" href={selected.url} target="_blank" rel="noopener noreferrer">
-              {t('webPortfolio.visit')} <IconArrowUp size={15} />
-            </a>
           </div>
         </div>}
       </dialog>

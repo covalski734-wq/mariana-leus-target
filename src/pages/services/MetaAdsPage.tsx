@@ -69,7 +69,9 @@ export const MetaAdsPage: React.FC = () => {
 
   const [showAllCases, setShowAllCases] = useState(false);
   const deliverables = t('metaAdsPage.deliverables', { returnObjects: true }) as Deliverable[];
-  const allCases = (t('cases.items', { returnObjects: true }) as CaseItem[]).filter(c => c.tags?.includes('meta'));
+  const allCases = (t('cases.items', { returnObjects: true }) as CaseItem[])
+    .filter(c => c.tags?.includes('meta'))
+    .map(c => c.meta ? { ...c, ...c.meta } : c);
   const CASES_LIMIT = 4;
   const hasMore = allCases.length > 5;
   const visibleCases = hasMore ? allCases.slice(0, CASES_LIMIT) : allCases;
